@@ -5,6 +5,7 @@
 		<Description>A project that generates the source code on root-level.</Description>
 		<DocumentationFile>..\docxml\RootLevelSourceGeneration.xml</DocumentationFile>
 		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+		<PolySharpUsePublicAccessibilityForGeneratedTypes>true</PolySharpUsePublicAccessibilityForGeneratedTypes>
 	</PropertyGroup>
 
 	<ItemGroup>
