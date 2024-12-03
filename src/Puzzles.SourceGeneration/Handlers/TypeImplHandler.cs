@@ -1322,7 +1322,7 @@ internal static class TypeImplHandler
 
 					bool isReadOnlySpanOrSpan()
 					{
-						if (type is not INamedTypeSymbol s)
+						if (type is not INamedTypeSymbol { IsGenericType: true } s)
 						{
 							return false;
 						}
