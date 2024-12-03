@@ -1205,6 +1205,9 @@ internal static class TypeImplHandler
 			return null;
 		}
 
+		var spanType = compilation.GetTypeByMetadataName("System.Span`1")!.ConstructUnboundGenericType();
+		var readOnlySpanType = compilation.GetTypeByMetadataName("System.ReadOnlySpan`1")!.ConstructUnboundGenericType();
+
 		var unboundEquatableInterfaceType = compilation.GetTypeByMetadataName(EquatableTypeName)!;
 		var equalityOperatorsInterfaceType = compilation.GetTypeByMetadataName(EqualityOperatorsTypeName)!;
 		var equatableInterfaceType = unboundEquatableInterfaceType.Construct(type);
@@ -1295,7 +1298,7 @@ internal static class TypeImplHandler
 						{
 							return $"{name}[..].SequenceEqual(other.{name}[..])";
 						}
-						case var _ when isBitArray():
+						case var _ when isReadOnlySpanOrSpan() || isBitArray():
 						{
 							return $"{name}.SequenceEqual(other.{name})";
 						}
@@ -1316,6 +1319,18 @@ internal static class TypeImplHandler
 					bool isInlineArray() => type.GetAttributes().Any(a => SymbolEqualityComparer.Default.Equals(a.AttributeClass, inlineArrayAttributeType));
 
 					bool isBitArray() => SymbolEqualityComparer.Default.Equals(type, r);
+
+					bool isReadOnlySpanOrSpan()
+					{
+						if (type is not INamedTypeSymbol s)
+						{
+							return false;
+						}
+
+						var casted = s.ConstructUnboundGenericType();
+						return SymbolEqualityComparer.Default.Equals(casted, readOnlySpanType)
+							|| SymbolEqualityComparer.Default.Equals(casted, spanType);
+					}
 				}
 			},
 			cancellationToken
