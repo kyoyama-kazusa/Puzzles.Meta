@@ -55,6 +55,12 @@
             </summary>
             <returns>The result fliped.</returns>
         </member>
+        <member name="M:Puzzles.Meta.ITransformable`1.Transpose">
+            <summary>
+            Simply calls <see cref="M:Puzzles.Meta.ITransformable`1.MirrorDiagonal"/>.
+            </summary>
+            <returns>The result fliped.</returns>
+        </member>
         <member name="M:Puzzles.Meta.ITransformable`1.MirrorAntidiagonal">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in anti-diagonal.
