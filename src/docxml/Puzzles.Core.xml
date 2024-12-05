@@ -4,6 +4,86 @@
         <name>Puzzles.Core</name>
     </assembly>
     <members>
+        <member name="T:Puzzles.Meta.DataStructures.DataStructureBase">
+            <summary>
+            Represents the base implementation of the data structure.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureBase.Unknown">
+            <summary>
+            Indicates the backing data structure is unknown.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureBase.ArrayBased">
+            <summary>
+            Indicates the backing data structure is array-based.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureBase.LinkedListBased">
+            <summary>
+            Indicates the backing data structure is linked-list-based.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureBase.Other">
+            <summary>
+            Indicates the backing data structure is neither array-based nor linked-list-based.
+            </summary>
+        </member>
+        <member name="T:Puzzles.Meta.DataStructures.DataStructureType">
+            <summary>
+            Represents a data structure type.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Unknown">
+            <summary>
+            Indicates the data structure is currently unknown.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.SequenceList">
+            <summary>
+            Represents sequence list.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.LinkedList">
+            <summary>
+            Represents linked list (singly-linked, doubly-linked, cyclic, etc.).
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Stack">
+            <summary>
+            Represents stack.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Queue">
+            <summary>
+            Represents queue.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Tree">
+            <summary>
+            Represents tree.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Graph">
+            <summary>
+            Represents graph.
+            </summary>
+        </member>
+        <member name="T:Puzzles.Meta.DataStructures.IDataStructure">
+            <summary>
+            Represents a data structure.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.DataStructures.IDataStructure.Type">
+            <summary>
+            Indicates the type of the data structure.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.DataStructures.IDataStructure.Base">
+            <summary>
+            Indicates the base of the data structure.
+            </summary>
+        </member>
         <member name="T:Puzzles.Meta.ITransformable`1">
             <summary>
             Represents an object that can be transformed into another kind of value.
