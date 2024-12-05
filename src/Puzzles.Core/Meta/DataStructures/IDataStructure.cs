@@ -14,4 +14,9 @@ public interface IDataStructure
 	/// Indicates the base of the data structure.
 	/// </summary>
 	public abstract DataStructureBase Base { get; }
+
+	/// <summary>
+	/// Indicates the value base of the data structure.
+	/// </summary>
+	public virtual DataStructureValueBase ValueBase => DataStructureValueBase.Value;
 }

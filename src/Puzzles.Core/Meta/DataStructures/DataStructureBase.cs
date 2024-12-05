@@ -6,9 +6,9 @@ namespace Puzzles.Meta.DataStructures;
 public enum DataStructureBase : byte
 {
 	/// <summary>
-	/// Indicates the backing data structure is unknown.
+	/// Indicates the backing data structure is neither array-based nor linked-list-based.
 	/// </summary>
-	Unknown = 0,
+	None = 0,
 
 	/// <summary>
 	/// Indicates the backing data structure is array-based.
@@ -18,10 +18,5 @@ public enum DataStructureBase : byte
 	/// <summary>
 	/// Indicates the backing data structure is linked-list-based.
 	/// </summary>
-	LinkedListBased,
-
-	/// <summary>
-	/// Indicates the backing data structure is neither array-based nor linked-list-based.
-	/// </summary>
-	Other
+	LinkedListBased
 }

@@ -9,9 +9,9 @@
             Represents the base implementation of the data structure.
             </summary>
         </member>
-        <member name="F:Puzzles.Meta.DataStructures.DataStructureBase.Unknown">
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureBase.None">
             <summary>
-            Indicates the backing data structure is unknown.
+            Indicates the backing data structure is neither array-based nor linked-list-based.
             </summary>
         </member>
         <member name="F:Puzzles.Meta.DataStructures.DataStructureBase.ArrayBased">
@@ -24,19 +24,19 @@
             Indicates the backing data structure is linked-list-based.
             </summary>
         </member>
-        <member name="F:Puzzles.Meta.DataStructures.DataStructureBase.Other">
-            <summary>
-            Indicates the backing data structure is neither array-based nor linked-list-based.
-            </summary>
-        </member>
         <member name="T:Puzzles.Meta.DataStructures.DataStructureType">
             <summary>
             Represents a data structure type.
             </summary>
         </member>
-        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Unknown">
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.None">
             <summary>
-            Indicates the data structure is currently unknown.
+            Indicates the type doesn't use a specific data structure.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Array">
+            <summary>
+            Represents array (a sequence of fixed length).
             </summary>
         </member>
         <member name="F:Puzzles.Meta.DataStructures.DataStructureType.SequenceList">
@@ -59,6 +59,16 @@
             Represents queue.
             </summary>
         </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Set">
+            <summary>
+            Represents set.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureType.HashTable">
+            <summary>
+            Represents hash table.
+            </summary>
+        </member>
         <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Tree">
             <summary>
             Represents tree.
@@ -67,6 +77,26 @@
         <member name="F:Puzzles.Meta.DataStructures.DataStructureType.Graph">
             <summary>
             Represents graph.
+            </summary>
+        </member>
+        <member name="T:Puzzles.Meta.DataStructures.DataStructureValueBase">
+            <summary>
+            Represents the value base of the data structure.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureValueBase.Unknown">
+            <summary>
+            Indicates the value base is unknown.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureValueBase.Value">
+            <summary>
+            Indicates the value base is real value.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.DataStructures.DataStructureValueBase.Bit">
+            <summary>
+            Indicates the value base is bit.
             </summary>
         </member>
         <member name="T:Puzzles.Meta.DataStructures.IDataStructure">
@@ -82,6 +112,11 @@
         <member name="P:Puzzles.Meta.DataStructures.IDataStructure.Base">
             <summary>
             Indicates the base of the data structure.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.DataStructures.IDataStructure.ValueBase">
+            <summary>
+            Indicates the value base of the data structure.
             </summary>
         </member>
         <member name="T:Puzzles.Meta.ITransformable`1">
