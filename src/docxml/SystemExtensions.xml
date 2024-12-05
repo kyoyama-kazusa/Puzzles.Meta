@@ -10,6 +10,14 @@
             </summary>
             <seealso cref="T:System.Array"/>
         </member>
+        <member name="M:System.ArrayExtensions.Flat``1(``0[0:,0:])">
+            <summary>
+            Flats the specified 2D array into an 1D array.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">An array of elements of type <typeparamref name="T"/>.</param>
+            <returns>An 1D array.</returns>
+        </member>
         <member name="M:System.ArrayExtensions.InitializeArray``1(``0[],System.ArrayInitializer{``0})">
             <summary>
             Initializes an array, using the specified method to initialize each element.
@@ -4030,7 +4038,7 @@
             <summary>
             Try to get the minimal value appeared in the collection.
             </summary>
-            <typeparam name="TNumber">The type of each element.</typeparam>
+            <typeparam name="T">The type of each element.</typeparam>
             <param name="this">The collection to be used and checked.</param>
             <returns>The minimal value.</returns>
         </member>
@@ -4057,7 +4065,7 @@
             <summary>
             Try to get the minimal value appeared in the collection.
             </summary>
-            <typeparam name="TNumber">The type of each element.</typeparam>
+            <typeparam name="T">The type of each element.</typeparam>
             <param name="this">The collection to be used and checked.</param>
             <returns>The minimal value.</returns>
         </member>

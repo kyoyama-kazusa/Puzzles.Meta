@@ -67,12 +67,12 @@ public static class SpanEnumerable
 	/// <summary>
 	/// Try to get the minimal value appeared in the collection.
 	/// </summary>
-	/// <typeparam name="TNumber">The type of each element.</typeparam>
+	/// <typeparam name="T">The type of each element.</typeparam>
 	/// <param name="this">The collection to be used and checked.</param>
 	/// <returns>The minimal value.</returns>
-	public static TNumber Min<TNumber>(this ReadOnlySpan<TNumber> @this) where TNumber : INumber<TNumber>, IMinMaxValue<TNumber>
+	public static T Min<T>(this ReadOnlySpan<T> @this) where T : IComparisonOperators<T, T, bool>, IMinMaxValue<T>
 	{
-		var result = TNumber.MaxValue;
+		var result = T.MaxValue;
 		foreach (ref readonly var element in @this)
 		{
 			if (element <= result)
@@ -155,12 +155,12 @@ public static class SpanEnumerable
 	/// <summary>
 	/// Try to get the minimal value appeared in the collection.
 	/// </summary>
-	/// <typeparam name="TNumber">The type of each element.</typeparam>
+	/// <typeparam name="T">The type of each element.</typeparam>
 	/// <param name="this">The collection to be used and checked.</param>
 	/// <returns>The minimal value.</returns>
-	public static TNumber Max<TNumber>(this ReadOnlySpan<TNumber> @this) where TNumber : INumber<TNumber>, IMinMaxValue<TNumber>
+	public static T Max<T>(this ReadOnlySpan<T> @this) where T : IComparisonOperators<T, T, bool>, IMinMaxValue<T>
 	{
-		var result = TNumber.MinValue;
+		var result = T.MinValue;
 		foreach (ref readonly var element in @this)
 		{
 			if (element >= result)
