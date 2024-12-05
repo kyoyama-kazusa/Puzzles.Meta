@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Puzzles.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Puzzles.Meta.ITransformable`1">
+            <summary>
+            Represents an object that can be transformed into another kind of value.
+            </summary>
+            <typeparam name="TSelf"><self-type-constraint>
+		<para>Indicates the type implementing this interface.</para>
+		<para>
+			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
+			The type will include a <see langword="where" /> constraint that implements the interface itself
+			to declare such "self constraint" usage:
+			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
+			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
+		</para>
+	</self-type-constraint></typeparam>
+        </member>
+        <member name="M:Puzzles.Meta.ITransformable`1.RotateClockwise">
+            <summary>
+            Rotate <typeparamref name="TSelf"/> instance clockwisely.
+            </summary>
+            <returns>The result rotated.</returns>
+        </member>
+        <member name="M:Puzzles.Meta.ITransformable`1.RotateCounterclockwise">
+            <summary>
+            Rotate <typeparamref name="TSelf"/> instance counter-clockwisely.
+            </summary>
+            <returns>The result rotated.</returns>
+        </member>
+        <member name="M:Puzzles.Meta.ITransformable`1.RotatePi">
+            <summary>
+            Rotate <typeparamref name="TSelf"/> instance 180 degrees.
+            </summary>
+            <returns>The result rotated.</returns>
+        </member>
+        <member name="M:Puzzles.Meta.ITransformable`1.MirrorLeftRight">
+            <summary>
+            Mirror <typeparamref name="TSelf"/> instance in left-right side.
+            </summary>
+            <returns>The result fliped.</returns>
+        </member>
+        <member name="M:Puzzles.Meta.ITransformable`1.MirrorTopBottom">
+            <summary>
+            Mirror <typeparamref name="TSelf"/> instance in top-bottom side.
+            </summary>
+            <returns>The result fliped.</returns>
+        </member>
+        <member name="M:Puzzles.Meta.ITransformable`1.MirrorDiagonal">
+            <summary>
+            Mirror <typeparamref name="TSelf"/> instance in diagonal.
+            </summary>
+            <returns>The result fliped.</returns>
+        </member>
+        <member name="M:Puzzles.Meta.ITransformable`1.MirrorAntidiagonal">
+            <summary>
+            Mirror <typeparamref name="TSelf"/> instance in anti-diagonal.
+            </summary>
+            <returns>The result fliped.</returns>
+        </member>
+    </members>
+</doc>
