@@ -726,7 +726,7 @@ public static class SpanEnumerable
 		ReadOnlySpan<TInner> inner,
 		Func<TOuter, TKey> outerKeySelector,
 		Func<TInner, TKey> innerKeySelector,
-		Func<TOuter, ReadOnlySpan<TInner>, TResult> resultSelector
+		Func<TOuter, TInner[], TResult> resultSelector
 	) where TKey : notnull => GroupJoin(outer, inner, outerKeySelector, innerKeySelector, resultSelector, EqualityComparer<TKey>.Default);
 
 	/// <inheritdoc cref="Enumerable.GroupJoin{TOuter, TInner, TKey, TResult}(IEnumerable{TOuter}, IEnumerable{TInner}, Func{TOuter, TKey}, Func{TInner, TKey}, Func{TOuter, IEnumerable{TInner}, TResult}, IEqualityComparer{TKey}?)"/>
@@ -735,7 +735,7 @@ public static class SpanEnumerable
 		ReadOnlySpan<TInner> inner,
 		Func<TOuter, TKey> outerKeySelector,
 		Func<TInner, TKey> innerKeySelector,
-		Func<TOuter, ReadOnlySpan<TInner>, TResult> resultSelector,
+		Func<TOuter, TInner[], TResult> resultSelector,
 		IEqualityComparer<TKey>? comparer
 	) where TKey : notnull
 	{
@@ -767,7 +767,7 @@ public static class SpanEnumerable
 
 				satisfiedInnerKvps.AddRef(in innerItem);
 			}
-			result.AddRef(resultSelector(outerItem, satisfiedInnerKvps.AsSpan()));
+			result.AddRef(resultSelector(outerItem, [.. satisfiedInnerKvps]));
 		}
 		return result.AsSpan();
 	}

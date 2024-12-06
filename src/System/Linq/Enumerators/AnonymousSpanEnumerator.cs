@@ -10,7 +10,7 @@ namespace System.Linq.Enumerators;
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct AnonymousSpanEnumerator<T>([Field] ReadOnlySpan<T> elements) : IEnumerator<T>
+public ref partial struct AnonymousSpanEnumerator<T>([Field] ReadOnlySpan<T> elements) : IEnumerator<T>, IEnumerable<T>
 {
 	/// <summary>
 	/// Indicates the index.
@@ -28,6 +28,9 @@ public ref partial struct AnonymousSpanEnumerator<T>([Field] ReadOnlySpan<T> ele
 	readonly T IEnumerator<T>.Current => Current;
 
 
+	/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
+	public readonly AnonymousSpanEnumerator<T> GetEnuemrator() => this;
+
 	/// <inheritdoc/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public bool MoveNext() => ++_index < _elements.Length;
@@ -35,4 +38,10 @@ public ref partial struct AnonymousSpanEnumerator<T>([Field] ReadOnlySpan<T> ele
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly IEnumerator IEnumerable.GetEnumerator() => _elements.ToArray().GetEnumerator();
+
+	/// <inheritdoc/>
+	readonly IEnumerator<T> IEnumerable<T>.GetEnumerator() => _elements.ToArray().AsEnumerable().GetEnumerator();
 }
