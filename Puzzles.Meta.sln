@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemExtensions.SourceGene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzles.SourceGeneration", "src\Puzzles.SourceGeneration\Puzzles.SourceGeneration.csproj", "{6FCCC531-5377-40BD-90B5-FA7536B4A0EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzles.Core", "..\..\Puzzles.Meta\src\Puzzles.Core\Puzzles.Core.csproj", "{F11BDE3E-0AE0-4E14-A70D-C8C59D99A3B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzles.Core", "src\Puzzles.Core\Puzzles.Core.csproj", "{0E2016C1-341F-10D0-C75B-340766390DA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,10 +44,10 @@ Global
 		{6FCCC531-5377-40BD-90B5-FA7536B4A0EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FCCC531-5377-40BD-90B5-FA7536B4A0EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FCCC531-5377-40BD-90B5-FA7536B4A0EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F11BDE3E-0AE0-4E14-A70D-C8C59D99A3B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F11BDE3E-0AE0-4E14-A70D-C8C59D99A3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F11BDE3E-0AE0-4E14-A70D-C8C59D99A3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F11BDE3E-0AE0-4E14-A70D-C8C59D99A3B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E2016C1-341F-10D0-C75B-340766390DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E2016C1-341F-10D0-C75B-340766390DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E2016C1-341F-10D0-C75B-340766390DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E2016C1-341F-10D0-C75B-340766390DA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
