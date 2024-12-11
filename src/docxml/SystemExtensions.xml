@@ -794,6 +794,107 @@
             <param name="this"><inheritdoc cref="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})" path="/param[@name='source']"/></param>
             <returns><inheritdoc cref="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})" path="/returns"/></returns>
         </member>
+        <member name="M:System.Collections.Generic.StackExtensions.GetInternalArray``1(System.Collections.Generic.Stack{``0})">
+            <summary>
+            Returns the internal array of <see cref="T:System.Collections.Generic.Stack`1" />.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The stack.</param>
+            <returns>The internal array.</returns>
+            <remarks>
+            <target name="others">
+					<para>
+						This method is implemented via <see cref="T:System.Runtime.CompilerServices.UnsafeAccessorAttribute" />,
+						which is just like inserting .NET implementation into the current project directly.
+					</para>
+				</target>
+            <feature name="unsafe-accessor">
+				<para>
+					Begin with .NET 9 preview 4, <see cref="T:System.Runtime.CompilerServices.UnsafeAccessorAttribute" />
+					supports with generic-typed references.
+				</para>
+			</feature>
+            </remarks>
+        </member>
+        <member name="M:System.Collections.Generic.StackExtensions.GetCount``1(System.Collections.Generic.Stack{``0})">
+            <summary>
+            Returns the internal count value of <see cref="T:System.Collections.Generic.Stack`1" />.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The stack.</param>
+            <returns>The internal field <c>_size</c>.</returns>
+            <remarks>
+            <target name="others">
+					<para>
+						This method is implemented via <see cref="T:System.Runtime.CompilerServices.UnsafeAccessorAttribute" />,
+						which is just like inserting .NET implementation into the current project directly.
+					</para>
+				</target>
+            <feature name="unsafe-accessor">
+				<para>
+					Begin with .NET 9 preview 4, <see cref="T:System.Runtime.CompilerServices.UnsafeAccessorAttribute" />
+					supports with generic-typed references.
+				</para>
+			</feature>
+            </remarks>
+        </member>
+        <member name="T:System.Collections.Generic.StackEntry`1">
+            <summary>
+            Represents an entry to call internal fields on <see cref="T:System.Collections.Generic.Stack`1"/>.
+            </summary>
+            <typeparam name="T">The type of each element in <see cref="T:System.Collections.Generic.Stack`1"/>.</typeparam>
+            <seealso cref="T:System.Collections.Generic.Stack`1"/>
+        </member>
+        <member name="M:System.Collections.Generic.StackEntry`1.GetArray(System.Collections.Generic.Stack{`0})">
+            <summary>
+            Try to get the backing array of a <see cref="T:System.Collections.Generic.Stack`1" />.
+            </summary>
+            <param name="this">The stack of <typeparamref name="T" /> instances.</param>
+            <returns>The reference to field <c>_array</c>.</returns>
+            <remarks>
+            <target name="others">
+					<para>
+						This method is implemented via <see cref="T:System.Runtime.CompilerServices.UnsafeAccessorAttribute" />,
+						which is just like inserting .NET implementation into the current project directly.
+					</para>
+				</target>
+            <target name="field-related-method">
+					<para>
+						<b>
+							Please note that this method will return the reference to the internal field,
+							but this doesn't mean you can use its reference and re-assign it.
+							You cannot assign a value to the field if the ref kind of a field in fact is <see langword="ref readonly" />;
+							it will raise an exception to report this wrong usage.
+						</b>
+					</para>
+				</target>
+            </remarks>
+        </member>
+        <member name="M:System.Collections.Generic.StackEntry`1.GetCount(System.Collections.Generic.Stack{`0})">
+            <summary>
+            Try to get the backing field <c>_size</c> of a <see cref="T:System.Collections.Generic.Stack`1" />.
+            </summary>
+            <param name="this">The stack of <typeparamref name="T" /> instances.</param>
+            <returns>The reference to field <c>_size</c>.</returns>
+            <remarks>
+            <target name="others">
+					<para>
+						This method is implemented via <see cref="T:System.Runtime.CompilerServices.UnsafeAccessorAttribute" />,
+						which is just like inserting .NET implementation into the current project directly.
+					</para>
+				</target>
+            <target name="field-related-method">
+					<para>
+						<b>
+							Please note that this method will return the reference to the internal field,
+							but this doesn't mean you can use its reference and re-assign it.
+							You cannot assign a value to the field if the ref kind of a field in fact is <see langword="ref readonly" />;
+							it will raise an exception to report this wrong usage.
+						</b>
+					</para>
+				</target>
+            </remarks>
+        </member>
         <member name="T:System.Collections.ObjectModel.ObservableCollectionExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/>.
@@ -6370,6 +6471,11 @@
         <member name="F:System.Runtime.CompilerServices.LibraryIdentifiers.List_Items">
             <summary>
             Indicates the name is <c>"_items"</c>.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.LibraryIdentifiers.Stack_Array">
+            <summary>
+            Indicates the name is <c>"_array"</c>.
             </summary>
         </member>
         <member name="F:System.Runtime.CompilerServices.LibraryIdentifiers.Enumerator_Current">

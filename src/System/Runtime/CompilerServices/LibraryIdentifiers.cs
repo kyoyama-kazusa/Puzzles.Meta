@@ -21,6 +21,11 @@ internal static class LibraryIdentifiers
 	public const string List_Items = "_items";
 
 	/// <summary>
+	/// Indicates the name is <c>"_array"</c>.
+	/// </summary>
+	public const string Stack_Array = "_array";
+
+	/// <summary>
 	/// Indicates the name is <c>"_current"</c>.
 	/// </summary>
 	public const string Enumerator_Current = "_current";
