@@ -68,7 +68,7 @@ public readonly ref partial struct SpanOrderedEnumerable<T>(
 
 
 	/// <inheritdoc cref="ReadOnlySpan{T}.this[int]"/>
-	public ref readonly T this[int index] => ref _values[index];
+	public ref readonly T this[int index] => ref Span[index];
 
 
 	/// <summary>

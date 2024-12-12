@@ -272,6 +272,18 @@ public static class SpanEnumerable
 		return result;
 	}
 
+	/// <inheritdoc cref="Sum{TSource, TKey}(ReadOnlySpan{TSource}, FuncRefReadOnly{TSource, TKey})"/>
+	public static TKey Sum<TSource, TKey>(this ReadOnlySpan<TSource> @this, Func<TSource, TKey> keySelector)
+		where TKey : IAdditiveIdentity<TKey, TKey>, IAdditionOperators<TKey, TKey, TKey>
+	{
+		var result = TKey.AdditiveIdentity;
+		foreach (var element in @this)
+		{
+			result += keySelector(element);
+		}
+		return result;
+	}
+
 	/// <summary>
 	/// Totals up all elements, and return the result of the sum by the specified property calculated from each element.
 	/// </summary>

@@ -4217,6 +4217,9 @@
             <param name="this">The collection to be used and checked.</param>
             <returns>The value with the sum key in the sequence.</returns>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})">
             <summary>
             Totals up all elements, and return the result of the sum by the specified property calculated from each element.
