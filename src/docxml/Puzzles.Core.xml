@@ -119,6 +119,21 @@
             Indicates the value base of the data structure.
             </summary>
         </member>
+        <member name="T:Puzzles.Meta.IBoard">
+            <summary>
+            Represents a game board.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.IBoard.Rows">
+            <summary>
+            Indicates the number of rows.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.IBoard.Columns">
+            <summary>
+            Indicates the number of columns.
+            </summary>
+        </member>
         <member name="T:Puzzles.Meta.ITransformable`1">
             <summary>
             Represents an object that can be transformed into another kind of value.
