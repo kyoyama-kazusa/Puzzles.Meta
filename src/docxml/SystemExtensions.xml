@@ -4123,34 +4123,7 @@
             <seealso cref="T:System.ReadOnlySpan`1"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Index``1(System.ReadOnlySpan{``0})">
-            <summary>
-            Returns a new <see cref="T:System.ReadOnlySpan`1"/> instance that contains each element with its corresponding index.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The object to be iterated.</param>
-            <returns>A new <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.FirstIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <summary>
-            Finds the first element satisfying the specified condition, and return its corresponding index.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The sequence.</param>
-            <param name="predicate">The condition.</param>
-            <returns>
-            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-            </returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.LastIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <summary>
-            Finds the last element satisfying the specified condition, and return its corresponding index.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The sequence.</param>
-            <param name="predicate">The condition.</param>
-            <returns>
-            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-            </returns>
+            <inheritdoc cref="M:System.Linq.Enumerable.Index``1(System.Collections.Generic.IEnumerable{``0})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Min``1(System.ReadOnlySpan{``0})">
             <summary>
@@ -6673,6 +6646,35 @@
             <param name="other">The other value to compare.</param>
             <param name="epsilon">The epsilon value (the minimal differ).</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="T:System.SpanExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Span`1"/> and <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+            <seealso cref="T:System.Span`1"/>
+            <seealso cref="T:System.ReadOnlySpan`1"/>
+        </member>
+        <member name="M:System.SpanExtensions.FirstIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Finds the first element satisfying the specified condition, and return its corresponding index.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The sequence.</param>
+            <param name="predicate">The condition.</param>
+            <returns>
+            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
+            </returns>
+        </member>
+        <member name="M:System.SpanExtensions.LastIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Finds the last element satisfying the specified condition, and return its corresponding index.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The sequence.</param>
+            <param name="predicate">The condition.</param>
+            <returns>
+            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
+            </returns>
         </member>
         <member name="T:System.StringExtensions">
             <summary>

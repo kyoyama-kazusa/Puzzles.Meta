@@ -6,12 +6,7 @@ namespace System.Linq;
 /// <seealso cref="ReadOnlySpan{T}"/>
 public static class SpanEnumerable
 {
-	/// <summary>
-	/// Returns a new <see cref="ReadOnlySpan{T}"/> instance that contains each element with its corresponding index.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The object to be iterated.</param>
-	/// <returns>A new <see cref="ReadOnlySpan{T}"/> instance.</returns>
+	/// <inheritdoc cref="Enumerable.Index{TSource}(IEnumerable{TSource})"/>
 	public static ReadOnlySpan<(int Index, T Value)> Index<T>(this ReadOnlySpan<T> @this)
 	{
 		var result = new (int, T)[@this.Length];
@@ -20,48 +15,6 @@ public static class SpanEnumerable
 			result[i] = (i, @this[i]);
 		}
 		return result;
-	}
-
-	/// <summary>
-	/// Finds the first element satisfying the specified condition, and return its corresponding index.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The sequence.</param>
-	/// <param name="predicate">The condition.</param>
-	/// <returns>
-	/// An <see cref="int"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-	/// </returns>
-	public static int FirstIndex<T>(this ReadOnlySpan<T> @this, Func<T, bool> predicate)
-	{
-		for (var i = 0; i < @this.Length; i++)
-		{
-			if (predicate(@this[i]))
-			{
-				return i;
-			}
-		}
-		return -1;
-	}
-
-	/// <summary>
-	/// Finds the last element satisfying the specified condition, and return its corresponding index.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The sequence.</param>
-	/// <param name="predicate">The condition.</param>
-	/// <returns>
-	/// An <see cref="int"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-	/// </returns>
-	public static int LastIndex<T>(this ReadOnlySpan<T> @this, Func<T, bool> predicate)
-	{
-		for (var i = @this.Length - 1; i >= 0; i--)
-		{
-			if (predicate(@this[i]))
-			{
-				return i;
-			}
-		}
-		return -1;
 	}
 
 	/// <summary>
