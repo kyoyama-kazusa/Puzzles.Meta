@@ -4122,16 +4122,116 @@
             </summary>
             <seealso cref="T:System.ReadOnlySpan`1"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.Aggregate``1(System.ReadOnlySpan{``0},System.Func{``0,``0,``0})">
+            <inheritdoc cref="M:System.Linq.Providers.IAggregateMethod`2.Aggregate(System.Func{`1,`1,`1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Aggregate``2(System.ReadOnlySpan{``0},``1,System.Func{``1,``0,``1})">
+            <inheritdoc cref="M:System.Linq.Providers.IAggregateMethod`2.Aggregate``2(``0,System.Func{``0,`1,``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.AllAre``2(System.ReadOnlySpan{``0})">
+            <summary>
+            Determines whether all elements are of type <typeparamref name="TDerived"/>.
+            </summary>
+            <typeparam name="TBase">The type of each element.</typeparam>
+            <typeparam name="TDerived">The derived type to be checked.</typeparam>
+            <param name="this">The collection to be used and checked.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IAnyAllMethod`2.Any(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.AnyUnsafe``1(System.ReadOnlySpan{``0},)">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IAnyAllMethod`2.All(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.AllUnsafe``1(System.ReadOnlySpan{``0},)">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Cast``2(System.ReadOnlySpan{``0})">
+            <inheritdoc cref="M:System.Linq.Providers.ICastMethod`2.Cast``1"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.ICountMethod`2.Count(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="T:System.Linq.SpanEnumerable.__ImplementedTypes`1">
+            <summary>
+            This type provides a way to record LINQ methods and interfaces implemented on <see cref="T:System.ReadOnlySpan`1"/>.
+            This recording will be consumed by future C# <see langword="extension"/> feature
+            that may be allowed implementing interface types with some types that I cannot modify them,
+            just like <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+            <typeparam name="T">The generic type argument.</typeparam>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.First``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.FirstRef``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.FirstRefOrNullRef``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.FirstOrDefault(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.FirstOrDefault``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.FirstOrDefault(System.Func{`1,System.Boolean},`1)"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Last``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.Last(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.LastOrDefault``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.LastOrDefault(System.Func{`1,System.Boolean})"/>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.Index``1(System.ReadOnlySpan{``0})">
             <inheritdoc cref="M:System.Linq.Enumerable.Index``1(System.Collections.Generic.IEnumerable{``0})"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.GroupBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Providers.IGroupByMethod`2.GroupBy``1(System.Func{`1,``0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.GroupBy``3(System.ReadOnlySpan{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <inheritdoc cref="M:System.Linq.Providers.IGroupByMethod`2.GroupBy``2(System.Func{`1,``0},System.Func{`1,``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Join``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
+            <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.Join``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Join``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
+            <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.Join``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.GroupJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3})">
+            <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.GroupJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,System.Collections.Generic.IEnumerable{``0},``2})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.GroupJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3},System.Collections.Generic.IEqualityComparer{``2})">
+            <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.GroupJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,System.Collections.Generic.IEnumerable{``0},``2},System.Collections.Generic.IEqualityComparer{``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.OrderBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Providers.IOrderByMethod`2.OrderBy``1(System.Func{`1,``0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.OrderByDescending``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Providers.IOrderByMethod`2.OrderByDescending``1(System.Func{`1,``0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Providers.ISelectMethod`2.Select``1(System.Func{`1,``0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,System.Int32,``1})">
+            <inheritdoc cref="M:System.Linq.Providers.ISelectMethod`2.Select``1(System.Func{`1,System.Int32,``0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.SelectMany``3(System.ReadOnlySpan{``0},System.Func{``0,System.ReadOnlySpan{``1}},System.Func{``0,``1,``2})">
+            <inheritdoc cref="M:System.Linq.Providers.ISelectManyMethod`2.SelectMany``2(System.Func{`1,System.Collections.Generic.IEnumerable{``0}},System.Func{`1,``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Where``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IWhereMethod`2.Where(System.Func{`1,System.Boolean})"/>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.Min``1(System.ReadOnlySpan{``0})">
-            <summary>
-            Try to get the minimal value appeared in the collection.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <returns>The minimal value.</returns>
+            <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.Min"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Min``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
@@ -4140,25 +4240,16 @@
             <inheritdoc cref="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <summary>
-            Returns the minimum value in a generic sequence according to a specified key selector function.
-            </summary>
-            <typeparam name="TSource">The type of the elements of source.</typeparam>
-            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="keySelector">A function to extract the key for each element.</param>
-            <returns>The value with the minimum key in the sequence.</returns>
+            <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.MinBy``1(System.Func{`1,``0})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.MinUnsafe``2(System.ReadOnlySpan{``0},)">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.Min``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.Max``1(System.ReadOnlySpan{``0})">
-            <summary>
-            Try to get the minimal value appeared in the collection.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <returns>The minimal value.</returns>
+            <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.Max"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
@@ -4167,28 +4258,22 @@
             <inheritdoc cref="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <summary>
-            Returns the maximum value in a generic sequence according to a specified key selector function.
-            </summary>
-            <typeparam name="TSource">The type of the elements of source.</typeparam>
-            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="keySelector">A function to extract the key for each element.</param>
-            <returns>The value with the maximum key in the sequence.</returns>
+            <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.MaxBy``1(System.Func{`1,``0})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MaxUnsafe``2(System.ReadOnlySpan{``0},)">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.OfType``2(System.ReadOnlySpan{``0})">
+            <inheritdoc cref="M:System.Linq.Providers.IOfTypeMethod`2.OfType``1"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Skip``1(System.ReadOnlySpan{``0},System.Int32)">
+            <inheritdoc cref="M:System.Linq.Providers.ISkipMethod`2.Skip(System.Int32)"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Sum``1(System.ReadOnlySpan{``0})">
-            <summary>
-            Totals up all elements, and return the result of the sum by the specified property calculated from each element.
-            </summary>
-            <typeparam name="T">The type of the elements of source.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <returns>The value with the sum key in the sequence.</returns>
+            <inheritdoc cref="M:System.Linq.Providers.ISumMethod`2.Sum"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
@@ -4206,172 +4291,11 @@
         <member name="M:System.Linq.SpanEnumerable.SumUnsafe``2(System.ReadOnlySpan{``0},)">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
         </member>
-        <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <summary>
-            Totals up how many elements stored in the specified sequence satisfy the specified condition.
-            </summary>
-            <typeparam name="TSource">The type of each element.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="condition">The condition.</param>
-            <returns>The number of elements satisfying the specified condition.</returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <summary>
-            Checks whether at least one element are satisfied the specified condition.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="match">The <see cref="T:System.FuncRefReadOnly`2"/> that defines the conditions of the elements to search for.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.AnyUnsafe``1(System.ReadOnlySpan{``0},)">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <summary>
-            Checks whether all elements are satisfied the specified condition.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="match">The <see cref="T:System.FuncRefReadOnly`2"/> that defines the conditions of the elements to search for.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.AllUnsafe``1(System.ReadOnlySpan{``0},)">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.AllAre``2(System.ReadOnlySpan{``0})">
-            <summary>
-            Determines whether all elements are of type <typeparamref name="TDerived"/>.
-            </summary>
-            <typeparam name="TBase">The type of each element.</typeparam>
-            <typeparam name="TDerived">The derived type to be checked.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.OfType``2(System.ReadOnlySpan{``0})">
-            <summary>
-            Filters instances of type <typeparamref name="TBase"/>, only reserving elements of type <typeparamref name="TDerived"/>.
-            </summary>
-            <typeparam name="TBase">The type of base elements.</typeparam>
-            <typeparam name="TDerived">The type derived from <typeparamref name="TBase"/> to be checked.</typeparam>
-            <param name="this">The source elements.</param>
-            <returns>A new <see cref="T:System.ReadOnlySpan`1"/> instance of elements of type <typeparamref name="TDerived"/>.</returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Cast``2(System.ReadOnlySpan{``0})">
-            <summary>
-            Casts each element from type <typeparamref name="TBase"/> to <typeparamref name="TDerived"/>, without element type checking;
-            throws if casting operation is invalid.
-            </summary>
-            <typeparam name="TBase">The type of each element.</typeparam>
-            <typeparam name="TDerived">The type of target elements.</typeparam>
-            <param name="this">The source elements.</param>
-            <returns>A new <see cref="T:System.ReadOnlySpan`1"/> instance of elements of type <typeparamref name="TDerived"/>.</returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Skip``1(System.ReadOnlySpan{``0},System.Int32)">
-            <summary>
-            Skips the specified number of elements, make a new <see cref="T:System.ReadOnlySpan`1"/> instance points to it.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="count">The number of elements to skip.</param>
-            <returns>
-            The new instance that points to the first element that has already skipped the specified number of elements.
-            </returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.FindAll``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <summary>
-            Retrieves all the elements that match the conditions defined by the specified predicate.
-            </summary>
-            <typeparam name="T">The type of the elements of the span.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="match">The <see cref="T:System.FuncRefReadOnly`2"/> that defines the conditions of the elements to search for.</param>
-            <returns>
-            A <see cref="T:System.ReadOnlySpan`1"/> containing all the elements that match the conditions defined
-            by the specified predicate, if found; otherwise, an empty <see cref="T:System.ReadOnlySpan`1"/>.
-            </returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <summary>
-            Projects each element in the current instance into the target-typed span of element type <typeparamref name="TResult"/>,
-            using the specified function to convert.
-            </summary>
-            <typeparam name="T">The type of each element in the span.</typeparam>
-            <typeparam name="TResult">The type of target value.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="selector">The selector.</param>
-            <returns>An array of <typeparamref name="TResult"/> elements.</returns>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,System.Int32,``1})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.SelectMany``3(System.ReadOnlySpan{``0},System.Func{``0,System.ReadOnlySpan{``1}},System.Func{``0,``1,``2})">
-            <inheritdoc cref="M:System.Linq.ArrayEnumerable.SelectMany``3(``0[],System.Func{``0,System.ReadOnlySpan{``1}},System.Func{``0,``1,``2})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Where``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Where``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.OrderBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.OrderByDescending``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.ThenByDescending``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.GroupBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.GroupBy``3(System.ReadOnlySpan{``0},System.Func{``0,``1},System.Func{``0,``2})">
-            <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Join``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Join``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.GroupJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3})">
-            <inheritdoc cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.GroupJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3},System.Collections.Generic.IEqualityComparer{``2})">
-            <inheritdoc cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3},System.Collections.Generic.IEqualityComparer{``2})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.First``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Enumerable.First``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.FirstRef``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Enumerable.First``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.FirstRefOrNullRef``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Enumerable.FirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.FirstOrDefault``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Enumerable.FirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Last``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Last``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.LastOrDefault``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Enumerable.LastOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
-        </member>
         <member name="M:System.Linq.SpanEnumerable.Take``1(System.ReadOnlySpan{``0},System.Int32)">
-            <inheritdoc cref="M:System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Int32)"/>
+            <inheritdoc cref="M:System.Linq.Providers.ITakeMethod`2.Take(System.Int32)"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Take``1(System.ReadOnlySpan{``0},System.Range)">
-            <inheritdoc cref="M:System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Range)"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Aggregate``1(System.ReadOnlySpan{``0},System.Func{``0,``0,``0})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Aggregate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Aggregate``2(System.ReadOnlySpan{``0},``1,System.Func{``1,``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Aggregate``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})"/>
+            <inheritdoc cref="M:System.Linq.Providers.ITakeMethod`2.Take(System.Range)"/>
         </member>
         <member name="T:System.Linq.SpanGrouping`2">
             <summary>
@@ -6674,6 +6598,21 @@
             <param name="predicate">The condition.</param>
             <returns>
             An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
+            </returns>
+        </member>
+        <member name="M:System.SpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.SpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.SpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
+            <summary>
+            Retrieves all the elements that match the conditions defined by the specified predicate.
+            </summary>
+            <typeparam name="T">The type of the elements of the span.</typeparam>
+            <param name="this">The collection to be used and checked.</param>
+            <param name="match">The <see cref="T:System.FuncRefReadOnly`2"/> that defines the conditions of the elements to search for.</param>
+            <returns>
+            A <see cref="T:System.ReadOnlySpan`1"/> containing all the elements that match the conditions defined
+            by the specified predicate, if found; otherwise, an empty <see cref="T:System.ReadOnlySpan`1"/>.
             </returns>
         </member>
         <member name="T:System.StringExtensions">
