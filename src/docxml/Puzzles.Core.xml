@@ -4,6 +4,36 @@
         <name>Puzzles.Core</name>
     </assembly>
     <members>
+        <member name="T:Puzzles.Concepts.Direction">
+            <summary>
+            Represents a direction.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Concepts.Direction.None">
+            <summary>
+            Indicates the placeholder of the direction.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Concepts.Direction.Up">
+            <summary>
+            Indicates the direction is up.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Concepts.Direction.Down">
+            <summary>
+            Indicates the direction is down.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Concepts.Direction.Left">
+            <summary>
+            Indicates the direction is left.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Concepts.Direction.Right">
+            <summary>
+            Indicates the diretcion is right.
+            </summary>
+        </member>
         <member name="T:Puzzles.Meta.DataStructures.DataStructureBase">
             <summary>
             Represents the base implementation of the data structure.
