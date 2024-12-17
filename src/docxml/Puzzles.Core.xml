@@ -34,6 +34,20 @@
             Indicates the diretcion is right.
             </summary>
         </member>
+        <member name="T:Puzzles.Concepts.DirectionExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:Puzzles.Concepts.Direction"/>.
+            </summary>
+            <seealso cref="T:Puzzles.Concepts.Direction"/>
+        </member>
+        <member name="M:Puzzles.Concepts.DirectionExtensions.GetArrow(Puzzles.Concepts.Direction)">
+            <summary>
+            Gets an arrow text that represents the specified direction.
+            </summary>
+            <param name="this">The direction.</param>
+            <returns>The character.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is out of range.</exception>
+        </member>
         <member name="T:Puzzles.Meta.DataStructures.DataStructureBase">
             <summary>
             Represents the base implementation of the data structure.
