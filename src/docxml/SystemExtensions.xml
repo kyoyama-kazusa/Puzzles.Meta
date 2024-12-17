@@ -10,14 +10,6 @@
             </summary>
             <seealso cref="T:System.Array"/>
         </member>
-        <member name="M:System.ArrayExtensions.Flat``1(``0[0:,0:])">
-            <summary>
-            Flats the specified 2D array into an 1D array.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">An array of elements of type <typeparamref name="T"/>.</param>
-            <returns>An 1D array.</returns>
-        </member>
         <member name="M:System.ArrayExtensions.InitializeArray``1(``0[],System.ArrayInitializer{``0})">
             <summary>
             Initializes an array, using the specified method to initialize each element.
@@ -25,6 +17,30 @@
             <typeparam name="T">The type of each element.</typeparam>
             <param name="array">The array.</param>
             <param name="initializer">The initializer callback method.</param>
+        </member>
+        <member name="M:System.ArrayExtensions.SequenceEqual``1(``0[],``0[])">
+            <inheritdoc cref="M:System.ArrayExtensions.SequenceEqual``1(``0[],``0[],System.Func{``0,``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.ArrayExtensions.SequenceEqual``1(``0[],``0[],System.Func{``0,``0,System.Boolean})">
+            <summary>
+            Compares elements from two arrays one by one respectively.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The array to be compared.</param>
+            <param name="other">The other array to be compared.</param>
+            <param name="equalityComparer">
+            A method that compares two <typeparamref name="T"/> elements, and returns a <see cref="T:System.Boolean"/> result
+            indicating whether two elements are considered equal.
+            </param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether two arrays are considered equal.</returns>
+        </member>
+        <member name="M:System.ArrayExtensions.Flat``1(``0[0:,0:])">
+            <summary>
+            Flats the specified 2D array into an 1D array.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">An array of elements of type <typeparamref name="T"/>.</param>
+            <returns>An 1D array.</returns>
         </member>
         <member name="M:System.ArrayExtensions.ToArrayString``1(``0[])">
             <summary>
@@ -1949,25 +1965,36 @@
             <summary>
             Provides with the LINQ-related methods on type <see cref="T:System.Array"/>, especially for the one-dimensional array.
             </summary>
+            <seealso cref="T:System.Array"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.Index``1(``0[])">
+        <member name="M:System.Linq.ArrayEnumerable.Aggregate``1(``0[],System.Func{``0,``0,``0})">
             <summary>
-            Returns a new array instance that contains each element with its corresponding index.
+            Applies an accumulator function over a sequence.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The object to be iterated.</param>
-            <returns>A new array instance.</returns>
+            <typeparam name="TSource">The type of each element.</typeparam>
+            <param name="this">An array of elements to be aggregated over.</param>
+            <param name="func">The function that aggregates the values.</param>
+            <returns>An element accumulated, of type <typeparamref name="TSource"/>.</returns>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Aggregate``2(``0[],``1,System.Func{``1,``0,``1})">
+            <summary>
+            Applies an accumulator function over a sequence. The initial value can be set in this method.
+            </summary>
+            <typeparam name="TSource">The type of each element.</typeparam>
+            <typeparam name="TAccumulate">The type of the accumulated values.</typeparam>
+            <param name="this">An array of elements to be aggregated over.</param>
+            <param name="seed">The initial value.</param>
+            <param name="func">The function that aggregates the values.</param>
+            <returns>An element accumulated, of type <typeparamref name="TSource"/>.</returns>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Append``1(``0[],``0)">
+            <inheritdoc cref="M:System.Linq.Enumerable.Append``1(System.Collections.Generic.IEnumerable{``0},``0)"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Prepend``1(``0[],``0)">
+            <inheritdoc cref="M:System.Linq.Enumerable.Prepend``1(System.Collections.Generic.IEnumerable{``0},``0)"/>
         </member>
         <member name="M:System.Linq.ArrayEnumerable.Cast``1(System.Object[])">
             <inheritdoc cref="M:System.Linq.Enumerable.Cast``1(System.Collections.IEnumerable)"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.OfType``1(System.Object[])">
-            <summary>
-            Filters the array, removing elements not of type <typeparamref name="TResult"/>.
-            </summary>
-            <typeparam name="TResult">The type of the target elements.</typeparam>
-            <param name="this">The array to be filtered.</param>
-            <returns>A list of <typeparamref name="TResult"/> elements.</returns>
         </member>
         <member name="M:System.Linq.ArrayEnumerable.Count``1(``0[],System.Func{``0,System.Boolean})">
             <summary>
@@ -1981,25 +2008,51 @@
         <member name="M:System.Linq.ArrayEnumerable.CountUnsafe``1(``0[],)">
             <inheritdoc cref="M:System.Linq.ArrayEnumerable.Count``1(``0[],System.Func{``0,System.Boolean})"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.Sum``1(``0[])">
+        <member name="M:System.Linq.ArrayEnumerable.Distinct``1(``0[])">
             <summary>
-            Sum all elements up and return the result.
+            Filters duplicate items from an array.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The array that contains a list of elements to be calculated.</param>
-            <returns>A <typeparamref name="T"/> instance as the result.</returns>
+            <param name="this">The array to be filtered.</param>
+            <returns>A new array of elements that doesn't contain any duplicate items.</returns>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.MinBy``2(``0[],System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
+        <member name="M:System.Linq.ArrayEnumerable.DistinctBy``2(``0[],System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.MinBy``3(``0[],System.Func{``0,``1},``2)">
-            <inheritdoc cref="M:System.Linq.Enumerable.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})"/>
+        <member name="M:System.Linq.ArrayEnumerable.DistinctBy``2(``0[],System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.MaxBy``2(``0[],System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
+        <member name="M:System.Linq.ArrayEnumerable.Index``1(``0[])">
+            <summary>
+            Returns a new array instance that contains each element with its corresponding index.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The object to be iterated.</param>
+            <returns>A new array instance.</returns>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.MaxBy``3(``0[],System.Func{``0,``1},``2)">
-            <inheritdoc cref="M:System.Linq.Enumerable.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})"/>
+        <member name="M:System.Linq.ArrayEnumerable.GroupBy``2(``0[],System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.GroupBy``3(``0[],System.Func{``0,``1},System.Func{``0,``2})">
+            <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Join``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
+            <inheritdoc cref="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Join``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
+            <inheritdoc cref="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.GroupJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3})">
+            <inheritdoc cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.GroupJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3},System.Collections.Generic.IEqualityComparer{``2})">
+            <inheritdoc cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3},System.Collections.Generic.IEqualityComparer{``2})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.OrderBy``2(``0[],System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.OrderByDescending``2(``0[],System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ThenByDescending``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.ArrayEnumerable.Select``2(``0[],System.Func{``0,``1})">
             <returns>
@@ -2038,20 +2091,6 @@
             An array of <typeparamref name="T"/> instances that contains elements from the input sequence that satisfy the condition.
             </returns>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.Sum``2(``0[],System.Func{``0,``1})">
-            <summary>
-            Computes the sum of the sequence of <typeparamref name="TResult"/> values that are obtained by invoking a transform function
-            on each element of the input sequence.
-            </summary>
-            <typeparam name="T">The type of element of <paramref name="source"/>.</typeparam>
-            <typeparam name="TResult">The type of the return value.</typeparam>
-            <param name="source">Indicates the source values.</param>
-            <param name="selector">The method that projects the value into an instance of type <typeparamref name="TResult"/>.</param>
-            <returns>The result value.</returns>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.SumUnsafe``2(``0[],)">
-            <inheritdoc cref="M:System.Linq.ArrayEnumerable.Sum``2(``0[],System.Func{``0,``1})"/>
-        </member>
         <member name="M:System.Linq.ArrayEnumerable.Min``2(``0[],System.Func{``0,``1})">
             <summary>
             Invokes a transform function on each element of a sequence and returns the minimum <typeparamref name="TInterim"/> value.
@@ -2064,6 +2103,12 @@
         </member>
         <member name="M:System.Linq.ArrayEnumerable.MinUnsafe``2(``0[],)">
             <inheritdoc cref="M:System.Linq.ArrayEnumerable.Min``2(``0[],System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.MinBy``2(``0[],System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.MinBy``3(``0[],System.Func{``0,``1},``2)">
+            <inheritdoc cref="M:System.Linq.Enumerable.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})"/>
         </member>
         <member name="M:System.Linq.ArrayEnumerable.Max``2(``0[],System.Func{``0,``1})">
             <summary>
@@ -2078,88 +2123,53 @@
         <member name="M:System.Linq.ArrayEnumerable.MaxUnsafe``2(``0[],)">
             <inheritdoc cref="M:System.Linq.ArrayEnumerable.Max``2(``0[],System.Func{``0,``1})"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.OrderBy``2(``0[],System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})"/>
+        <member name="M:System.Linq.ArrayEnumerable.MaxBy``2(``0[],System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.OrderByDescending``2(``0[],System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.ThenByDescending``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})"/>
+        <member name="M:System.Linq.ArrayEnumerable.MaxBy``3(``0[],System.Func{``0,``1},``2)">
+            <inheritdoc cref="M:System.Linq.Enumerable.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.GroupBy``2(``0[],System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.GroupBy``3(``0[],System.Func{``0,``1},System.Func{``0,``2})">
-            <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.Join``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.Join``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Join``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.GroupJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3})">
-            <inheritdoc cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.GroupJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3},System.Collections.Generic.IEqualityComparer{``2})">
-            <inheritdoc cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3},System.Collections.Generic.IEqualityComparer{``2})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.Aggregate``1(``0[],System.Func{``0,``0,``0})">
+        <member name="M:System.Linq.ArrayEnumerable.OfType``1(System.Object[])">
             <summary>
-            Applies an accumulator function over a sequence.
+            Filters the array, removing elements not of type <typeparamref name="TResult"/>.
             </summary>
-            <typeparam name="TSource">The type of each element.</typeparam>
-            <param name="this">An array of elements to be aggregated over.</param>
-            <param name="func">The function that aggregates the values.</param>
-            <returns>An element accumulated, of type <typeparamref name="TSource"/>.</returns>
+            <typeparam name="TResult">The type of the target elements.</typeparam>
+            <param name="this">The array to be filtered.</param>
+            <returns>A list of <typeparamref name="TResult"/> elements.</returns>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.Aggregate``2(``0[],``1,System.Func{``1,``0,``1})">
+        <member name="M:System.Linq.ArrayEnumerable.Sum``1(``0[])">
             <summary>
-            Applies an accumulator function over a sequence. The initial value can be set in this method.
+            Sum all elements up and return the result.
             </summary>
-            <typeparam name="TSource">The type of each element.</typeparam>
-            <typeparam name="TAccumulate">The type of the accumulated values.</typeparam>
-            <param name="this">An array of elements to be aggregated over.</param>
-            <param name="seed">The initial value.</param>
-            <param name="func">The function that aggregates the values.</param>
-            <returns>An element accumulated, of type <typeparamref name="TSource"/>.</returns>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The array that contains a list of elements to be calculated.</param>
+            <returns>A <typeparamref name="T"/> instance as the result.</returns>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Sum``2(``0[],System.Func{``0,``1})">
+            <summary>
+            Computes the sum of the sequence of <typeparamref name="TResult"/> values that are obtained by invoking a transform function
+            on each element of the input sequence.
+            </summary>
+            <typeparam name="T">The type of element of <paramref name="source"/>.</typeparam>
+            <typeparam name="TResult">The type of the return value.</typeparam>
+            <param name="source">Indicates the source values.</param>
+            <param name="selector">The method that projects the value into an instance of type <typeparamref name="TResult"/>.</param>
+            <returns>The result value.</returns>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.SumUnsafe``2(``0[],)">
+            <inheritdoc cref="M:System.Linq.ArrayEnumerable.Sum``2(``0[],System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.ArrayEnumerable.Zip``2(``0[],``1[])">
             <inheritdoc cref="M:System.Linq.Enumerable.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.SequenceEquals``1(``0[],``0[])">
-            <inheritdoc cref="M:System.Linq.ArrayEnumerable.SequenceEquals``1(``0[],``0[],System.Func{``0,``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.SequenceEquals``1(``0[],``0[],System.Func{``0,``0,System.Boolean})">
+        <member name="T:System.Linq.__ImplementedTypes`1">
             <summary>
-            Compares elements from two arrays one by one respectively.
+            This type provides a way to record LINQ methods and interfaces implemented on <typeparamref name="T"/>[].
+            This recording will be consumed by future C# <see langword="extension"/> feature
+            that may be allowed implementing interface types with some types that I cannot modify them,
+            just like <typeparamref name="T"/>[].
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The array to be compared.</param>
-            <param name="other">The other array to be compared.</param>
-            <param name="equalityComparer">
-            A method that compares two <typeparamref name="T"/> elements, and returns a <see cref="T:System.Boolean"/> result
-            indicating whether two elements are considered equal.
-            </param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether two arrays are considered equal.</returns>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.Distinct``1(``0[])">
-            <summary>
-            Filters duplicate items from an array.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The array to be filtered.</param>
-            <returns>A new array of elements that doesn't contain any duplicate items.</returns>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.DistinctBy``2(``0[],System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.DistinctBy``2(``0[],System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
-            <inheritdoc cref="M:System.Linq.Enumerable.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.Append``1(``0[],``0)">
-            <inheritdoc cref="M:System.Linq.Enumerable.Append``1(System.Collections.Generic.IEnumerable{``0},``0)"/>
-        </member>
-        <member name="M:System.Linq.ArrayEnumerable.Prepend``1(``0[],``0)">
-            <inheritdoc cref="M:System.Linq.Enumerable.Prepend``1(System.Collections.Generic.IEnumerable{``0},``0)"/>
+            <typeparam name="T">The generic type argument.</typeparam>
         </member>
         <member name="T:System.Linq.ArrayGrouping`2">
             <summary>
@@ -4175,15 +4185,6 @@
         <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.ICountMethod`2.Count(System.Func{`1,System.Boolean})"/>
         </member>
-        <member name="T:System.Linq.SpanEnumerable.__ImplementedTypes`1">
-            <summary>
-            This type provides a way to record LINQ methods and interfaces implemented on <see cref="T:System.ReadOnlySpan`1"/>.
-            This recording will be consumed by future C# <see langword="extension"/> feature
-            that may be allowed implementing interface types with some types that I cannot modify them,
-            just like <see cref="T:System.ReadOnlySpan`1"/>.
-            </summary>
-            <typeparam name="T">The generic type argument.</typeparam>
-        </member>
         <member name="M:System.Linq.SpanEnumerable.First``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
         </member>
@@ -4307,6 +4308,15 @@
         </member>
         <member name="M:System.Linq.SpanEnumerable.Take``1(System.ReadOnlySpan{``0},System.Range)">
             <inheritdoc cref="M:System.Linq.Providers.ITakeMethod`2.Take(System.Range)"/>
+        </member>
+        <member name="T:System.Linq.__ImplementedTypes`1">
+            <summary>
+            This type provides a way to record LINQ methods and interfaces implemented on <see cref="T:System.ReadOnlySpan`1"/>.
+            This recording will be consumed by future C# <see langword="extension"/> feature
+            that may be allowed implementing interface types with some types that I cannot modify them,
+            just like <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+            <typeparam name="T">The generic type argument.</typeparam>
         </member>
         <member name="T:System.Linq.SpanGrouping`2">
             <summary>
