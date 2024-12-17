@@ -18,4 +18,27 @@ public static class DictionaryExtensions
 	public static ref TValue GetValueRef<TKey, TValue>(this Dictionary<TKey, TValue> @this, ref readonly TKey key)
 		where TKey : notnull
 		=> ref CollectionsMarshal.GetValueRefOrNullRef(@this, key);
+
+	/// <summary>
+	/// Try to fetch the key whose cooresponding value is the specified one.
+	/// </summary>
+	/// <typeparam name="TKey">The type of key.</typeparam>
+	/// <typeparam name="TValue">The type of value.</typeparam>
+	/// <param name="this">The dictionary to look up.</param>
+	/// <param name="value">The value to look up.</param>
+	/// <returns>The key.</returns>
+	/// <exception cref="InvalidOperationException">Throws when the dictionary has no valid value.</exception>
+	public static TKey GetKey<TKey, TValue>(this Dictionary<TKey, TValue> @this, TValue value)
+		where TKey : notnull
+		where TValue : IEquatable<TValue>
+	{
+		foreach (var (k, v) in @this)
+		{
+			if (v.Equals(value))
+			{
+				return k;
+			}
+		}
+		throw new InvalidOperationException();
+	}
 }

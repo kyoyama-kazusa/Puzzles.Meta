@@ -225,6 +225,17 @@
             <param name="key">The key to be checked.</param>
             <returns>The reference to the value; or a <see langword="null"/> reference if the key is not found.</returns>
         </member>
+        <member name="M:System.Collections.Generic.DictionaryExtensions.GetKey``2(System.Collections.Generic.Dictionary{``0,``1},``1)">
+            <summary>
+            Try to fetch the key whose cooresponding value is the specified one.
+            </summary>
+            <typeparam name="TKey">The type of key.</typeparam>
+            <typeparam name="TValue">The type of value.</typeparam>
+            <param name="this">The dictionary to look up.</param>
+            <param name="value">The value to look up.</param>
+            <returns>The key.</returns>
+            <exception cref="T:System.InvalidOperationException">Throws when the dictionary has no valid value.</exception>
+        </member>
         <member name="T:System.Collections.Generic.HashSetExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Collections.Generic.HashSet`1"/>.
