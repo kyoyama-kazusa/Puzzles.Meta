@@ -4,6 +4,128 @@
         <name>Puzzles.Core</name>
     </assembly>
     <members>
+        <member name="T:Puzzles.Concepts.Coordinate">
+            <summary>
+            Represents a coordinate.
+            </summary>
+            <param name="X">Indicates the row index.</param>
+            <param name="Y">Indicates the column index.</param>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Represents a coordinate.
+            </summary>
+            <param name="X">Indicates the row index.</param>
+            <param name="Y">Indicates the column index.</param>
+        </member>
+        <member name="P:Puzzles.Concepts.Coordinate.X">
+            <summary>Indicates the row index.</summary>
+        </member>
+        <member name="P:Puzzles.Concepts.Coordinate.Y">
+            <summary>Indicates the column index.</summary>
+        </member>
+        <member name="P:Puzzles.Concepts.Coordinate.Up">
+            <summary>
+            Indicates the left cell.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Concepts.Coordinate.Down">
+            <summary>
+            Indicates the right cell.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Concepts.Coordinate.Left">
+            <summary>
+            Indicates the up cell.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Concepts.Coordinate.Right">
+            <summary>
+            Indicates the down cell.
+            </summary>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
+            <target name="method" cref="M:Puzzles.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
+				<summary>
+					Provides an easy way to concatenate output members inside a <see langword="record" />
+					or a <see langword="record struct" /> type.
+				</summary>
+				<param name="builder">
+					A <see cref="T:System.Text.StringBuilder" /> instance to concatenate values.
+				</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the method should be consumed by compiler,
+					by implementing to-string method <see cref="M:Puzzles.Concepts.Coordinate.ToString" />.
+				</returns>
+				<remarks>
+					<para>
+						By design of <see langword="record" /> and <see langword="record struct" /> types,
+						emit text should be formatted as follows:
+						<code><![CDATA[RecordType { Property1 = Value1, Property2 = Value2, Property3 = { NestedProperty = Value3 } }]]></code>
+					</para>
+					<para>
+						This method won't emit type name and curly brackets. If you want to customize emit text,
+						you can only change values inside a pair of brackets.
+					</para>
+					<para>
+						The suggested implementation is like this:
+						<code><![CDATA[private bool PrintMembers(StringBuilder builder)
+{
+    builder.Append($"{nameof(Property1)} = {Property1}");
+    builder.Append(", ");
+    builder.Append($"{nameof(Property2)} = {Property2}");
+    builder.Append(", ");
+    builder.Append($"{nameof(Property3)} = {{ {Property3} }}");
+    return true;
+}]]>
+						</code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.CompareTo(Puzzles.Concepts.Coordinate)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.op_Subtraction(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+            <inheritdoc/>
+            <exception cref="T:System.InvalidOperationException">
+            Throws when the two coordinates has a gap between them, or they cannot see each other in their own direction.
+            </exception>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.op_RightShift(Puzzles.Concepts.Coordinate,System.Char)">
+            <summary>
+            Moves the coordinate one step forward to the next coordinate by the specified direction.
+            </summary>
+            <param name="coordinate">The coordinate.</param>
+            <param name="arrow">The direction.</param>
+            <returns>The new coordinate.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="arrow"/> is out of range.
+            </exception>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.op_RightShift(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Direction)">
+            <summary>
+            Moves the coordinate one step forward to the next coordinate by the specified direction.
+            </summary>
+            <param name="coordinate">The coordinate.</param>
+            <param name="direction">The direction.</param>
+            <returns>The new coordinate.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="direction"/> is out of range.
+            </exception>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.op_GreaterThan(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThan(`0,`1)"/>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.op_LessThan(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThan(`0,`1)"/>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.op_GreaterThanOrEqual(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThanOrEqual(`0,`1)"/>
+        </member>
+        <member name="M:Puzzles.Concepts.Coordinate.op_LessThanOrEqual(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThanOrEqual(`0,`1)"/>
+        </member>
         <member name="T:Puzzles.Concepts.Direction">
             <summary>
             Represents a direction.
