@@ -15,7 +15,6 @@ public static partial class ArrayEnumerable;
 /// <typeparam name="T">The generic type argument.</typeparam>
 [EditorBrowsable(EditorBrowsableState.Never)]
 [SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
-[Obsolete("This type can only be used for recording interfaces implemented states. Don't use this type in coding environment.", true)]
 file abstract class __ImplementedTypes<T> : IEnumerable<T>,
 	IAggregateMethod<__ImplementedTypes<T>, T>,
 	IAppendPrependMethod<__ImplementedTypes<T>, T>,
