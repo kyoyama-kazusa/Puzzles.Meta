@@ -5846,6 +5846,28 @@
             <param name="this">The current collection.</param>
             <param name="action">The <see cref="T:System.ActionRef`1"/> delegate to perform on each element of the <see cref="T:System.Span`1"/>.</param>
         </member>
+        <member name="M:System.ReadOnlySpanExtensions.FirstIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Finds the first element satisfying the specified condition, and return its corresponding index.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The sequence.</param>
+            <param name="predicate">The condition.</param>
+            <returns>
+            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
+            </returns>
+        </member>
+        <member name="M:System.ReadOnlySpanExtensions.LastIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Finds the last element satisfying the specified condition, and return its corresponding index.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The sequence.</param>
+            <param name="predicate">The condition.</param>
+            <returns>
+            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
+            </returns>
+        </member>
         <member name="M:System.ReadOnlySpanExtensions.FindIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.ReadOnlySpanExtensions.FindIndex``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
         </member>
@@ -5876,6 +5898,21 @@
             <typeparam name="T">The type of the array elements.</typeparam>
             <param name="this">The array.</param>
             <returns>An enumerable collection.</returns>
+        </member>
+        <member name="M:System.ReadOnlySpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.ReadOnlySpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.ReadOnlySpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
+            <summary>
+            Retrieves all the elements that match the conditions defined by the specified predicate.
+            </summary>
+            <typeparam name="T">The type of the elements of the span.</typeparam>
+            <param name="this">The collection to be used and checked.</param>
+            <param name="match">The <see cref="T:System.FuncRefReadOnly`2"/> that defines the conditions of the elements to search for.</param>
+            <returns>
+            A <see cref="T:System.ReadOnlySpan`1"/> containing all the elements that match the conditions defined
+            by the specified predicate, if found; otherwise, an empty <see cref="T:System.ReadOnlySpan`1"/>.
+            </returns>
         </member>
         <member name="T:System.ref">
             <summary>
@@ -6591,50 +6628,6 @@
             <param name="other">The other value to compare.</param>
             <param name="epsilon">The epsilon value (the minimal differ).</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="T:System.SpanExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.Span`1"/> and <see cref="T:System.ReadOnlySpan`1"/>.
-            </summary>
-            <seealso cref="T:System.Span`1"/>
-            <seealso cref="T:System.ReadOnlySpan`1"/>
-        </member>
-        <member name="M:System.SpanExtensions.FirstIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <summary>
-            Finds the first element satisfying the specified condition, and return its corresponding index.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The sequence.</param>
-            <param name="predicate">The condition.</param>
-            <returns>
-            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-            </returns>
-        </member>
-        <member name="M:System.SpanExtensions.LastIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <summary>
-            Finds the last element satisfying the specified condition, and return its corresponding index.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The sequence.</param>
-            <param name="predicate">The condition.</param>
-            <returns>
-            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-            </returns>
-        </member>
-        <member name="M:System.SpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.SpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.SpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <summary>
-            Retrieves all the elements that match the conditions defined by the specified predicate.
-            </summary>
-            <typeparam name="T">The type of the elements of the span.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="match">The <see cref="T:System.FuncRefReadOnly`2"/> that defines the conditions of the elements to search for.</param>
-            <returns>
-            A <see cref="T:System.ReadOnlySpan`1"/> containing all the elements that match the conditions defined
-            by the specified predicate, if found; otherwise, an empty <see cref="T:System.ReadOnlySpan`1"/>.
-            </returns>
         </member>
         <member name="T:System.StringExtensions">
             <summary>
