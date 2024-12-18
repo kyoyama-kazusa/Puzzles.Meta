@@ -44,18 +44,7 @@ public readonly partial record struct Coordinate(int X, int Y) :
 
 
 	/// <inheritdoc/>
-	public int CompareTo(Coordinate other)
-	{
-		if (X.CompareTo(other.X) is var r1 and not 0)
-		{
-			return r1;
-		}
-		if (Y.CompareTo(other.Y) is var r2 and not 0)
-		{
-			return r2;
-		}
-		return 0;
-	}
+	public int CompareTo(Coordinate other) => X.CompareTo(other.X) is var r and not 0 ? r : Y.CompareTo(other.Y);
 
 
 	/// <inheritdoc/>

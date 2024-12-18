@@ -54,6 +54,7 @@ public static class ReadOnlySpanExtensions
 	/// <typeparam name="T">The type of each element.</typeparam>
 	/// <param name="this">The current collection.</param>
 	/// <returns>A new collection whose elements are in reversed order.</returns>
+	[OverloadResolutionPriority(1)]
 	public static ReadOnlySpan<T> Reverse<T>(this scoped ReadOnlySpan<T> @this)
 	{
 		var result = new T[@this.Length];

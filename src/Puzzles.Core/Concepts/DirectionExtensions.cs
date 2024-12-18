@@ -12,6 +12,7 @@ public static class DirectionExtensions
 	/// <param name="this">The direction.</param>
 	/// <returns>The character.</returns>
 	/// <exception cref="ArgumentOutOfRangeException">Throws when the argument is out of range.</exception>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static char GetArrow(this Direction @this)
 		=> @this switch
 		{
