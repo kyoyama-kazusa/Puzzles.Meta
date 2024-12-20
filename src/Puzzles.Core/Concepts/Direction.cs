@@ -3,7 +3,7 @@ namespace Puzzles.Concepts;
 /// <summary>
 /// Represents a direction.
 /// </summary>
-public enum Direction
+public enum Direction : byte
 {
 	/// <summary>
 	/// Indicates the placeholder of the direction.
