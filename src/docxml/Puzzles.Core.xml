@@ -170,6 +170,26 @@
             <returns>The character.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is out of range.</exception>
         </member>
+        <member name="T:Puzzles.Measuring.DistanceType">
+            <summary>
+            Represents a type of distance to be measured.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Measuring.DistanceType.Euclid">
+            <summary>
+            Indicates Euclid distance.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Measuring.DistanceType.Manhattan">
+            <summary>
+            Indicates Manhattan distance.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Measuring.DistanceType.Solved">
+            <summary>
+            Indicates solved distance.
+            </summary>
+        </member>
         <member name="T:Puzzles.Meta.DataStructures.DataStructureBase">
             <summary>
             Represents the base implementation of the data structure.
