@@ -1498,9 +1498,8 @@
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.TypeImplAttribute">
             <summary>
-            Represents an attribute type that can help developers declare types simpler and easier,
-            through generating particular code, like automatically implementing <see cref="T:System.IEquatable`1"/>
-            by using source generator.
+            Represents an attribute type that can help developers declare types simpler and easier on generating particular code.
+            For example, automatically implementing <see cref="T:System.IEquatable`1"/>.
             </summary>
             <param name="flags">Indicates the flags whose corresponding member will be generated.</param>
             <remarks>
@@ -1524,7 +1523,7 @@
             ]]></code>
             By using <see cref="T:System.Diagnostics.CodeAnalysis.TypeImplAttribute"/>, the code can be simplified to this:
             <code><![CDATA[
-            [TypeImpl(TypeImplFlag.Equals | TypeImplFlag.GetHashCode | TypeImplFlag.Equatable)]
+            [TypeImpl(TypeImplFlags.Equals | TypeImplFlags.GetHashCode | TypeImplFlags.Equatable)]
             public readonly partial struct MyColor([Property] byte a, [Property] byte r, [Property] byte g, [Property] byte b) : IEquatable<MyColor>
             {
                 [HashCodeMember]
@@ -1536,9 +1535,8 @@
         </member>
         <member name="M:System.Diagnostics.CodeAnalysis.TypeImplAttribute.#ctor(System.Diagnostics.CodeAnalysis.TypeImplFlags)">
             <summary>
-            Represents an attribute type that can help developers declare types simpler and easier,
-            through generating particular code, like automatically implementing <see cref="T:System.IEquatable`1"/>
-            by using source generator.
+            Represents an attribute type that can help developers declare types simpler and easier on generating particular code.
+            For example, automatically implementing <see cref="T:System.IEquatable`1"/>.
             </summary>
             <param name="flags">Indicates the flags whose corresponding member will be generated.</param>
             <remarks>
@@ -1562,7 +1560,7 @@
             ]]></code>
             By using <see cref="T:System.Diagnostics.CodeAnalysis.TypeImplAttribute"/>, the code can be simplified to this:
             <code><![CDATA[
-            [TypeImpl(TypeImplFlag.Equals | TypeImplFlag.GetHashCode | TypeImplFlag.Equatable)]
+            [TypeImpl(TypeImplFlags.Equals | TypeImplFlags.GetHashCode | TypeImplFlags.Equatable)]
             public readonly partial struct MyColor([Property] byte a, [Property] byte r, [Property] byte g, [Property] byte b) : IEquatable<MyColor>
             {
                 [HashCodeMember]

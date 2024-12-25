@@ -1,9 +1,8 @@
 namespace System.Diagnostics.CodeAnalysis;
 
 /// <summary>
-/// Represents an attribute type that can help developers declare types simpler and easier,
-/// through generating particular code, like automatically implementing <see cref="IEquatable{T}"/>
-/// by using source generator.
+/// Represents an attribute type that can help developers declare types simpler and easier on generating particular code.
+/// For example, automatically implementing <see cref="IEquatable{T}"/>.
 /// </summary>
 /// <param name="flags">Indicates the flags whose corresponding member will be generated.</param>
 /// <remarks>
@@ -27,7 +26,7 @@ namespace System.Diagnostics.CodeAnalysis;
 /// ]]></code>
 /// By using <see cref="TypeImplAttribute"/>, the code can be simplified to this:
 /// <code><![CDATA[
-/// [TypeImpl(TypeImplFlag.Equals | TypeImplFlag.GetHashCode | TypeImplFlag.Equatable)]
+/// [TypeImpl(TypeImplFlags.Equals | TypeImplFlags.GetHashCode | TypeImplFlags.Equatable)]
 /// public readonly partial struct MyColor([Property] byte a, [Property] byte r, [Property] byte g, [Property] byte b) : IEquatable<MyColor>
 /// {
 ///     [HashCodeMember]
