@@ -4,6 +4,78 @@
         <name>Puzzles.Core</name>
     </assembly>
     <members>
+        <member name="T:Puzzles.Analytics.FailedReason">
+            <summary>
+            Represents a failed reason.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Analytics.FailedReason.None">
+            <summary>
+            Indicates there's no failure.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Analytics.FailedReason.PuzzleInvalid">
+            <summary>
+            Indicates the puzzle is invalid.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Analytics.FailedReason.UserCancelled">
+            <summary>
+            Indicates the user has cancelled the current task.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Analytics.FailedReason.UnhandledException">
+            <summary>
+            Indicates an unhandled exception is thrown.
+            </summary>
+        </member>
+        <member name="T:Puzzles.Analytics.IAnalysisResult`2">
+            <summary>
+            Represents an instance that describes the result after being analyzed.
+            </summary>
+            <typeparam name="TSelf"><self-type-constraint>
+		<para>Indicates the type implementing this interface.</para>
+		<para>
+			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
+			The type will include a <see langword="where" /> constraint that implements the interface itself
+			to declare such "self constraint" usage:
+			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
+			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
+		</para>
+	</self-type-constraint></typeparam>
+            <typeparam name="TBoard">The type of board.</typeparam>
+        </member>
+        <member name="P:Puzzles.Analytics.IAnalysisResult`2.IsSolved">
+            <summary>
+            Indicates whether the solver has solved the puzzle.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Analytics.IAnalysisResult`2.FailedReason">
+            <summary>
+            Indicates the failed reason.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Analytics.IAnalysisResult`2.ElapsedTime">
+            <summary>
+            Indicates the elapsed time used during solving the puzzle. The value may not be an useful value.
+            Some case if the puzzle doesn't contain a valid unique solution, the value may be
+            <see cref="F:System.TimeSpan.Zero"/>.
+            </summary>
+            <seealso cref="F:System.TimeSpan.Zero"/>
+        </member>
+        <member name="P:Puzzles.Analytics.IAnalysisResult`2.Puzzle">
+            <summary>
+            Indicates the original puzzle to be solved.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Analytics.IAnalysisResult`2.UnhandledException">
+            <summary>
+            Indicates the unhandled exception thrown.
+            </summary>
+        </member>
+        <member name="M:Puzzles.Analytics.IAnalysisResult`2.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
         <member name="T:Puzzles.Analytics.ICollector`2">
             <summary>
             Represents a collector instance.

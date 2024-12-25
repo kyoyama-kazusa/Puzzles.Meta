@@ -13,6 +13,7 @@ public interface IRandomizedScoringAnalyzer<TBoard, TPoint, TMatch, TCollector, 
 	where TPoint : IEquatable<TPoint>, ITuple
 	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
 	where TCollector : ICollector<TBoard, TMatch>
+	where TAnalysisResult : IAnalysisResult<TAnalysisResult, TBoard>
 {
 	/// <summary>
 	/// Indicates the distance weight.
