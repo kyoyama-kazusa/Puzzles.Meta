@@ -9,7 +9,8 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TCollector">The type of collector.</typeparam>
 /// <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
 public interface IRandomizedScoringAnalyzer<TPuzzleOrGrid, TPoint, TMatch, TCollector, TAnalysisResult>
-	where TPoint : IEquatable<TPoint>
+	where TPoint : IEquatable<TPoint>, ITuple
+	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
 	where TCollector : ICollector<TPuzzleOrGrid, TMatch>
 {
 	/// <summary>

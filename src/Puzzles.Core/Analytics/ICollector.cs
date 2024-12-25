@@ -6,6 +6,7 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TPuzzleOrGrid">The type of puzzle or grid.</typeparam>
 /// <typeparam name="TMatch">The type of match.</typeparam>
 public interface ICollector<TPuzzleOrGrid, TMatch>
+	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
 {
 	/// <summary>
 	/// Try to find all possible steps appeared in the grid; if no steps found, an empty array will be returned.
