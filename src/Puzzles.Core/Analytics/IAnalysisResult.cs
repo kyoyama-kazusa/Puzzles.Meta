@@ -7,7 +7,7 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TBoard">The type of board.</typeparam>
 public interface IAnalysisResult<TSelf, TBoard> : IEquatable<TSelf>, IEqualityOperators<TSelf, TSelf, bool>
 	where TSelf : IAnalysisResult<TSelf, TBoard>
-	where TBoard : IBoard, IDataStructure
+	where TBoard : IBoard, IDataStructure, allows ref struct
 {
 	/// <summary>
 	/// Indicates whether the solver has solved the puzzle.

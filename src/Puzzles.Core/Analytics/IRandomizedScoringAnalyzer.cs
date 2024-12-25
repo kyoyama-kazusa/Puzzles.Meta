@@ -9,10 +9,10 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TCollector">The type of collector.</typeparam>
 /// <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
 public interface IRandomizedScoringAnalyzer<TBoard, TPoint, TMatch, TCollector, TAnalysisResult>
-	where TBoard : IBoard, IDataStructure
-	where TPoint : IEquatable<TPoint>, ITuple
+	where TBoard : IBoard, IDataStructure, allows ref struct
+	where TPoint : IEquatable<TPoint>, ITuple, allows ref struct
 	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
-	where TCollector : ICollector<TBoard, TMatch>
+	where TCollector : ICollector<TBoard, TMatch>, allows ref struct
 	where TAnalysisResult : IAnalysisResult<TAnalysisResult, TBoard>
 {
 	/// <summary>

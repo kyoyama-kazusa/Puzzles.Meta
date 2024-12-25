@@ -6,7 +6,7 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
 /// <typeparam name="TMatch">The type of match.</typeparam>
 public interface ICollector<TBoard, TMatch>
-	where TBoard : IBoard, IDataStructure
+	where TBoard : IBoard, IDataStructure, allows ref struct
 	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
 {
 	/// <summary>
