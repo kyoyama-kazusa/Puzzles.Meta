@@ -2520,6 +2520,12 @@
             <param name="predicate">The condition to be checked.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
+        <member name="M:System.Linq.DictionaryEnumerable.ElementAt``2(System.Collections.Generic.Dictionary{``0,``1},System.Int32)">
+            <inheritdoc cref="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)"/>
+        </member>
+        <member name="M:System.Linq.DictionaryEnumerable.ElementAt``2(System.Collections.Generic.Dictionary{``0,``1},System.Index)">
+            <inheritdoc cref="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Index)"/>
+        </member>
         <member name="T:System.Linq.Enumerators.AnonymousSpanEnumerator`1">
             <summary>
             Represents an enumerator that can be used in anonymous span iteration cases.
