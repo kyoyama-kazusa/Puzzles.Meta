@@ -3,15 +3,16 @@ namespace Puzzles.Analytics;
 /// <summary>
 /// Represents an analyzer object that will use randomization algorithm to find paths, and score them up.
 /// </summary>
-/// <typeparam name="TPuzzleOrGrid">The type of puzzle or grid.</typeparam>
+/// <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
 /// <typeparam name="TPoint">The type of point.</typeparam>
 /// <typeparam name="TMatch">The type of match.</typeparam>
 /// <typeparam name="TCollector">The type of collector.</typeparam>
 /// <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
-public interface IRandomizedScoringAnalyzer<TPuzzleOrGrid, TPoint, TMatch, TCollector, TAnalysisResult>
+public interface IRandomizedScoringAnalyzer<TBoard, TPoint, TMatch, TCollector, TAnalysisResult>
+	where TBoard : IBoard, IDataStructure
 	where TPoint : IEquatable<TPoint>, ITuple
 	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
-	where TCollector : ICollector<TPuzzleOrGrid, TMatch>
+	where TCollector : ICollector<TBoard, TMatch>
 {
 	/// <summary>
 	/// Indicates the distance weight.
@@ -36,7 +37,7 @@ public interface IRandomizedScoringAnalyzer<TPuzzleOrGrid, TPoint, TMatch, TColl
 	/// <summary>
 	/// Represents a start point creator.
 	/// </summary>
-	public abstract Func<TPuzzleOrGrid, TPoint> StartPointCreator { get; set; }
+	public abstract Func<TBoard, TPoint> StartPointCreator { get; set; }
 
 	/// <summary>
 	/// Indicates the backing random number generator.
@@ -55,5 +56,5 @@ public interface IRandomizedScoringAnalyzer<TPuzzleOrGrid, TPoint, TMatch, TColl
 	/// <param name="grid">The grid to be analyzed.</param>
 	/// <param name="cancellationToken">Indicates the cancellation token that can cancel the current operation.</param>
 	/// <returns>An instance of type <typeparamref name="TAnalysisResult"/> indicating the result information.</returns>
-	public abstract TAnalysisResult Analyze(TPuzzleOrGrid grid, CancellationToken cancellationToken = default);
+	public abstract TAnalysisResult Analyze(TBoard grid, CancellationToken cancellationToken = default);
 }

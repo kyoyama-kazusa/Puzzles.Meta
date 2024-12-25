@@ -8,7 +8,7 @@
             <summary>
             Represents a collector instance.
             </summary>
-            <typeparam name="TPuzzleOrGrid">The type of puzzle or grid.</typeparam>
+            <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
             <typeparam name="TMatch">The type of match.</typeparam>
         </member>
         <member name="M:Puzzles.Analytics.ICollector`2.Collect(`0,System.Threading.CancellationToken)">
@@ -23,7 +23,7 @@
             <summary>
             Represents an analyzer object that will use randomization algorithm to find paths, and score them up.
             </summary>
-            <typeparam name="TPuzzleOrGrid">The type of puzzle or grid.</typeparam>
+            <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
             <typeparam name="TPoint">The type of point.</typeparam>
             <typeparam name="TMatch">The type of match.</typeparam>
             <typeparam name="TCollector">The type of collector.</typeparam>

@@ -3,9 +3,10 @@ namespace Puzzles.Analytics;
 /// <summary>
 /// Represents a collector instance.
 /// </summary>
-/// <typeparam name="TPuzzleOrGrid">The type of puzzle or grid.</typeparam>
+/// <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
 /// <typeparam name="TMatch">The type of match.</typeparam>
-public interface ICollector<TPuzzleOrGrid, TMatch>
+public interface ICollector<TBoard, TMatch>
+	where TBoard : IBoard, IDataStructure
 	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
 {
 	/// <summary>
@@ -14,5 +15,5 @@ public interface ICollector<TPuzzleOrGrid, TMatch>
 	/// <param name="grid">The grid.</param>
 	/// <param name="cancellationToken">The cancellation token that can cancel the current task.</param>
 	/// <returns>All matched items.</returns>
-	public abstract ReadOnlySpan<TMatch> Collect(TPuzzleOrGrid grid, CancellationToken cancellationToken = default);
+	public abstract ReadOnlySpan<TMatch> Collect(TBoard grid, CancellationToken cancellationToken = default);
 }
