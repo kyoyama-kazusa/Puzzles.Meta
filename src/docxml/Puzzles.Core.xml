@@ -91,7 +91,7 @@
             <param name="cancellationToken">The cancellation token that can cancel the current task.</param>
             <returns>All matched items.</returns>
         </member>
-        <member name="T:Puzzles.Analytics.IRandomizedScoringAnalyzer`5">
+        <member name="T:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5">
             <summary>
             Represents an analyzer object that will use randomization algorithm to find paths, and score them up.
             </summary>
@@ -101,42 +101,42 @@
             <typeparam name="TCollector">The type of collector.</typeparam>
             <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
         </member>
-        <member name="P:Puzzles.Analytics.IRandomizedScoringAnalyzer`5.DistanceWeight">
+        <member name="F:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5._collector">
             <summary>
-            Indicates the distance weight.
+            Indicates the backing collector object.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IRandomizedScoringAnalyzer`5.VisualDistanceWeight">
-            <summary>
-            Indicates the visual distance weight.
-            </summary>
-        </member>
-        <member name="P:Puzzles.Analytics.IRandomizedScoringAnalyzer`5.TemporatureFactor">
-            <summary>
-            Indicates temporature factor.
-            </summary>
-        </member>
-        <member name="P:Puzzles.Analytics.IRandomizedScoringAnalyzer`5.DistanceType">
-            <summary>
-            Indicates the calculating distance type.
-            </summary>
-        </member>
-        <member name="P:Puzzles.Analytics.IRandomizedScoringAnalyzer`5.StartPointCreator">
-            <summary>
-            Represents a start point creator.
-            </summary>
-        </member>
-        <member name="P:Puzzles.Analytics.IRandomizedScoringAnalyzer`5.Random">
+        <member name="F:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5._rng">
             <summary>
             Indicates the backing random number generator.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IRandomizedScoringAnalyzer`5.Collector">
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.DistanceWeight">
             <summary>
-            Indicates the backing collector.
+            Indicates the distance weight.
             </summary>
         </member>
-        <member name="M:Puzzles.Analytics.IRandomizedScoringAnalyzer`5.Analyze(`0,System.Threading.CancellationToken)">
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.VisualDistanceWeight">
+            <summary>
+            Indicates the visual distance weight.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.TemporatureFactor">
+            <summary>
+            Indicates temporature factor.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.DistanceType">
+            <summary>
+            Indicates the calculating distance type.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.StartPointCreator">
+            <summary>
+            Represents a start point creator.
+            </summary>
+        </member>
+        <member name="M:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.Analyze(`0,System.Threading.CancellationToken)">
             <summary>
             Try to analyze a puzzle, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
             </summary>

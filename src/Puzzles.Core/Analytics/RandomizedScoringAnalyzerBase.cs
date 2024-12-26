@@ -8,13 +8,24 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TMatch">The type of match.</typeparam>
 /// <typeparam name="TCollector">The type of collector.</typeparam>
 /// <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
-public interface IRandomizedScoringAnalyzer<TBoard, TPoint, TMatch, TCollector, TAnalysisResult>
+public abstract class RandomizedScoringAnalyzerBase<TBoard, TPoint, TMatch, TCollector, TAnalysisResult>
 	where TBoard : IBoard, IDataStructure, allows ref struct
 	where TPoint : IEquatable<TPoint>, ITuple, allows ref struct
 	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
-	where TCollector : ICollector<TBoard, TMatch>, allows ref struct
+	where TCollector : ICollector<TBoard, TMatch>, new()
 	where TAnalysisResult : IAnalysisResult<TAnalysisResult, TBoard>
 {
+	/// <summary>
+	/// Indicates the backing collector object.
+	/// </summary>
+	protected readonly TCollector _collector = new();
+
+	/// <summary>
+	/// Indicates the backing random number generator.
+	/// </summary>
+	protected readonly Random _rng = new();
+
+
 	/// <summary>
 	/// Indicates the distance weight.
 	/// </summary>
@@ -33,22 +44,12 @@ public interface IRandomizedScoringAnalyzer<TBoard, TPoint, TMatch, TCollector, 
 	/// <summary>
 	/// Indicates the calculating distance type.
 	/// </summary>
-	public abstract DistanceType DistanceType { get; set; }
+	public DistanceType DistanceType { get; set; } = DistanceType.Manhattan;
 
 	/// <summary>
 	/// Represents a start point creator.
 	/// </summary>
 	public abstract Func<TBoard, TPoint> StartPointCreator { get; set; }
-
-	/// <summary>
-	/// Indicates the backing random number generator.
-	/// </summary>
-	protected abstract Random Random { get; }
-
-	/// <summary>
-	/// Indicates the backing collector.
-	/// </summary>
-	protected abstract TCollector Collector { get; }
 
 
 	/// <summary>
