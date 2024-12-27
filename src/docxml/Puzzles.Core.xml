@@ -85,9 +85,9 @@
         </member>
         <member name="M:Puzzles.Analytics.ICollector`2.Collect(`0,System.Threading.CancellationToken)">
             <summary>
-            Try to find all possible steps appeared in the grid; if no steps found, an empty array will be returned.
+            Try to find all possible steps appeared in the board; if no steps found, an empty array will be returned.
             </summary>
-            <param name="grid">The grid.</param>
+            <param name="board">The board.</param>
             <param name="cancellationToken">The cancellation token that can cancel the current task.</param>
             <returns>All matched items.</returns>
         </member>
@@ -138,9 +138,9 @@
         </member>
         <member name="M:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.Analyze(`0,System.Threading.CancellationToken)">
             <summary>
-            Try to analyze a puzzle, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
+            Try to analyze a board, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
             </summary>
-            <param name="grid">The grid to be analyzed.</param>
+            <param name="board">The board to be analyzed.</param>
             <param name="cancellationToken">Indicates the cancellation token that can cancel the current operation.</param>
             <returns>An instance of type <typeparamref name="TAnalysisResult"/> indicating the result information.</returns>
         </member>
