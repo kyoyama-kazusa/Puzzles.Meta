@@ -187,4 +187,47 @@ public partial class SpanEnumerable
 		}
 		return result;
 	}
+
+	/// <summary>
+	/// Gets the maximum value of the sequence, and ignore elements to be compared if they are not satisfy the specified condition.
+	/// </summary>
+	/// <typeparam name="TSource">The type of source elements.</typeparam>
+	/// <param name="this">The source sequence.</param>
+	/// <param name="predicate">The condition to be checked.</param>
+	/// <returns>The maximum value.</returns>
+	public static TSource MaxIf<TSource>(this ReadOnlySpan<TSource> @this, Func<TSource, bool> predicate)
+		where TSource : IMinMaxValue<TSource>, IComparisonOperators<TSource, TSource, bool>
+	{
+		var resultKey = TSource.MinValue;
+		foreach (var element in @this)
+		{
+			if (predicate(element) && element >= resultKey)
+			{
+				resultKey = element;
+			}
+		}
+		return resultKey;
+	}
+
+	/// <summary>
+	/// Gets the maximum value of the sequence, and ignore elements to be compared if they are not satisfy the specified condition.
+	/// </summary>
+	/// <typeparam name="TSource">The type of source elements.</typeparam>
+	/// <param name="this">The source sequence.</param>
+	/// <param name="predicate">The condition to be checked.</param>
+	/// <param name="default">The default value if all elements in sequence are ignored.</param>
+	/// <returns>The maximum value.</returns>
+	public static TSource MaxIf<TSource>(this ReadOnlySpan<TSource> @this, Func<TSource, bool> predicate, TSource @default)
+		where TSource : IMinMaxValue<TSource>, IComparisonOperators<TSource, TSource, bool>
+	{
+		var resultKey = TSource.MinValue;
+		foreach (var element in @this)
+		{
+			if (predicate(element) && element >= resultKey)
+			{
+				resultKey = element;
+			}
+		}
+		return resultKey == TSource.MinValue ? @default : resultKey;
+	}
 }

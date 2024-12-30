@@ -4269,11 +4269,56 @@
         <member name="M:System.Linq.SpanEnumerable.MaxUnsafe``2(System.ReadOnlySpan{``0},)">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.MaxIf``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Gets the maximum value of the sequence, and ignore elements to be compared if they are not satisfy the specified condition.
+            </summary>
+            <typeparam name="TSource">The type of source elements.</typeparam>
+            <param name="this">The source sequence.</param>
+            <param name="predicate">The condition to be checked.</param>
+            <returns>The maximum value.</returns>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.MaxIf``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean},``0)">
+            <summary>
+            Gets the maximum value of the sequence, and ignore elements to be compared if they are not satisfy the specified condition.
+            </summary>
+            <typeparam name="TSource">The type of source elements.</typeparam>
+            <param name="this">The source sequence.</param>
+            <param name="predicate">The condition to be checked.</param>
+            <param name="default">The default value if all elements in sequence are ignored.</param>
+            <returns>The maximum value.</returns>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.OfType``2(System.ReadOnlySpan{``0})">
             <inheritdoc cref="M:System.Linq.Providers.IOfTypeMethod`2.OfType``1"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Skip``1(System.ReadOnlySpan{``0},System.Int32)">
             <inheritdoc cref="M:System.Linq.Providers.ISkipMethod`2.Skip(System.Int32)"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Range(System.Int32)">
+            <summary>
+            Create a range of variables that starts with 0, incrementing values and putting them into the other positions.
+            </summary>
+            <param name="count">The number of elements created.</param>
+            <returns>The result sequence [0, 1, 2, 3, ..].</returns>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Range(System.Int32,System.Int32)">
+            <summary>
+            Create a range of variables that starts with <paramref name="start"/>,
+            incrementing values and putting them into the other positions.
+            </summary>
+            <param name="start">The start value.</param>
+            <param name="count">The number of elements created.</param>
+            <returns>The result sequence.</returns>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Range``1(``0,System.Int32,System.Func{``0,``0})">
+            <summary>
+            Create a range of variables that starts with the specified value, and iterates the value to create followed values.
+            </summary>
+            <typeparam name="T">The type of the target value.</typeparam>
+            <param name="start">The start value.</param>
+            <param name="count">The number of elements created.</param>
+            <param name="nextCreator">The creator method that create a value from the previous value.</param>
+            <returns>The result sequence.</returns>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Sum``1(System.ReadOnlySpan{``0})">
             <inheritdoc cref="M:System.Linq.Providers.ISumMethod`2.Sum"/>
