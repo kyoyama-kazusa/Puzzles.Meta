@@ -266,6 +266,29 @@
         <member name="M:Puzzles.Concepts.Coordinate.op_LessThanOrEqual(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
             <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThanOrEqual(`0,`1)"/>
         </member>
+        <member name="T:Puzzles.Concepts.CoordinateExtensions">
+            <summary>
+            Represents a coordinate.
+            </summary>
+        </member>
+        <member name="M:Puzzles.Concepts.CoordinateExtensions.IsOutOfBound``1(Puzzles.Concepts.Coordinate,``0)">
+            <summary>
+            Indicates whether the coordinate is out of bound.
+            </summary>
+            <typeparam name="TBoard">The type of the board.</typeparam>
+            <param name="this">The coordinate.</param>
+            <param name="grid">The grid.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:Puzzles.Concepts.CoordinateExtensions.ToIndex``1(Puzzles.Concepts.Coordinate,``0)">
+            <summary>
+            Converts the current coordinate into an absolute index.
+            </summary>
+            <typeparam name="TBoard">The type of the board.</typeparam>
+            <param name="this">The coordinate.</param>
+            <param name="grid">The grid.</param>
+            <returns>The absolute index.</returns>
+        </member>
         <member name="T:Puzzles.Concepts.Direction">
             <summary>
             Represents a direction.
