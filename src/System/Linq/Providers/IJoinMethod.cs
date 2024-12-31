@@ -51,7 +51,7 @@ public interface IJoinMethod<TSelf, TSource> : IQueryExpressionMethod<TSelf, TSo
 				result.Add(resultSelector(outerItem, innerItem));
 			}
 		}
-		return [.. result];
+		return result;
 	}
 
 	/// <inheritdoc cref="Enumerable.GroupJoin{TOuter, TInner, TKey, TResult}(IEnumerable{TOuter}, IEnumerable{TInner}, Func{TOuter, TKey}, Func{TInner, TKey}, Func{TOuter, IEnumerable{TInner}, TResult})"/>
