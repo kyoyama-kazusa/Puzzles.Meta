@@ -21,7 +21,12 @@ public enum FailedReason
 	UserCancelled,
 
 	/// <summary>
+	/// Indicates the failed reason is that the puzzle has run out of memory to be allocated.
+	/// </summary>
+	OutOfMemory,
+
+	/// <summary>
 	/// Indicates an unhandled exception is thrown.
 	/// </summary>
-	UnhandledException
+	ExceptionThrown
 }

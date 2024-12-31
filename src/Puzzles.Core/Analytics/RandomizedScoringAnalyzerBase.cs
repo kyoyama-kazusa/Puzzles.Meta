@@ -8,7 +8,8 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TMatch">The type of match.</typeparam>
 /// <typeparam name="TCollector">The type of collector.</typeparam>
 /// <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
-public abstract class RandomizedScoringAnalyzerBase<TBoard, TPoint, TMatch, TCollector, TAnalysisResult>
+public abstract class RandomizedScoringAnalyzerBase<TBoard, TPoint, TMatch, TCollector, TAnalysisResult> :
+	IAnalyzer<RandomizedScoringAnalyzerBase<TBoard, TPoint, TMatch, TCollector, TAnalysisResult>, TAnalysisResult, TBoard>
 	where TBoard : IBoard, IDataStructure, allows ref struct
 	where TPoint : IEquatable<TPoint>, ITuple, allows ref struct
 	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
