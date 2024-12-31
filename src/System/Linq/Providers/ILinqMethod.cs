@@ -11,6 +11,11 @@ public interface ILinqMethod<TSelf, TSource> : IEnumerable<TSource>
 	where TSource : allows ref struct
 {
 	/// <summary>
+	/// Indicates whether the method group supported is extension method.
+	/// </summary>
+	public static virtual bool IsExtensionMethod => true;
+
+	/// <summary>
 	/// Indicates whether the provider type <typeparamref name="TSelf"/> won't calculate the final result immediately.
 	/// The value can be <see langword="true"/> if such calculation is applied like <see cref="IEnumerable{T}"/> values.
 	/// By default, the value is <see langword="false"/>.

@@ -9,13 +9,7 @@ public partial class SpanEnumerable
 	/// <returns>The result sequence [0, 1, 2, 3, ..].</returns>
 	public static ReadOnlySpan<int> Range(int count) => Range(0, count, static previous => previous + 1);
 
-	/// <summary>
-	/// Create a range of variables that starts with <paramref name="start"/>,
-	/// incrementing values and putting them into the other positions.
-	/// </summary>
-	/// <param name="start">The start value.</param>
-	/// <param name="count">The number of elements created.</param>
-	/// <returns>The result sequence.</returns>
+	/// <inheritdoc cref="IRangeMethod{TSelf, TSource}.Range(int, int)"/>
 	public static ReadOnlySpan<int> Range(int start, int count) => Range(start, count, static previous => previous + 1);
 
 	/// <summary>

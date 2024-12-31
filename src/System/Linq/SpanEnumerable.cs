@@ -27,6 +27,7 @@ file abstract class __ImplementedTypes<T> : IEnumerable<T>,
 	IMinMaxMethod<__ImplementedTypes<T>, T>,
 	IOfTypeMethod<__ImplementedTypes<T>, T>,
 	IOrderByMethod<__ImplementedTypes<T>, T>,
+	IRangeMethod<__ImplementedTypes<T>, T>,
 	ISelectManyMethod<__ImplementedTypes<T>, T>,
 	ISelectMethod<__ImplementedTypes<T>, T>,
 	ISkipMethod<__ImplementedTypes<T>, T>,
@@ -43,4 +44,6 @@ file abstract class __ImplementedTypes<T> : IEnumerable<T>,
 	IEnumerator IEnumerable.GetEnumerator() => throw null!;
 
 	IEnumerator<T> IEnumerable<T>.GetEnumerator() => throw null!;
+
+	static __ImplementedTypes<T> IRangeMethod<__ImplementedTypes<T>, T>.Range(int start, int count) => throw null!;
 }

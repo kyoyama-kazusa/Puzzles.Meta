@@ -3795,6 +3795,11 @@
             <typeparam name="TSource">The type of each element that the type supports for iteration.</typeparam>
             <seealso cref="T:System.Linq.Enumerable" />
         </member>
+        <member name="P:System.Linq.Providers.ILinqMethod`2.IsExtensionMethod">
+            <summary>
+            Indicates whether the method group supported is extension method.
+            </summary>
+        </member>
         <member name="P:System.Linq.Providers.ILinqMethod`2.IsValueLazilyCalculated">
             <summary>
             Indicates whether the provider type <typeparamref name="TSelf"/> won't calculate the final result immediately.
@@ -3993,6 +3998,18 @@
         </member>
         <member name="P:System.Linq.Providers.IQueryExpressionMethod`2.System#Linq#Providers#ILinqMethod{TSelf,TSource}#SupportsQuerySyntax">
             <inheritdoc/>
+        </member>
+        <member name="T:System.Linq.Providers.IRangeMethod`2">
+            <summary>
+            Represents a type that supports method group <c>Range</c>.
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Linq.Providers.IRangeMethod`2.System#Linq#Providers#ILinqMethod{TSelf,TSource}#IsExtensionMethod">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.Providers.IRangeMethod`2.Range(System.Int32,System.Int32)">
+            <inheritdoc cref="M:System.Linq.Enumerable.Range(System.Int32,System.Int32)"/>
         </member>
         <member name="T:System.Linq.Providers.IRightJoinMethod`2">
             <summary>
@@ -4357,13 +4374,7 @@
             <returns>The result sequence [0, 1, 2, 3, ..].</returns>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Range(System.Int32,System.Int32)">
-            <summary>
-            Create a range of variables that starts with <paramref name="start"/>,
-            incrementing values and putting them into the other positions.
-            </summary>
-            <param name="start">The start value.</param>
-            <param name="count">The number of elements created.</param>
-            <returns>The result sequence.</returns>
+            <inheritdoc cref="M:System.Linq.Providers.IRangeMethod`2.Range(System.Int32,System.Int32)"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Range``1(``0,System.Int32,System.Func{``0,``0})">
             <summary>
