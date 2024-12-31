@@ -460,7 +460,7 @@
             Indicates the number of columns.
             </summary>
         </member>
-        <member name="T:Puzzles.Meta.ITransformable`1">
+        <member name="T:Puzzles.Transforming.IBoardTransformable`1">
             <summary>
             Represents an object that can be transformed into another kind of value.
             </summary>
@@ -475,53 +475,83 @@
 		</para>
 	</self-type-constraint></typeparam>
         </member>
-        <member name="M:Puzzles.Meta.ITransformable`1.RotateClockwise">
+        <member name="M:Puzzles.Transforming.IBoardTransformable`1.RotateClockwise">
             <summary>
             Rotate <typeparamref name="TSelf"/> instance clockwisely.
             </summary>
             <returns>The result rotated.</returns>
         </member>
-        <member name="M:Puzzles.Meta.ITransformable`1.RotateCounterclockwise">
+        <member name="M:Puzzles.Transforming.IBoardTransformable`1.RotateCounterclockwise">
             <summary>
             Rotate <typeparamref name="TSelf"/> instance counter-clockwisely.
             </summary>
             <returns>The result rotated.</returns>
         </member>
-        <member name="M:Puzzles.Meta.ITransformable`1.RotatePi">
+        <member name="M:Puzzles.Transforming.IBoardTransformable`1.RotatePi">
             <summary>
             Rotate <typeparamref name="TSelf"/> instance 180 degrees.
             </summary>
             <returns>The result rotated.</returns>
         </member>
-        <member name="M:Puzzles.Meta.ITransformable`1.MirrorLeftRight">
+        <member name="M:Puzzles.Transforming.IBoardTransformable`1.MirrorLeftRight">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in left-right side.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="M:Puzzles.Meta.ITransformable`1.MirrorTopBottom">
+        <member name="M:Puzzles.Transforming.IBoardTransformable`1.MirrorTopBottom">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in top-bottom side.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="M:Puzzles.Meta.ITransformable`1.MirrorDiagonal">
+        <member name="M:Puzzles.Transforming.IBoardTransformable`1.MirrorDiagonal">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in diagonal.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="M:Puzzles.Meta.ITransformable`1.Transpose">
+        <member name="M:Puzzles.Transforming.IBoardTransformable`1.Transpose">
             <summary>
-            Simply calls <see cref="M:Puzzles.Meta.ITransformable`1.MirrorDiagonal"/>.
+            Simply calls <see cref="M:Puzzles.Transforming.IBoardTransformable`1.MirrorDiagonal"/>.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="M:Puzzles.Meta.ITransformable`1.MirrorAntidiagonal">
+        <member name="M:Puzzles.Transforming.IBoardTransformable`1.MirrorAntidiagonal">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in anti-diagonal.
             </summary>
             <returns>The result fliped.</returns>
+        </member>
+        <member name="T:Puzzles.Transforming.IElementSwappingTransformable`2">
+            <summary>
+            Represents an object that can swap elements of itself.
+            </summary>
+            <typeparam name="TSelf"><self-type-constraint>
+		<para>Indicates the type implementing this interface.</para>
+		<para>
+			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
+			The type will include a <see langword="where" /> constraint that implements the interface itself
+			to declare such "self constraint" usage:
+			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
+			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
+		</para>
+	</self-type-constraint></typeparam>
+            <typeparam name="TElement">The type of each element.</typeparam>
+        </member>
+        <member name="M:Puzzles.Transforming.IElementSwappingTransformable`2.SwapElement(`1,`1)">
+            <summary>
+            Swaps all elements whose values are equal to <paramref name="element1"/> and <paramref name="element2"/>.
+            </summary>
+            <param name="element1">The first element to be swapped.</param>
+            <param name="element2">The second element to be swapped.</param>
+            <returns>The result swapped.</returns>
+        </member>
+        <member name="M:Puzzles.Transforming.IElementSwappingTransformable`2.Shuffle">
+            <summary>
+            Try to shuffle <typeparamref name="TSelf"/> instance of elements, keeping equality with the current instance.
+            </summary>
+            <returns>The result shuffled.</returns>
         </member>
     </members>
 </doc>
