@@ -11,11 +11,11 @@ namespace System.Linq;
 [DebuggerStepThrough]
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.EqualityOperators)]
 public sealed partial class ArrayGrouping<TSource, TKey>([Field] TSource[] elements, [Property, HashCodeMember, StringMember] TKey key) :
-	IGroupingDataProvider<ArrayGrouping<TSource, TKey>, TKey, TSource>
+	IMyGrouping<ArrayGrouping<TSource, TKey>, TKey, TSource>
 	where TKey : notnull
 {
 	/// <inheritdoc/>
-	ReadOnlySpan<TSource> IGroupingDataProvider<ArrayGrouping<TSource, TKey>, TKey, TSource>.Elements => _elements;
+	ReadOnlySpan<TSource> IMyGrouping<ArrayGrouping<TSource, TKey>, TKey, TSource>.Elements => _elements;
 
 	[HashCodeMember]
 	private unsafe nint ElementsRawPointerValue => (nint)Unsafe.AsPointer(ref _elements[0]);

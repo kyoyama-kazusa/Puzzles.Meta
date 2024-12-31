@@ -12,7 +12,7 @@ namespace System.Linq;
 [DebuggerStepThrough]
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.EqualityOperators)]
 public readonly partial struct SpanGrouping<TSource, TKey>([Field] TSource[] elements, [Property, HashCodeMember, StringMember] TKey key) :
-	IGroupingDataProvider<SpanGrouping<TSource, TKey>, TKey, TSource>
+	IMyGrouping<SpanGrouping<TSource, TKey>, TKey, TSource>
 	where TKey : notnull
 {
 	/// <summary>
@@ -37,7 +37,7 @@ public readonly partial struct SpanGrouping<TSource, TKey>([Field] TSource[] ele
 	}
 
 	/// <inheritdoc/>
-	ReadOnlySpan<TSource> IGroupingDataProvider<SpanGrouping<TSource, TKey>, TKey, TSource>.Elements => SourceSpan;
+	ReadOnlySpan<TSource> IMyGrouping<SpanGrouping<TSource, TKey>, TKey, TSource>.Elements => SourceSpan;
 
 
 	/// <summary>

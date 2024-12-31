@@ -2197,7 +2197,7 @@
             <param name="elements">Indicates the elements.</param>
             <param name="key">Indicates the key that can compare each element.</param>
         </member>
-        <member name="P:System.Linq.ArrayGrouping`2.System#Linq#IGroupingDataProvider{System#Linq#ArrayGrouping{TSource,TKey},TKey,TSource}#Elements">
+        <member name="P:System.Linq.ArrayGrouping`2.System#Linq#IMyGrouping{System#Linq#ArrayGrouping{TSource,TKey},TKey,TSource}#Elements">
             <inheritdoc/>
         </member>
         <member name="P:System.Linq.ArrayGrouping`2.Item(System.Int32)">
@@ -3124,7 +3124,7 @@
         <member name="M:System.Linq.HashSetEnumerable.FirstOrDefault``1(System.Collections.Generic.HashSet{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Enumerable.FirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
         </member>
-        <member name="T:System.Linq.IGroupingDataProvider`3">
+        <member name="T:System.Linq.IMyGrouping`3">
             <summary>
             Represents a grouping data structure for LINQ grouping methods.
             </summary>
@@ -3141,34 +3141,34 @@
             <typeparam name="TKey">Indicates the type of keys that group values.</typeparam>
             <typeparam name="TElement">The type of each element.</typeparam>
         </member>
-        <member name="P:System.Linq.IGroupingDataProvider`3.Elements">
+        <member name="P:System.Linq.IMyGrouping`3.Elements">
             <summary>
             Indicates the backing elements.
             </summary>
         </member>
-        <member name="P:System.Linq.IGroupingDataProvider`3.System#Collections#Generic#IReadOnlyCollection{TElement}#Count">
+        <member name="P:System.Linq.IMyGrouping`3.System#Collections#Generic#IReadOnlyCollection{TElement}#Count">
             <inheritdoc/>
         </member>
-        <member name="P:System.Linq.IGroupingDataProvider`3.Item(System.Int32)">
+        <member name="P:System.Linq.IMyGrouping`3.Item(System.Int32)">
             <summary>
             Gets the element at the specified index.
             </summary>
             <param name="index">The desired index.</param>
             <returns>The reference to the element at the specified index.</returns>
         </member>
-        <member name="M:System.Linq.IGroupingDataProvider`3.GetPinnableReference">
+        <member name="M:System.Linq.IMyGrouping`3.GetPinnableReference">
             <inheritdoc cref="M:System.ReadOnlySpan`1.GetPinnableReference"/>
         </member>
-        <member name="M:System.Linq.IGroupingDataProvider`3.GetEnumerator">
+        <member name="M:System.Linq.IMyGrouping`3.GetEnumerator">
             <summary>
             Creates an enumerator that can enumerate each element in the source collection.
             </summary>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.Linq.IGroupingDataProvider`3.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:System.Linq.IMyGrouping`3.System#Collections#IEnumerable#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:System.Linq.IGroupingDataProvider`3.System#Collections#Generic#IEnumerable{TElement}#GetEnumerator">
+        <member name="M:System.Linq.IMyGrouping`3.System#Collections#Generic#IEnumerable{TElement}#GetEnumerator">
             <inheritdoc/>
         </member>
         <member name="T:System.Linq.Iterators.ArrayAppendIterator`1">
@@ -4499,7 +4499,7 @@
             </summary>
             <seealso cref="F:System.Linq.SpanGrouping`2._elements"/>
         </member>
-        <member name="P:System.Linq.SpanGrouping`2.System#Linq#IGroupingDataProvider{System#Linq#SpanGrouping{TSource,TKey},TKey,TSource}#Elements">
+        <member name="P:System.Linq.SpanGrouping`2.System#Linq#IMyGrouping{System#Linq#SpanGrouping{TSource,TKey},TKey,TSource}#Elements">
             <inheritdoc/>
         </member>
         <member name="P:System.Linq.SpanGrouping`2.Item(System.Int32)">
