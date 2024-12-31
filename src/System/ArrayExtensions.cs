@@ -20,52 +20,6 @@ public static class ArrayExtensions
 		}
 	}
 
-	/// <inheritdoc cref="SequenceEqual{T}(T[], T[], Func{T, T, bool})"/>
-	public static bool SequenceEqual<T>(this T[] @this, T[] other) where T : IEqualityOperators<T, T, bool>
-	{
-		if (@this.Length != other.Length)
-		{
-			return false;
-		}
-
-		for (var i = 0; i < @this.Length; i++)
-		{
-			if (@this[i] != other[i])
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/// <summary>
-	/// Compares elements from two arrays one by one respectively.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The array to be compared.</param>
-	/// <param name="other">The other array to be compared.</param>
-	/// <param name="equalityComparer">
-	/// A method that compares two <typeparamref name="T"/> elements, and returns a <see cref="bool"/> result
-	/// indicating whether two elements are considered equal.
-	/// </param>
-	/// <returns>A <see cref="bool"/> result indicating whether two arrays are considered equal.</returns>
-	public static bool SequenceEqual<T>(this T[] @this, T[] other, Func<T, T, bool> equalityComparer)
-	{
-		if (@this.Length != other.Length)
-		{
-			return false;
-		}
-
-		for (var i = 0; i < @this.Length; i++)
-		{
-			if (!equalityComparer(@this[i], other[i]))
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-
 	/// <summary>
 	/// Flats the specified 2D array into an 1D array.
 	/// </summary>

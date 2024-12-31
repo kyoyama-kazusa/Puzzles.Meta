@@ -18,22 +18,6 @@
             <param name="array">The array.</param>
             <param name="initializer">The initializer callback method.</param>
         </member>
-        <member name="M:System.ArrayExtensions.SequenceEqual``1(``0[],``0[])">
-            <inheritdoc cref="M:System.ArrayExtensions.SequenceEqual``1(``0[],``0[],System.Func{``0,``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.ArrayExtensions.SequenceEqual``1(``0[],``0[],System.Func{``0,``0,System.Boolean})">
-            <summary>
-            Compares elements from two arrays one by one respectively.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The array to be compared.</param>
-            <param name="other">The other array to be compared.</param>
-            <param name="equalityComparer">
-            A method that compares two <typeparamref name="T"/> elements, and returns a <see cref="T:System.Boolean"/> result
-            indicating whether two elements are considered equal.
-            </param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether two arrays are considered equal.</returns>
-        </member>
         <member name="M:System.ArrayExtensions.Flat``1(``0[0:,0:])">
             <summary>
             Flats the specified 2D array into an 1D array.
@@ -4192,6 +4176,9 @@
         <member name="M:System.Linq.SpanEnumerable.First``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.FirstRef``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.FirstRef``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
         </member>
@@ -4282,11 +4269,56 @@
         <member name="M:System.Linq.SpanEnumerable.MaxUnsafe``2(System.ReadOnlySpan{``0},)">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.MaxIf``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Gets the maximum value of the sequence, and ignore elements to be compared if they are not satisfy the specified condition.
+            </summary>
+            <typeparam name="TSource">The type of source elements.</typeparam>
+            <param name="this">The source sequence.</param>
+            <param name="predicate">The condition to be checked.</param>
+            <returns>The maximum value.</returns>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.MaxIf``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean},``0)">
+            <summary>
+            Gets the maximum value of the sequence, and ignore elements to be compared if they are not satisfy the specified condition.
+            </summary>
+            <typeparam name="TSource">The type of source elements.</typeparam>
+            <param name="this">The source sequence.</param>
+            <param name="predicate">The condition to be checked.</param>
+            <param name="default">The default value if all elements in sequence are ignored.</param>
+            <returns>The maximum value.</returns>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.OfType``2(System.ReadOnlySpan{``0})">
             <inheritdoc cref="M:System.Linq.Providers.IOfTypeMethod`2.OfType``1"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Skip``1(System.ReadOnlySpan{``0},System.Int32)">
             <inheritdoc cref="M:System.Linq.Providers.ISkipMethod`2.Skip(System.Int32)"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Range(System.Int32)">
+            <summary>
+            Create a range of variables that starts with 0, incrementing values and putting them into the other positions.
+            </summary>
+            <param name="count">The number of elements created.</param>
+            <returns>The result sequence [0, 1, 2, 3, ..].</returns>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Range(System.Int32,System.Int32)">
+            <summary>
+            Create a range of variables that starts with <paramref name="start"/>,
+            incrementing values and putting them into the other positions.
+            </summary>
+            <param name="start">The start value.</param>
+            <param name="count">The number of elements created.</param>
+            <returns>The result sequence.</returns>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Range``1(``0,System.Int32,System.Func{``0,``0})">
+            <summary>
+            Create a range of variables that starts with the specified value, and iterates the value to create followed values.
+            </summary>
+            <typeparam name="T">The type of the target value.</typeparam>
+            <param name="start">The start value.</param>
+            <param name="count">The number of elements created.</param>
+            <param name="nextCreator">The creator method that create a value from the previous value.</param>
+            <returns>The result sequence.</returns>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Sum``1(System.ReadOnlySpan{``0})">
             <inheritdoc cref="M:System.Linq.Providers.ISumMethod`2.Sum"/>

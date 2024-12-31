@@ -53,10 +53,10 @@ public abstract class RandomizedScoringAnalyzerBase<TBoard, TPoint, TMatch, TCol
 
 
 	/// <summary>
-	/// Try to analyze a puzzle, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
+	/// Try to analyze a board, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
 	/// </summary>
-	/// <param name="grid">The grid to be analyzed.</param>
+	/// <param name="board">The board to be analyzed.</param>
 	/// <param name="cancellationToken">Indicates the cancellation token that can cancel the current operation.</param>
 	/// <returns>An instance of type <typeparamref name="TAnalysisResult"/> indicating the result information.</returns>
-	public abstract TAnalysisResult Analyze(TBoard grid, CancellationToken cancellationToken = default);
+	public abstract TAnalysisResult Analyze(TBoard board, CancellationToken cancellationToken = default);
 }
