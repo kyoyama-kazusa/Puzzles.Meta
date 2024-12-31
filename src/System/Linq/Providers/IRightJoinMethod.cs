@@ -42,12 +42,12 @@ public interface IRightJoinMethod<TSelf, TSource> : IQueryExpressionMethod<TSelf
 			{
 				foreach (var outerElement in outerElements)
 				{
-					result.Add(resultSelector(outerElement, innerElement));
+					result.AddRef(resultSelector(outerElement, innerElement));
 				}
 			}
 			else
 			{
-				result.Add(resultSelector(default, innerElement));
+				result.AddRef(resultSelector(default, innerElement));
 			}
 		}
 		return result;

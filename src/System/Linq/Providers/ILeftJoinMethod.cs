@@ -43,12 +43,12 @@ public interface ILeftJoinMethod<TSelf, TSource> : IQueryExpressionMethod<TSelf,
 			{
 				foreach (var innerElement in innerElements)
 				{
-					result.Add(resultSelector(outerElement, innerElement));
+					result.AddRef(resultSelector(outerElement, innerElement));
 				}
 			}
 			else
 			{
-				result.Add(resultSelector(outerElement, default));
+				result.AddRef(resultSelector(outerElement, default));
 			}
 		}
 		return result;
