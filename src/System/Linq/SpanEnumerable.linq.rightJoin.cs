@@ -4,7 +4,7 @@ public partial class SpanEnumerable
 {
 	/// <inheritdoc cref="IRightJoinMethod{TSelf, TSource}.RightJoin{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, TInner, TResult})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static TResult?[] RightJoin<TOuter, TInner, TKey, TResult>(
+	public static ReadOnlySpan<TResult?> RightJoin<TOuter, TInner, TKey, TResult>(
 		this ReadOnlySpan<TOuter> outer,
 		ReadOnlySpan<TInner> inner,
 		Func<TOuter, TKey> outerKeySelector,
@@ -13,7 +13,7 @@ public partial class SpanEnumerable
 	) where TKey : notnull => RightJoin(outer, inner, outerKeySelector, innerKeySelector, resultSelector, null);
 
 	/// <inheritdoc cref="IRightJoinMethod{TSelf, TSource}.RightJoin{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, TInner, TResult}, IEqualityComparer{TKey}?)"/>
-	public static TResult?[] RightJoin<TOuter, TInner, TKey, TResult>(
+	public static ReadOnlySpan<TResult?> RightJoin<TOuter, TInner, TKey, TResult>(
 		this ReadOnlySpan<TOuter> outer,
 		ReadOnlySpan<TInner> inner,
 		Func<TOuter, TKey> outerKeySelector,
@@ -43,6 +43,6 @@ public partial class SpanEnumerable
 				result.AddRef(resultSelector(default, innerElement));
 			}
 		}
-		return [.. result];
+		return result.AsSpan();
 	}
 }
