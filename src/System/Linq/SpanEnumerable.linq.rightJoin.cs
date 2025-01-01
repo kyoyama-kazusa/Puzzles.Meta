@@ -5,8 +5,8 @@ public partial class SpanEnumerable
 	/// <inheritdoc cref="IRightJoinMethod{TSelf, TSource}.RightJoin{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, TInner, TResult})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static TResult?[] RightJoin<TOuter, TInner, TKey, TResult>(
-		this TOuter[] outer,
-		TInner[] inner,
+		this ReadOnlySpan<TOuter> outer,
+		ReadOnlySpan<TInner> inner,
 		Func<TOuter, TKey> outerKeySelector,
 		Func<TInner, TKey> innerKeySelector,
 		Func<TOuter?, TInner, TResult?> resultSelector
@@ -14,8 +14,8 @@ public partial class SpanEnumerable
 
 	/// <inheritdoc cref="IRightJoinMethod{TSelf, TSource}.RightJoin{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, TInner, TResult}, IEqualityComparer{TKey}?)"/>
 	public static TResult?[] RightJoin<TOuter, TInner, TKey, TResult>(
-		this TOuter[] outer,
-		TInner[] inner,
+		this ReadOnlySpan<TOuter> outer,
+		ReadOnlySpan<TInner> inner,
 		Func<TOuter, TKey> outerKeySelector,
 		Func<TInner, TKey> innerKeySelector,
 		Func<TOuter?, TInner, TResult?> resultSelector,
