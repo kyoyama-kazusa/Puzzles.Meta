@@ -6,10 +6,12 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TSelf"><include file="../../global-doc-comments.xml" path="/g/self-type-constraint"/></typeparam>
 /// <typeparam name="TResult">The type of result.</typeparam>
 /// <typeparam name="TBoard">The type of the board.</typeparam>
-public interface IAnalyzer<TSelf, TResult, TBoard>
-	where TSelf : IAnalyzer<TSelf, TResult, TBoard>
-	where TResult : IAnalysisResult<TResult, TBoard>
+/// <typeparam name="TStep">The type of step.</typeparam>
+public interface IAnalyzer<TSelf, TResult, TBoard, TStep>
+	where TSelf : IAnalyzer<TSelf, TResult, TBoard, TStep>
+	where TResult : IAnalysisResult<TResult, TBoard, TStep>
 	where TBoard : IBoard, IDataStructure, allows ref struct
+	where TStep : IStep<TStep>
 {
 	/// <summary>
 	/// Analyzes the puzzle of type <typeparamref name="TBoard"/>.
