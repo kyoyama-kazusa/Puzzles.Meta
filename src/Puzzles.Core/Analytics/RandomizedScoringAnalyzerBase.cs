@@ -5,15 +5,18 @@ namespace Puzzles.Analytics;
 /// </summary>
 /// <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
 /// <typeparam name="TPoint">The type of point.</typeparam>
-/// <typeparam name="TMatch">The type of match.</typeparam>
+/// <typeparam name="TStep">The type of step.</typeparam>
+/// <typeparam name="TDifficulty">The type of difficulty.</typeparam>
 /// <typeparam name="TCollector">The type of collector.</typeparam>
 /// <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
-public abstract class RandomizedScoringAnalyzerBase<TBoard, TPoint, TMatch, TCollector, TAnalysisResult>
+public abstract class RandomizedScoringAnalyzerBase<TBoard, TPoint, TStep, TDifficulty, TCollector, TAnalysisResult> :
+	IAnalyzer<RandomizedScoringAnalyzerBase<TBoard, TPoint, TStep, TDifficulty, TCollector, TAnalysisResult>, TAnalysisResult, TBoard, TStep>
 	where TBoard : IBoard, IDataStructure, allows ref struct
 	where TPoint : IEquatable<TPoint>, ITuple, allows ref struct
-	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
-	where TCollector : ICollector<TBoard, TMatch>, new()
-	where TAnalysisResult : IAnalysisResult<TAnalysisResult, TBoard>
+	where TStep : IDifficultyStep<TStep, TDifficulty>
+	where TDifficulty : INumberBase<TDifficulty>
+	where TCollector : ICollector<TBoard, TStep>, new()
+	where TAnalysisResult : IAnalysisResult<TAnalysisResult, TBoard, TStep>
 {
 	/// <summary>
 	/// Indicates the backing collector object.

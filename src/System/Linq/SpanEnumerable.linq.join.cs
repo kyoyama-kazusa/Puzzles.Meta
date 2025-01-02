@@ -10,9 +10,7 @@ public partial class SpanEnumerable
 		Func<TOuter, TKey> outerKeySelector,
 		Func<TInner, TKey> innerKeySelector,
 		Func<TOuter, TInner, TResult> resultSelector
-	)
-		where TKey : notnull
-		=> Join(outer, inner, outerKeySelector, innerKeySelector, resultSelector, EqualityComparer<TKey>.Default);
+	) where TKey : notnull => Join(outer, inner, outerKeySelector, innerKeySelector, resultSelector, null);
 
 	/// <inheritdoc cref="IJoinMethod{TSelf, TSource}.Join{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, TInner, TResult}, IEqualityComparer{TKey}?)"/>
 	public static ReadOnlySpan<TResult> Join<TOuter, TInner, TKey, TResult>(
@@ -62,9 +60,7 @@ public partial class SpanEnumerable
 		Func<TOuter, TKey> outerKeySelector,
 		Func<TInner, TKey> innerKeySelector,
 		Func<TOuter, TInner[], TResult> resultSelector
-	)
-		where TKey : notnull
-		=> GroupJoin(outer, inner, outerKeySelector, innerKeySelector, resultSelector, EqualityComparer<TKey>.Default);
+	) where TKey : notnull => GroupJoin(outer, inner, outerKeySelector, innerKeySelector, resultSelector, null);
 
 	/// <inheritdoc cref="IJoinMethod{TSelf, TSource}.GroupJoin{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, IEnumerable{TInner}, TResult}, IEqualityComparer{TKey}?)"/>
 	public static ReadOnlySpan<TResult> GroupJoin<TOuter, TInner, TKey, TResult>(

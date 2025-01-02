@@ -5,9 +5,11 @@ namespace Puzzles.Analytics;
 /// </summary>
 /// <typeparam name="TSelf"><include file="../../global-doc-comments.xml" path="/g/self-type-constraint"/></typeparam>
 /// <typeparam name="TBoard">The type of board.</typeparam>
-public interface IAnalysisResult<TSelf, TBoard> : IEquatable<TSelf>, IEqualityOperators<TSelf, TSelf, bool>
-	where TSelf : IAnalysisResult<TSelf, TBoard>
+/// <typeparam name="TStep">The type of step.</typeparam>
+public interface IAnalysisResult<TSelf, TBoard, TStep> : IEquatable<TSelf>, IEqualityOperators<TSelf, TSelf, bool>
+	where TSelf : IAnalysisResult<TSelf, TBoard, TStep>
 	where TBoard : IBoard, IDataStructure, allows ref struct
+	where TStep : IStep<TStep>
 {
 	/// <summary>
 	/// Indicates whether the solver has solved the puzzle.
@@ -26,6 +28,11 @@ public interface IAnalysisResult<TSelf, TBoard> : IEquatable<TSelf>, IEqualityOp
 	/// </summary>
 	/// <seealso cref="TimeSpan.Zero"/>
 	public abstract TimeSpan ElapsedTime { get; init; }
+
+	/// <summary>
+	/// Indicates the steps.
+	/// </summary>
+	public abstract ReadOnlySpan<TStep> Steps { get; }
 
 	/// <summary>
 	/// Indicates the original puzzle to be solved.

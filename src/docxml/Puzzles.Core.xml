@@ -24,12 +24,17 @@
             Indicates the user has cancelled the current task.
             </summary>
         </member>
-        <member name="F:Puzzles.Analytics.FailedReason.UnhandledException">
+        <member name="F:Puzzles.Analytics.FailedReason.OutOfMemory">
+            <summary>
+            Indicates the failed reason is that the puzzle has run out of memory to be allocated.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Analytics.FailedReason.ExceptionThrown">
             <summary>
             Indicates an unhandled exception is thrown.
             </summary>
         </member>
-        <member name="T:Puzzles.Analytics.IAnalysisResult`2">
+        <member name="T:Puzzles.Analytics.IAnalysisResult`3">
             <summary>
             Represents an instance that describes the result after being analyzed.
             </summary>
@@ -44,18 +49,19 @@
 		</para>
 	</self-type-constraint></typeparam>
             <typeparam name="TBoard">The type of board.</typeparam>
+            <typeparam name="TStep">The type of step.</typeparam>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`2.IsSolved">
+        <member name="P:Puzzles.Analytics.IAnalysisResult`3.IsSolved">
             <summary>
             Indicates whether the solver has solved the puzzle.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`2.FailedReason">
+        <member name="P:Puzzles.Analytics.IAnalysisResult`3.FailedReason">
             <summary>
             Indicates the failed reason.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`2.ElapsedTime">
+        <member name="P:Puzzles.Analytics.IAnalysisResult`3.ElapsedTime">
             <summary>
             Indicates the elapsed time used during solving the puzzle. The value may not be an useful value.
             Some case if the puzzle doesn't contain a valid unique solution, the value may be
@@ -63,18 +69,49 @@
             </summary>
             <seealso cref="F:System.TimeSpan.Zero"/>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`2.Puzzle">
+        <member name="P:Puzzles.Analytics.IAnalysisResult`3.Steps">
+            <summary>
+            Indicates the steps.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Analytics.IAnalysisResult`3.Puzzle">
             <summary>
             Indicates the original puzzle to be solved.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`2.UnhandledException">
+        <member name="P:Puzzles.Analytics.IAnalysisResult`3.UnhandledException">
             <summary>
             Indicates the unhandled exception thrown.
             </summary>
         </member>
-        <member name="M:Puzzles.Analytics.IAnalysisResult`2.ToString">
+        <member name="M:Puzzles.Analytics.IAnalysisResult`3.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="T:Puzzles.Analytics.IAnalyzer`4">
+            <summary>
+            Represents an analyzer.
+            </summary>
+            <typeparam name="TSelf"><self-type-constraint>
+		<para>Indicates the type implementing this interface.</para>
+		<para>
+			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
+			The type will include a <see langword="where" /> constraint that implements the interface itself
+			to declare such "self constraint" usage:
+			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
+			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
+		</para>
+	</self-type-constraint></typeparam>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <typeparam name="TBoard">The type of the board.</typeparam>
+            <typeparam name="TStep">The type of step.</typeparam>
+        </member>
+        <member name="M:Puzzles.Analytics.IAnalyzer`4.Analyze(`2,System.Threading.CancellationToken)">
+            <summary>
+            Analyzes the puzzle of type <typeparamref name="TBoard"/>.
+            </summary>
+            <param name="board">The board.</param>
+            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+            <returns>An instance of type <typeparamref name="TResult"/>.</returns>
         </member>
         <member name="T:Puzzles.Analytics.ICollector`2">
             <summary>
@@ -91,52 +128,89 @@
             <param name="cancellationToken">The cancellation token that can cancel the current task.</param>
             <returns>All matched items.</returns>
         </member>
-        <member name="T:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5">
+        <member name="T:Puzzles.Analytics.IDifficultyStep`2">
+            <summary>
+            Represents a step that requires difficulty rating.
+            </summary>
+            <typeparam name="TSelf"><self-type-constraint>
+		<para>Indicates the type implementing this interface.</para>
+		<para>
+			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
+			The type will include a <see langword="where" /> constraint that implements the interface itself
+			to declare such "self constraint" usage:
+			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
+			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
+		</para>
+	</self-type-constraint></typeparam>
+            <typeparam name="TDifficulty">Indicates the type of difficulty.</typeparam>
+        </member>
+        <member name="P:Puzzles.Analytics.IDifficultyStep`2.Difficulty">
+            <summary>
+            Indicates the difficulty rating of the instance.
+            </summary>
+        </member>
+        <member name="T:Puzzles.Analytics.IStep`1">
+            <summary>
+            Represents a step.
+            </summary>
+            <typeparam name="TSelf"><self-type-constraint>
+		<para>Indicates the type implementing this interface.</para>
+		<para>
+			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
+			The type will include a <see langword="where" /> constraint that implements the interface itself
+			to declare such "self constraint" usage:
+			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
+			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
+		</para>
+	</self-type-constraint></typeparam>
+        </member>
+        <member name="T:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6">
             <summary>
             Represents an analyzer object that will use randomization algorithm to find paths, and score them up.
             </summary>
             <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
             <typeparam name="TPoint">The type of point.</typeparam>
-            <typeparam name="TMatch">The type of match.</typeparam>
+            <typeparam name="TStep">The type of step.</typeparam>
+            <typeparam name="TDifficulty">The type of difficulty.</typeparam>
             <typeparam name="TCollector">The type of collector.</typeparam>
             <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
         </member>
-        <member name="F:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5._collector">
+        <member name="F:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6._collector">
             <summary>
             Indicates the backing collector object.
             </summary>
         </member>
-        <member name="F:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5._rng">
+        <member name="F:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6._rng">
             <summary>
             Indicates the backing random number generator.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.DistanceWeight">
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.DistanceWeight">
             <summary>
             Indicates the distance weight.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.VisualDistanceWeight">
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.VisualDistanceWeight">
             <summary>
             Indicates the visual distance weight.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.TemporatureFactor">
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.TemporatureFactor">
             <summary>
             Indicates temporature factor.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.DistanceType">
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.DistanceType">
             <summary>
             Indicates the calculating distance type.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.StartPointCreator">
+        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.StartPointCreator">
             <summary>
             Represents a start point creator.
             </summary>
         </member>
-        <member name="M:Puzzles.Analytics.RandomizedScoringAnalyzerBase`5.Analyze(`0,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.Analyze(`0,System.Threading.CancellationToken)">
             <summary>
             Try to analyze a board, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
             </summary>

@@ -4,7 +4,7 @@ namespace Puzzles.Transforming;
 /// Represents an object that can be transformed into another kind of value.
 /// </summary>
 /// <typeparam name="TSelf"><include file="../../global-doc-comments.xml" path="/g/self-type-constraint"/></typeparam>
-public interface IBoardTransformable<TSelf> where TSelf : IBoard, IBoardTransformable<TSelf>
+public interface IBoardTransformable<TSelf> where TSelf : IBoard, IBoardTransformable<TSelf>, allows ref struct
 {
 	/// <summary>
 	/// Rotate <typeparamref name="TSelf"/> instance clockwisely.

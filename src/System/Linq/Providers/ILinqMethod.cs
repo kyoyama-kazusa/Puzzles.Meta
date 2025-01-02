@@ -11,6 +11,11 @@ public interface ILinqMethod<TSelf, TSource> : IEnumerable<TSource>
 	where TSource : allows ref struct
 {
 	/// <summary>
+	/// Indicates whether the method group supported is extension method.
+	/// </summary>
+	public static virtual bool IsExtensionMethod => true;
+
+	/// <summary>
 	/// Indicates whether the provider type <typeparamref name="TSelf"/> won't calculate the final result immediately.
 	/// The value can be <see langword="true"/> if such calculation is applied like <see cref="IEnumerable{T}"/> values.
 	/// By default, the value is <see langword="false"/>.
@@ -37,10 +42,11 @@ public interface ILinqMethod<TSelf, TSource> : IEnumerable<TSource>
 	/// </item>
 	/// <item>
 	/// <term>
-	/// <see langword="from"/> element1 <see langword="in"/> collection1<br/>
+	/// <see langword="from"/> element1 <see langword="in"/> collection1
 	/// <see langword="from"/> element2 <see langword="in"/> collection2
 	/// </term>
 	/// <description>
+	/// <br/>
 	/// <see cref="Enumerable.SelectMany{TSource, TResult}(IEnumerable{TSource}, Func{TSource, IEnumerable{TResult}})"/>
 	/// </description>
 	/// </item>
@@ -109,6 +115,24 @@ public interface ILinqMethod<TSelf, TSource> : IEnumerable<TSource>
 	/// <description>
 	/// <br/>
 	/// <see cref="Enumerable.GroupJoin{TOuter, TInner, TKey, TResult}(IEnumerable{TOuter}, IEnumerable{TInner}, Func{TOuter, TKey}, Func{TInner, TKey}, Func{TOuter, IEnumerable{TInner}, TResult})"/>
+	/// </description>
+	/// </item>
+	/// <item>
+	/// <term>
+	/// <see langword="left join"/> variable2 <see langword="in"/> collection2
+	/// <see langword="on"/> variable1 <see langword="equals"/> variable2
+	/// </term>
+	/// <description>
+	/// <c>LeftJoin</c> (will be added in future version of .NET library)
+	/// </description>
+	/// </item>
+	/// <item>
+	/// <term>
+	/// <see langword="right join"/> variable2 <see langword="in"/> collection2
+	/// <see langword="on"/> variable1 <see langword="equals"/> variable2
+	/// </term>
+	/// <description>
+	/// <c>RightJoin</c> (will be added in future version of .NET library)
 	/// </description>
 	/// </item>
 	/// </list>

@@ -6,7 +6,8 @@ namespace Puzzles.Transforming;
 /// <typeparam name="TSelf"><include file="../../global-doc-comments.xml" path="/g/self-type-constraint"/></typeparam>
 /// <typeparam name="TElement">The type of each element.</typeparam>
 public interface IElementSwappingTransformable<TSelf, TElement>
-	where TSelf : IBoard, IEnumerable<TElement>, IElementSwappingTransformable<TSelf, TElement>
+	where TSelf : IBoard, IEnumerable<TElement>, IElementSwappingTransformable<TSelf, TElement>, allows ref struct
+	where TElement : allows ref struct
 {
 	/// <summary>
 	/// Swaps all elements whose values are equal to <paramref name="element1"/> and <paramref name="element2"/>.

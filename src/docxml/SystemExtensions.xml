@@ -2030,11 +2030,23 @@
         <member name="M:System.Linq.ArrayEnumerable.GroupJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3},System.Collections.Generic.IEqualityComparer{``2})">
             <inheritdoc cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3},System.Collections.Generic.IEqualityComparer{``2})"/>
         </member>
+        <member name="M:System.Linq.ArrayEnumerable.LeftJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
+            <inheritdoc cref="M:System.Linq.Providers.ILeftJoinMethod`2.LeftJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.LeftJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
+            <inheritdoc cref="M:System.Linq.Providers.ILeftJoinMethod`2.LeftJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
+        </member>
         <member name="M:System.Linq.ArrayEnumerable.OrderBy``2(``0[],System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Enumerable.ThenBy``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.ArrayEnumerable.OrderByDescending``2(``0[],System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Enumerable.ThenByDescending``2(System.Linq.IOrderedEnumerable{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.RightJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
+            <inheritdoc cref="M:System.Linq.Providers.IRightJoinMethod`2.RightJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.RightJoin``4(``0[],``1[],System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
+            <inheritdoc cref="M:System.Linq.Providers.IRightJoinMethod`2.RightJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
         </member>
         <member name="M:System.Linq.ArrayEnumerable.Select``2(``0[],System.Func{``0,``1})">
             <returns>
@@ -2141,6 +2153,18 @@
         <member name="M:System.Linq.ArrayEnumerable.SumUnsafe``2(``0[],)">
             <inheritdoc cref="M:System.Linq.ArrayEnumerable.Sum``2(``0[],System.Func{``0,``1})"/>
         </member>
+        <member name="M:System.Linq.ArrayEnumerable.ToLookup``2(``0[],System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ToLookup``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.ToLookup``2(``0[],System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ToLookup``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.ToLookup``3(``0[],System.Func{``0,``1},System.Func{``0,``2})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ToLookup``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.ToLookup``3(``0[],System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ToLookup``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
+        </member>
         <member name="M:System.Linq.ArrayEnumerable.Zip``2(``0[],``1[])">
             <inheritdoc cref="M:System.Linq.Enumerable.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})"/>
         </member>
@@ -2173,7 +2197,7 @@
             <param name="elements">Indicates the elements.</param>
             <param name="key">Indicates the key that can compare each element.</param>
         </member>
-        <member name="P:System.Linq.ArrayGrouping`2.System#Linq#IGroupingDataProvider{System#Linq#ArrayGrouping{TSource,TKey},TKey,TSource}#Elements">
+        <member name="P:System.Linq.ArrayGrouping`2.System#Linq#IMyGrouping{System#Linq#ArrayGrouping{TSource,TKey},TKey,TSource}#Elements">
             <inheritdoc/>
         </member>
         <member name="P:System.Linq.ArrayGrouping`2.Item(System.Int32)">
@@ -3100,7 +3124,7 @@
         <member name="M:System.Linq.HashSetEnumerable.FirstOrDefault``1(System.Collections.Generic.HashSet{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Enumerable.FirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
         </member>
-        <member name="T:System.Linq.IGroupingDataProvider`3">
+        <member name="T:System.Linq.IMyGrouping`3">
             <summary>
             Represents a grouping data structure for LINQ grouping methods.
             </summary>
@@ -3117,34 +3141,34 @@
             <typeparam name="TKey">Indicates the type of keys that group values.</typeparam>
             <typeparam name="TElement">The type of each element.</typeparam>
         </member>
-        <member name="P:System.Linq.IGroupingDataProvider`3.Elements">
+        <member name="P:System.Linq.IMyGrouping`3.Elements">
             <summary>
             Indicates the backing elements.
             </summary>
         </member>
-        <member name="P:System.Linq.IGroupingDataProvider`3.System#Collections#Generic#IReadOnlyCollection{TElement}#Count">
+        <member name="P:System.Linq.IMyGrouping`3.System#Collections#Generic#IReadOnlyCollection{TElement}#Count">
             <inheritdoc/>
         </member>
-        <member name="P:System.Linq.IGroupingDataProvider`3.Item(System.Int32)">
+        <member name="P:System.Linq.IMyGrouping`3.Item(System.Int32)">
             <summary>
             Gets the element at the specified index.
             </summary>
             <param name="index">The desired index.</param>
             <returns>The reference to the element at the specified index.</returns>
         </member>
-        <member name="M:System.Linq.IGroupingDataProvider`3.GetPinnableReference">
+        <member name="M:System.Linq.IMyGrouping`3.GetPinnableReference">
             <inheritdoc cref="M:System.ReadOnlySpan`1.GetPinnableReference"/>
         </member>
-        <member name="M:System.Linq.IGroupingDataProvider`3.GetEnumerator">
+        <member name="M:System.Linq.IMyGrouping`3.GetEnumerator">
             <summary>
             Creates an enumerator that can enumerate each element in the source collection.
             </summary>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.Linq.IGroupingDataProvider`3.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:System.Linq.IMyGrouping`3.System#Collections#IEnumerable#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:System.Linq.IGroupingDataProvider`3.System#Collections#Generic#IEnumerable{TElement}#GetEnumerator">
+        <member name="M:System.Linq.IMyGrouping`3.System#Collections#Generic#IEnumerable{TElement}#GetEnumerator">
             <inheritdoc/>
         </member>
         <member name="T:System.Linq.Iterators.ArrayAppendIterator`1">
@@ -3760,6 +3784,24 @@
         <member name="M:System.Linq.Providers.IJoinMethod`2.GroupJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,System.Collections.Generic.IEnumerable{``0},``2},System.Collections.Generic.IEqualityComparer{``1})">
             <inheritdoc cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3},System.Collections.Generic.IEqualityComparer{``2})"/>
         </member>
+        <member name="T:System.Linq.Providers.ILeftJoinMethod`2">
+            <summary>
+            Represents a type that supports method group <c>LeftJoin</c>.
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.Providers.ILeftJoinMethod`2.LeftJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})">
+            <summary>
+            Performs a left outer join with the other sequence.
+            </summary>
+            <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.Join``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.Providers.ILeftJoinMethod`2.LeftJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Performs a left outer join with the other sequence.
+            </summary>
+            <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.Join``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
+        </member>
         <member name="T:System.Linq.Providers.ILinqMethod`2">
             <summary>
             Represents a type that supports a certain method group defined in <see cref="T:System.Linq.Enumerable" />, well-known as LINQ methods.
@@ -3776,6 +3818,11 @@
 	</self-type-constraint></typeparam>
             <typeparam name="TSource">The type of each element that the type supports for iteration.</typeparam>
             <seealso cref="T:System.Linq.Enumerable" />
+        </member>
+        <member name="P:System.Linq.Providers.ILinqMethod`2.IsExtensionMethod">
+            <summary>
+            Indicates whether the method group supported is extension method.
+            </summary>
         </member>
         <member name="P:System.Linq.Providers.ILinqMethod`2.IsValueLazilyCalculated">
             <summary>
@@ -3805,10 +3852,11 @@
             </item>
             <item>
             <term>
-            <see langword="from"/> element1 <see langword="in"/> collection1<br/>
+            <see langword="from"/> element1 <see langword="in"/> collection1
             <see langword="from"/> element2 <see langword="in"/> collection2
             </term>
             <description>
+            <br/>
             <see cref="M:System.Linq.Enumerable.SelectMany``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``1}})"/>
             </description>
             </item>
@@ -3877,6 +3925,24 @@
             <description>
             <br/>
             <see cref="M:System.Linq.Enumerable.GroupJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``3})"/>
+            </description>
+            </item>
+            <item>
+            <term>
+            <see langword="left join"/> variable2 <see langword="in"/> collection2
+            <see langword="on"/> variable1 <see langword="equals"/> variable2
+            </term>
+            <description>
+            <c>LeftJoin</c> (will be added in future version of .NET library)
+            </description>
+            </item>
+            <item>
+            <term>
+            <see langword="right join"/> variable2 <see langword="in"/> collection2
+            <see langword="on"/> variable1 <see langword="equals"/> variable2
+            </term>
+            <description>
+            <c>RightJoin</c> (will be added in future version of .NET library)
             </description>
             </item>
             </list>
@@ -3956,6 +4022,36 @@
         </member>
         <member name="P:System.Linq.Providers.IQueryExpressionMethod`2.System#Linq#Providers#ILinqMethod{TSelf,TSource}#SupportsQuerySyntax">
             <inheritdoc/>
+        </member>
+        <member name="T:System.Linq.Providers.IRangeMethod`2">
+            <summary>
+            Represents a type that supports method group <c>Range</c>.
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Linq.Providers.IRangeMethod`2.System#Linq#Providers#ILinqMethod{TSelf,TSource}#IsExtensionMethod">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.Providers.IRangeMethod`2.Range(System.Int32,System.Int32)">
+            <inheritdoc cref="M:System.Linq.Enumerable.Range(System.Int32,System.Int32)"/>
+        </member>
+        <member name="T:System.Linq.Providers.IRightJoinMethod`2">
+            <summary>
+            Represents a type that supports method group <c>RightJoin</c>.
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.Providers.IRightJoinMethod`2.RightJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})">
+            <summary>
+            Performs a right outer join with the other sequence.
+            </summary>
+            <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.Join``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.Providers.IRightJoinMethod`2.RightJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Performs a right outer join with the other sequence.
+            </summary>
+            <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.Join``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
         </member>
         <member name="T:System.Linq.Providers.ISelectManyMethod`2">
             <summary>
@@ -4215,11 +4311,23 @@
         <member name="M:System.Linq.SpanEnumerable.GroupJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1[],``3},System.Collections.Generic.IEqualityComparer{``2})">
             <inheritdoc cref="M:System.Linq.Providers.IJoinMethod`2.GroupJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,System.Collections.Generic.IEnumerable{``0},``2},System.Collections.Generic.IEqualityComparer{``1})"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.LeftJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
+            <inheritdoc cref="M:System.Linq.Providers.ILeftJoinMethod`2.LeftJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.LeftJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
+            <inheritdoc cref="M:System.Linq.Providers.ILeftJoinMethod`2.LeftJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.OrderBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Providers.IOrderByMethod`2.OrderBy``1(System.Func{`1,``0})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.OrderByDescending``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Providers.IOrderByMethod`2.OrderByDescending``1(System.Func{`1,``0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.RightJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
+            <inheritdoc cref="M:System.Linq.Providers.IRightJoinMethod`2.RightJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.RightJoin``4(System.ReadOnlySpan{``0},System.ReadOnlySpan{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3},System.Collections.Generic.IEqualityComparer{``2})">
+            <inheritdoc cref="M:System.Linq.Providers.IRightJoinMethod`2.RightJoin``3(System.Collections.Generic.IEnumerable{``0},System.Func{`1,``1},System.Func{``0,``1},System.Func{`1,``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Providers.ISelectMethod`2.Select``1(System.Func{`1,``0})"/>
@@ -4302,13 +4410,7 @@
             <returns>The result sequence [0, 1, 2, 3, ..].</returns>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Range(System.Int32,System.Int32)">
-            <summary>
-            Create a range of variables that starts with <paramref name="start"/>,
-            incrementing values and putting them into the other positions.
-            </summary>
-            <param name="start">The start value.</param>
-            <param name="count">The number of elements created.</param>
-            <returns>The result sequence.</returns>
+            <inheritdoc cref="M:System.Linq.Providers.IRangeMethod`2.Range(System.Int32,System.Int32)"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Range``1(``0,System.Int32,System.Func{``0,``0})">
             <summary>
@@ -4344,6 +4446,18 @@
         </member>
         <member name="M:System.Linq.SpanEnumerable.Take``1(System.ReadOnlySpan{``0},System.Range)">
             <inheritdoc cref="M:System.Linq.Providers.ITakeMethod`2.Take(System.Range)"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.ToLookup``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ToLookup``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.ToLookup``2(System.ReadOnlySpan{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ToLookup``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.ToLookup``3(System.ReadOnlySpan{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ToLookup``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.ToLookup``3(System.ReadOnlySpan{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})">
+            <inheritdoc cref="M:System.Linq.Enumerable.ToLookup``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``1})"/>
         </member>
         <member name="T:System.Linq.__ImplementedTypes`1">
             <summary>
@@ -4385,7 +4499,7 @@
             </summary>
             <seealso cref="F:System.Linq.SpanGrouping`2._elements"/>
         </member>
-        <member name="P:System.Linq.SpanGrouping`2.System#Linq#IGroupingDataProvider{System#Linq#SpanGrouping{TSource,TKey},TKey,TSource}#Elements">
+        <member name="P:System.Linq.SpanGrouping`2.System#Linq#IMyGrouping{System#Linq#SpanGrouping{TSource,TKey},TKey,TSource}#Elements">
             <inheritdoc/>
         </member>
         <member name="P:System.Linq.SpanGrouping`2.Item(System.Int32)">
