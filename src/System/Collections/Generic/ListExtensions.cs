@@ -125,6 +125,15 @@ public static class ListExtensions
 	public static ReadOnlyMemory<T> AsMemory<T>(this List<T> @this) => new(Entry<T>.GetItems(@this), 0, @this.Count);
 
 	/// <summary>
+	/// Returns the internal array of <see cref="List{T}"/>.
+	/// </summary>
+	/// <typeparam name="T">The type of each element.</typeparam>
+	/// <param name="this">The list.</param>
+	/// <returns>The internal array.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static T[] GetInternalArray<T>(this List<T> @this) => Entry<T>.GetItems(@this);
+
+	/// <summary>
 	/// Add an item and resize the <see cref="List{T}"/> of <typeparamref name="T"/>.
 	/// </summary>
 	/// <typeparam name="T">The type of the target value to be added.</typeparam>

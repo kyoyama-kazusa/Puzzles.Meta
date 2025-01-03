@@ -76,4 +76,55 @@ public static class ValueTupleExtensions
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ComplexValueTupleEnumerator<T, TRest> GetEnumerator<T, TRest>(this ref readonly ValueTuple<T, T, T, T, T, T, T, TRest> @this)
 		where TRest : struct => new(@this);
+
+	/// <summary>
+	/// Casts the current instance into a <see cref="ReadOnlySpan{T}"/>.
+	/// </summary>
+	/// <typeparam name="T">The type of each element.</typeparam>
+	/// <param name="this">The instance.</param>
+	/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T) @this) => (T[])[@this.Item1, @this.Item2];
+
+	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T) @this) => (T[])[@this.Item1, @this.Item2, @this.Item3];
+
+	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T, T) @this)
+		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4];
+
+	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T, T, T) @this)
+		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5];
+
+	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T, T, T, T) @this)
+		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6];
+
+	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T, T, T, T, T) @this)
+		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6, @this.Item7];
+
+	/// <summary>
+	/// Casts the current instance into a <see cref="ReadOnlySpan{T}"/>.
+	/// </summary>
+	/// <typeparam name="T">The type of each element.</typeparam>
+	/// <typeparam name="TRest">The type of rest elements.</typeparam>
+	/// <param name="this">The instance.</param>
+	/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
+	public static ReadOnlySpan<T> AsSpan<T, TRest>(this scoped ref readonly ValueTuple<T, T, T, T, T, T, T, TRest> @this)
+		where TRest : struct
+	{
+		var result = new List<T>();
+		foreach (ref readonly var element in @this)
+		{
+			result.AddRef(in element);
+		}
+		return result.AsSpan();
+	}
 }

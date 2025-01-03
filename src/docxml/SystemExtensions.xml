@@ -654,6 +654,14 @@
             <param name="this">The list to create.</param>
             <returns>The created <see cref="T:System.ReadOnlyMemory`1"/> instance.</returns>
         </member>
+        <member name="M:System.Collections.Generic.ListExtensions.GetInternalArray``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Returns the internal array of <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The list.</param>
+            <returns>The internal array.</returns>
+        </member>
         <member name="M:System.Collections.Generic.ListExtensions.AddWithResize``1(System.Collections.Generic.List{``0},``0@)">
             <summary>
             Add an item and resize the <see cref="T:System.Collections.Generic.List`1" /> of <typeparamref name="T" />.
@@ -6918,6 +6926,38 @@
             <typeparam name="TRest">The type that encapsulates a list of rest elements.</typeparam>
             <param name="this">The instance to be iterated.</param>
             <returns>An enumerator instance.</returns>
+        </member>
+        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)">
+            <summary>
+            Casts the current instance into a <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The instance.</param>
+            <returns>The <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
+        </member>
+        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0}@)">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0,``0}@)">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0,``0,``0}@)">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0,``0,``0,``0}@)">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0}@)">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="M:System.ValueTupleExtensions.AsSpan``2(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0,``1}@)">
+            <summary>
+            Casts the current instance into a <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <typeparam name="TRest">The type of rest elements.</typeparam>
+            <param name="this">The instance.</param>
+            <returns>The <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
         </member>
         <member name="T:System.VariantColor">
             <summary>
