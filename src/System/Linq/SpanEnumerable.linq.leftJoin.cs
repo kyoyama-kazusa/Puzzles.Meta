@@ -27,13 +27,11 @@ public partial class SpanEnumerable
 
 		var innerLookup = inner.ToLookup(innerKeySelector, comparer);
 		var result = new List<TResult?>();
-		foreach (var outerElement in outer)
+		foreach (ref readonly var outerElement in outer)
 		{
-			var key = outerKeySelector(outerElement);
-			var innerElements = innerLookup[key];
-			if (innerElements.Any())
+			if (innerLookup[outerKeySelector(outerElement)] is var innerElements and not [])
 			{
-				foreach (var innerElement in innerElements)
+				foreach (ref readonly var innerElement in innerElements)
 				{
 					result.AddRef(resultSelector(outerElement, innerElement));
 				}
