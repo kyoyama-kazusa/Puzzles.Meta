@@ -4581,152 +4581,6 @@
         <member name="M:System.Linq.SpanGrouping`2.op_Inequality(System.Linq.SpanGrouping{`0,`1},System.Linq.SpanGrouping{`0,`1})">
             <inheritdoc cref="M:System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)"/>
         </member>
-        <member name="T:System.Linq.SpanLookup`2">
-            <summary>
-            Represents an instance that supports looking up on elements of type <typeparamref name="TElement"/>,
-            grouped by key of type <typeparamref name="TKey"/>.
-            </summary>
-            <param name="groups">Indicates the groups to be initialized.</param>
-            <typeparam name="TKey">The type of key.</typeparam>
-            <typeparam name="TElement">The type of each element.</typeparam>
-            <remarks>
-            Please note, this type only supports for <see cref="T:System.Linq.Providers.ISelectMethod`2"/>,
-            <see cref="T:System.Linq.Providers.ISelectManyMethod`2"/> and <see cref="T:System.Linq.Providers.IWhereMethod`2"/>,
-            while other LINQ methods are not supported.
-            If you want to use advanced ones, cast the object to a <see cref="T:System.ReadOnlySpan`1"/> by calling
-            method <see cref="M:System.Linq.SpanLookup`2.AsSpan"/> and try them up then.
-            </remarks>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.#ctor(System.Collections.Generic.Dictionary{`0,`1[]})">
-            <summary>
-            Represents an instance that supports looking up on elements of type <typeparamref name="TElement"/>,
-            grouped by key of type <typeparamref name="TKey"/>.
-            </summary>
-            <param name="groups">Indicates the groups to be initialized.</param>
-            <typeparam name="TKey">The type of key.</typeparam>
-            <typeparam name="TElement">The type of each element.</typeparam>
-            <remarks>
-            Please note, this type only supports for <see cref="T:System.Linq.Providers.ISelectMethod`2"/>,
-            <see cref="T:System.Linq.Providers.ISelectManyMethod`2"/> and <see cref="T:System.Linq.Providers.IWhereMethod`2"/>,
-            while other LINQ methods are not supported.
-            If you want to use advanced ones, cast the object to a <see cref="T:System.ReadOnlySpan`1"/> by calling
-            method <see cref="M:System.Linq.SpanLookup`2.AsSpan"/> and try them up then.
-            </remarks>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.Count">
-            <inheritdoc/>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.Keys">
-            <inheritdoc cref="P:System.Collections.Generic.IReadOnlyDictionary`2.Keys"/>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.Values">
-            <inheritdoc cref="P:System.Collections.Generic.IReadOnlyDictionary`2.Values"/>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.System#Collections#Generic#IReadOnlyDictionary{TKey,TElement[]}#Keys">
-            <inheritdoc/>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.System#Collections#Generic#IReadOnlyDictionary{TKey,TElement[]}#Values">
-            <inheritdoc/>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.Item(`0)">
-            <inheritdoc cref="P:System.Linq.ILookup`2.Item(`0)"/>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.System#Collections#Generic#IReadOnlyDictionary{TKey,TElement[]}#Item(`0)">
-            <inheritdoc/>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.System#Linq#ILookup{TKey,TElement}#Item(`0)">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.ContainsKey(`0)">
-            <inheritdoc cref="M:System.Linq.ILookup`2.Contains(`0)"/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.AsSpan">
-            <summary>
-            Converts the current instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Linq.SpanGrouping`2"/> instance.
-            </summary>
-            <returns>An instance of type <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Linq.SpanGrouping`2"/>.</returns>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.AsDictionary">
-            <summary>
-            Converts the current instance into a <see cref="T:System.Collections.Generic.Dictionary`2"/> instance.
-            </summary>
-            <returns>The converted <see cref="T:System.Collections.Generic.Dictionary`2"/> instance.</returns>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.System#Linq#ILookup{TKey,TElement}#Contains(`0)">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.TryGetValue(`0,`1[]@)">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.Select``1(System.Func{System.Linq.SpanGrouping{`1,`0},``0})">
-            <inheritdoc cref="M:System.Linq.Providers.ISelectMethod`2.Select``1(System.Func{`1,``0})"/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.SelectMany``1(System.Func{System.Linq.SpanGrouping{`1,`0},System.ReadOnlySpan{``0}})">
-            <inheritdoc cref="M:System.Linq.Providers.ISelectManyMethod`2.SelectMany``1(System.Func{`1,System.Collections.Generic.IEnumerable{``0}})"/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.SelectMany``2(System.Func{System.Linq.SpanGrouping{`1,`0},System.ReadOnlySpan{``0}},System.Func{System.Linq.SpanGrouping{`1,`0},``0,``1})">
-            <inheritdoc cref="M:System.Linq.Providers.ISelectManyMethod`2.SelectMany``2(System.Func{`1,System.Collections.Generic.IEnumerable{``0}},System.Func{`1,``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.Where(System.Func{System.Linq.SpanGrouping{`1,`0},System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Providers.IWhereMethod`2.Where(System.Func{`1,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.System#Collections#IEnumerable#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.System#Collections#Generic#IEnumerable{System#Linq#IGrouping{TKey,TElement}}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.System#Collections#Generic#IEnumerable{System#Linq#SpanGrouping{TElement,TKey}}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{TKey,TElement[]}}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="T:System.Linq.SpanLookup`2.Enumerator">
-            <summary>
-            Represents an enumerator type that supports iterating on each element of <see cref="T:System.Linq.SpanGrouping`2"/>.
-            </summary>
-            <param name="_groups">The groups.</param>
-            <seealso cref="T:System.Linq.SpanGrouping`2"/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.Enumerator.#ctor(System.Collections.Generic.Dictionary{`0,`1[]})">
-            <summary>
-            Represents an enumerator type that supports iterating on each element of <see cref="T:System.Linq.SpanGrouping`2"/>.
-            </summary>
-            <param name="_groups">The groups.</param>
-            <seealso cref="T:System.Linq.SpanGrouping`2"/>
-        </member>
-        <member name="F:System.Linq.SpanLookup`2.Enumerator._enumerator">
-            <summary>
-            Indicates the backing enumerator.
-            </summary>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.Enumerator.Current">
-            <inheritdoc/>
-        </member>
-        <member name="P:System.Linq.SpanLookup`2.Enumerator.System#Collections#IEnumerator#Current">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.Enumerator.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.Enumerator.MoveNext">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.Enumerator.System#IDisposable#Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.SpanLookup`2.Enumerator.System#Collections#IEnumerator#Reset">
-            <inheritdoc/>
-        </member>
-        <member name="F:System.Linq.SpanLookup`2._groups">
-            <summary>
-            The generated field declaration for parameter <c>groups</c>.
-            </summary>
-        </member>
         <member name="T:System.Linq.SpanOrderedEnumerable`1">
             <summary>
             Represents an enumerable instance that is based on a <see cref="T:System.ReadOnlySpan`1" />.
@@ -5011,6 +4865,152 @@
         </member>
         <member name="M:System.Linq.TupleEnumerable.Select``2(System.Runtime.CompilerServices.ITuple,System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="T:System.Linq.ValueLookup`2">
+            <summary>
+            Represents an instance that supports looking up on elements of type <typeparamref name="TElement"/>,
+            grouped by key of type <typeparamref name="TKey"/>.
+            </summary>
+            <param name="groups">Indicates the groups to be initialized.</param>
+            <typeparam name="TKey">The type of key.</typeparam>
+            <typeparam name="TElement">The type of each element.</typeparam>
+            <remarks>
+            Please note, this type only supports for <see cref="T:System.Linq.Providers.ISelectMethod`2"/>,
+            <see cref="T:System.Linq.Providers.ISelectManyMethod`2"/> and <see cref="T:System.Linq.Providers.IWhereMethod`2"/>,
+            while other LINQ methods are not supported.
+            If you want to use advanced ones, cast the object to a <see cref="T:System.ReadOnlySpan`1"/> by calling
+            method <see cref="M:System.Linq.ValueLookup`2.AsSpan"/> and try them up then.
+            </remarks>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.#ctor(System.Collections.Generic.Dictionary{`0,`1[]})">
+            <summary>
+            Represents an instance that supports looking up on elements of type <typeparamref name="TElement"/>,
+            grouped by key of type <typeparamref name="TKey"/>.
+            </summary>
+            <param name="groups">Indicates the groups to be initialized.</param>
+            <typeparam name="TKey">The type of key.</typeparam>
+            <typeparam name="TElement">The type of each element.</typeparam>
+            <remarks>
+            Please note, this type only supports for <see cref="T:System.Linq.Providers.ISelectMethod`2"/>,
+            <see cref="T:System.Linq.Providers.ISelectManyMethod`2"/> and <see cref="T:System.Linq.Providers.IWhereMethod`2"/>,
+            while other LINQ methods are not supported.
+            If you want to use advanced ones, cast the object to a <see cref="T:System.ReadOnlySpan`1"/> by calling
+            method <see cref="M:System.Linq.ValueLookup`2.AsSpan"/> and try them up then.
+            </remarks>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.Count">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.Keys">
+            <inheritdoc cref="P:System.Collections.Generic.IReadOnlyDictionary`2.Keys"/>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.Values">
+            <inheritdoc cref="P:System.Collections.Generic.IReadOnlyDictionary`2.Values"/>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.System#Collections#Generic#IReadOnlyDictionary{TKey,TElement[]}#Keys">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.System#Collections#Generic#IReadOnlyDictionary{TKey,TElement[]}#Values">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.Item(`0)">
+            <inheritdoc cref="P:System.Linq.ILookup`2.Item(`0)"/>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.System#Collections#Generic#IReadOnlyDictionary{TKey,TElement[]}#Item(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.System#Linq#ILookup{TKey,TElement}#Item(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.ContainsKey(`0)">
+            <inheritdoc cref="M:System.Linq.ILookup`2.Contains(`0)"/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.AsSpan">
+            <summary>
+            Converts the current instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Linq.SpanGrouping`2"/> instance.
+            </summary>
+            <returns>An instance of type <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Linq.SpanGrouping`2"/>.</returns>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.AsDictionary">
+            <summary>
+            Converts the current instance into a <see cref="T:System.Collections.Generic.Dictionary`2"/> instance.
+            </summary>
+            <returns>The converted <see cref="T:System.Collections.Generic.Dictionary`2"/> instance.</returns>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.System#Linq#ILookup{TKey,TElement}#Contains(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.TryGetValue(`0,`1[]@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.Select``1(System.Func{System.Linq.SpanGrouping{`1,`0},``0})">
+            <inheritdoc cref="M:System.Linq.Providers.ISelectMethod`2.Select``1(System.Func{`1,``0})"/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.SelectMany``1(System.Func{System.Linq.SpanGrouping{`1,`0},System.ReadOnlySpan{``0}})">
+            <inheritdoc cref="M:System.Linq.Providers.ISelectManyMethod`2.SelectMany``1(System.Func{`1,System.Collections.Generic.IEnumerable{``0}})"/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.SelectMany``2(System.Func{System.Linq.SpanGrouping{`1,`0},System.ReadOnlySpan{``0}},System.Func{System.Linq.SpanGrouping{`1,`0},``0,``1})">
+            <inheritdoc cref="M:System.Linq.Providers.ISelectManyMethod`2.SelectMany``2(System.Func{`1,System.Collections.Generic.IEnumerable{``0}},System.Func{`1,``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.Where(System.Func{System.Linq.SpanGrouping{`1,`0},System.Boolean})">
+            <inheritdoc cref="M:System.Linq.Providers.IWhereMethod`2.Where(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.System#Collections#Generic#IEnumerable{System#Linq#IGrouping{TKey,TElement}}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.System#Collections#Generic#IEnumerable{System#Linq#SpanGrouping{TElement,TKey}}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{TKey,TElement[]}}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:System.Linq.ValueLookup`2.Enumerator">
+            <summary>
+            Represents an enumerator type that supports iterating on each element of <see cref="T:System.Linq.SpanGrouping`2"/>.
+            </summary>
+            <param name="_groups">The groups.</param>
+            <seealso cref="T:System.Linq.SpanGrouping`2"/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.Enumerator.#ctor(System.Collections.Generic.Dictionary{`0,`1[]})">
+            <summary>
+            Represents an enumerator type that supports iterating on each element of <see cref="T:System.Linq.SpanGrouping`2"/>.
+            </summary>
+            <param name="_groups">The groups.</param>
+            <seealso cref="T:System.Linq.SpanGrouping`2"/>
+        </member>
+        <member name="F:System.Linq.ValueLookup`2.Enumerator._enumerator">
+            <summary>
+            Indicates the backing enumerator.
+            </summary>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.Enumerator.Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Linq.ValueLookup`2.Enumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.Enumerator.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.Enumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.Enumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.ValueLookup`2.Enumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="F:System.Linq.ValueLookup`2._groups">
+            <summary>
+            The generated field declaration for parameter <c>groups</c>.
+            </summary>
         </member>
         <member name="T:System.Text.RegularExpressions.MatchCollectionEnumerable">
             <summary>

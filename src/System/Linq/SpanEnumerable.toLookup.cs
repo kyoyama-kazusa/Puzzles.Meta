@@ -3,12 +3,12 @@ namespace System.Linq;
 public partial class SpanEnumerable
 {
 	/// <inheritdoc cref="Enumerable.ToLookup{TSource, TKey}(IEnumerable{TSource}, Func{TSource, TKey})"/>
-	public static SpanLookup<TKey, TSource> ToLookup<TSource, TKey>(this ReadOnlySpan<TSource> @this, Func<TSource, TKey> keySelector)
+	public static ValueLookup<TKey, TSource> ToLookup<TSource, TKey>(this ReadOnlySpan<TSource> @this, Func<TSource, TKey> keySelector)
 		where TKey : notnull
 		=> @this.ToLookup(keySelector, @delegate.Self, null);
 
 	/// <inheritdoc cref="Enumerable.ToLookup{TSource, TKey}(IEnumerable{TSource}, Func{TSource, TKey}, IEqualityComparer{TKey}?)"/>
-	public static SpanLookup<TKey, TSource> ToLookup<TSource, TKey>(
+	public static ValueLookup<TKey, TSource> ToLookup<TSource, TKey>(
 		this ReadOnlySpan<TSource> @this,
 		Func<TSource, TKey> keySelector,
 		IEqualityComparer<TKey>? comparer
@@ -17,7 +17,7 @@ public partial class SpanEnumerable
 		=> @this.ToLookup(keySelector, @delegate.Self, comparer);
 
 	/// <inheritdoc cref="Enumerable.ToLookup{TSource, TKey, TElement}(IEnumerable{TSource}, Func{TSource, TKey}, Func{TSource, TElement})"/>
-	public static SpanLookup<TKey, TElement> ToLookup<TSource, TKey, TElement>(
+	public static ValueLookup<TKey, TElement> ToLookup<TSource, TKey, TElement>(
 		this ReadOnlySpan<TSource> @this,
 		Func<TSource, TKey> keySelector,
 		Func<TSource, TElement> elementSelector
@@ -26,7 +26,7 @@ public partial class SpanEnumerable
 		=> @this.ToLookup(keySelector, elementSelector, null);
 
 	/// <inheritdoc cref="Enumerable.ToLookup{TSource, TKey, TElement}(IEnumerable{TSource}, Func{TSource, TKey}, Func{TSource, TElement}, IEqualityComparer{TKey}?)"/>
-	public static SpanLookup<TKey, TElement> ToLookup<TSource, TKey, TElement>(
+	public static ValueLookup<TKey, TElement> ToLookup<TSource, TKey, TElement>(
 		this ReadOnlySpan<TSource> @this,
 		Func<TSource, TKey> keySelector,
 		Func<TSource, TElement> elementSelector,

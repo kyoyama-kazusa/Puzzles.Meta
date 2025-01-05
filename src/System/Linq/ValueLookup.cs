@@ -14,13 +14,13 @@ namespace System.Linq;
 /// If you want to use advanced ones, cast the object to a <see cref="ReadOnlySpan{T}"/> by calling
 /// method <see cref="AsSpan"/> and try them up then.
 /// </remarks>
-public readonly partial struct SpanLookup<TKey, TElement>([Field] Dictionary<TKey, TElement[]> groups) :
+public readonly partial struct ValueLookup<TKey, TElement>([Field] Dictionary<TKey, TElement[]> groups) :
 	IEnumerable<SpanGrouping<TElement, TKey>>,
 	ILookup<TKey, TElement>,
 	IReadOnlyDictionary<TKey, TElement[]>,
-	ISelectMethod<SpanLookup<TKey, TElement>, SpanGrouping<TElement, TKey>>,
-	ISelectManyMethod<SpanLookup<TKey, TElement>, SpanGrouping<TElement, TKey>>,
-	IWhereMethod<SpanLookup<TKey, TElement>, SpanGrouping<TElement, TKey>>
+	ISelectMethod<ValueLookup<TKey, TElement>, SpanGrouping<TElement, TKey>>,
+	ISelectManyMethod<ValueLookup<TKey, TElement>, SpanGrouping<TElement, TKey>>,
+	IWhereMethod<ValueLookup<TKey, TElement>, SpanGrouping<TElement, TKey>>
 	where TKey : notnull
 {
 	/// <inheritdoc/>

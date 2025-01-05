@@ -29,9 +29,7 @@ public partial class ArrayEnumerable
 		var result = new List<TResult?>();
 		foreach (var innerElement in inner)
 		{
-			var key = innerKeySelector(innerElement);
-			var outerElements = outerLookup[key];
-			if (outerElements.Any())
+			if (outerLookup[innerKeySelector(innerElement)] is var outerElements and not [])
 			{
 				foreach (var outerElement in outerElements)
 				{

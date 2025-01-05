@@ -260,7 +260,10 @@ public readonly ref partial struct SpanOrderedEnumerable<T>(
 
 	/// <inheritdoc cref="Enumerable.GroupBy{TSource, TKey, TElement, TResult}(IEnumerable{TSource}, Func{TSource, TKey}, Func{TSource, TElement}, Func{TKey, IEnumerable{TElement}, TResult}, IEqualityComparer{TKey}?)"/>
 	IEnumerable<TResult> IGroupByMethod<SpanOrderedEnumerable<T>, T>.GroupBy<TKey, TElement, TResult>(Func<T, TKey> keySelector, Func<T, TElement> elementSelector, Func<TKey, IEnumerable<TElement>, TResult> resultSelector, IEqualityComparer<TKey>? comparer)
-		=> ToArray().ToLookup(keySelector, elementSelector, comparer).Select(p => resultSelector(p.Key, p));
+		=> ToArray()
+			.ToLookup(keySelector, elementSelector, comparer)
+			.Select(p => resultSelector(p.Key, p))
+			.ToArray();
 
 	/// <inheritdoc/>
 	IEnumerable<TResult> ISelectMethod<SpanOrderedEnumerable<T>, T>.Select<TResult>(Func<T, TResult> selector) => Select(selector).ToArray();

@@ -1,6 +1,6 @@
 namespace System.Linq;
 
-public partial struct SpanLookup<TKey, TElement>
+public partial struct ValueLookup<TKey, TElement>
 {
 	/// <summary>
 	/// Represents an enumerator type that supports iterating on each element of <see cref="SpanGrouping{TSource, TKey}"/>.
