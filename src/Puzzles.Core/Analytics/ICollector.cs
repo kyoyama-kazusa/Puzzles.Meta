@@ -4,10 +4,10 @@ namespace Puzzles.Analytics;
 /// Represents a collector instance.
 /// </summary>
 /// <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
-/// <typeparam name="TMatch">The type of match.</typeparam>
-public interface ICollector<TBoard, TMatch>
+/// <typeparam name="TStep">The type of match.</typeparam>
+public interface ICollector<TBoard, TStep>
 	where TBoard : IBoard, IDataStructure, allows ref struct
-	where TMatch : IEquatable<TMatch>, IEqualityOperators<TMatch, TMatch, bool>
+	where TStep : IStep<TStep>
 {
 	/// <summary>
 	/// Try to find all possible steps appeared in the board; if no steps found, an empty array will be returned.
@@ -15,5 +15,5 @@ public interface ICollector<TBoard, TMatch>
 	/// <param name="board">The board.</param>
 	/// <param name="cancellationToken">The cancellation token that can cancel the current task.</param>
 	/// <returns>All matched items.</returns>
-	public abstract ReadOnlySpan<TMatch> Collect(TBoard board, CancellationToken cancellationToken = default);
+	public abstract ReadOnlySpan<TStep> Collect(TBoard board, CancellationToken cancellationToken = default);
 }

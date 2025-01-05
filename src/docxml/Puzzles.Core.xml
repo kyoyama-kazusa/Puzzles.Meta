@@ -118,7 +118,7 @@
             Represents a collector instance.
             </summary>
             <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
-            <typeparam name="TMatch">The type of match.</typeparam>
+            <typeparam name="TStep">The type of match.</typeparam>
         </member>
         <member name="M:Puzzles.Analytics.ICollector`2.Collect(`0,System.Threading.CancellationToken)">
             <summary>
