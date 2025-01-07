@@ -831,18 +831,6 @@ internal static class TypeImplHandler
 			: $"<{string.Join(", ", from typeParameter in typeParameters select typeParameter.Name)}>";
 		var typeNameString = $"{typeName}{typeArgumentsString}";
 		var fullTypeNameString = $"global::{namespaceString}.{typeNameString}";
-		var attributesMarked = behavior switch
-		{
-			ComparisonOperatorsBehavior.WithScopedInButDeprecated or ComparisonOperatorsBehavior.DefaultButDeprecated
-				=> """
-				[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
-						[global::System.ObsoleteAttribute("This operator is not recommended to be defined in a record struct, because it'll be auto-generated a pair of equality operators by compiler, without any modifiers modified two parameters.", false)]
-				""",
-			_
-				=> """
-				[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
-				"""
-		};
 		var inKeyword = isLargeStructure ? "in " : string.Empty;
 		var (i1, i2, i3, i4) = (
 			$"left.CompareTo({inKeyword}right) > 0",
@@ -889,28 +877,28 @@ internal static class TypeImplHandler
 			ComparisonOperatorsBehavior.Default or ComparisonOperatorsBehavior.DefaultButDeprecated
 				=> $$"""
 				/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_GreaterThan(TSelf, TOther)"/>
-						{{attributesMarked}}
+						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 						public static bool operator >({{fullTypeNameString}} left, {{fullTypeNameString}} right)
 							=> {{i1}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_LessThan(TSelf, TOther)"/>
-						{{attributesMarked}}
+						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 						public static bool operator <({{fullTypeNameString}} left, {{fullTypeNameString}} right)
 							=> {{i2}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_GreaterThanOrEqual(TSelf, TOther)"/>
-						{{attributesMarked}}
+						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 						public static bool operator >=({{fullTypeNameString}} left, {{fullTypeNameString}} right)
 							=> {{i3}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_LessThanOrEqual(TSelf, TOther)"/>
-						{{attributesMarked}}
+						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 						public static bool operator <=({{fullTypeNameString}} left, {{fullTypeNameString}} right)
@@ -919,28 +907,28 @@ internal static class TypeImplHandler
 			ComparisonOperatorsBehavior.WithScopedIn or ComparisonOperatorsBehavior.WithScopedInButDeprecated
 				=> $$"""
 				/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_GreaterThan(TSelf, TOther)"/>
-						{{attributesMarked}}
+						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 						public static bool operator >(in {{fullTypeNameString}} left, in {{fullTypeNameString}} right)
 							=> {{i1}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_LessThan(TSelf, TOther)"/>
-						{{attributesMarked}}
+						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 						public static bool operator <(in {{fullTypeNameString}} left, in {{fullTypeNameString}} right)
 							=> {{i2}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_GreaterThanOrEqual(TSelf, TOther)"/>
-						{{attributesMarked}}
+						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 						public static bool operator >=(in {{fullTypeNameString}} left, in {{fullTypeNameString}} right)
 							=> {{i3}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_LessThanOrEqual(TSelf, TOther)"/>
-						{{attributesMarked}}
+						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 						public static bool operator <=(in {{fullTypeNameString}} left, in {{fullTypeNameString}} right)
