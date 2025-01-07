@@ -2,6 +2,26 @@ namespace System.Linq;
 
 public partial class SpanEnumerable
 {
+	/// <summary>
+	/// Returns <paramref name="this"/>[0].
+	/// </summary>
+	/// <typeparam name="TSource">The type of each element.</typeparam>
+	/// <param name="this">The source elements.</param>
+	/// <returns>The element.</returns>
+	[Obsolete("Use 'span[0]' instead.", true)]
+	public static TSource First<TSource>(this ReadOnlySpan<TSource> @this) => @this[0];
+
+	/// <summary>
+	/// Returns first element of <paramref name="this"/> or <see langword="default"/>(<typeparamref name="TSource"/>)
+	/// if the list is empty.
+	/// </summary>
+	/// <typeparam name="TSource">The type of each element.</typeparam>
+	/// <param name="this">The sourc elementse.</param>
+	/// <returns>The element.</returns>
+	[Obsolete("Use 'span is [var first, ..] ? first : default' instead.", true)]
+	public static TSource? FirstOrDefault<TSource>(this ReadOnlySpan<TSource> @this)
+		=> @this is [var first, ..] ? first : default;
+
 	/// <inheritdoc cref="IFirstLastMethod{TSelf, TSource}.First(Func{TSource, bool})"/>
 	public static TSource First<TSource>(this ReadOnlySpan<TSource> @this, Func<TSource, bool> predicate)
 	{

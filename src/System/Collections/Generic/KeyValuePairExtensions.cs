@@ -7,6 +7,26 @@ namespace System.Collections.Generic;
 public static class KeyValuePairExtensions
 {
 	/// <summary>
+	/// Casts the current instance into a new type of <see cref="KeyValuePair{TKey, TValue}"/>
+	/// with type projection:
+	/// <list type="bullet">
+	/// <item><typeparamref name="TKey"/> -> <typeparamref name="TKeyResult"/></item>
+	/// <item><typeparamref name="TValue"/> -> <typeparamref name="TValueResult"/></item>
+	/// </list>
+	/// </summary>
+	/// <typeparam name="TKey">The type of key.</typeparam>
+	/// <typeparam name="TValue">The type of value.</typeparam>
+	/// <typeparam name="TKeyResult">The type of result key.</typeparam>
+	/// <typeparam name="TValueResult">The type of result value.</typeparam>
+	/// <param name="this">The instance to be casted.</param>
+	/// <returns>The casted result.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static KeyValuePair<TKeyResult, TValueResult> Cast<TKey, TValue, TKeyResult, TValueResult>(this KeyValuePair<TKey, TValue> @this)
+		where TKey : TKeyResult
+		where TValue : TValueResult
+		=> KeyValuePair.Create((TKeyResult)@this.Key, (TValueResult)@this.Value);
+
+	/// <summary>
 	/// Converts the current <see cref="KeyValuePair{TKey, TValue}"/> instance into a pair of values.
 	/// </summary>
 	/// <typeparam name="TKey">The type of key.</typeparam>

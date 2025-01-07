@@ -392,6 +392,22 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.KeyValuePair`2"/>
         </member>
+        <member name="M:System.Collections.Generic.KeyValuePairExtensions.Cast``4(System.Collections.Generic.KeyValuePair{``0,``1})">
+            <summary>
+            Casts the current instance into a new type of <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            with type projection:
+            <list type="bullet">
+            <item><typeparamref name="TKey"/> -> <typeparamref name="TKeyResult"/></item>
+            <item><typeparamref name="TValue"/> -> <typeparamref name="TValueResult"/></item>
+            </list>
+            </summary>
+            <typeparam name="TKey">The type of key.</typeparam>
+            <typeparam name="TValue">The type of value.</typeparam>
+            <typeparam name="TKeyResult">The type of result key.</typeparam>
+            <typeparam name="TValueResult">The type of result value.</typeparam>
+            <param name="this">The instance to be casted.</param>
+            <returns>The casted result.</returns>
+        </member>
         <member name="M:System.Collections.Generic.KeyValuePairExtensions.ToTuple``2(System.Collections.Generic.KeyValuePair{``0,``1})">
             <summary>
             Converts the current <see cref="T:System.Collections.Generic.KeyValuePair`2"/> instance into a pair of values.
@@ -4276,6 +4292,23 @@
         </member>
         <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.ICountMethod`2.Count(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.First``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Returns <paramref name="this"/>[0].
+            </summary>
+            <typeparam name="TSource">The type of each element.</typeparam>
+            <param name="this">The source elements.</param>
+            <returns>The element.</returns>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.FirstOrDefault``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Returns first element of <paramref name="this"/> or <see langword="default"/>(<typeparamref name="TSource"/>)
+            if the list is empty.
+            </summary>
+            <typeparam name="TSource">The type of each element.</typeparam>
+            <param name="this">The sourc elementse.</param>
+            <returns>The element.</returns>
         </member>
         <member name="M:System.Linq.SpanEnumerable.First``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
