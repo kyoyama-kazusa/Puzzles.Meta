@@ -1999,9 +1999,6 @@
         <member name="M:System.Linq.ArrayEnumerable.Prepend``1(``0[],``0)">
             <inheritdoc cref="M:System.Linq.Enumerable.Prepend``1(System.Collections.Generic.IEnumerable{``0},``0)"/>
         </member>
-        <member name="M:System.Linq.ArrayEnumerable.Cast``1(System.Object[])">
-            <inheritdoc cref="M:System.Linq.Enumerable.Cast``1(System.Collections.IEnumerable)"/>
-        </member>
         <member name="M:System.Linq.ArrayEnumerable.Count``1(``0[],System.Func{``0,System.Boolean})">
             <summary>
             Totals up the number of elements that satisfy the specified condition.
@@ -2035,6 +2032,9 @@
             <typeparam name="T">The type of each element.</typeparam>
             <param name="this">The object to be iterated.</param>
             <returns>A new array instance.</returns>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Cast``1(System.Object[])">
+            <inheritdoc cref="M:System.Linq.Enumerable.Cast``1(System.Collections.IEnumerable)"/>
         </member>
         <member name="M:System.Linq.ArrayEnumerable.GroupBy``2(``0[],System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
@@ -4284,9 +4284,6 @@
         <member name="M:System.Linq.SpanEnumerable.AllUnsafe``1(System.ReadOnlySpan{``0},)">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})"/>
         </member>
-        <member name="M:System.Linq.SpanEnumerable.Cast``2(System.ReadOnlySpan{``0})">
-            <inheritdoc cref="M:System.Linq.Providers.ICastMethod`2.Cast``1"/>
-        </member>
         <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
         </member>
@@ -4333,6 +4330,9 @@
         </member>
         <member name="M:System.Linq.SpanEnumerable.Index``1(System.ReadOnlySpan{``0})">
             <inheritdoc cref="M:System.Linq.Enumerable.Index``1(System.Collections.Generic.IEnumerable{``0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Cast``2(System.ReadOnlySpan{``0})">
+            <inheritdoc cref="M:System.Linq.Providers.ICastMethod`2.Cast``1"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.GroupBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Providers.IGroupByMethod`2.GroupBy``1(System.Func{`1,``0})"/>
