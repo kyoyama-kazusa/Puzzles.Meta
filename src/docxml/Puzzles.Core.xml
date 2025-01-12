@@ -557,6 +557,39 @@
             Indicates the number of columns.
             </summary>
         </member>
+        <member name="T:Puzzles.Solving.Uniqueness">
+            <summary>
+            Represents a flag describing the number of solutions to a puzzle.
+            </summary>
+            <remarks><flags-attribute>
+		<para>
+			<i>
+				This type is marked <see cref="T:System.FlagsAttribute" />, which means you can use
+				<see langword="operator" /> | to combine multiple fields.
+			</i>
+		</para>
+	</flags-attribute></remarks>
+        </member>
+        <member name="F:Puzzles.Solving.Uniqueness.None">
+            <summary>
+            The placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Solving.Uniqueness.Bad">
+            <summary>
+            Indicates the puzzle has no valid solution.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Solving.Uniqueness.Unique">
+            <summary>
+            Indicates the puzzle has a unique solution.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Solving.Uniqueness.Multiple">
+            <summary>
+            Indicates the puzzle has multiple solutions.
+            </summary>
+        </member>
         <member name="T:Puzzles.Transforming.IBoardTransformable`1">
             <summary>
             Represents an object that can be transformed into another kind of value.
