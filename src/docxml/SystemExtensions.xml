@@ -111,6 +111,11 @@
             <typeparam name="T">The type of the only element of array.</typeparam>
             <param name="value">Indicates the value.</param>
         </member>
+        <member name="P:System.Buffers.SingletonArray`1.Pointer">
+            <summary>
+            Indicates the pointer of the value.
+            </summary>
+        </member>
         <member name="M:System.Buffers.SingletonArray`1.Unpin">
             <inheritdoc/>
         </member>

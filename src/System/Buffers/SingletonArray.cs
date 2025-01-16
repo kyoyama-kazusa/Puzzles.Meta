@@ -7,6 +7,12 @@ namespace System.Buffers;
 /// <param name="value">Indicates the value.</param>
 public sealed partial class SingletonArray<T>([Field(IsReadOnlyByDefault = false)] T value) : MemoryManager<T>
 {
+	/// <summary>
+	/// Indicates the pointer of the value.
+	/// </summary>
+	public unsafe T* Pointer => (T*)Unsafe.AsPointer(ref _value);
+
+
 	/// <inheritdoc/>
 	public override void Unpin()
 	{
@@ -19,7 +25,7 @@ public sealed partial class SingletonArray<T>([Field(IsReadOnlyByDefault = false
 	public override Span<T> GetSpan() => new(ref _value);
 
 	/// <inheritdoc/>
-	public override unsafe MemoryHandle Pin(int elementIndex = 0) => new((T*)Unsafe.AsPointer(ref _value) + elementIndex);
+	public override unsafe MemoryHandle Pin(int elementIndex = 0) => new(Pointer + elementIndex);
 
 	/// <inheritdoc/>
 	protected override void Dispose(bool disposing)
