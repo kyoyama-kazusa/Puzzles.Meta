@@ -41,14 +41,15 @@ public ref partial struct Int128Enumerator(UInt128 _value) : IEnumerator<int>
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
 	public bool MoveNext()
 	{
-		while (++Current < 64)
+		if (_value == 0)
 		{
-			if ((_value >> Current & 1) != 0)
-			{
-				return true;
-			}
+			return false;
 		}
-		return false;
+
+		var mask = (UInt128)((Int128)_value & -(Int128)_value);
+		Current = (int)UInt128.Log2(mask);
+		_value &= ~mask;
+		return true;
 	}
 
 	/// <inheritdoc/>

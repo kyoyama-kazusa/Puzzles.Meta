@@ -34,14 +34,15 @@ public ref partial struct Int32Enumerator(uint _value) : IEnumerator<int>
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
 	public bool MoveNext()
 	{
-		while (++Current < 32)
+		if (_value == 0)
 		{
-			if ((_value >> Current & 1) != 0)
-			{
-				return true;
-			}
+			return false;
 		}
-		return false;
+
+		var mask = (uint)((int)_value & -(int)_value);
+		Current = BitOperations.Log2(mask);
+		_value &= ~mask;
+		return true;
 	}
 
 	/// <inheritdoc/>

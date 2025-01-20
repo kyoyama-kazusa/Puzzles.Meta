@@ -34,14 +34,15 @@ public ref partial struct Int64Enumerator(ulong _value) : IEnumerator<int>
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
 	public bool MoveNext()
 	{
-		while (++Current < 64)
+		if (_value == 0)
 		{
-			if ((_value >> Current & 1) != 0)
-			{
-				return true;
-			}
+			return false;
 		}
-		return false;
+
+		var mask = (ulong)((long)_value & -(long)_value);
+		Current = BitOperations.Log2(mask);
+		_value &= ~mask;
+		return true;
 	}
 
 	/// <inheritdoc/>
