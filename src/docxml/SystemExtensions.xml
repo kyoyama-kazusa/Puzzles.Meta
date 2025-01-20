@@ -5881,10 +5881,19 @@
             <param name="_value">The integer to be iterated.</param>
             <param name="_bitsCount">The integer of bits to be iterated.</param>
         </member>
+        <member name="P:System.Numerics.GenericIntegerEnumerator`1.PopulationCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Numerics.GenericIntegerEnumerator`1.Bits">
+            <inheritdoc/>
+        </member>
         <member name="P:System.Numerics.GenericIntegerEnumerator`1.Current">
             <inheritdoc cref="P:System.Collections.Generic.IEnumerator`1.Current"/>
         </member>
         <member name="P:System.Numerics.GenericIntegerEnumerator`1.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Numerics.GenericIntegerEnumerator`1.Item(System.Int32)">
             <inheritdoc/>
         </member>
         <member name="M:System.Numerics.GenericIntegerEnumerator`1.MoveNext">
@@ -5905,6 +5914,30 @@
         <member name="M:System.Numerics.GenericIntegerEnumerator`1.System#IDisposable#Dispose">
             <inheritdoc/>
             <exception cref="T:System.ObjectDisposedException">Throws when the object had already been disposed.</exception>
+        </member>
+        <member name="T:System.Numerics.IBitEnumerator">
+            <summary>
+            Represents an enumerator that can iterate bits on numeric type.
+            </summary>
+        </member>
+        <member name="P:System.Numerics.IBitEnumerator.PopulationCount">
+            <summary>
+            Indicates the population count of the value.
+            </summary>
+        </member>
+        <member name="P:System.Numerics.IBitEnumerator.Bits">
+            <summary>
+            Indicates the bits set.
+            </summary>
+        </member>
+        <member name="P:System.Numerics.IBitEnumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.Numerics.IBitEnumerator.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt32,System.Int32)"/>
+        </member>
+        <member name="M:System.Numerics.IBitEnumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
         </member>
         <member name="T:System.Numerics.ILatexFormattable">
             <summary>
@@ -5930,14 +5963,10 @@
             <param name="_value">The value to be iterated.</param>
         </member>
         <member name="P:System.Numerics.Int128Enumerator.PopulationCount">
-            <summary>
-            Indicates the population count of the value.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int128Enumerator.Bits">
-            <summary>
-            Indicates the bits set.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int128Enumerator.Current">
             <inheritdoc cref="P:System.Collections.Generic.IEnumerator`1.Current"/>
@@ -5946,7 +5975,7 @@
             <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int128Enumerator.Item(System.Int32)">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt32,System.Int32)"/>
+            <inheritdoc/>
         </member>
         <member name="M:System.Numerics.Int128Enumerator.MoveNext">
             <inheritdoc cref="M:System.Collections.IEnumerator.MoveNext"/>
@@ -5980,14 +6009,10 @@
             <param name="_value">The value to be iterated.</param>
         </member>
         <member name="P:System.Numerics.Int32Enumerator.PopulationCount">
-            <summary>
-            Indicates the population count of the value.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int32Enumerator.Bits">
-            <summary>
-            Indicates the bits set.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int32Enumerator.Current">
             <inheritdoc cref="P:System.Collections.Generic.IEnumerator`1.Current"/>
@@ -5996,7 +6021,7 @@
             <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int32Enumerator.Item(System.Int32)">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt32,System.Int32)"/>
+            <inheritdoc/>
         </member>
         <member name="M:System.Numerics.Int32Enumerator.MoveNext">
             <inheritdoc cref="M:System.Collections.IEnumerator.MoveNext"/>
@@ -6030,14 +6055,10 @@
             <param name="_value">The value to be iterated.</param>
         </member>
         <member name="P:System.Numerics.Int64Enumerator.PopulationCount">
-            <summary>
-            Indicates the population count of the value.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int64Enumerator.Bits">
-            <summary>
-            Indicates the bits set.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int64Enumerator.Current">
             <inheritdoc cref="P:System.Collections.Generic.IEnumerator`1.Current"/>
@@ -6046,7 +6067,7 @@
             <inheritdoc/>
         </member>
         <member name="P:System.Numerics.Int64Enumerator.Item(System.Int32)">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt32,System.Int32)"/>
+            <inheritdoc/>
         </member>
         <member name="M:System.Numerics.Int64Enumerator.MoveNext">
             <inheritdoc cref="M:System.Collections.IEnumerator.MoveNext"/>

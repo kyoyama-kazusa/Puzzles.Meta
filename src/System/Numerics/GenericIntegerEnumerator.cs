@@ -10,7 +10,7 @@ namespace System.Numerics;
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct GenericIntegerEnumerator<TInteger>(TInteger _value, int _bitsCount) : IEnumerator<int>
+public ref partial struct GenericIntegerEnumerator<TInteger>(TInteger _value, int _bitsCount) : IBitEnumerator
 #if NUMERIC_GENERIC_TYPE
 	where TInteger : IBitwiseOperators<TInteger, TInteger, TInteger>, INumber<TInteger>, IShiftOperators<TInteger, int, TInteger>
 #else
@@ -22,11 +22,38 @@ public ref partial struct GenericIntegerEnumerator<TInteger>(TInteger _value, in
 		IShiftOperators<TInteger, int, TInteger>
 #endif
 {
+	/// <inheritdoc/>
+	public readonly int PopulationCount
+#if NUMERIC_GENERIC_TYPE
+		=> TInteger.PopCount(_value);
+#else
+		=> Bits.Length;
+#endif
+
+	/// <inheritdoc/>
+	public readonly ReadOnlySpan<int> Bits
+	{
+		get
+		{
+			var enumerator = new GenericIntegerEnumerator<TInteger>(_value, _bitsCount);
+			var result = new List<int>();
+			while (enumerator.MoveNext())
+			{
+				result.Add(enumerator.Current);
+			}
+			return result.AsSpan();
+		}
+	}
+
 	/// <inheritdoc cref="IEnumerator{TNumber}.Current"/>
 	public int Current { get; private set; } = -1;
 
 	/// <inheritdoc/>
 	readonly object IEnumerator.Current => Current;
+
+
+	/// <inheritdoc/>
+	public readonly int this[int index] => Bits[index];
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>

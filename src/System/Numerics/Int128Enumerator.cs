@@ -8,11 +8,9 @@ namespace System.Numerics;
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct Int128Enumerator(UInt128 _value) : IEnumerator<int>
+public ref partial struct Int128Enumerator(UInt128 _value) : IBitEnumerator
 {
-	/// <summary>
-	/// Indicates the population count of the value.
-	/// </summary>
+	/// <inheritdoc/>
 	public readonly int PopulationCount
 	{
 		get
@@ -22,9 +20,7 @@ public ref partial struct Int128Enumerator(UInt128 _value) : IEnumerator<int>
 		}
 	}
 
-	/// <summary>
-	/// Indicates the bits set.
-	/// </summary>
+	/// <inheritdoc/>
 	public readonly ReadOnlySpan<int> Bits => _value.GetAllSets();
 
 	/// <inheritdoc cref="IEnumerator{T}.Current"/>
@@ -34,7 +30,7 @@ public ref partial struct Int128Enumerator(UInt128 _value) : IEnumerator<int>
 	readonly object IEnumerator.Current => Current;
 
 
-	/// <inheritdoc cref="BitOperationsExtensions.SetAt(uint, int)"/>
+	/// <inheritdoc/>
 	public readonly int this[int index] => _value.SetAt(index);
 
 
