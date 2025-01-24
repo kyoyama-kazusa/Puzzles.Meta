@@ -7,4 +7,3 @@ global using System.Text;
 global using System.Threading;
 global using Puzzles.Measuring;
 global using Puzzles.Meta;
-global using Puzzles.Meta.DataStructures;

@@ -8,7 +8,7 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TStep">The type of step.</typeparam>
 public interface IAnalysisResult<TSelf, TBoard, TStep> : IEquatable<TSelf>, IEqualityOperators<TSelf, TSelf, bool>
 	where TSelf : IAnalysisResult<TSelf, TBoard, TStep>
-	where TBoard : IBoard, IDataStructure, allows ref struct
+	where TBoard : IBoard, allows ref struct
 	where TStep : IStep<TStep>
 {
 	/// <summary>

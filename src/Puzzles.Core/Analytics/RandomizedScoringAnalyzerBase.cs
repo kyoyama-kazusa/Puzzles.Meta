@@ -11,7 +11,7 @@ namespace Puzzles.Analytics;
 /// <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
 public abstract class RandomizedScoringAnalyzerBase<TBoard, TPoint, TStep, TDifficulty, TCollector, TAnalysisResult> :
 	IAnalyzer<RandomizedScoringAnalyzerBase<TBoard, TPoint, TStep, TDifficulty, TCollector, TAnalysisResult>, TAnalysisResult, TBoard, TStep>
-	where TBoard : IBoard, IDataStructure, allows ref struct
+	where TBoard : IBoard, allows ref struct
 	where TPoint : IEquatable<TPoint>, ITuple, allows ref struct
 	where TStep : IDifficultyStep<TStep, TDifficulty>
 	where TDifficulty : INumberBase<TDifficulty>

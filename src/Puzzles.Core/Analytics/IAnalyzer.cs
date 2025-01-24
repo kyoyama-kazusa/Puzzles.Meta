@@ -10,7 +10,7 @@ namespace Puzzles.Analytics;
 public interface IAnalyzer<TSelf, TResult, TBoard, TStep>
 	where TSelf : IAnalyzer<TSelf, TResult, TBoard, TStep>
 	where TResult : IAnalysisResult<TResult, TBoard, TStep>
-	where TBoard : IBoard, IDataStructure, allows ref struct
+	where TBoard : IBoard, allows ref struct
 	where TStep : IStep<TStep>
 {
 	/// <summary>
