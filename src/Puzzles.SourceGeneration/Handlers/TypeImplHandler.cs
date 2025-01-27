@@ -276,7 +276,6 @@ internal static class TypeImplHandler
 			cancellationToken
 		);
 
-#pragma warning disable format
 		var behavior = (isRefStruct, attribute) switch
 		{
 			(true, _) => GetHashCodeBehavior.Throw,
@@ -295,7 +294,6 @@ internal static class TypeImplHandler
 				_ => throw new InvalidOperationException("Invalid state.")
 			}
 		};
-#pragma warning restore format
 		var kindString = (isRecord, kind) switch
 		{
 			(true, TypeKind.Class) => "record",
