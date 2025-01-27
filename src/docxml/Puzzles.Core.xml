@@ -4,37 +4,37 @@
         <name>Puzzles.Core</name>
     </assembly>
     <members>
-        <member name="T:Puzzles.Analytics.FailedReason">
+        <member name="T:Puzzles.Meta.Analytics.FailedReason">
             <summary>
             Represents a failed reason.
             </summary>
         </member>
-        <member name="F:Puzzles.Analytics.FailedReason.None">
+        <member name="F:Puzzles.Meta.Analytics.FailedReason.None">
             <summary>
             Indicates there's no failure.
             </summary>
         </member>
-        <member name="F:Puzzles.Analytics.FailedReason.PuzzleInvalid">
+        <member name="F:Puzzles.Meta.Analytics.FailedReason.PuzzleInvalid">
             <summary>
             Indicates the puzzle is invalid.
             </summary>
         </member>
-        <member name="F:Puzzles.Analytics.FailedReason.UserCancelled">
+        <member name="F:Puzzles.Meta.Analytics.FailedReason.UserCancelled">
             <summary>
             Indicates the user has cancelled the current task.
             </summary>
         </member>
-        <member name="F:Puzzles.Analytics.FailedReason.OutOfMemory">
+        <member name="F:Puzzles.Meta.Analytics.FailedReason.OutOfMemory">
             <summary>
             Indicates the failed reason is that the puzzle has run out of memory to be allocated.
             </summary>
         </member>
-        <member name="F:Puzzles.Analytics.FailedReason.ExceptionThrown">
+        <member name="F:Puzzles.Meta.Analytics.FailedReason.ExceptionThrown">
             <summary>
             Indicates an unhandled exception is thrown.
             </summary>
         </member>
-        <member name="T:Puzzles.Analytics.IAnalysisResult`3">
+        <member name="T:Puzzles.Meta.Analytics.IAnalysisResult`3">
             <summary>
             Represents an instance that describes the result after being analyzed.
             </summary>
@@ -51,17 +51,17 @@
             <typeparam name="TBoard">The type of board.</typeparam>
             <typeparam name="TStep">The type of step.</typeparam>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`3.IsSolved">
+        <member name="P:Puzzles.Meta.Analytics.IAnalysisResult`3.IsSolved">
             <summary>
             Indicates whether the solver has solved the puzzle.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`3.FailedReason">
+        <member name="P:Puzzles.Meta.Analytics.IAnalysisResult`3.FailedReason">
             <summary>
             Indicates the failed reason.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`3.ElapsedTime">
+        <member name="P:Puzzles.Meta.Analytics.IAnalysisResult`3.ElapsedTime">
             <summary>
             Indicates the elapsed time used during solving the puzzle. The value may not be an useful value.
             Some case if the puzzle doesn't contain a valid unique solution, the value may be
@@ -69,25 +69,25 @@
             </summary>
             <seealso cref="F:System.TimeSpan.Zero"/>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`3.Steps">
+        <member name="P:Puzzles.Meta.Analytics.IAnalysisResult`3.Steps">
             <summary>
             Indicates the steps.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`3.Puzzle">
+        <member name="P:Puzzles.Meta.Analytics.IAnalysisResult`3.Puzzle">
             <summary>
             Indicates the original puzzle to be solved.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.IAnalysisResult`3.UnhandledException">
+        <member name="P:Puzzles.Meta.Analytics.IAnalysisResult`3.UnhandledException">
             <summary>
             Indicates the unhandled exception thrown.
             </summary>
         </member>
-        <member name="M:Puzzles.Analytics.IAnalysisResult`3.ToString">
+        <member name="M:Puzzles.Meta.Analytics.IAnalysisResult`3.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
-        <member name="T:Puzzles.Analytics.IAnalyzer`4">
+        <member name="T:Puzzles.Meta.Analytics.IAnalyzer`4">
             <summary>
             Represents an analyzer.
             </summary>
@@ -105,7 +105,7 @@
             <typeparam name="TBoard">The type of the board.</typeparam>
             <typeparam name="TStep">The type of step.</typeparam>
         </member>
-        <member name="M:Puzzles.Analytics.IAnalyzer`4.Analyze(`2,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.Meta.Analytics.IAnalyzer`4.Analyze(`2,System.Threading.CancellationToken)">
             <summary>
             Analyzes the puzzle of type <typeparamref name="TBoard"/>.
             </summary>
@@ -113,14 +113,14 @@
             <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
             <returns>An instance of type <typeparamref name="TResult"/>.</returns>
         </member>
-        <member name="T:Puzzles.Analytics.ICollector`2">
+        <member name="T:Puzzles.Meta.Analytics.ICollector`2">
             <summary>
             Represents a collector instance.
             </summary>
             <typeparam name="TBoard">The type of puzzle or grid.</typeparam>
             <typeparam name="TStep">The type of match.</typeparam>
         </member>
-        <member name="M:Puzzles.Analytics.ICollector`2.Collect(`0,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.Meta.Analytics.ICollector`2.Collect(`0,System.Threading.CancellationToken)">
             <summary>
             Try to find all possible steps appeared in the board; if no steps found, an empty array will be returned.
             </summary>
@@ -128,7 +128,7 @@
             <param name="cancellationToken">The cancellation token that can cancel the current task.</param>
             <returns>All matched items.</returns>
         </member>
-        <member name="T:Puzzles.Analytics.IDifficultyStep`2">
+        <member name="T:Puzzles.Meta.Analytics.IDifficultyStep`2">
             <summary>
             Represents a step that requires difficulty rating.
             </summary>
@@ -144,12 +144,12 @@
 	</self-type-constraint></typeparam>
             <typeparam name="TDifficulty">Indicates the type of difficulty.</typeparam>
         </member>
-        <member name="P:Puzzles.Analytics.IDifficultyStep`2.Difficulty">
+        <member name="P:Puzzles.Meta.Analytics.IDifficultyStep`2.Difficulty">
             <summary>
             Indicates the difficulty rating of the instance.
             </summary>
         </member>
-        <member name="T:Puzzles.Analytics.IStep`1">
+        <member name="T:Puzzles.Meta.Analytics.IStep`1">
             <summary>
             Represents a step.
             </summary>
@@ -164,7 +164,7 @@
 		</para>
 	</self-type-constraint></typeparam>
         </member>
-        <member name="T:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6">
+        <member name="T:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6">
             <summary>
             Represents an analyzer object that will use randomization algorithm to find paths, and score them up.
             </summary>
@@ -175,42 +175,42 @@
             <typeparam name="TCollector">The type of collector.</typeparam>
             <typeparam name="TAnalysisResult">The type of analysis result.</typeparam>
         </member>
-        <member name="F:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6._collector">
+        <member name="F:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6._collector">
             <summary>
             Indicates the backing collector object.
             </summary>
         </member>
-        <member name="F:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6._rng">
+        <member name="F:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6._rng">
             <summary>
             Indicates the backing random number generator.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.DistanceWeight">
+        <member name="P:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.DistanceWeight">
             <summary>
             Indicates the distance weight.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.VisualDistanceWeight">
+        <member name="P:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.VisualDistanceWeight">
             <summary>
             Indicates the visual distance weight.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.TemporatureFactor">
+        <member name="P:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.TemporatureFactor">
             <summary>
             Indicates temporature factor.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.DistanceType">
+        <member name="P:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.DistanceType">
             <summary>
             Indicates the calculating distance type.
             </summary>
         </member>
-        <member name="P:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.StartPointCreator">
+        <member name="P:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.StartPointCreator">
             <summary>
             Represents a start point creator.
             </summary>
         </member>
-        <member name="M:Puzzles.Analytics.RandomizedScoringAnalyzerBase`6.Analyze(`0,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.Analyze(`0,System.Threading.CancellationToken)">
             <summary>
             Try to analyze a board, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
             </summary>
@@ -218,48 +218,48 @@
             <param name="cancellationToken">Indicates the cancellation token that can cancel the current operation.</param>
             <returns>An instance of type <typeparamref name="TAnalysisResult"/> indicating the result information.</returns>
         </member>
-        <member name="T:Puzzles.Concepts.Coordinate">
+        <member name="T:Puzzles.Meta.Concepts.Coordinate">
             <summary>
             Represents a coordinate.
             </summary>
             <param name="X">Indicates the row index.</param>
             <param name="Y">Indicates the column index.</param>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.#ctor(System.Int32,System.Int32)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.#ctor(System.Int32,System.Int32)">
             <summary>
             Represents a coordinate.
             </summary>
             <param name="X">Indicates the row index.</param>
             <param name="Y">Indicates the column index.</param>
         </member>
-        <member name="P:Puzzles.Concepts.Coordinate.X">
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.X">
             <summary>Indicates the row index.</summary>
         </member>
-        <member name="P:Puzzles.Concepts.Coordinate.Y">
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.Y">
             <summary>Indicates the column index.</summary>
         </member>
-        <member name="P:Puzzles.Concepts.Coordinate.Up">
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.Up">
             <summary>
             Indicates the left cell.
             </summary>
         </member>
-        <member name="P:Puzzles.Concepts.Coordinate.Down">
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.Down">
             <summary>
             Indicates the right cell.
             </summary>
         </member>
-        <member name="P:Puzzles.Concepts.Coordinate.Left">
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.Left">
             <summary>
             Indicates the up cell.
             </summary>
         </member>
-        <member name="P:Puzzles.Concepts.Coordinate.Right">
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.Right">
             <summary>
             Indicates the down cell.
             </summary>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
-            <target name="method" cref="M:Puzzles.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
+            <target name="method" cref="M:Puzzles.Meta.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
 				<summary>
 					Provides an easy way to concatenate output members inside a <see langword="record" />
 					or a <see langword="record struct" /> type.
@@ -269,7 +269,7 @@
 				</param>
 				<returns>
 					A <see cref="T:System.Boolean" /> value indicating whether the method should be consumed by compiler,
-					by implementing to-string method <see cref="M:Puzzles.Concepts.Coordinate.ToString" />.
+					by implementing to-string method <see cref="M:Puzzles.Meta.Concepts.Coordinate.ToString" />.
 				</returns>
 				<remarks>
 					<para>
@@ -297,16 +297,16 @@
 				</remarks>
 			</target>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.CompareTo(Puzzles.Concepts.Coordinate)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.CompareTo(Puzzles.Meta.Concepts.Coordinate)">
             <inheritdoc/>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.op_Subtraction(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_Subtraction(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
             <inheritdoc/>
             <exception cref="T:System.InvalidOperationException">
             Throws when the two coordinates has a gap between them, or they cannot see each other in their own direction.
             </exception>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.op_RightShift(Puzzles.Concepts.Coordinate,System.Char)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_RightShift(Puzzles.Meta.Concepts.Coordinate,System.Char)">
             <summary>
             Moves the coordinate one step forward to the next coordinate by the specified direction.
             </summary>
@@ -317,7 +317,7 @@
             Throws when the argument <paramref name="arrow"/> is out of range.
             </exception>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.op_RightShift(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Direction)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_RightShift(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Direction)">
             <summary>
             Moves the coordinate one step forward to the next coordinate by the specified direction.
             </summary>
@@ -328,24 +328,24 @@
             Throws when the argument <paramref name="direction"/> is out of range.
             </exception>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.op_GreaterThan(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_GreaterThan(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
             <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThan(`0,`1)"/>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.op_LessThan(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_LessThan(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
             <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThan(`0,`1)"/>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.op_GreaterThanOrEqual(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_GreaterThanOrEqual(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
             <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThanOrEqual(`0,`1)"/>
         </member>
-        <member name="M:Puzzles.Concepts.Coordinate.op_LessThanOrEqual(Puzzles.Concepts.Coordinate,Puzzles.Concepts.Coordinate)">
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_LessThanOrEqual(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
             <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThanOrEqual(`0,`1)"/>
         </member>
-        <member name="T:Puzzles.Concepts.CoordinateExtensions">
+        <member name="T:Puzzles.Meta.Concepts.CoordinateExtensions">
             <summary>
             Represents a coordinate.
             </summary>
         </member>
-        <member name="M:Puzzles.Concepts.CoordinateExtensions.IsOutOfBound``1(Puzzles.Concepts.Coordinate,``0)">
+        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions.IsOutOfBound``1(Puzzles.Meta.Concepts.Coordinate,``0)">
             <summary>
             Indicates whether the coordinate is out of bound.
             </summary>
@@ -354,7 +354,7 @@
             <param name="grid">The grid.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Puzzles.Concepts.CoordinateExtensions.ToIndex``1(Puzzles.Concepts.Coordinate,``0)">
+        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions.ToIndex``1(Puzzles.Meta.Concepts.Coordinate,``0)">
             <summary>
             Converts the current coordinate into an absolute index.
             </summary>
@@ -363,43 +363,43 @@
             <param name="grid">The grid.</param>
             <returns>The absolute index.</returns>
         </member>
-        <member name="T:Puzzles.Concepts.Direction">
+        <member name="T:Puzzles.Meta.Concepts.Direction">
             <summary>
             Represents a direction.
             </summary>
         </member>
-        <member name="F:Puzzles.Concepts.Direction.None">
+        <member name="F:Puzzles.Meta.Concepts.Direction.None">
             <summary>
             Indicates the placeholder of the direction.
             </summary>
         </member>
-        <member name="F:Puzzles.Concepts.Direction.Up">
+        <member name="F:Puzzles.Meta.Concepts.Direction.Up">
             <summary>
             Indicates the direction is up.
             </summary>
         </member>
-        <member name="F:Puzzles.Concepts.Direction.Down">
+        <member name="F:Puzzles.Meta.Concepts.Direction.Down">
             <summary>
             Indicates the direction is down.
             </summary>
         </member>
-        <member name="F:Puzzles.Concepts.Direction.Left">
+        <member name="F:Puzzles.Meta.Concepts.Direction.Left">
             <summary>
             Indicates the direction is left.
             </summary>
         </member>
-        <member name="F:Puzzles.Concepts.Direction.Right">
+        <member name="F:Puzzles.Meta.Concepts.Direction.Right">
             <summary>
             Indicates the diretcion is right.
             </summary>
         </member>
-        <member name="T:Puzzles.Concepts.DirectionExtensions">
+        <member name="T:Puzzles.Meta.Concepts.DirectionExtensions">
             <summary>
-            Provides with extension methods on <see cref="T:Puzzles.Concepts.Direction"/>.
+            Provides with extension methods on <see cref="T:Puzzles.Meta.Concepts.Direction"/>.
             </summary>
-            <seealso cref="T:Puzzles.Concepts.Direction"/>
+            <seealso cref="T:Puzzles.Meta.Concepts.Direction"/>
         </member>
-        <member name="M:Puzzles.Concepts.DirectionExtensions.GetArrow(Puzzles.Concepts.Direction)">
+        <member name="M:Puzzles.Meta.Concepts.DirectionExtensions.GetArrow(Puzzles.Meta.Concepts.Direction)">
             <summary>
             Gets an arrow text that represents the specified direction.
             </summary>
@@ -407,42 +407,42 @@
             <returns>The character.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is out of range.</exception>
         </member>
-        <member name="T:Puzzles.Measuring.DistanceType">
-            <summary>
-            Represents a type of distance to be measured.
-            </summary>
-        </member>
-        <member name="F:Puzzles.Measuring.DistanceType.Euclid">
-            <summary>
-            Indicates Euclid distance.
-            </summary>
-        </member>
-        <member name="F:Puzzles.Measuring.DistanceType.Manhattan">
-            <summary>
-            Indicates Manhattan distance.
-            </summary>
-        </member>
-        <member name="F:Puzzles.Measuring.DistanceType.Solved">
-            <summary>
-            Indicates solved distance.
-            </summary>
-        </member>
-        <member name="T:Puzzles.Meta.IBoard">
+        <member name="T:Puzzles.Meta.Concepts.IBoard">
             <summary>
             Represents a game board.
             </summary>
         </member>
-        <member name="P:Puzzles.Meta.IBoard.Rows">
+        <member name="P:Puzzles.Meta.Concepts.IBoard.Rows">
             <summary>
             Indicates the number of rows.
             </summary>
         </member>
-        <member name="P:Puzzles.Meta.IBoard.Columns">
+        <member name="P:Puzzles.Meta.Concepts.IBoard.Columns">
             <summary>
             Indicates the number of columns.
             </summary>
         </member>
-        <member name="T:Puzzles.Solving.Uniqueness">
+        <member name="T:Puzzles.Meta.Measuring.DistanceType">
+            <summary>
+            Represents a type of distance to be measured.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.Measuring.DistanceType.Euclid">
+            <summary>
+            Indicates Euclid distance.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.Measuring.DistanceType.Manhattan">
+            <summary>
+            Indicates Manhattan distance.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.Measuring.DistanceType.Solved">
+            <summary>
+            Indicates solved distance.
+            </summary>
+        </member>
+        <member name="T:Puzzles.Meta.Solving.Uniqueness">
             <summary>
             Represents a flag describing the number of solutions to a puzzle.
             </summary>
@@ -455,27 +455,27 @@
 		</para>
 	</flags-attribute></remarks>
         </member>
-        <member name="F:Puzzles.Solving.Uniqueness.None">
+        <member name="F:Puzzles.Meta.Solving.Uniqueness.None">
             <summary>
             The placeholder of this type.
             </summary>
         </member>
-        <member name="F:Puzzles.Solving.Uniqueness.Bad">
+        <member name="F:Puzzles.Meta.Solving.Uniqueness.Bad">
             <summary>
             Indicates the puzzle has no valid solution.
             </summary>
         </member>
-        <member name="F:Puzzles.Solving.Uniqueness.Unique">
+        <member name="F:Puzzles.Meta.Solving.Uniqueness.Unique">
             <summary>
             Indicates the puzzle has a unique solution.
             </summary>
         </member>
-        <member name="F:Puzzles.Solving.Uniqueness.Multiple">
+        <member name="F:Puzzles.Meta.Solving.Uniqueness.Multiple">
             <summary>
             Indicates the puzzle has multiple solutions.
             </summary>
         </member>
-        <member name="T:Puzzles.Transforming.IBoardTransformable`1">
+        <member name="T:Puzzles.Meta.Transforming.IBoardTransformable`1">
             <summary>
             Represents an object that can be transformed into another kind of value.
             </summary>
@@ -490,55 +490,55 @@
 		</para>
 	</self-type-constraint></typeparam>
         </member>
-        <member name="M:Puzzles.Transforming.IBoardTransformable`1.RotateClockwise">
+        <member name="M:Puzzles.Meta.Transforming.IBoardTransformable`1.RotateClockwise">
             <summary>
             Rotate <typeparamref name="TSelf"/> instance clockwisely.
             </summary>
             <returns>The result rotated.</returns>
         </member>
-        <member name="M:Puzzles.Transforming.IBoardTransformable`1.RotateCounterclockwise">
+        <member name="M:Puzzles.Meta.Transforming.IBoardTransformable`1.RotateCounterclockwise">
             <summary>
             Rotate <typeparamref name="TSelf"/> instance counter-clockwisely.
             </summary>
             <returns>The result rotated.</returns>
         </member>
-        <member name="M:Puzzles.Transforming.IBoardTransformable`1.RotatePi">
+        <member name="M:Puzzles.Meta.Transforming.IBoardTransformable`1.RotatePi">
             <summary>
             Rotate <typeparamref name="TSelf"/> instance 180 degrees.
             </summary>
             <returns>The result rotated.</returns>
         </member>
-        <member name="M:Puzzles.Transforming.IBoardTransformable`1.MirrorLeftRight">
+        <member name="M:Puzzles.Meta.Transforming.IBoardTransformable`1.MirrorLeftRight">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in left-right side.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="M:Puzzles.Transforming.IBoardTransformable`1.MirrorTopBottom">
+        <member name="M:Puzzles.Meta.Transforming.IBoardTransformable`1.MirrorTopBottom">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in top-bottom side.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="M:Puzzles.Transforming.IBoardTransformable`1.MirrorDiagonal">
+        <member name="M:Puzzles.Meta.Transforming.IBoardTransformable`1.MirrorDiagonal">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in diagonal.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="M:Puzzles.Transforming.IBoardTransformable`1.Transpose">
+        <member name="M:Puzzles.Meta.Transforming.IBoardTransformable`1.Transpose">
             <summary>
-            Simply calls <see cref="M:Puzzles.Transforming.IBoardTransformable`1.MirrorDiagonal"/>.
+            Simply calls <see cref="M:Puzzles.Meta.Transforming.IBoardTransformable`1.MirrorDiagonal"/>.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="M:Puzzles.Transforming.IBoardTransformable`1.MirrorAntidiagonal">
+        <member name="M:Puzzles.Meta.Transforming.IBoardTransformable`1.MirrorAntidiagonal">
             <summary>
             Mirror <typeparamref name="TSelf"/> instance in anti-diagonal.
             </summary>
             <returns>The result fliped.</returns>
         </member>
-        <member name="T:Puzzles.Transforming.IElementSwappingTransformable`2">
+        <member name="T:Puzzles.Meta.Transforming.IElementSwappingTransformable`2">
             <summary>
             Represents an object that can swap elements of itself.
             </summary>
@@ -554,7 +554,7 @@
 	</self-type-constraint></typeparam>
             <typeparam name="TElement">The type of each element.</typeparam>
         </member>
-        <member name="M:Puzzles.Transforming.IElementSwappingTransformable`2.SwapElement(`1,`1)">
+        <member name="M:Puzzles.Meta.Transforming.IElementSwappingTransformable`2.SwapElement(`1,`1)">
             <summary>
             Swaps all elements whose values are equal to <paramref name="element1"/> and <paramref name="element2"/>.
             </summary>
@@ -562,7 +562,7 @@
             <param name="element2">The second element to be swapped.</param>
             <returns>The result swapped.</returns>
         </member>
-        <member name="M:Puzzles.Transforming.IElementSwappingTransformable`2.Shuffle">
+        <member name="M:Puzzles.Meta.Transforming.IElementSwappingTransformable`2.Shuffle">
             <summary>
             Try to shuffle <typeparamref name="TSelf"/> instance of elements, keeping equality with the current instance.
             </summary>

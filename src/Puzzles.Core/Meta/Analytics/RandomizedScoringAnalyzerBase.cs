@@ -1,4 +1,4 @@
-namespace Puzzles.Analytics;
+namespace Puzzles.Meta.Analytics;
 
 /// <summary>
 /// Represents an analyzer object that will use randomization algorithm to find paths, and score them up.

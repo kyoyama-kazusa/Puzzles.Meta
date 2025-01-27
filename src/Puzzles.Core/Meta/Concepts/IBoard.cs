@@ -1,4 +1,4 @@
-namespace Puzzles.Meta;
+namespace Puzzles.Meta.Concepts;
 
 /// <summary>
 /// Represents a game board.

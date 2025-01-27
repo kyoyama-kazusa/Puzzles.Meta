@@ -1,4 +1,4 @@
-namespace Puzzles.Analytics;
+namespace Puzzles.Meta.Analytics;
 
 /// <summary>
 /// Represents an instance that describes the result after being analyzed.

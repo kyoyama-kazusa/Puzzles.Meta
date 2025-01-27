@@ -1,4 +1,4 @@
-namespace Puzzles.Analytics;
+namespace Puzzles.Meta.Analytics;
 
 /// <summary>
 /// Represents a collector instance.

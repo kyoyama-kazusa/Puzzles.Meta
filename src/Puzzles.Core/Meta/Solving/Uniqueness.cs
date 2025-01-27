@@ -1,4 +1,4 @@
-namespace Puzzles.Solving;
+namespace Puzzles.Meta.Solving;
 
 /// <summary>
 /// Represents a flag describing the number of solutions to a puzzle.

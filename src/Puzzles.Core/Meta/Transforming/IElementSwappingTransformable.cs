@@ -1,4 +1,4 @@
-namespace Puzzles.Transforming;
+namespace Puzzles.Meta.Transforming;
 
 /// <summary>
 /// Represents an object that can swap elements of itself.

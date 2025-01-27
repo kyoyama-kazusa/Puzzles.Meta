@@ -1,4 +1,4 @@
-namespace Puzzles.Concepts;
+namespace Puzzles.Meta.Concepts;
 
 /// <summary>
 /// Represents a direction.

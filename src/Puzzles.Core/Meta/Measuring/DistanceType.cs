@@ -1,4 +1,4 @@
-namespace Puzzles.Measuring;
+namespace Puzzles.Meta.Measuring;
 
 /// <summary>
 /// Represents a type of distance to be measured.
