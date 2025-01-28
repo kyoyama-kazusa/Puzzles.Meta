@@ -1,7 +1,7 @@
 namespace Puzzles.Meta.Concepts;
 
 /// <summary>
-/// Represents a game board.
+/// Represents a game board. The board must be a rectangular or squared one, with a regular definition of "row" and "column".
 /// </summary>
 public interface IBoard
 {

@@ -409,7 +409,7 @@
         </member>
         <member name="T:Puzzles.Meta.Concepts.IBoard">
             <summary>
-            Represents a game board.
+            Represents a game board. The board must be a rectangular or squared one, with a regular definition of "row" and "column".
             </summary>
         </member>
         <member name="P:Puzzles.Meta.Concepts.IBoard.Rows">
