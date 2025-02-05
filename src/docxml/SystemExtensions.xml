@@ -5804,21 +5804,11 @@
             <summary>
             Get all subsets from the specified number of the values to take.
             </summary>
-            <param name="this">
-            <para>The collection to be used and checked.</para>
-            <feature name="scoped-keyword">
-			<para>
-				The keyword <see langword="scoped" /> means the argument and local variable can only be used inside the method.
-				This means you cannot use this variable and argument outside the scope,
-				such as <c>new RefStructType(scoped_variable)</c>, <c>return scoped_variable</c> and <c>field = scoped_variable</c>.
-				Such expressions may store the <see langword="scoped" /> variables, unsafely expanding the variable's lifecycle.
-			</para>
-		</feature>
-            </param>
+            <param name="this">The collection to be used and checked.</param>
             <param name="count">The number of elements you want to take.</param>
             <returns>
             The subsets of the list.
-            For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count" /> is 2, the result will be
+            For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
             <code><![CDATA[
             [[1, 2], [1, 3], [2, 3]]
             ]]></code>
@@ -5829,17 +5819,7 @@
             <summary>
             Get all subsets from the collection.
             </summary>
-            <param name="this">
-            <para>The collection to be used and checked.</para>
-            <feature name="scoped-keyword">
-			<para>
-				The keyword <see langword="scoped" /> means the argument and local variable can only be used inside the method.
-				This means you cannot use this variable and argument outside the scope,
-				such as <c>new RefStructType(scoped_variable)</c>, <c>return scoped_variable</c> and <c>field = scoped_variable</c>.
-				Such expressions may store the <see langword="scoped" /> variables, unsafely expanding the variable's lifecycle.
-			</para>
-		</feature>
-            </param>
+            <param name="this">The collection to be used and checked.</param>
             <returns>
             All possible combinations returned.
             </returns>

@@ -46,10 +46,7 @@ public static class Combinatorial
 	/// <summary>
 	/// Get all subsets from the specified number of the values to take.
 	/// </summary>
-	/// <param name="this">
-	/// <para>The collection to be used and checked.</para>
-	/// <include file="../../global-doc-comments.xml" path="//g/csharp11/feature[@name='scoped-keyword']"/>
-	/// </param>
+	/// <param name="this">The collection to be used and checked.</param>
 	/// <param name="count">The number of elements you want to take.</param>
 	/// <returns>
 	/// The subsets of the list.
@@ -96,10 +93,7 @@ public static class Combinatorial
 	/// <summary>
 	/// Get all subsets from the collection.
 	/// </summary>
-	/// <param name="this">
-	/// <para>The collection to be used and checked.</para>
-	/// <include file="../../global-doc-comments.xml" path="//g/csharp11/feature[@name='scoped-keyword']"/>
-	/// </param>
+	/// <param name="this">The collection to be used and checked.</param>
 	/// <returns>
 	/// All possible combinations returned.
 	/// </returns>
