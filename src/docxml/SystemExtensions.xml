@@ -2160,6 +2160,12 @@
             <param name="this">The array to be filtered.</param>
             <returns>A list of <typeparamref name="TResult"/> elements.</returns>
         </member>
+        <member name="M:System.Linq.ArrayEnumerable.Shuffle``1(``0[])">
+            <inheritdoc cref="M:System.Linq.Providers.IShuffleMethod`2.Shuffle"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Shuffle``1(``0[],System.Random)">
+            <inheritdoc cref="M:System.Linq.Providers.IShuffleMethod`2.Shuffle(System.Random)"/>
+        </member>
         <member name="M:System.Linq.ArrayEnumerable.Sum``1(``0[])">
             <summary>
             Sum all elements up and return the result.
@@ -4124,6 +4130,25 @@
         <member name="M:System.Linq.Providers.ISequenceEqualMethod`2.SequenceEqual(System.Collections.Generic.IEnumerable{`1},System.Collections.Generic.IEqualityComparer{`1})">
             <inheritdoc cref="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})"/>
         </member>
+        <member name="T:System.Linq.Providers.IShuffleMethod`2">
+            <summary>
+            Represents a type that supports method group <c>Shuffle</c>.
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Linq.Providers.IShuffleMethod`2.Shuffle">
+            <summary>
+            Shuffles the whole collection.
+            </summary>
+            <returns>The whole collection, shuffled.</returns>
+        </member>
+        <member name="M:System.Linq.Providers.IShuffleMethod`2.Shuffle(System.Random)">
+            <summary>
+            Shuffles the whole collection.
+            </summary>
+            <param name="random">The random number generator to be called.</param>
+            <returns>The whole collection, shuffled.</returns>
+        </member>
         <member name="T:System.Linq.Providers.ISkipMethod`2">
             <summary>
             Represents a type that supports method group <c>Skip</c>, <c>SkipLast</c> and <c>SkipWhile</c>.
@@ -4444,6 +4469,12 @@
         </member>
         <member name="M:System.Linq.SpanEnumerable.OfType``2(System.ReadOnlySpan{``0})">
             <inheritdoc cref="M:System.Linq.Providers.IOfTypeMethod`2.OfType``1"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Shuffle``1(System.ReadOnlySpan{``0})">
+            <inheritdoc cref="M:System.Linq.Providers.IShuffleMethod`2.Shuffle"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Shuffle``1(System.ReadOnlySpan{``0},System.Random)">
+            <inheritdoc cref="M:System.Linq.Providers.IShuffleMethod`2.Shuffle(System.Random)"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Skip``1(System.ReadOnlySpan{``0},System.Int32)">
             <inheritdoc cref="M:System.Linq.Providers.ISkipMethod`2.Skip(System.Int32)"/>
