@@ -5,5 +5,5 @@ global using System.Numerics;
 global using System.Runtime.CompilerServices;
 global using System.Text;
 global using System.Threading;
-global using Puzzles.Meta.Measuring;
 global using Puzzles.Meta.Concepts;
+global using Puzzles.Meta.Measuring;
