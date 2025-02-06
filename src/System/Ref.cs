@@ -75,25 +75,4 @@ public static unsafe class @ref
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ReadOnlySpan<T> AsReadOnlySpan<T>(ref readonly T firstElementReference, int length)
 		=> new(Unsafe.AsPointer(ref Unsafe.AsRef(in firstElementReference)), length);
-
-	/// <summary>
-	/// Get the new array from the reference to the block memory start position, with the specified start index.
-	/// </summary>
-	/// <typeparam name="T">The type of the pointed element.</typeparam>
-	/// <param name="memorySpan">The reference to the block memory start position.</param>
-	/// <param name="start">The start index that you want to pick from.</param>
-	/// <param name="count">The length of the array that the reference points to.</param>
-	/// <returns>The array of elements.</returns>
-	/// <exception cref="ArgumentNullException">
-	/// Throws when the argument <paramref name="memorySpan"/> is <see langword="null"/>.
-	/// </exception>
-	public static ReadOnlySpan<T> Slice<T>(ref readonly T memorySpan, int start, int count)
-	{
-		var result = new T[count - start];
-		for (var i = start; i < count; i++)
-		{
-			result[i - start] = Unsafe.Add(ref Unsafe.AsRef(in memorySpan), i);
-		}
-		return result;
-	}
 }
