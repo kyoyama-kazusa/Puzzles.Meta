@@ -1875,6 +1875,33 @@
             Throws when the type isn't applied the attribute <see cref="T:System.FlagsAttribute"/>.
             </exception>
         </member>
+        <member name="T:System.FloatingPointExtensions">
+            <summary>
+            Provides with extension methods on instances implementing <see cref="T:System.Numerics.IFloatingPoint`1"/>.
+            </summary>
+            <seealso cref="T:System.Numerics.IFloatingPoint`1"/>
+        </member>
+        <member name="M:System.FloatingPointExtensions.NearlyEquals``1(``0,``0)">
+            <summary>
+            Indicates whether the specified value is nearly equals to the current value.
+            </summary>
+            <typeparam name="T">The type of floating point.</typeparam>
+            <param name="this">The value.</param>
+            <param name="other">The other value.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:System.FloatingPointExtensions.NearlyEquals``1(``0,``0,``0)">
+            <summary>
+            Indicates whether the specified value is nearly equals to the current value.
+            If the differ of two values to compare is lower than the specified epsilon value,
+            the method will return <see langword="true"/>.
+            </summary>
+            <typeparam name="T">The type of floating point.</typeparam>
+            <param name="this">The value.</param>
+            <param name="other">The other value to compare.</param>
+            <param name="epsilon">The epsilon value (the minimal differ).</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
         <member name="T:System.ILogicalOperators`1">
             <summary>
             Defines a mechanism for computing the logical relation between two instances of type <typeparamref name="TSelf" />.
