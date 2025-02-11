@@ -4516,6 +4516,15 @@
         <member name="M:System.Linq.SpanEnumerable.Range(System.Int32,System.Int32)">
             <inheritdoc cref="M:System.Linq.Providers.IRangeMethod`2.Range(System.Int32,System.Int32)"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.Range``1(System.Int32)">
+            <summary>
+            Create a range of variables that starts with <see cref="P:System.Numerics.INumberBase`1.Zero"/> from type <typeparamref name="TInteger"/>,
+            incrementing values and putting them into the other positions.
+            </summary>
+            <typeparam name="TInteger">The type of integer.</typeparam>
+            <param name="count">The number of elements created.</param>
+            <returns>The result sequence [0, 1, 2, 3, ..].</returns>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.Range``1(``0,System.Int32,System.Func{``0,``0})">
             <summary>
             Create a range of variables that starts with the specified value, and iterates the value to create followed values.
@@ -4523,7 +4532,7 @@
             <typeparam name="T">The type of the target value.</typeparam>
             <param name="start">The start value.</param>
             <param name="count">The number of elements created.</param>
-            <param name="nextCreator">The creator method that create a value from the previous value.</param>
+            <param name="iterator">The creator method that create a value from the previous value.</param>
             <returns>The result sequence.</returns>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Sum``1(System.ReadOnlySpan{``0})">
