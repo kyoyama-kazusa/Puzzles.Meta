@@ -5126,6 +5126,21 @@
         <member name="M:System.Text.RegularExpressions.MatchCollectionEnumerable.Select``1(System.Text.RegularExpressions.MatchCollection,System.Func{System.Text.RegularExpressions.Match,``0})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
         </member>
+        <member name="T:System.Text.RegularExpressions.RegexExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.
+            </summary>
+            <seealso cref="T:System.Text.RegularExpressions.Regex"/>
+        </member>
+        <member name="M:System.Text.RegularExpressions.RegexExtensions.FindOccurenceAt(System.Text.RegularExpressions.Regex,System.ReadOnlySpan{System.Char},System.Int32)">
+            <summary>
+            Find the string pattern occurred at the specified time from the specified string.
+            </summary>
+            <param name="this">The regular expression.</param>
+            <param name="str">The string to be matched.</param>
+            <param name="index">The index.</param>
+            <returns>The index.</returns>
+        </member>
         <member name="T:System.Text.RegularExpressions.StringRegexExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.String"/> instances, with regular expression handling.
