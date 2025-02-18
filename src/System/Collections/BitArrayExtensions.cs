@@ -27,6 +27,23 @@ public static class BitArrayExtensions
 	/// <returns>The field.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int[] GetInternalArrayField(this BitArray @this) => Entry.GetArrayField(@this);
+
+	/// <summary>
+	/// Slices the current <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="this">The instance.</param>
+	/// <param name="start">The start index.</param>
+	/// <param name="count">The number.</param>
+	/// <returns>The result.</returns>
+	public static BitArray Slice(this BitArray @this, int start, int count)
+	{
+		var result = new BitArray(count);
+		for (var (i, j) = (start, 0); i < start + count; i++, j++)
+		{
+			result[j] = @this[i];
+		}
+		return result;
+	}
 }
 
 /// <summary>

@@ -396,6 +396,15 @@
             <param name="this">The array.</param>
             <returns>The field.</returns>
         </member>
+        <member name="M:System.Collections.BitArrayExtensions.Slice(System.Collections.BitArray,System.Int32,System.Int32)">
+            <summary>
+            Slices the current <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="this">The instance.</param>
+            <param name="start">The start index.</param>
+            <param name="count">The number.</param>
+            <returns>The result.</returns>
+        </member>
         <member name="T:System.Collections.Entry">
             <summary>
             Represents an entry to call internal fields on <see cref="T:System.Collections.BitArray"/>.
