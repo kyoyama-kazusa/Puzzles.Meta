@@ -446,4 +446,172 @@ public static class BitArrayConverter
 		}
 		return result;
 	}
+
+	/// <summary>
+	/// Convert the specified <see cref="bool"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">A <see cref="bool"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromBooleanArray(bool[] array) => new(array);
+
+	/// <summary>
+	/// Convert the specified <see cref="byte"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">A <see cref="byte"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromByteArray(byte[] array) => new(array);
+
+	/// <summary>
+	/// Convert the specified <see cref="sbyte"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">An <see cref="sbyte"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromSByteArray(sbyte[] array) => new(Unsafe.As<sbyte[], byte[]>(ref array));
+
+	/// <summary>
+	/// Convert the specified <see cref="ushort"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">A <see cref="ushort"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	public static BitArray FromUInt16Array(ushort[] array)
+	{
+		var result = new BitArray(array.Length * 16);
+		for (var i = 0; i < array.Length; i++)
+		{
+			foreach (var bit in array[i])
+			{
+				result[i * 16 + bit] = true;
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
+	/// Convert the specified <see cref="short"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">A <see cref="short"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromInt16Array(short[] array) => FromUInt16Array(Unsafe.As<short[], ushort[]>(ref array));
+
+	/// <summary>
+	/// Convert the specified <see cref="uint"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">An <see cref="uint"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromUInt32Array(uint[] array) => new(Unsafe.As<uint[], int[]>(ref array));
+
+	/// <summary>
+	/// Convert the specified <see cref="int"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">An <see cref="int"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromInt32Array(int[] array) => new(array);
+
+	/// <summary>
+	/// Convert the specified <see cref="ulong"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">A <see cref="ulong"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	public static BitArray FromUInt64Array(ulong[] array)
+	{
+		var result = new BitArray(array.Length * 64);
+		for (var i = 0; i < array.Length; i++)
+		{
+			foreach (var bit in array[i])
+			{
+				result[i * 64 + bit] = true;
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
+	/// Convert the specified <see cref="long"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">A <see cref="long"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromInt64Array(long[] array) => FromUInt64Array(Unsafe.As<long[], ulong[]>(ref array));
+
+	/// <summary>
+	/// Convert the specified <see cref="UInt128"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">A <see cref="UInt128"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	public static BitArray FromUInt128Array(UInt128[] array)
+	{
+		var result = new BitArray(array.Length * 128);
+		for (var i = 0; i < array.Length; i++)
+		{
+			foreach (var bit in array[i])
+			{
+				result[i * 128 + bit] = true;
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
+	/// Convert the specified <see cref="Int128"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">An <see cref="Int128"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromInt128Array(Int128[] array) => FromUInt128Array(Unsafe.As<Int128[], UInt128[]>(ref array));
+
+	/// <summary>
+	/// Convert the specified <see cref="nuint"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">An <see cref="nuint"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	public static BitArray FromNUIntArray(nuint[] array)
+	{
+		var unit = nuint.Size << 3;
+		var result = new BitArray(array.Length * unit);
+		for (var i = 0; i < array.Length; i++)
+		{
+			foreach (var bit in array[i])
+			{
+				result[i * unit + bit] = true;
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
+	/// Convert the specified <see cref="nint"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="array">An <see cref="nint"/>[] instance.</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray FromNIntArray(nint[] array) => FromNUIntArray(Unsafe.As<nint[], nuint[]>(ref array));
+
+	/// <summary>
+	/// Convert the specified <typeparamref name="T"/>[] into a <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <typeparam name="T">The type of binary integer.</typeparam>
+	/// <param name="array">An instance of type <typeparamref name="T"/>[].</param>
+	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
+	/// <exception cref="OverflowException">
+	/// Throws when overflow on casting from <typeparamref name="T"/> to <see cref="int"/>.
+	/// </exception>
+	public static BitArray FromArray<T>(T[] array) where T : IBinaryInteger<T>
+	{
+		var unit = int.CreateChecked(T.PopCount(T.AllBitsSet));
+		var result = new BitArray(array.Length * unit);
+		for (var i = 0; i < array.Length; i++)
+		{
+			foreach (var bit in array[i])
+			{
+				result[i * unit + bit] = true;
+			}
+		}
+		return result;
+	}
 }

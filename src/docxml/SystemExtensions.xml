@@ -271,6 +271,108 @@
             Throws when type <typeparamref name="T"/> is not compatible with <see cref="T:System.Int32"/>.
             </exception>
         </member>
+        <member name="M:System.Collections.BitArrayConverter.FromBooleanArray(System.Boolean[])">
+            <summary>
+            Convert the specified <see cref="T:System.Boolean"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">A <see cref="T:System.Boolean"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromByteArray(System.Byte[])">
+            <summary>
+            Convert the specified <see cref="T:System.Byte"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">A <see cref="T:System.Byte"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromSByteArray(System.SByte[])">
+            <summary>
+            Convert the specified <see cref="T:System.SByte"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">An <see cref="T:System.SByte"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromUInt16Array(System.UInt16[])">
+            <summary>
+            Convert the specified <see cref="T:System.UInt16"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">A <see cref="T:System.UInt16"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromInt16Array(System.Int16[])">
+            <summary>
+            Convert the specified <see cref="T:System.Int16"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">A <see cref="T:System.Int16"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromUInt32Array(System.UInt32[])">
+            <summary>
+            Convert the specified <see cref="T:System.UInt32"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">An <see cref="T:System.UInt32"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromInt32Array(System.Int32[])">
+            <summary>
+            Convert the specified <see cref="T:System.Int32"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">An <see cref="T:System.Int32"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromUInt64Array(System.UInt64[])">
+            <summary>
+            Convert the specified <see cref="T:System.UInt64"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">A <see cref="T:System.UInt64"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromInt64Array(System.Int64[])">
+            <summary>
+            Convert the specified <see cref="T:System.Int64"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">A <see cref="T:System.Int64"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromUInt128Array(System.UInt128[])">
+            <summary>
+            Convert the specified <see cref="T:System.UInt128"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">A <see cref="T:System.UInt128"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromInt128Array(System.Int128[])">
+            <summary>
+            Convert the specified <see cref="T:System.Int128"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">An <see cref="T:System.Int128"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromNUIntArray(System.UIntPtr[])">
+            <summary>
+            Convert the specified <see cref="T:System.UIntPtr"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">An <see cref="T:System.UIntPtr"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromNIntArray(System.IntPtr[])">
+            <summary>
+            Convert the specified <see cref="T:System.IntPtr"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="array">An <see cref="T:System.IntPtr"/>[] instance.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.FromArray``1(``0[])">
+            <summary>
+            Convert the specified <typeparamref name="T"/>[] into a <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <typeparam name="T">The type of binary integer.</typeparam>
+            <param name="array">An instance of type <typeparamref name="T"/>[].</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance converted.</returns>
+            <exception cref="T:System.OverflowException">
+            Throws when overflow on casting from <typeparamref name="T"/> to <see cref="T:System.Int32"/>.
+            </exception>
+        </member>
         <member name="T:System.Collections.BitArrayExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.Collections.BitArray"/>.
