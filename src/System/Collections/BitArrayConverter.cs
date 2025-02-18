@@ -26,7 +26,7 @@ public static class BitArrayConverter
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ReadOnlySpan<byte> ToByteSpan(BitArray bits)
 	{
-		var result = new byte[bits.Count + 7 >> 3];
+		var result = new byte[(bits.Count + 7) / 8];
 		bits.CopyTo(result, 0);
 		return result;
 	}
@@ -143,7 +143,7 @@ public static class BitArrayConverter
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ReadOnlySpan<int> ToInt32Span(BitArray bits)
 	{
-		var result = new int[bits.Count + 31 >> 5];
+		var result = new int[(bits.Count + 31) / 32];
 		bits.CopyTo(result, 0);
 		return result;
 	}
