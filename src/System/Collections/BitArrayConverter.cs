@@ -6,12 +6,12 @@ namespace System.Collections;
 public static class BitArrayConverter
 {
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="bool"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="bool"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="bool"/> instance.</returns>
+	/// <returns>A <see cref="bool"/>[] instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<bool> ToBooleanSpan(BitArray bits)
+	public static bool[] ToBooleanArray(BitArray bits)
 	{
 		var result = new bool[bits.Count];
 		bits.CopyTo(result, 0);
@@ -19,12 +19,12 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="byte"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="byte"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="byte"/> instance.</returns>
+	/// <returns>A <see cref="byte"/>[] instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<byte> ToByteSpan(BitArray bits)
+	public static byte[] ToByteArray(BitArray bits)
 	{
 		var result = new byte[(bits.Count + 7) / 8];
 		bits.CopyTo(result, 0);
@@ -32,11 +32,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="sbyte"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into an <see cref="sbyte"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="sbyte"/> instance.</returns>
-	public static ReadOnlySpan<sbyte> ToSByteSpan(BitArray bits)
+	/// <returns>An <see cref="sbyte"/>[] instance.</returns>
+	public static sbyte[] ToSByteArray(BitArray bits)
 	{
 		var groupCount = (bits.Count + 7) / 8;
 		var result = new sbyte[groupCount];
@@ -58,11 +58,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="ushort"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ushort"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="ushort"/> instance.</returns>
-	public static ReadOnlySpan<ushort> ToUInt16Span(BitArray bits)
+	/// <returns>A <see cref="ushort"/>[] instance.</returns>
+	public static ushort[] ToUInt16Array(BitArray bits)
 	{
 		var groupCount = (bits.Count + 15) / 16;
 		var result = new ushort[groupCount];
@@ -84,11 +84,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="short"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="short"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="short"/> instance.</returns>
-	public static ReadOnlySpan<short> ToInt16Span(BitArray bits)
+	/// <returns>A <see cref="short"/>[] instance.</returns>
+	public static short[] ToInt16Array(BitArray bits)
 	{
 		var groupCount = (bits.Count + 15) / 16;
 		var result = new short[groupCount];
@@ -110,11 +110,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="uint"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="uint"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="uint"/> instance.</returns>
-	public static ReadOnlySpan<uint> ToUInt32Span(BitArray bits)
+	/// <returns>A <see cref="uint"/>[] instance.</returns>
+	public static uint[] ToUInt32Array(BitArray bits)
 	{
 		var groupCount = (bits.Count + 31) / 32;
 		var result = new uint[groupCount];
@@ -136,12 +136,12 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="int"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into an <see cref="int"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="int"/> instance.</returns>
+	/// <returns>An <see cref="int"/>[] instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<int> ToInt32Span(BitArray bits)
+	public static int[] ToInt32Array(BitArray bits)
 	{
 		var result = new int[(bits.Count + 31) / 32];
 		bits.CopyTo(result, 0);
@@ -149,11 +149,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="ulong"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ulong"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="ulong"/> instance.</returns>
-	public static ReadOnlySpan<ulong> ToUInt64Span(BitArray bits)
+	/// <returns>A <see cref="ulong"/>[] instance.</returns>
+	public static ulong[] ToUInt64Array(BitArray bits)
 	{
 		var groupCount = (bits.Count + 63) / 64;
 		var result = new ulong[groupCount];
@@ -175,11 +175,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="long"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="long"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="long"/> instance.</returns>
-	public static ReadOnlySpan<long> ToInt64Span(BitArray bits)
+	/// <returns>A <see cref="long"/>[] instance.</returns>
+	public static long[] ToInt64Array(BitArray bits)
 	{
 		var groupCount = (bits.Count + 63) / 64;
 		var result = new long[groupCount];
@@ -201,11 +201,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="UInt128"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="UInt128"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="UInt128"/> instance.</returns>
-	public static ReadOnlySpan<UInt128> ToUInt128Span(BitArray bits)
+	/// <returns>A <see cref="UInt128"/>[] instance.</returns>
+	public static UInt128[] ToUInt128Array(BitArray bits)
 	{
 		var groupCount = (bits.Count + 127) / 128;
 		var result = new UInt128[groupCount];
@@ -227,11 +227,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="Int128"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into an <see cref="Int128"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="Int128"/> instance.</returns>
-	public static ReadOnlySpan<Int128> ToInt128Span(BitArray bits)
+	/// <returns>An <see cref="Int128"/>[] instance.</returns>
+	public static Int128[] ToInt128Array(BitArray bits)
 	{
 		var groupCount = (bits.Count + 127) / 128;
 		var result = new Int128[groupCount];
@@ -253,11 +253,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="nuint"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into an <see cref="nuint"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="nuint"/> instance.</returns>
-	public static ReadOnlySpan<nuint> ToNUIntSpan(BitArray bits)
+	/// <returns>An <see cref="nuint"/>[] instance.</returns>
+	public static nuint[] ToNUIntArray(BitArray bits)
 	{
 		var unit = nuint.Size << 3;
 		var groupCount = (bits.Count + unit - 1) / unit;
@@ -280,11 +280,11 @@ public static class BitArrayConverter
 	}
 
 	/// <summary>
-	/// Converts the specified <see cref="BitArray"/> instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="nint"/> instance.
+	/// Converts the specified <see cref="BitArray"/> instance into an <see cref="nint"/>[] instance.
 	/// </summary>
 	/// <param name="bits">The bits.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="nint"/> instance.</returns>
-	public static ReadOnlySpan<nint> ToNIntSpan(BitArray bits)
+	/// <returns>An <see cref="nint"/>[] instance.</returns>
+	public static nint[] ToNIntArray(BitArray bits)
 	{
 		var unit = nint.Size << 3;
 		var groupCount = (bits.Count + unit - 1) / unit;
@@ -319,104 +319,104 @@ public static class BitArrayConverter
 	/// <exception cref="NotSupportedException">
 	/// Throws when type <typeparamref name="T"/> is not compatible with <see cref="int"/>.
 	/// </exception>
-	public static ReadOnlySpan<T> ToSpan<T>(BitArray bits) where T : IBinaryInteger<T>, IShiftOperators<T, T, T>
+	public static T[] ToArray<T>(BitArray bits) where T : IBinaryInteger<T>, IShiftOperators<T, T, T>
 	{
-		var dic = new Dictionary<Type, Func<ReadOnlySpan<T>>>
+		var dic = new Dictionary<Type, Func<T[]>>
 		{
 			{
 				typeof(byte),
 				() =>
 				{
-					var tempResult = ToByteSpan(bits);
-					return Unsafe.As<ReadOnlySpan<byte>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToByteArray(bits);
+					return Unsafe.As<byte[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(sbyte),
 				() =>
 				{
-					var tempResult = ToSByteSpan(bits);
-					return Unsafe.As<ReadOnlySpan<sbyte>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToSByteArray(bits);
+					return Unsafe.As<sbyte[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(ushort),
 				() =>
 				{
-					var tempResult = ToUInt16Span(bits);
-					return Unsafe.As<ReadOnlySpan<ushort>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToUInt16Array(bits);
+					return Unsafe.As<ushort[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(short),
 				() =>
 				{
-					var tempResult = ToInt16Span(bits);
-					return Unsafe.As<ReadOnlySpan<short>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToInt16Array(bits);
+					return Unsafe.As<short[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(uint),
 				() =>
 				{
-					var tempResult = ToUInt32Span(bits);
-					return Unsafe.As<ReadOnlySpan<uint>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToUInt32Array(bits);
+					return Unsafe.As<uint[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(int),
 				() =>
 				{
-					var tempResult = ToInt32Span(bits);
-					return Unsafe.As<ReadOnlySpan<int>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToInt32Array(bits);
+					return Unsafe.As<int[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(ulong),
 				() =>
 				{
-					var tempResult = ToUInt64Span(bits);
-					return Unsafe.As<ReadOnlySpan<ulong>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToUInt64Array(bits);
+					return Unsafe.As<ulong[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(long),
 				() =>
 				{
-					var tempResult = ToInt64Span(bits);
-					return Unsafe.As<ReadOnlySpan<long>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToInt64Array(bits);
+					return Unsafe.As<long[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(nuint),
 				() =>
 				{
-					var tempResult = ToNUIntSpan(bits);
-					return Unsafe.As<ReadOnlySpan<nuint>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToNUIntArray(bits);
+					return Unsafe.As<nuint[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(nint),
 				() =>
 				{
-					var tempResult = ToNIntSpan(bits);
-					return Unsafe.As<ReadOnlySpan<nint>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToNIntArray(bits);
+					return Unsafe.As<nint[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(UInt128),
 				() =>
 				{
-					var tempResult = ToUInt128Span(bits);
-					return Unsafe.As<ReadOnlySpan<UInt128>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToUInt128Array(bits);
+					return Unsafe.As<UInt128[], T[]>(ref tempResult);
 				}
 			},
 			{
 				typeof(Int128),
 				() =>
 				{
-					var tempResult = ToInt128Span(bits);
-					return Unsafe.As<ReadOnlySpan<Int128>, ReadOnlySpan<T>>(ref tempResult);
+					var tempResult = ToInt128Array(bits);
+					return Unsafe.As<Int128[], T[]>(ref tempResult);
 				}
 			}
 		};

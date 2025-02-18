@@ -165,98 +165,98 @@
             Provides with a converter that can convert the object <see cref="T:System.Collections.BitArray"/> into an array of commonly-used binary integer types.
             </summary>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToBooleanSpan(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToBooleanArray(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Boolean"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.Boolean"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Boolean"/> instance.</returns>
+            <returns>A <see cref="T:System.Boolean"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToByteSpan(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToByteArray(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Byte"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.Byte"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Byte"/> instance.</returns>
+            <returns>A <see cref="T:System.Byte"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToSByteSpan(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToSByteArray(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.SByte"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into an <see cref="T:System.SByte"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.SByte"/> instance.</returns>
+            <returns>An <see cref="T:System.SByte"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToUInt16Span(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToUInt16Array(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt16"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.UInt16"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt16"/> instance.</returns>
+            <returns>A <see cref="T:System.UInt16"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToInt16Span(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToInt16Array(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int16"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.Int16"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int16"/> instance.</returns>
+            <returns>A <see cref="T:System.Int16"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToUInt32Span(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToUInt32Array(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt32"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.UInt32"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt32"/> instance.</returns>
+            <returns>A <see cref="T:System.UInt32"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToInt32Span(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToInt32Array(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int32"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into an <see cref="T:System.Int32"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int32"/> instance.</returns>
+            <returns>An <see cref="T:System.Int32"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToUInt64Span(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToUInt64Array(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt64"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.UInt64"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt64"/> instance.</returns>
+            <returns>A <see cref="T:System.UInt64"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToInt64Span(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToInt64Array(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int64"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.Int64"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int64"/> instance.</returns>
+            <returns>A <see cref="T:System.Int64"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToUInt128Span(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToUInt128Array(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt128"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.UInt128"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt128"/> instance.</returns>
+            <returns>A <see cref="T:System.UInt128"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToInt128Span(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToInt128Array(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int128"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into an <see cref="T:System.Int128"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int128"/> instance.</returns>
+            <returns>An <see cref="T:System.Int128"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToNUIntSpan(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToNUIntArray(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UIntPtr"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into an <see cref="T:System.UIntPtr"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UIntPtr"/> instance.</returns>
+            <returns>An <see cref="T:System.UIntPtr"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToNIntSpan(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToNIntArray(System.Collections.BitArray)">
             <summary>
-            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.IntPtr"/> instance.
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into an <see cref="T:System.IntPtr"/>[] instance.
             </summary>
             <param name="bits">The bits.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.IntPtr"/> instance.</returns>
+            <returns>An <see cref="T:System.IntPtr"/>[] instance.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayConverter.ToSpan``1(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayConverter.ToArray``1(System.Collections.BitArray)">
             <summary>
             Converts the specified <see cref="T:System.Collections.BitArray"/> instance
             into a <see cref="T:System.ReadOnlySpan`1"/> of <typeparamref name="T"/> instance.
