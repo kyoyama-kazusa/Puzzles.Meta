@@ -160,6 +160,117 @@
             The generated field declaration for parameter <c>value</c>.
             </summary>
         </member>
+        <member name="T:System.Collections.BitArrayConverter">
+            <summary>
+            Provides with a converter that can convert the object <see cref="T:System.Collections.BitArray"/> into an array of commonly-used binary integer types.
+            </summary>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToBooleanSpan(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Boolean"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Boolean"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToByteSpan(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Byte"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Byte"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToSByteSpan(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.SByte"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.SByte"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToUInt16Span(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt16"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt16"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToInt16Span(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int16"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int16"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToUInt32Span(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt32"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt32"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToInt32Span(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int32"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int32"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToUInt64Span(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt64"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt64"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToInt64Span(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int64"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int64"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToUInt128Span(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt128"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UInt128"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToInt128Span(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int128"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int128"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToNUIntSpan(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UIntPtr"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.UIntPtr"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToNIntSpan(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.IntPtr"/> instance.
+            </summary>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.IntPtr"/> instance.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayConverter.ToSpan``1(System.Collections.BitArray)">
+            <summary>
+            Converts the specified <see cref="T:System.Collections.BitArray"/> instance
+            into a <see cref="T:System.ReadOnlySpan`1"/> of <typeparamref name="T"/> instance.
+            </summary>
+            <typeparam name="T">The type of the binary integer to be converted.</typeparam>
+            <param name="bits">The bits.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <typeparamref name="T"/> instance.</returns>
+            <exception cref="T:System.OverflowException">
+            Throws when create an overflowed <see cref="T:System.Int32"/> value as an index from <typeparamref name="T"/>.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            Throws when type <typeparamref name="T"/> is not compatible with <see cref="T:System.Int32"/>.
+            </exception>
+        </member>
         <member name="T:System.Collections.BitArrayExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.Collections.BitArray"/>.
