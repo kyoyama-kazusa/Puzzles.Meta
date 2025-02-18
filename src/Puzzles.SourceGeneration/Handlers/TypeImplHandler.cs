@@ -1,4 +1,4 @@
-namespace Sudoku.SourceGeneration.Handlers;
+namespace Puzzles.SourceGeneration.Handlers;
 
 /// <summary>
 /// The hub file that generates modal source code on some commonly-used members.

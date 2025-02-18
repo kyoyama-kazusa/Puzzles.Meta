@@ -1,4 +1,4 @@
-namespace Sudoku.SourceGeneration.Handlers;
+namespace Puzzles.SourceGeneration.Handlers;
 
 /// <summary>
 /// The generator handler for primary constructor member parameters.

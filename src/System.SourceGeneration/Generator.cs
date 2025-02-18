@@ -1,4 +1,4 @@
-namespace Sudoku.SourceGeneration;
+namespace Puzzles.SourceGeneration;
 
 /// <summary>
 /// Represents a source generator type that generates some extended delegate types.

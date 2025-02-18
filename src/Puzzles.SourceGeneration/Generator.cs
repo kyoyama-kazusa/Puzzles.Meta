@@ -1,4 +1,4 @@
-namespace Sudoku.SourceGeneration;
+namespace Puzzles.SourceGeneration;
 
 using static CommonMethods;
 

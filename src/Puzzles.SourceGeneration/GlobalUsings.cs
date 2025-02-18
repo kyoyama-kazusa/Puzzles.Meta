@@ -6,7 +6,7 @@ global using System.Threading;
 global using Microsoft.CodeAnalysis;
 global using Microsoft.CodeAnalysis.CSharp;
 global using Microsoft.CodeAnalysis.CSharp.Syntax;
-global using Sudoku.SourceGeneration.Handlers;
+global using Puzzles.SourceGeneration.Handlers;
 global using static Microsoft.CodeAnalysis.NullableAnnotation;
 global using static Microsoft.CodeAnalysis.SpecialType;
 global using static SolutionVersion;

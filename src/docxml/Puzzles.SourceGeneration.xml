@@ -25,20 +25,20 @@
             Try to convert the specified identifier into camel casing, with a leading underscore character.
             </summary>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Generator">
+        <member name="T:Puzzles.SourceGeneration.Generator">
             <summary>
             Represents a source generator type that runs multiple different usage of source output services on compiling code.
             </summary>
         </member>
-        <member name="M:Sudoku.SourceGeneration.Generator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)">
+        <member name="M:Puzzles.SourceGeneration.Generator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.SourceGeneration.CommonMethods">
+        <member name="T:Puzzles.SourceGeneration.CommonMethods">
             <summary>
             Represents a set of methods that can be used by the types in this file.
             </summary>
         </member>
-        <member name="M:Sudoku.SourceGeneration.CommonMethods.SyntaxNodeTypePredicate``1(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.SourceGeneration.CommonMethods.SyntaxNodeTypePredicate``1(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">
             <summary>
             Determine whether the specified <see cref="T:Microsoft.CodeAnalysis.SyntaxNode"/> is of type <typeparamref name="TSyntaxNode"/>.
             </summary>
@@ -47,7 +47,7 @@
             <param name="_"/>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.SourceGeneration.CommonMethods.IsPartialTypePredicate``1(``0,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.SourceGeneration.CommonMethods.IsPartialTypePredicate``1(``0,System.Threading.CancellationToken)">
             <summary>
             Determine whether the specified type declaration syntax node contains a <see langword="partial"/> modifier.
             </summary>
@@ -56,7 +56,7 @@
             <param name="_"/>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.SourceGeneration.CommonMethods.NotNullPredicate``1(``0)">
+        <member name="M:Puzzles.SourceGeneration.CommonMethods.NotNullPredicate``1(``0)">
             <summary>
             Determine whether the value is not <see langword="null"/>.
             </summary>
@@ -64,7 +64,7 @@
             <param name="value">The value.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.SourceGeneration.CommonMethods.NotNullSelector``1(``0,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.SourceGeneration.CommonMethods.NotNullSelector``1(``0,System.Threading.CancellationToken)">
             <summary>
             Try to get the internal value without nullability checking.
             </summary>
@@ -73,35 +73,35 @@
             <param name="_"/>
             <returns>The value.</returns>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.PrimaryConstructorMemberHandler">
+        <member name="T:Puzzles.SourceGeneration.Handlers.PrimaryConstructorMemberHandler">
             <summary>
             The generator handler for primary constructor member parameters.
             </summary>
         </member>
-        <member name="M:Sudoku.SourceGeneration.Handlers.PrimaryConstructorMemberHandler.Output(Microsoft.CodeAnalysis.SourceProductionContext,System.Collections.Immutable.ImmutableArray{System.String})">
+        <member name="M:Puzzles.SourceGeneration.Handlers.PrimaryConstructorMemberHandler.Output(Microsoft.CodeAnalysis.SourceProductionContext,System.Collections.Immutable.ImmutableArray{System.String})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.SourceGeneration.Handlers.PrimaryConstructorMemberHandler.Transform(Microsoft.CodeAnalysis.GeneratorSyntaxContext,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.SourceGeneration.Handlers.PrimaryConstructorMemberHandler.Transform(Microsoft.CodeAnalysis.GeneratorSyntaxContext,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.LocalEmitPropertyStyle">
+        <member name="T:Puzzles.SourceGeneration.Handlers.LocalEmitPropertyStyle">
             <summary>
             Represents a local emit property style.
             </summary>
         </member>
-        <member name="F:Sudoku.SourceGeneration.Handlers.LocalEmitPropertyStyle.AssignToProperty">
+        <member name="F:Puzzles.SourceGeneration.Handlers.LocalEmitPropertyStyle.AssignToProperty">
             <summary>
             Indicates the behavior is to generate an assignment to property:
             <code><![CDATA[public int Property { get; } = value;]]></code>
             </summary>
         </member>
-        <member name="F:Sudoku.SourceGeneration.Handlers.LocalEmitPropertyStyle.ReturnParameter">
+        <member name="F:Puzzles.SourceGeneration.Handlers.LocalEmitPropertyStyle.ReturnParameter">
             <summary>
             Indicates the behavior is to generate a return statement that directly returns parameter:
             <code><![CDATA[public int Property => value;]]></code>
             </summary>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.ParameterLocalData">
+        <member name="T:Puzzles.SourceGeneration.Handlers.ParameterLocalData">
             <summary>
             Represents local data of parameter symbol.
             </summary>
@@ -109,7 +109,7 @@
             <param name="FieldPart">Indicates the field part.</param>
             <param name="PropertyPart">Indicates the property part.</param>
         </member>
-        <member name="M:Sudoku.SourceGeneration.Handlers.ParameterLocalData.#ctor(Microsoft.CodeAnalysis.IParameterSymbol,Microsoft.CodeAnalysis.AttributeData,Microsoft.CodeAnalysis.AttributeData)">
+        <member name="M:Puzzles.SourceGeneration.Handlers.ParameterLocalData.#ctor(Microsoft.CodeAnalysis.IParameterSymbol,Microsoft.CodeAnalysis.AttributeData,Microsoft.CodeAnalysis.AttributeData)">
             <summary>
             Represents local data of parameter symbol.
             </summary>
@@ -117,64 +117,64 @@
             <param name="FieldPart">Indicates the field part.</param>
             <param name="PropertyPart">Indicates the property part.</param>
         </member>
-        <member name="P:Sudoku.SourceGeneration.Handlers.ParameterLocalData.Symbol">
+        <member name="P:Puzzles.SourceGeneration.Handlers.ParameterLocalData.Symbol">
             <summary>Indicates the symbol itself.</summary>
         </member>
-        <member name="P:Sudoku.SourceGeneration.Handlers.ParameterLocalData.FieldPart">
+        <member name="P:Puzzles.SourceGeneration.Handlers.ParameterLocalData.FieldPart">
             <summary>Indicates the field part.</summary>
         </member>
-        <member name="P:Sudoku.SourceGeneration.Handlers.ParameterLocalData.PropertyPart">
+        <member name="P:Puzzles.SourceGeneration.Handlers.ParameterLocalData.PropertyPart">
             <summary>Indicates the property part.</summary>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.TypeImplHandler">
+        <member name="T:Puzzles.SourceGeneration.Handlers.TypeImplHandler">
             <summary>
             The hub file that generates modal source code on some commonly-used members.
             </summary>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.TypeImplFlag">
+        <member name="T:Puzzles.SourceGeneration.Handlers.TypeImplFlag">
             <summary>
             Indicates the implementation flags.
             </summary>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.LengthOrCountPropertyKind">
+        <member name="T:Puzzles.SourceGeneration.Handlers.LengthOrCountPropertyKind">
             <summary>
             Indicates the property kind of length or count property.
             </summary>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.EqualsBehavior">
+        <member name="T:Puzzles.SourceGeneration.Handlers.EqualsBehavior">
             <summary>
             Represents a behavior for generating <see cref="M:System.Object.Equals(System.Object)"/> method.
             </summary>
             <seealso cref="M:System.Object.Equals(System.Object)"/>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.GetHashCodeBehavior">
+        <member name="T:Puzzles.SourceGeneration.Handlers.GetHashCodeBehavior">
             <summary>
             Represents a behavior for generating <see cref="M:System.Object.GetHashCode"/> method.
             </summary>
             <seealso cref="M:System.Object.GetHashCode"/>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.ToStringBehavior">
+        <member name="T:Puzzles.SourceGeneration.Handlers.ToStringBehavior">
             <summary>
             Represents a behavior for generating <see cref="M:System.Object.ToString"/> method.
             </summary>
             <seealso cref="M:System.Object.ToString"/>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.EqualityOperatorsBehavior">
+        <member name="T:Puzzles.SourceGeneration.Handlers.EqualityOperatorsBehavior">
             <summary>
             Represents a behavior for generating equality operators.
             </summary>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.ComparisonOperatorsBehavior">
+        <member name="T:Puzzles.SourceGeneration.Handlers.ComparisonOperatorsBehavior">
             <summary>
             Represents a behavior for generating comparison operators.
             </summary>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.PrimaryConstructor">
+        <member name="T:Puzzles.SourceGeneration.Handlers.PrimaryConstructor">
             <summary>
             Provides with primary constructor operations.
             </summary>
         </member>
-        <member name="M:Sudoku.SourceGeneration.Handlers.PrimaryConstructor.MapMemberNames``1(Microsoft.CodeAnalysis.INamedTypeSymbol,Microsoft.CodeAnalysis.SemanticModel,Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax,Microsoft.CodeAnalysis.INamedTypeSymbol,System.Func{Microsoft.CodeAnalysis.AttributeData,System.Boolean},System.Func{Microsoft.CodeAnalysis.ISymbol,``0},System.Threading.CancellationToken)">
+        <member name="M:Puzzles.SourceGeneration.Handlers.PrimaryConstructor.MapMemberNames``1(Microsoft.CodeAnalysis.INamedTypeSymbol,Microsoft.CodeAnalysis.SemanticModel,Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax,Microsoft.CodeAnalysis.INamedTypeSymbol,System.Func{Microsoft.CodeAnalysis.AttributeData,System.Boolean},System.Func{Microsoft.CodeAnalysis.ISymbol,``0},System.Threading.CancellationToken)">
             <summary>
             Try to map member names.
             </summary>
@@ -188,14 +188,14 @@
             <param name="cancellationToken">The cancellation token that can cancel the operation.</param>
             <returns>A list of values (member names and extra data).</returns>
         </member>
-        <member name="T:Sudoku.SourceGeneration.Handlers.Extensions">
+        <member name="T:Puzzles.SourceGeneration.Handlers.Extensions">
             <target name="class" when="extension">
 				<summary>
 					Provides with file-local extension methods.
 				</summary>
 			</target>
         </member>
-        <member name="M:Sudoku.SourceGeneration.Handlers.Extensions.InternalHandle(System.String,System.String)">
+        <member name="M:Puzzles.SourceGeneration.Handlers.Extensions.InternalHandle(System.String,System.String)">
             <summary>
             Internal handle the naming rule, converting it into a valid identifier via specified parameter name.
             </summary>

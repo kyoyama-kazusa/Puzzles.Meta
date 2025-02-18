@@ -1,4 +1,4 @@
-namespace Sudoku.SourceGeneration.Handlers;
+namespace Puzzles.SourceGeneration.Handlers;
 
 internal static class AddPropertyHandler
 {

@@ -4,15 +4,15 @@
         <name>SystemExtensions.SourceGeneration</name>
     </assembly>
     <members>
-        <member name="T:Sudoku.SourceGeneration.DelegateExtensionsGenerator">
+        <member name="T:Puzzles.SourceGeneration.DelegateExtensionsGenerator">
             <summary>
             Represents a source generator type that generates some extended delegate types.
             </summary>
         </member>
-        <member name="M:Sudoku.SourceGeneration.DelegateExtensionsGenerator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)">
+        <member name="M:Puzzles.SourceGeneration.DelegateExtensionsGenerator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.SourceGeneration.DelegateExtensionsGenerator.Generate(Microsoft.CodeAnalysis.SourceProductionContext,Microsoft.CodeAnalysis.Compilation)">
+        <member name="M:Puzzles.SourceGeneration.DelegateExtensionsGenerator.Generate(Microsoft.CodeAnalysis.SourceProductionContext,Microsoft.CodeAnalysis.Compilation)">
             <summary>
             The backing generator method.
             </summary>
