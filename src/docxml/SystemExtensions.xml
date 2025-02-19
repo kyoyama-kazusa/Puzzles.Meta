@@ -6377,53 +6377,53 @@
             <inheritdoc/>
             <exception cref="T:System.ObjectDisposedException">Throws when the object had already been disposed.</exception>
         </member>
-        <member name="T:System.Numerics.NativeIntegerEnumerator">
+        <member name="T:System.Numerics.NIntEnumerator">
             <summary>
             Represents an enumerator that iterates an <see cref="T:System.IntPtr"/> or <see cref="T:System.UIntPtr"/> value.
             </summary>
             <param name="_value">The value to be iterated.</param>
         </member>
-        <member name="M:System.Numerics.NativeIntegerEnumerator.#ctor(System.UIntPtr)">
+        <member name="M:System.Numerics.NIntEnumerator.#ctor(System.UIntPtr)">
             <summary>
             Represents an enumerator that iterates an <see cref="T:System.IntPtr"/> or <see cref="T:System.UIntPtr"/> value.
             </summary>
             <param name="_value">The value to be iterated.</param>
         </member>
-        <member name="P:System.Numerics.NativeIntegerEnumerator.PopulationCount">
+        <member name="P:System.Numerics.NIntEnumerator.PopulationCount">
             <summary>
             Indicates the population count of the value.
             </summary>
         </member>
-        <member name="P:System.Numerics.NativeIntegerEnumerator.Bits">
+        <member name="P:System.Numerics.NIntEnumerator.Bits">
             <summary>
             Indicates the bits set.
             </summary>
         </member>
-        <member name="P:System.Numerics.NativeIntegerEnumerator.Current">
+        <member name="P:System.Numerics.NIntEnumerator.Current">
             <inheritdoc cref="P:System.Collections.Generic.IEnumerator`1.Current"/>
         </member>
-        <member name="P:System.Numerics.NativeIntegerEnumerator.System#Collections#IEnumerator#Current">
+        <member name="P:System.Numerics.NIntEnumerator.System#Collections#IEnumerator#Current">
             <inheritdoc/>
         </member>
-        <member name="P:System.Numerics.NativeIntegerEnumerator.Item(System.Int32)">
+        <member name="P:System.Numerics.NIntEnumerator.Item(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt32,System.Int32)"/>
         </member>
-        <member name="M:System.Numerics.NativeIntegerEnumerator.MoveNext">
+        <member name="M:System.Numerics.NIntEnumerator.MoveNext">
             <inheritdoc cref="M:System.Collections.IEnumerator.MoveNext"/>
         </member>
-        <member name="M:System.Numerics.NativeIntegerEnumerator.System#Collections#IEnumerator#Reset">
+        <member name="M:System.Numerics.NIntEnumerator.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
         </member>
-        <member name="M:System.Numerics.NativeIntegerEnumerator.Equals(System.Object)">
+        <member name="M:System.Numerics.NIntEnumerator.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
         </member>
-        <member name="M:System.Numerics.NativeIntegerEnumerator.GetHashCode">
+        <member name="M:System.Numerics.NIntEnumerator.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
-        <member name="M:System.Numerics.NativeIntegerEnumerator.ToString">
+        <member name="M:System.Numerics.NIntEnumerator.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
-        <member name="M:System.Numerics.NativeIntegerEnumerator.System#IDisposable#Dispose">
+        <member name="M:System.Numerics.NIntEnumerator.System#IDisposable#Dispose">
             <inheritdoc/>
             <exception cref="T:System.ObjectDisposedException">Throws when the object had already been disposed.</exception>
         </member>

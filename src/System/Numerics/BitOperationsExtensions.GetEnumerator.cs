@@ -69,12 +69,12 @@ public partial class BitOperationsExtensions
 	/// <inheritdoc cref="GetEnumerator(sbyte)"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	[OverloadResolutionPriority(2)]
-	public static partial NativeIntegerEnumerator GetEnumerator(this nint @this) => new((nuint)@this);
+	public static partial NIntEnumerator GetEnumerator(this nint @this) => new((nuint)@this);
 
 	/// <inheritdoc cref="GetEnumerator(sbyte)"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	[OverloadResolutionPriority(2)]
-	public static partial NativeIntegerEnumerator GetEnumerator(this nuint @this) => new(@this);
+	public static partial NIntEnumerator GetEnumerator(this nuint @this) => new(@this);
 
 	/// <inheritdoc cref="GetEnumerator(sbyte)"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
