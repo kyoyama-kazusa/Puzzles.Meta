@@ -44,6 +44,38 @@ public static class BitArrayExtensions
 		}
 		return result;
 	}
+
+	/// <summary>
+	/// Slices the current <see cref="BitArray"/> instance.
+	/// </summary>
+	/// <param name="this">The instance.</param>
+	/// <param name="start">The start index.</param>
+	/// <returns>The result.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static BitArray Slice(this BitArray @this, int start) => @this.Slice(start, @this.Count - start);
+
+	/// <summary>
+	/// Performs bitwise-or operation with the other instance at the start position, without equivalent length of the other object.
+	/// </summary>
+	/// <param name="this">The current object.</param>
+	/// <param name="other">The other object.</param>
+	/// <returns>The current instance.</returns>
+	public static BitArray AlignedOr(this BitArray @this, BitArray other)
+	{
+		if (other.Count == 0)
+		{
+			return @this;
+		}
+
+		var indexCount = (other.Count + 31) / 32;
+		var internalBits = Entry.GetArrayField(@this);
+		var otherInternalBits = Entry.GetArrayField(other);
+		for (var i = 0; i < indexCount; i++)
+		{
+			internalBits[i] |= otherInternalBits[i];
+		}
+		return @this;
+	}
 }
 
 /// <summary>
