@@ -452,21 +452,6 @@
 				</target>
             </remarks>
         </member>
-        <member name="T:System.Collections.Concurrent.BlockCollectionExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.Collections.Concurrent.BlockingCollection`1"/>.
-            </summary>
-            <seealso cref="T:System.Collections.Concurrent.BlockingCollection`1"/>
-        </member>
-        <member name="M:System.Collections.Concurrent.BlockCollectionExtensions.GetConsumingEnumerableAsync``1(System.Collections.Concurrent.BlockingCollection{``0},System.Threading.CancellationToken)">
-            <summary>
-            Execute <see cref="M:System.Collections.Concurrent.BlockingCollection`1.GetConsumingEnumerable(System.Threading.CancellationToken)"/> in asynchronous way.
-            </summary>
-            <typeparam name="T">The type of result.</typeparam>
-            <param name="collection">The current instance.</param>
-            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
-            <returns>An enumerator instance that can iterate elements in asynchronous way.</returns>
-        </member>
         <member name="T:System.Collections.Generic.DictionaryExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Collections.Generic.Dictionary`2"/>.
