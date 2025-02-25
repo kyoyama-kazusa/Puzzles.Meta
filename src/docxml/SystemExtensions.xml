@@ -2232,10 +2232,7 @@
             </summary>
             <param name="this">The <see cref="T:System.IO.StreamReader"/> instance.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
-            <remarks><i>
-            This method only supports for Windows now. For other OS platforms, this method cannot determine the end line characters
-            because I have already forgotten them...
-            </i></remarks>
+            <exception cref="T:System.ArgumentException">Throws when the stream cannot seek.</exception>
         </member>
         <member name="T:System.Linq.ArrayEnumerable">
             <summary>
