@@ -475,6 +475,23 @@
             Indicates the puzzle has multiple solutions.
             </summary>
         </member>
+        <member name="T:Puzzles.Meta.Transforming.BoardComparison">
+            <summary>
+            Specifies the comparison rule of a <see cref="T:Puzzles.Meta.Concepts.IBoard"/> instance.
+            </summary>
+            <seealso cref="T:Puzzles.Meta.Concepts.IBoard"/>
+        </member>
+        <member name="F:Puzzles.Meta.Transforming.BoardComparison.Default">
+            <summary>
+            Indicates two <see cref="T:Puzzles.Meta.Concepts.IBoard"/> instances compare with each other by using the default checking rule
+            (cell by cell, bit by bit).
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.Transforming.BoardComparison.IncludingTransforms">
+            <summary>
+            Indicates two <see cref="T:Puzzles.Meta.Concepts.IBoard"/> instances compare with each other, including considerations on transforming cases.
+            </summary>
+        </member>
         <member name="T:Puzzles.Meta.Transforming.IBoardTransformable`1">
             <summary>
             Represents an object that can be transformed into another kind of value.
