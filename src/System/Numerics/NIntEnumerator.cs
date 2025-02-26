@@ -8,7 +8,7 @@ namespace System.Numerics;
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct NativeIntegerEnumerator(nuint _value) : IEnumerator<int>
+public ref partial struct NIntEnumerator(nuint _value) : IEnumerator<int>
 {
 	/// <summary>
 	/// Indicates the population count of the value.

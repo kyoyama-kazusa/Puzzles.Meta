@@ -11,24 +11,48 @@ public static class StreamReaderExtensions
 	/// </summary>
 	/// <param name="this">The <see cref="StreamReader"/> instance.</param>
 	/// <returns>A <see cref="bool"/> result.</returns>
-	/// <remarks><i>
-	/// This method only supports for Windows now. For other OS platforms, this method cannot determine the end line characters
-	/// because I have already forgotten them...
-	/// </i></remarks>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	[SupportedOSPlatform("windows")]
+	/// <exception cref="ArgumentException">Throws when the stream cannot seek.</exception>
 	public static bool EndsWithNewLine(this StreamReader @this)
 	{
-		// If the length are not enough to get two characters, just return false.
-		if (@this.BaseStream.Length < 2)
+		// Determine the encoding and get bytes of new-line characters using the current encoding.
+		var encoding = @this.CurrentEncoding;
+		var newLine = Environment.NewLine;
+		var newLineBytes = encoding.GetBytes(newLine);
+
+		// Check whether the stream can seek.
+		var stream = @this.BaseStream;
+		if (!stream.CanSeek)
 		{
-			return false;
+			throw new ArgumentException("Stream must be seekable.", nameof(@this));
 		}
 
-		// Move pointer to the last position, and revert 2 characters to check what the last two characters are.
-		@this.BaseStream.Seek(-2, SeekOrigin.End);
+		var originalPosition = stream.Position;
+		try
+		{
+			// If the stream has no enough characters to be checked, just return false.
+			if (stream.Length < newLineBytes.Length)
+			{
+				return false;
+			}
 
-		// Check for the two.
-		return ((char)@this.Read(), (char)@this.Read()) is ('\r', '\n');
+			// Seek to the end.
+			stream.Seek(-newLineBytes.Length, SeekOrigin.End);
+
+			// Read the specified number of characters and compare with new-line.
+			var buffer = new byte[newLineBytes.Length];
+			var bytesRead = stream.Read(buffer, 0, buffer.Length);
+			return bytesRead == buffer.Length && buffer.SequenceEqual(newLineBytes);
+		}
+		catch (ArgumentOutOfRangeException)
+		{
+			// Handle if '-newLineBytes.Length' returns a negative value.
+			return false;
+		}
+		finally
+		{
+			// Discard buffered data.
+			stream.Position = originalPosition;
+			@this.DiscardBufferedData();
+		}
 	}
 }

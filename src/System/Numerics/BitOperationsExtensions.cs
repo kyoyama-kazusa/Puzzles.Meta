@@ -30,8 +30,8 @@ public static partial class BitOperationsExtensions
 	public static partial Int64Enumerator GetEnumerator(this ulong @this);
 	public static partial Int128Enumerator GetEnumerator(this Int128 @this);
 	public static partial Int128Enumerator GetEnumerator(this UInt128 @this);
-	public static partial NativeIntegerEnumerator GetEnumerator(this nint @this);
-	public static partial NativeIntegerEnumerator GetEnumerator(this nuint @this);
+	public static partial NIntEnumerator GetEnumerator(this nint @this);
+	public static partial NIntEnumerator GetEnumerator(this nuint @this);
 	public static partial GenericIntegerEnumerator<TInteger> GetEnumerator<TInteger>(this TInteger @this)
 #if NUMERIC_GENERIC_TYPE
 		where TInteger : IBitwiseOperators<TInteger, TInteger, TInteger>, INumber<TInteger>, IShiftOperators<TNumber, int, TInteger>
