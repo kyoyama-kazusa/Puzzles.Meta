@@ -1326,40 +1326,6 @@
         <member name="M:System.DelegateExtensions.GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Delegate.EnumerateInvocationList``1(``0)"/>
         </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.AddPropertyAttribute">
-            <summary>
-            Provides with an attribute type that can be applied to properties,
-            telling source generator that will be used in factory methods:
-            <code><![CDATA[
-            public static T AddPropertyName(this T instance, PropertyType propertyName)
-            {
-                instance.PropertyName.Add(propertyName);
-                return instance;
-            }
-            ]]></code>
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.AddPropertyAttribute.DisallowsMultipleAddingParamsModifier">
-            <summary>
-            Indicates whether source generator instance won't emit <see langword="params"/> keyword to modify collection parameter
-            when <see cref="P:System.Diagnostics.CodeAnalysis.AddPropertyAttribute.AllowsMultipleAdding"/> is <see langword="true"/>.
-            </summary>
-            <seealso cref="P:System.Diagnostics.CodeAnalysis.AddPropertyAttribute.AllowsMultipleAdding"/>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.AddPropertyAttribute.AllowsMultipleAdding">
-            <summary>
-            Indicates whether the generator also generates for multiple-element-adding methods.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.AddPropertyAttribute.MultipleAddingPropertyType">
-            <summary>
-            Indicates the type of multiple adding property name to be generated
-            when <see cref="P:System.Diagnostics.CodeAnalysis.AddPropertyAttribute.AllowsMultipleAdding"/> is <see langword="true"/>.
-            By default the value is <see langword="typeof"/>(<see cref="T:System.ReadOnlySpan`1"/>).
-            </summary>
-            <seealso cref="P:System.Diagnostics.CodeAnalysis.AddPropertyAttribute.AllowsMultipleAdding"/>
-            <seealso cref="T:System.ReadOnlySpan`1"/>
-        </member>
         <member name="T:System.Diagnostics.CodeAnalysis.ComponentMemberAttribute">
             <summary>
             Represents an attribute type that describes a data member is a component member,
@@ -2024,19 +1990,6 @@
             <summary>
             Indicates all the dispose methods
             <see cref="M:System.IDisposable.Dispose"/> and <see cref="M:System.IAsyncDisposable.DisposeAsync"/> will be generated.
-            </summary>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.WithPropertyAttribute">
-            <summary>
-            Provides with an attribute type that can be applied to properties,
-            telling source generator that will be used in factory methods:
-            <code><![CDATA[
-            public static T WithPropertyName(this T instance, PropertyType propertyName)
-            {
-                instance.PropertyName = propertyName;
-                return instance;
-            }
-            ]]></code>
             </summary>
         </member>
         <member name="T:System.DoubleExtensions">

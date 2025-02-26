@@ -13,8 +13,6 @@ public sealed class Generator : IIncrementalGenerator
 	{
 		PrimaryConstructor(context);
 		TypeImpl(context);
-		WithProperty(context);
-		AddProperty(context);
 	}
 
 	private void PrimaryConstructor(IncrementalGeneratorInitializationContext context)
@@ -28,34 +26,6 @@ public sealed class Generator : IIncrementalGenerator
 				.Select(NotNullSelector)
 				.Collect(),
 			PrimaryConstructorMemberHandler.Output
-		);
-
-	private void WithProperty(IncrementalGeneratorInitializationContext context)
-		=> context.RegisterSourceOutput(
-			context.SyntaxProvider
-				.ForAttributeWithMetadataName(
-					"System.Diagnostics.CodeAnalysis.WithPropertyAttribute",
-					SyntaxNodeTypePredicate<PropertyDeclarationSyntax>,
-					WithPropertyHandler.Transform
-				)
-				.Where(NotNullPredicate)
-				.Select(NotNullSelector)
-				.Collect(),
-			WithPropertyHandler.Output
-		);
-
-	private void AddProperty(IncrementalGeneratorInitializationContext context)
-		=> context.RegisterSourceOutput(
-			context.SyntaxProvider
-				.ForAttributeWithMetadataName(
-					"System.Diagnostics.CodeAnalysis.AddPropertyAttribute",
-					SyntaxNodeTypePredicate<PropertyDeclarationSyntax>,
-					AddPropertyHandler.Transform
-				)
-				.Where(NotNullPredicate)
-				.Select(NotNullSelector)
-				.Collect(),
-			AddPropertyHandler.Output
 		);
 
 	private void TypeImpl(IncrementalGeneratorInitializationContext context)
