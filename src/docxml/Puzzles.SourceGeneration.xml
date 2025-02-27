@@ -33,21 +33,7 @@
         <member name="M:Puzzles.SourceGeneration.Generator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)">
             <inheritdoc/>
         </member>
-        <member name="T:Puzzles.SourceGeneration.CommonMethods">
-            <summary>
-            Represents a set of methods that can be used by the types in this file.
-            </summary>
-        </member>
-        <member name="M:Puzzles.SourceGeneration.CommonMethods.SyntaxNodeTypePredicate``1(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">
-            <summary>
-            Determine whether the specified <see cref="T:Microsoft.CodeAnalysis.SyntaxNode"/> is of type <typeparamref name="TSyntaxNode"/>.
-            </summary>
-            <typeparam name="TSyntaxNode">The possible type of the node.</typeparam>
-            <param name="node">Indicates the target node.</param>
-            <param name="_"/>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
-        </member>
-        <member name="M:Puzzles.SourceGeneration.CommonMethods.IsPartialTypePredicate``1(``0,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.SourceGeneration.Generator.IsPartialTypePredicate``1(``0,System.Threading.CancellationToken)">
             <summary>
             Determine whether the specified type declaration syntax node contains a <see langword="partial"/> modifier.
             </summary>
@@ -56,7 +42,7 @@
             <param name="_"/>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Puzzles.SourceGeneration.CommonMethods.NotNullPredicate``1(``0)">
+        <member name="M:Puzzles.SourceGeneration.Generator.NotNullPredicate``1(``0)">
             <summary>
             Determine whether the value is not <see langword="null"/>.
             </summary>
@@ -64,7 +50,7 @@
             <param name="value">The value.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Puzzles.SourceGeneration.CommonMethods.NotNullSelector``1(``0,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.SourceGeneration.Generator.NotNullSelector``1(``0,System.Threading.CancellationToken)">
             <summary>
             Try to get the internal value without nullability checking.
             </summary>

@@ -1,7 +1,5 @@
 namespace Puzzles.SourceGeneration;
 
-using static CommonMethods;
-
 /// <summary>
 /// Represents a source generator type that runs multiple different usage of source output services on compiling code.
 /// </summary>
@@ -11,12 +9,8 @@ public sealed class Generator : IIncrementalGenerator
 	/// <inheritdoc/>
 	public void Initialize(IncrementalGeneratorInitializationContext context)
 	{
-		PrimaryConstructor(context);
-		TypeImpl(context);
-	}
-
-	private void PrimaryConstructor(IncrementalGeneratorInitializationContext context)
-		=> context.RegisterSourceOutput(
+		// Primary constructor.
+		context.RegisterSourceOutput(
 			context.SyntaxProvider
 				.CreateSyntaxProvider(
 					static (n, _) => n is TypeDeclarationSyntax { Modifiers: var m and not [] } && m.Any(SyntaxKind.PartialKeyword),
@@ -28,8 +22,8 @@ public sealed class Generator : IIncrementalGenerator
 			PrimaryConstructorMemberHandler.Output
 		);
 
-	private void TypeImpl(IncrementalGeneratorInitializationContext context)
-		=> context.RegisterSourceOutput(
+		// Type implementation.
+		context.RegisterSourceOutput(
 			context.SyntaxProvider
 				.ForAttributeWithMetadataName(
 					"System.Diagnostics.CodeAnalysis.TypeImplAttribute",
@@ -39,22 +33,8 @@ public sealed class Generator : IIncrementalGenerator
 				.Collect(),
 			TypeImplHandler.Output
 		);
-}
+	}
 
-/// <summary>
-/// Represents a set of methods that can be used by the types in this file.
-/// </summary>
-file static class CommonMethods
-{
-	/// <summary>
-	/// Determine whether the specified <see cref="SyntaxNode"/> is of type <typeparamref name="TSyntaxNode"/>.
-	/// </summary>
-	/// <typeparam name="TSyntaxNode">The possible type of the node.</typeparam>
-	/// <param name="node">Indicates the target node.</param>
-	/// <param name="_"/>
-	/// <returns>A <see cref="bool"/> result.</returns>
-	public static bool SyntaxNodeTypePredicate<TSyntaxNode>(SyntaxNode node, CancellationToken _)
-		where TSyntaxNode : SyntaxNode => node is TSyntaxNode;
 
 	/// <summary>
 	/// Determine whether the specified type declaration syntax node contains a <see langword="partial"/> modifier.
