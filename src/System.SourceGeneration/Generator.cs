@@ -3,7 +3,7 @@ namespace Puzzles.SourceGeneration;
 /// <summary>
 /// Represents a source generator type that generates some extended delegate types.
 /// </summary>
-[Generator]
+[Generator(LanguageNames.CSharp)]
 public sealed class DelegateExtensionsGenerator : IIncrementalGenerator
 {
 	/// <inheritdoc/>
