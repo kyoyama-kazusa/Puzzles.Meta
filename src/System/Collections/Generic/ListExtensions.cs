@@ -26,7 +26,7 @@ public static class ListExtensions
 	/// </remarks>
 	/// <seealso cref="UnsafeAccessorAttribute"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static void AddRef<T>(this List<T> @this, ref readonly T item)
+	public static void AddRef<T>(this List<T> @this, in T item)
 	{
 		Entry<T>.GetVersion(@this)++;
 		var array = Entry<T>.GetItems(@this).AsSpan();
