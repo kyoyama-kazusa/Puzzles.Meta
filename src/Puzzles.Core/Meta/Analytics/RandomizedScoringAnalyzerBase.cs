@@ -59,7 +59,12 @@ public abstract class RandomizedScoringAnalyzerBase<TBoard, TPoint, TStep, TDiff
 	/// Try to analyze a board, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
 	/// </summary>
 	/// <param name="board">The board to be analyzed.</param>
+	/// <param name="availableStepsCount">The number of available steps.</param>
 	/// <param name="cancellationToken">Indicates the cancellation token that can cancel the current operation.</param>
 	/// <returns>An instance of type <typeparamref name="TAnalysisResult"/> indicating the result information.</returns>
-	public abstract TAnalysisResult Analyze(TBoard board, CancellationToken cancellationToken = default);
+	public abstract TAnalysisResult Analyze(TBoard board, out ReadOnlySpan<int> availableStepsCount, CancellationToken cancellationToken = default);
+
+	/// <inheritdoc/>
+	TAnalysisResult IAnalyzer<RandomizedScoringAnalyzerBase<TBoard, TPoint, TStep, TDifficulty, TCollector, TAnalysisResult>, TAnalysisResult, TBoard, TStep>.Analyze(TBoard board, CancellationToken cancellationToken)
+		=> Analyze(board, out _, cancellationToken);
 }

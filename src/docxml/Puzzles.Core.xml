@@ -210,13 +210,17 @@
             Represents a start point creator.
             </summary>
         </member>
-        <member name="M:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.Analyze(`0,System.Threading.CancellationToken)">
+        <member name="M:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.Analyze(`0,System.ReadOnlySpan{System.Int32}@,System.Threading.CancellationToken)">
             <summary>
             Try to analyze a board, and return the steps found, encapsulated by <typeparamref name="TAnalysisResult"/>.
             </summary>
             <param name="board">The board to be analyzed.</param>
+            <param name="availableStepsCount">The number of available steps.</param>
             <param name="cancellationToken">Indicates the cancellation token that can cancel the current operation.</param>
             <returns>An instance of type <typeparamref name="TAnalysisResult"/> indicating the result information.</returns>
+        </member>
+        <member name="M:Puzzles.Meta.Analytics.RandomizedScoringAnalyzerBase`6.Puzzles#Meta#Analytics#IAnalyzer{Puzzles#Meta#Analytics#RandomizedScoringAnalyzerBase{TBoard,TPoint,TStep,TDifficulty,TCollector,TAnalysisResult},TAnalysisResult,TBoard,TStep}#Analyze(`0,System.Threading.CancellationToken)">
+            <inheritdoc/>
         </member>
         <member name="T:Puzzles.Meta.Concepts.Coordinate">
             <summary>
