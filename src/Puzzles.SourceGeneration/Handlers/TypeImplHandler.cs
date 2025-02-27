@@ -1329,7 +1329,7 @@ internal static class TypeImplHandler
 			: string.Join(" && ", from pair in referencedMembers where pair.ExtraData is not null select pair.ExtraData);
 		var readOnlyModifier = kind == TypeKind.Struct && !isReadOnly ? "readonly " : string.Empty;
 		var paramMarkup = string.IsNullOrEmpty(nullableToken) ? string.Empty : "[global::System.Diagnostics.CodeAnalysis.NotNullWhenAttribute(true)] ";
-		var largeStructModifier = attribute.GetNamedArgument(EquatableLargeStructModifierPropertyName, "ref readonly");
+		var largeStructModifier = attribute.GetNamedArgument(EquatableLargeStructModifierPropertyName, "in");
 		return string.IsNullOrEmpty(inKeyword)
 			? $$"""
 			namespace {{namespaceString}}
