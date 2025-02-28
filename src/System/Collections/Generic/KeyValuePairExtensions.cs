@@ -44,7 +44,7 @@ public static class KeyValuePairExtensions
 	/// <param name="this">The current <see cref="KeyValuePair{TKey, TValue}"/> instance.</param>
 	/// <returns>The reference to key.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ref TKey KeyRef<TKey, TValue>(this ref readonly KeyValuePair<TKey, TValue> @this)
+	public static ref TKey KeyRef<TKey, TValue>(this in KeyValuePair<TKey, TValue> @this)
 		=> ref Entry<TKey, TValue>.GetKey(in @this);
 
 	/// <summary>
@@ -55,7 +55,7 @@ public static class KeyValuePairExtensions
 	/// <param name="this">The current <see cref="KeyValuePair{TKey, TValue}"/> instance.</param>
 	/// <returns>The reference to value.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ref TValue ValueRef<TKey, TValue>(this ref readonly KeyValuePair<TKey, TValue> @this)
+	public static ref TValue ValueRef<TKey, TValue>(this in KeyValuePair<TKey, TValue> @this)
 		=> ref Entry<TKey, TValue>.GetValue(in @this);
 }
 
