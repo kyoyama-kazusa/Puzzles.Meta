@@ -103,7 +103,7 @@ public readonly partial struct ValueLookup<TKey, TElement>([Field] Dictionary<TK
 		{
 			foreach (ref readonly var nestedElement in selector(element))
 			{
-				result.AddRef(in nestedElement);
+				result.AddRef(nestedElement);
 			}
 		}
 		return result.AsSpan();

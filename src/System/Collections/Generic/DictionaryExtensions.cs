@@ -15,7 +15,7 @@ public static class DictionaryExtensions
 	/// <param name="key">The key to be checked.</param>
 	/// <returns>The reference to the value; or a <see langword="null"/> reference if the key is not found.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ref TValue GetValueRef<TKey, TValue>(this Dictionary<TKey, TValue> @this, ref readonly TKey key)
+	public static ref TValue GetValueRef<TKey, TValue>(this Dictionary<TKey, TValue> @this, in TKey key)
 		where TKey : notnull
 		=> ref CollectionsMarshal.GetValueRefOrNullRef(@this, key);
 

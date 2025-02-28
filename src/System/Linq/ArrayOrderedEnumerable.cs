@@ -81,7 +81,7 @@ public sealed partial class ArrayOrderedEnumerable<T>([Field] T[] values, [Field
 		{
 			if (predicate(element))
 			{
-				result.AddRef(in element);
+				result.AddRef(element);
 			}
 		}
 		return [.. result];

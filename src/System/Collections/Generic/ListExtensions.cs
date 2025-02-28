@@ -38,7 +38,7 @@ public static class ListExtensions
 		}
 		else
 		{
-			@this.AddWithResize(in item);
+			@this.AddWithResize(item);
 		}
 	}
 
@@ -69,7 +69,7 @@ public static class ListExtensions
 	{
 		foreach (ref readonly var item in items)
 		{
-			@this.AddRef(in item);
+			@this.AddRef(item);
 		}
 	}
 
@@ -144,7 +144,7 @@ public static class ListExtensions
 	///     file="../../global-doc-comments.xml"
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='others']"/>
 	/// </remarks>
-	private static void AddWithResize<T>(this List<T> @this, ref readonly T item)
+	private static void AddWithResize<T>(this List<T> @this, in T item)
 	{
 		Debug.Assert(Entry<T>.GetSize(@this) == Entry<T>.GetItems(@this).Length);
 		var size = Entry<T>.GetSize(@this);

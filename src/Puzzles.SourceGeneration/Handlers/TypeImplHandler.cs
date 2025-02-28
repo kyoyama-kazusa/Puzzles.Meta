@@ -1360,7 +1360,7 @@ internal static class TypeImplHandler
 
 					/// <inheritdoc/>
 					{{readOnlyModifier}}bool global::System.IEquatable<{{fullTypeNameString}}>.Equals({{paramMarkup}}{{fullTypeNameString}}{{nullableToken}} other)
-						=> Equals(in other);
+						=> Equals(other);
 				}
 			#line default
 			}

@@ -41,7 +41,7 @@ public partial class SpanEnumerable
 			var element = elementSelector(source);
 			if (!dictionary.TryAdd(key, [element]))
 			{
-				dictionary[key].AddRef(in element);
+				dictionary[key].AddRef(element);
 			}
 		}
 		return new(dictionary.ToDictionary(static kvp => kvp.Key, static kvp => kvp.Value.ToArray()));
