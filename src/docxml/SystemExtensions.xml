@@ -4529,6 +4529,9 @@
         <member name="M:System.Linq.SpanEnumerable.AllUnsafe``1(System.ReadOnlySpan{``0},)">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})"/>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.Average``2(System.ReadOnlySpan{``0})">
+            <inheritdoc cref="M:System.Linq.Providers.IAverageMethod`2.Average``2"/>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
         </member>

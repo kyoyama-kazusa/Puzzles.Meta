@@ -18,6 +18,7 @@ public static partial class SpanEnumerable;
 file abstract class __ImplementedTypes<T> : IEnumerable<T>,
 	IAggregateMethod<__ImplementedTypes<T>, T>,
 	IAnyAllMethod<__ImplementedTypes<T>, T>,
+	IAverageMethod<__ImplementedTypes<T>, T>,
 	ICountMethod<__ImplementedTypes<T>, T>,
 	ICastMethod<__ImplementedTypes<T>, T>,
 	IFirstLastMethod<__ImplementedTypes<T>, T>,
@@ -37,11 +38,10 @@ file abstract class __ImplementedTypes<T> : IEnumerable<T>,
 	ITakeMethod<__ImplementedTypes<T>, T>,
 	IWhereMethod<__ImplementedTypes<T>, T>
 	where T :
-		IAdditiveIdentity<T, T>,
-		IAdditionOperators<T, T, T>,
 		IComparable<T>,
 		IComparisonOperators<T, T, bool>,
-		IMinMaxValue<T>
+		IMinMaxValue<T>,
+		INumberBase<T>
 {
 	IEnumerator IEnumerable.GetEnumerator() => throw null!;
 
