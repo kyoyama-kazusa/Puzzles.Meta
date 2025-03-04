@@ -138,7 +138,7 @@ public static class ReadOnlySpanExtensions
 		{
 			if (match(element))
 			{
-				result.AddRef(in element);
+				result.AddRef(element);
 			}
 		}
 		return result.AsSpan();
@@ -161,7 +161,7 @@ public static class ReadOnlySpanExtensions
 		{
 			if (match(in element))
 			{
-				result.AddRef(in element);
+				result.AddRef(element);
 			}
 		}
 		return result.AsSpan();

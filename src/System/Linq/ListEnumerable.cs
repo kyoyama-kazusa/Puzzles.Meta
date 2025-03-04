@@ -42,7 +42,7 @@ public static class ListEnumerable
 		{
 			if (condition(element))
 			{
-				result.AddRef(in element);
+				result.AddRef(element);
 			}
 		}
 		return result.AsSpan();

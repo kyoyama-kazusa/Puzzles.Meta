@@ -85,7 +85,7 @@ public readonly partial struct SpanGrouping<TSource, TKey>([Field] TSource[] ele
 		{
 			if (predicate(element))
 			{
-				result.AddRef(in element);
+				result.AddRef(element);
 			}
 		}
 		return result.AsSpan();

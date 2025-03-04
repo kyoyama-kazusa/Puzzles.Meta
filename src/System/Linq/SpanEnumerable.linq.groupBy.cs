@@ -12,7 +12,7 @@ public partial class SpanEnumerable
 			var key = keySelector(element);
 			if (!tempDictionary.TryAdd(key, [element]))
 			{
-				tempDictionary[key].AddRef(in element);
+				tempDictionary[key].AddRef(element);
 			}
 		}
 
@@ -39,7 +39,7 @@ public partial class SpanEnumerable
 			var key = keySelector(element);
 			if (!tempDictionary.TryAdd(key, [element]))
 			{
-				tempDictionary[key].AddRef(in element);
+				tempDictionary[key].AddRef(element);
 			}
 		}
 

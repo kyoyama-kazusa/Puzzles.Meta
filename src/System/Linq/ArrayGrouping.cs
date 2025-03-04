@@ -69,7 +69,7 @@ public sealed partial class ArrayGrouping<TSource, TKey>([Field] TSource[] eleme
 		{
 			if (predicate(element))
 			{
-				result.AddRef(in element);
+				result.AddRef(element);
 			}
 		}
 		return [.. result];

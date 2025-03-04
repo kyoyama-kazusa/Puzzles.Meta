@@ -23,7 +23,7 @@ public static class ValueTupleExtensions
 	/// <param name="this">The instance to be iterated.</param>
 	/// <returns>An enumerator instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this ref readonly (T, T, T) @this) => new(@this);
+	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T) @this) => new(@this);
 
 	/// <summary>
 	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
@@ -33,7 +33,7 @@ public static class ValueTupleExtensions
 	/// <param name="this">The instance to be iterated.</param>
 	/// <returns>An enumerator instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this ref readonly (T, T, T, T) @this) => new(@this);
+	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T, T) @this) => new(@this);
 
 	/// <summary>
 	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
@@ -43,7 +43,7 @@ public static class ValueTupleExtensions
 	/// <param name="this">The instance to be iterated.</param>
 	/// <returns>An enumerator instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this ref readonly (T, T, T, T, T) @this) => new(@this);
+	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T, T, T) @this) => new(@this);
 
 	/// <summary>
 	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
@@ -53,7 +53,7 @@ public static class ValueTupleExtensions
 	/// <param name="this">The instance to be iterated.</param>
 	/// <returns>An enumerator instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this ref readonly (T, T, T, T, T, T) @this) => new(@this);
+	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T, T, T, T) @this) => new(@this);
 
 	/// <summary>
 	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
@@ -63,7 +63,7 @@ public static class ValueTupleExtensions
 	/// <param name="this">The instance to be iterated.</param>
 	/// <returns>An enumerator instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this ref readonly (T, T, T, T, T, T, T) @this) => new(@this);
+	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T, T, T, T, T) @this) => new(@this);
 
 	/// <summary>
 	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
@@ -74,7 +74,7 @@ public static class ValueTupleExtensions
 	/// <param name="this">The instance to be iterated.</param>
 	/// <returns>An enumerator instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ComplexValueTupleEnumerator<T, TRest> GetEnumerator<T, TRest>(this ref readonly ValueTuple<T, T, T, T, T, T, T, TRest> @this)
+	public static ComplexValueTupleEnumerator<T, TRest> GetEnumerator<T, TRest>(this in ValueTuple<T, T, T, T, T, T, T, TRest> @this)
 		where TRest : struct => new(@this);
 
 	/// <summary>
@@ -84,30 +84,30 @@ public static class ValueTupleExtensions
 	/// <param name="this">The instance.</param>
 	/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T) @this) => (T[])[@this.Item1, @this.Item2];
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T) @this) => (T[])[@this.Item1, @this.Item2];
 
-	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T) @this) => (T[])[@this.Item1, @this.Item2, @this.Item3];
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T) @this) => (T[])[@this.Item1, @this.Item2, @this.Item3];
 
-	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T, T) @this)
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T, T) @this)
 		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4];
 
-	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T, T, T) @this)
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T, T, T) @this)
 		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5];
 
-	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T, T, T, T) @this)
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T, T, T, T) @this)
 		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6];
 
-	/// <inheritdoc cref="AsSpan{T}(ref readonly ValueTuple{T, T})"/>
+	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped ref readonly (T, T, T, T, T, T, T) @this)
+	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T, T, T, T, T) @this)
 		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6, @this.Item7];
 
 	/// <summary>
@@ -117,13 +117,13 @@ public static class ValueTupleExtensions
 	/// <typeparam name="TRest">The type of rest elements.</typeparam>
 	/// <param name="this">The instance.</param>
 	/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
-	public static ReadOnlySpan<T> AsSpan<T, TRest>(this scoped ref readonly ValueTuple<T, T, T, T, T, T, T, TRest> @this)
+	public static ReadOnlySpan<T> AsSpan<T, TRest>(this scoped in ValueTuple<T, T, T, T, T, T, T, TRest> @this)
 		where TRest : struct
 	{
 		var result = new List<T>();
 		foreach (ref readonly var element in @this)
 		{
-			result.AddRef(in element);
+			result.AddRef(element);
 		}
 		return result.AsSpan();
 	}

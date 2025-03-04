@@ -99,7 +99,7 @@ public partial class SpanEnumerable
 					continue;
 				}
 
-				satisfiedInnerKvps.AddRef(in innerItem);
+				satisfiedInnerKvps.AddRef(innerItem);
 			}
 			result.AddRef(resultSelector(outerItem, [.. satisfiedInnerKvps]));
 		}
