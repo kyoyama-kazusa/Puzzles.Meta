@@ -1500,18 +1500,29 @@ internal static class TypeImplHandler
 			);
 
 			var explicitlyImplsType = attribute.GetNamedArgument(explicitlyImplsDisposablePropertyName, false);
+			var includesDispose = (checkFlag & TypeImplFlag.Disposable) != 0;
+			var includesDisposeAsync = (checkFlag & TypeImplFlag.AsyncDisposable) != 0;
+			var seeCrefPart = (includesDispose, includesDisposeAsync) switch
+			{
+				(true, true) => """<see cref="Dispose"/> and <see cref="DisposeAsync"/>""",
+				(false, true) => """<see cref="DisposeAsync"/>""",
+				(true, false) => """<see cref="Dispose"/>""",
+				_ => string.Empty
+			};
 			var isDisposedField = explicitlyImplsType
 				? "// Field '_isDisposed' won't be generated in explicitly interface implementation environment."
 				: alreadyGeneratedIsDisposedField
 					? "// Field '_isDisposed' has already been generated."
-					: """
+					: $$"""
 					/// <summary>
-							/// Indicates whether the object had already been disposed before <see cref="Dispose"/> method was called.
-							/// If this field holds <see langword="false"/> value, <see cref="Dispose"/> method will throw an
+							/// Indicates whether the object had already been disposed before {{seeCrefPart}} method was called.
+							/// If this field holds <see langword="false"/> value, {{seeCrefPart}} method will throw an
 							/// <see cref="global::System.ObjectDisposedException"/> to report the error.
 							/// </summary>
 							/// <seealso cref="Dispose"/>
 							/// <seealso cref="global::System.ObjectDisposedException"/>
+							[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+							[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 							private bool _isDisposed;
 					""";
 			var asyncKeyword = outputMethodReturnType == ValueTaskFullTypeName ? "async " : string.Empty;
