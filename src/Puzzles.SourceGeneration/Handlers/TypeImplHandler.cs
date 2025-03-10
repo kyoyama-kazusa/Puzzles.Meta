@@ -1505,8 +1505,22 @@ internal static class TypeImplHandler
 			var seeCrefPart = (includesDispose, includesDisposeAsync) switch
 			{
 				(true, true) => """<see cref="Dispose"/> and <see cref="DisposeAsync"/>""",
-				(false, true) => """<see cref="DisposeAsync"/>""",
-				(true, false) => """<see cref="Dispose"/>""",
+				(true, _) => """<see cref="Dispose"/>""",
+				(_, true) => """<see cref="DisposeAsync"/>""",
+				_ => string.Empty
+			};
+			var seealsoCrefPart = (includesDispose, includesDisposeAsync) switch
+			{
+				(true, true) => """
+						/// <seealso cref="Dispose"/>
+						/// <seealso cref="DisposeAsync"/>
+				""",
+				(true, _) => """
+						/// <seealso cref="Dispose"/>
+				""",
+				(_, true) => """
+						/// <seealso cref="DisposeAsync"/>
+				""",
 				_ => string.Empty
 			};
 			var isDisposedField = explicitlyImplsType
@@ -1515,11 +1529,11 @@ internal static class TypeImplHandler
 					? "// Field '_isDisposed' has already been generated."
 					: $$"""
 					/// <summary>
-							/// Indicates whether the object had already been disposed before {{seeCrefPart}} method was called.
-							/// If this field holds <see langword="false"/> value, {{seeCrefPart}} method will throw an
+							/// Indicates whether the object had already been disposed before {{seeCrefPart}} was called.
+							/// If this field holds <see langword="false"/> value, {{seeCrefPart}} will throw an
 							/// <see cref="global::System.ObjectDisposedException"/> to report the error.
 							/// </summary>
-							/// <seealso cref="Dispose"/>
+					{{seealsoCrefPart}}
 							/// <seealso cref="global::System.ObjectDisposedException"/>
 							[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
 							[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
