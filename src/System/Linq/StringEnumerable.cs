@@ -5,6 +5,17 @@ namespace System.Linq;
 /// </summary>
 public static class StringEnumerable
 {
+	/// <inheritdoc cref="Enumerable.Index{TSource}(IEnumerable{TSource})"/>
+	public static ReadOnlySpan<(int Index, char Value)> Index(this string @this)
+	{
+		var result = new (int, char)[@this.Length];
+		for (var i = 0; i < @this.Length; i++)
+		{
+			result[i] = (i, @this[i]);
+		}
+		return result;
+	}
+
 	/// <summary>
 	/// <inheritdoc cref="Enumerable.Select{TSource, TResult}(IEnumerable{TSource}, Func{TSource, TResult})" path="/summary"/>
 	/// </summary>

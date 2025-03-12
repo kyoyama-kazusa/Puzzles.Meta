@@ -5071,6 +5071,9 @@
             Provides with LINQ methods on a <see cref="T:System.String"/> value.
             </summary>
         </member>
+        <member name="M:System.Linq.StringEnumerable.Index(System.String)">
+            <inheritdoc cref="M:System.Linq.Enumerable.Index``1(System.Collections.Generic.IEnumerable{``0})"/>
+        </member>
         <member name="M:System.Linq.StringEnumerable.Select``1(System.String,System.Func{System.Char,``0})">
             <summary>
             <inheritdoc cref="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" path="/summary"/>
@@ -5448,6 +5451,86 @@
             <param name="this">Indicates the instance.</param>
             <param name="originalString">The original string.</param>
             <returns>The target string.</returns>
+        </member>
+        <member name="T:System.Text.VariableExtractor">
+            <summary>
+            Represents a type that can analyze text difference and fetch the values on different parts, parsing them into variables.
+            </summary>
+            <param name="literalLength">Indicates the number of characters in literal.</param>
+            <param name="formattedCount">Indicates the number of interpolated items (variables).</param>
+            <param name="original">Indicates the original string to be parsed.</param>
+        </member>
+        <member name="M:System.Text.VariableExtractor.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            Represents a type that can analyze text difference and fetch the values on different parts, parsing them into variables.
+            </summary>
+            <param name="literalLength">Indicates the number of characters in literal.</param>
+            <param name="formattedCount">Indicates the number of interpolated items (variables).</param>
+            <param name="original">Indicates the original string to be parsed.</param>
+        </member>
+        <member name="F:System.Text.VariableExtractor.PlaceholderReservedCharacter">
+            <summary>
+            Indicates the placeholder character.
+            </summary>
+        </member>
+        <member name="F:System.Text.VariableExtractor._pointers">
+            <summary>
+            Indicates the string variable pointers.
+            </summary>
+        </member>
+        <member name="F:System.Text.VariableExtractor._builder">
+            <summary>
+            Indicates the backing builder object.
+            </summary>
+        </member>
+        <member name="F:System.Text.VariableExtractor._index">
+            <summary>
+            Indicates the current variable index.
+            </summary>
+        </member>
+        <member name="M:System.Text.VariableExtractor.AppendLiteral(System.String)">
+            <summary>
+            Appends a list of unchanged characters into the collection.
+            </summary>
+            <param name="s">The sequence of characters, unchanged.</param>
+        </member>
+        <member name="M:System.Text.VariableExtractor.AppendFormatted(System.String@)">
+            <summary>
+            Appends a variable into the collection, recording its variable pointer (address).
+            </summary>
+            <param name="variable">The reference to the variable.</param>
+        </member>
+        <member name="M:System.Text.VariableExtractor.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:System.Text.VariableExtractor.Assign(System.String,System.Text.VariableExtractor@)">
+            <summary>
+            Try to analyze the text difference and assign to interpolated variables.
+            </summary>
+            <param name="original">Indicates the original text.</param>
+            <param name="extractor">Indicates the interpolated string that inserts custom variables to be parsed.</param>
+            <exception cref="T:System.InvalidOperationException">Throws when the text is invalid to be checked.</exception>
+        </member>
+        <member name="F:System.Text.VariableExtractor._literalLength">
+            <summary>
+            The generated field declaration for parameter <c>literalLength</c>.
+            </summary>
+        </member>
+        <member name="F:System.Text.VariableExtractor._formattedCount">
+            <summary>
+            The generated field declaration for parameter <c>formattedCount</c>.
+            </summary>
+        </member>
+        <member name="F:System.Text.VariableExtractor._original">
+            <summary>
+            The generated field declaration for parameter <c>original</c>.
+            </summary>
+        </member>
+        <member name="M:System.Text.VariableExtractor.Equals(System.Object)">
+            <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
+        </member>
+        <member name="M:System.Text.VariableExtractor.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
         <member name="T:System.Text.Json.CultureInfoConverter">
             <summary>
