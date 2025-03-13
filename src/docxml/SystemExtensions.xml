@@ -3226,37 +3226,37 @@
             Indicates the index.
             </summary>
         </member>
-        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0})">
+        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0}@)">
             <summary>
             Initializes a <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance via a <see cref="T:System.ValueTuple`2"/> instance.
             </summary>
             <param name="pair">A pair instance to be iterated.</param>
         </member>
-        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0})">
+        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0}@)">
             <summary>
             Initializes a <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance via a <see cref="T:System.ValueTuple`3"/> instance.
             </summary>
             <param name="triple">A triple instance to be iterated.</param>
         </member>
-        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0,`0})">
+        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0,`0}@)">
             <summary>
             Initializes a <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance via a <see cref="T:System.ValueTuple`4"/> instance.
             </summary>
             <param name="quadruple">A quadruple instance to be iterated.</param>
         </member>
-        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0,`0,`0})">
+        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0,`0,`0}@)">
             <summary>
             Initializes a <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance via a <see cref="T:System.ValueTuple`5"/> instance.
             </summary>
             <param name="quintuple">A quintuple instance to be iterated.</param>
         </member>
-        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0,`0,`0,`0})">
+        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0,`0,`0,`0}@)">
             <summary>
             Initializes a <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance via a <see cref="T:System.ValueTuple`6"/> instance.
             </summary>
             <param name="sextuple">A sextuple instance to be iterated.</param>
         </member>
-        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0,`0,`0,`0,`0})">
+        <member name="M:System.Linq.Enumerators.ValueTupleEnumerator`1.#ctor(System.ValueTuple{`0,`0,`0,`0,`0,`0,`0}@)">
             <summary>
             Initializes a <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance via a <see cref="T:System.ValueTuple`7"/> instance.
             </summary>
@@ -7270,7 +7270,7 @@
             Represents with extension methods for value tuple type set.
             </summary>
         </member>
-        <member name="M:System.ValueTupleExtensions.GetEnumerator``1(System.ValueTuple{``0,``0})">
+        <member name="M:System.ValueTupleExtensions.GetEnumerator``1(System.ValueTuple{``0,``0}@)">
             <summary>
             Gets an <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance that can iterate for a pair of values
             via a value tuple <see cref="T:System.ValueTuple`2"/> of a uniform type <typeparamref name="T"/>.

@@ -30,7 +30,7 @@ public ref partial struct ValueTupleEnumerator<T> : IEnumerator<T>
 	/// Initializes a <see cref="ValueTupleEnumerator{T}"/> instance via a <see cref="ValueTuple{T1, T2}"/> instance.
 	/// </summary>
 	/// <param name="pair">A pair instance to be iterated.</param>
-	public ValueTupleEnumerator((T, T) pair)
+	public ValueTupleEnumerator(in (T, T) pair)
 	{
 		_innerTuple = (T[])[pair.Item1, pair.Item2];
 		_limit = 2;
@@ -40,7 +40,7 @@ public ref partial struct ValueTupleEnumerator<T> : IEnumerator<T>
 	/// Initializes a <see cref="ValueTupleEnumerator{T}"/> instance via a <see cref="ValueTuple{T1, T2, T3}"/> instance.
 	/// </summary>
 	/// <param name="triple">A triple instance to be iterated.</param>
-	public ValueTupleEnumerator((T, T, T) triple)
+	public ValueTupleEnumerator(in (T, T, T) triple)
 	{
 		_innerTuple = (T[])[triple.Item1, triple.Item2, triple.Item3];
 		_limit = 3;
@@ -50,7 +50,7 @@ public ref partial struct ValueTupleEnumerator<T> : IEnumerator<T>
 	/// Initializes a <see cref="ValueTupleEnumerator{T}"/> instance via a <see cref="ValueTuple{T1, T2, T3, T4}"/> instance.
 	/// </summary>
 	/// <param name="quadruple">A quadruple instance to be iterated.</param>
-	public ValueTupleEnumerator((T, T, T, T) quadruple)
+	public ValueTupleEnumerator(in (T, T, T, T) quadruple)
 	{
 		_innerTuple = (T[])[quadruple.Item1, quadruple.Item2, quadruple.Item3, quadruple.Item4];
 		_limit = 4;
@@ -60,7 +60,7 @@ public ref partial struct ValueTupleEnumerator<T> : IEnumerator<T>
 	/// Initializes a <see cref="ValueTupleEnumerator{T}"/> instance via a <see cref="ValueTuple{T1, T2, T3, T4, T5}"/> instance.
 	/// </summary>
 	/// <param name="quintuple">A quintuple instance to be iterated.</param>
-	public ValueTupleEnumerator((T, T, T, T, T) quintuple)
+	public ValueTupleEnumerator(in (T, T, T, T, T) quintuple)
 	{
 		_innerTuple = (T[])[quintuple.Item1, quintuple.Item2, quintuple.Item3, quintuple.Item4, quintuple.Item5];
 		_limit = 5;
@@ -70,7 +70,7 @@ public ref partial struct ValueTupleEnumerator<T> : IEnumerator<T>
 	/// Initializes a <see cref="ValueTupleEnumerator{T}"/> instance via a <see cref="ValueTuple{T1, T2, T3, T4, T5, T6}"/> instance.
 	/// </summary>
 	/// <param name="sextuple">A sextuple instance to be iterated.</param>
-	public ValueTupleEnumerator((T, T, T, T, T, T) sextuple)
+	public ValueTupleEnumerator(in (T, T, T, T, T, T) sextuple)
 	{
 		_innerTuple = (T[])[sextuple.Item1, sextuple.Item2, sextuple.Item3, sextuple.Item4, sextuple.Item5, sextuple.Item6];
 		_limit = 6;
@@ -80,7 +80,7 @@ public ref partial struct ValueTupleEnumerator<T> : IEnumerator<T>
 	/// Initializes a <see cref="ValueTupleEnumerator{T}"/> instance via a <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7}"/> instance.
 	/// </summary>
 	/// <param name="septuple">A septuple instance to be iterated.</param>
-	public ValueTupleEnumerator((T, T, T, T, T, T, T) septuple)
+	public ValueTupleEnumerator(in (T, T, T, T, T, T, T) septuple)
 	{
 		_innerTuple = (T[])[septuple.Item1, septuple.Item2, septuple.Item3, septuple.Item4, septuple.Item5, septuple.Item6, septuple.Item7];
 		_limit = 7;

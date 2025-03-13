@@ -13,7 +13,7 @@ public static class ValueTupleExtensions
 	/// <param name="this">The instance to be iterated.</param>
 	/// <returns>An enumerator instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this (T, T) @this) => new(@this);
+	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T) @this) => new(@this);
 
 	/// <summary>
 	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
