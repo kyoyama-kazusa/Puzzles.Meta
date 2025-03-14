@@ -47,9 +47,15 @@ public readonly partial record struct Coordinate(int X, int Y) :
 	public int CompareTo(Coordinate other) => X.CompareTo(other.X) is var r and not 0 ? r : Y.CompareTo(other.Y);
 
 
-	/// <inheritdoc/>
+	/// <summary>
+	/// Check location relation of two adjacent <see cref="Coordinate"/> instances;
+	/// if they are same, <see cref="Direction.None"/> will be returned instead of throwing exceptions.
+	/// </summary>
+	/// <param name="left">The left instance to be checked.</param>
+	/// <param name="right">The right instance to be checked.</param>
 	/// <exception cref="InvalidOperationException">
-	/// Throws when the two coordinates has a gap between them, or they cannot see each other in their own direction.
+	/// Throws when the two coordinates has a gap between them, or they cannot see each other in their own direction
+	/// (i.e. not adjacent with each other).
 	/// </exception>
 	public static Direction operator -(Coordinate left, Coordinate right)
 	{

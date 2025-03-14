@@ -305,9 +305,15 @@
             <inheritdoc/>
         </member>
         <member name="M:Puzzles.Meta.Concepts.Coordinate.op_Subtraction(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
-            <inheritdoc/>
+            <summary>
+            Check location relation of two adjacent <see cref="T:Puzzles.Meta.Concepts.Coordinate"/> instances;
+            if they are same, <see cref="F:Puzzles.Meta.Concepts.Direction.None"/> will be returned instead of throwing exceptions.
+            </summary>
+            <param name="left">The left instance to be checked.</param>
+            <param name="right">The right instance to be checked.</param>
             <exception cref="T:System.InvalidOperationException">
-            Throws when the two coordinates has a gap between them, or they cannot see each other in their own direction.
+            Throws when the two coordinates has a gap between them, or they cannot see each other in their own direction
+            (i.e. not adjacent with each other).
             </exception>
         </member>
         <member name="M:Puzzles.Meta.Concepts.Coordinate.op_RightShift(Puzzles.Meta.Concepts.Coordinate,System.Char)">
