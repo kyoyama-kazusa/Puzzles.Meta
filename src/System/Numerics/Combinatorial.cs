@@ -44,6 +44,46 @@ public static class Combinatorial
 
 
 	/// <summary>
+	/// Returns the combination of (n, m).
+	/// </summary>
+	/// <param name="n">The number of all values.</param>
+	/// <param name="m">The number of values to get.</param>
+	/// <returns>An <see cref="int"/> of result.</returns>
+	/// <exception cref="OverflowException">Throws when the result value is too large.</exception>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static int CombinationOf(int n, int m) => checked((int)(Factorial(n) / (Factorial(m) * Factorial(n - m))));
+
+	/// <summary>
+	/// Returns the permutation of (n, m).
+	/// </summary>
+	/// <param name="n">The number of all values.</param>
+	/// <param name="m">The number of values to get.</param>
+	/// <returns>An <see cref="int"/> of result.</returns>
+	/// <exception cref="OverflowException">Throws when the result value is too large.</exception>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static int PermutationOf(int n, int m) => checked((int)(Factorial(n) / Factorial(n - m)));
+
+	/// <summary>
+	/// Get all subsets from the collection.
+	/// </summary>
+	/// <param name="this">The collection to be used and checked.</param>
+	/// <returns>
+	/// All possible subsets returned.
+	/// </returns>
+	public static ReadOnlySpan<T[]> GetSubsets<T>(this ReadOnlySpan<T> @this)
+	{
+		var result = new List<T[]>();
+		for (var size = 1; size <= @this.Length; size++)
+		{
+			foreach (var element in @this.GetSubsets(size))
+			{
+				result.Add(element);
+			}
+		}
+		return result.AsSpan();
+	}
+
+	/// <summary>
 	/// Get all subsets from the specified number of the values to take.
 	/// </summary>
 	/// <param name="this">The collection to be used and checked.</param>
@@ -91,23 +131,75 @@ public static class Combinatorial
 	}
 
 	/// <summary>
-	/// Get all subsets from the collection.
+	/// Get all permutations from the collection.
 	/// </summary>
 	/// <param name="this">The collection to be used and checked.</param>
 	/// <returns>
-	/// All possible combinations returned.
+	/// All possible permutations returned.
 	/// </returns>
-	public static ReadOnlySpan<T[]> GetSubsets<T>(this ReadOnlySpan<T> @this)
+	public static ReadOnlySpan<ReadOnlyMemory<T>> GetPermutations<T>(this ReadOnlySpan<T> @this)
 	{
-		var result = new List<T[]>();
+		var result = new List<ReadOnlyMemory<T>>();
 		for (var size = 1; size <= @this.Length; size++)
 		{
-			foreach (var element in @this.GetSubsets(size))
+			foreach (var element in @this.GetPermutations(size))
 			{
 				result.Add(element);
 			}
 		}
 		return result.AsSpan();
+	}
+
+	/// <summary>
+	/// Get all permutations from the specified number of the values to take.
+	/// </summary>
+	/// <param name="this">The collection to be used and checked.</param>
+	/// <param name="count">The number of elements you want to take.</param>
+	/// <returns>
+	/// The permutations of the list.
+	/// For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
+	/// <code><![CDATA[
+	/// [[1, 2], [2, 1], [1, 3], [3, 1], [2, 3], [3, 2]]
+	/// ]]></code>
+	/// 6 cases.
+	/// </returns>
+	public static ReadOnlySpan<ReadOnlyMemory<T>> GetPermutations<T>(this ReadOnlySpan<T> @this, int count)
+	{
+		if (count == 0)
+		{
+			return [];
+		}
+
+		var result = new List<ReadOnlyMemory<T>>(PermutationOf(@this.Length, count));
+		var used = (stackalloc bool[@this.Length]);
+		used.Clear();
+
+		g(new(count), @this, used, count, result);
+		return result.AsSpan();
+
+
+		static void g(List<T> temp, ReadOnlySpan<T> array, Span<bool> used, int count, List<ReadOnlyMemory<T>> result)
+		{
+			if (temp.Count == count)
+			{
+				result.Add(temp.ToArray());
+				return;
+			}
+
+			for (var i = 0; i < array.Length; i++)
+			{
+				if (!used[i])
+				{
+					used[i] = true;
+					temp.Add(array[i]);
+
+					g(temp, array, used, count, result);
+
+					temp.RemoveAt(^1);
+					used[i] = false;
+				}
+			}
+		}
 	}
 
 	/// <summary>
@@ -167,6 +259,21 @@ public static class Combinatorial
 			}
 		} while (m >= -1);
 
+		return result;
+	}
+
+	/// <summary>
+	/// Returns the factorial of <paramref name="n"/> (n!).
+	/// </summary>
+	/// <param name="n">The value.</param>
+	/// <returns>The result.</returns>
+	private static BigInteger Factorial(int n)
+	{
+		var result = (BigInteger)1;
+		for (var i = 2; i <= n; i++)
+		{
+			result *= i;
+		}
 		return result;
 	}
 }
