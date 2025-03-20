@@ -121,4 +121,34 @@ public static class ArrayExtensions
 		sb.Append(']');
 		return sb.ToString();
 	}
+
+	/// <summary>
+	/// Returns the one-dimensional array representation from the two-dimensional array.
+	/// </summary>
+	/// <typeparam name="T">The type of each element.</typeparam>
+	/// <param name="this">The array.</param>
+	/// <returns>The <see cref="Span{T}"/> casted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static unsafe Span<T> AsSpanUnsafe<T>(this T[,] @this)
+	{
+		fixed (T* ptr = &@this[0, 0])
+		{
+			return new(ptr, @this.GetLength(0) * @this.GetLength(1));
+		}
+	}
+
+	/// <summary>
+	/// Returns the one-dimensional array representation from the three-dimensional array.
+	/// </summary>
+	/// <typeparam name="T">The type of each element.</typeparam>
+	/// <param name="this">The array.</param>
+	/// <returns>The <see cref="Span{T}"/> casted.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static unsafe Span<T> AsSpanUnsafe<T>(this T[,,] @this)
+	{
+		fixed (T* ptr = &@this[0, 0, 0])
+		{
+			return new(ptr, @this.GetLength(0) * @this.GetLength(1) * @this.GetLength(2));
+		}
+	}
 }

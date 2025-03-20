@@ -56,6 +56,22 @@
         <member name="M:System.ArrayExtensions.ToArrayString``1(``0[0:,0:],System.Func{``0,System.String})">
             <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[],System.Func{``0,System.String})"/>
         </member>
+        <member name="M:System.ArrayExtensions.AsSpanUnsafe``1(``0[0:,0:])">
+            <summary>
+            Returns the one-dimensional array representation from the two-dimensional array.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The array.</param>
+            <returns>The <see cref="T:System.Span`1"/> casted.</returns>
+        </member>
+        <member name="M:System.ArrayExtensions.AsSpanUnsafe``1(``0[0:,0:,0:])">
+            <summary>
+            Returns the one-dimensional array representation from the three-dimensional array.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The array.</param>
+            <returns>The <see cref="T:System.Span`1"/> casted.</returns>
+        </member>
         <member name="T:System.ArrayInitializer`1">
             <summary>
             Represents a method that initializes for an element of type <typeparamref name="T"/>?,
