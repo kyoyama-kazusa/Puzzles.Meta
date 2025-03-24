@@ -133,7 +133,7 @@ public static class ArrayExtensions
 	{
 		fixed (T* ptr = &@this[0, 0])
 		{
-			return new(ptr, @this.GetLength(0) * @this.GetLength(1));
+			return new(ptr, @this.Length);
 		}
 	}
 
@@ -148,7 +148,7 @@ public static class ArrayExtensions
 	{
 		fixed (T* ptr = &@this[0, 0, 0])
 		{
-			return new(ptr, @this.GetLength(0) * @this.GetLength(1) * @this.GetLength(2));
+			return new(ptr, @this.Length);
 		}
 	}
 
