@@ -151,4 +151,30 @@ public static class ArrayExtensions
 			return new(ptr, @this.GetLength(0) * @this.GetLength(1) * @this.GetLength(2));
 		}
 	}
+
+	/// <summary>
+	/// Reinterpret the specified multiple dimensional array into a <see cref="Span{T}"/> instance.
+	/// </summary>
+	/// <typeparam name="T">The type of each element.</typeparam>
+	/// <param name="this">The multiple dimensional array to be reinterpreted.</param>
+	/// <returns>A <see cref="Span{T}"/> instance.</returns>
+	public static unsafe Span<T> AsSpanUnsafe<T>(this Array @this) where T : unmanaged
+	{
+		// Calculate total number of elements.
+		// In multiple dimensional array, the result will be the production of lengths from all dimensions.
+		var length = @this.Length;
+
+		// Pin the array so that it doesn't move during GC.
+		var handle = GCHandle.Alloc(@this, GCHandleType.Pinned);
+		try
+		{
+			// Get a pointer to the beginning of the array.
+			return new((void*)handle.AddrOfPinnedObject(), length);
+		}
+		finally
+		{
+			// Always free the handle to avoid memory leaks.
+			handle.Free();
+		}
+	}
 }
