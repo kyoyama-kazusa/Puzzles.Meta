@@ -32,6 +32,26 @@ public readonly partial record struct Coordinate(int X, int Y) :
 	/// </summary>
 	public Coordinate Right => new(X, Y + 1);
 
+	/// <summary>
+	/// Indicates the up-left cell.
+	/// </summary>
+	public Coordinate UpLeft => new(X - 1, Y - 1);
+
+	/// <summary>
+	/// Indicates the up-right cell.
+	/// </summary>
+	public Coordinate UpRight => new(X - 1, Y + 1);
+
+	/// <summary>
+	/// Indicates the down-left cell.
+	/// </summary>
+	public Coordinate DownLeft => new(X + 1, Y - 1);
+
+	/// <summary>
+	/// Indicates the down-right cell.
+	/// </summary>
+	public Coordinate DownRight => new(X + 1, Y + 1);
+
 
 	/// <include
 	///     file="../../global-doc-comments.xml"
@@ -79,6 +99,22 @@ public readonly partial record struct Coordinate(int X, int Y) :
 		{
 			return Direction.Right;
 		}
+		else if (left.X - right.X == -1 && left.Y - right.Y == -1)
+		{
+			return Direction.UpLeft;
+		}
+		else if (left.X - right.X == -1 && left.Y - right.Y == 1)
+		{
+			return Direction.UpRight;
+		}
+		else if (left.X - right.X == 1 && left.Y - right.Y == -1)
+		{
+			return Direction.DownLeft;
+		}
+		else if (left.X - right.X == 1 && left.Y - right.Y == 1)
+		{
+			return Direction.DownRight;
+		}
 		throw new InvalidOperationException();
 	}
 
@@ -99,6 +135,10 @@ public readonly partial record struct Coordinate(int X, int Y) :
 			'↓' => coordinate.Down,
 			'←' => coordinate.Left,
 			'→' => coordinate.Right,
+			'↖' => coordinate.UpLeft,
+			'↗' => coordinate.UpRight,
+			'↙' => coordinate.DownLeft,
+			'↘' => coordinate.DownRight,
 			_ => throw new ArgumentOutOfRangeException(nameof(arrow))
 		};
 

@@ -262,6 +262,26 @@
             Indicates the down cell.
             </summary>
         </member>
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.UpLeft">
+            <summary>
+            Indicates the up-left cell.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.UpRight">
+            <summary>
+            Indicates the up-right cell.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.DownLeft">
+            <summary>
+            Indicates the down-left cell.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.DownRight">
+            <summary>
+            Indicates the down-right cell.
+            </summary>
+        </member>
         <member name="M:Puzzles.Meta.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
             <target name="method" cref="M:Puzzles.Meta.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
 				<summary>
@@ -401,6 +421,26 @@
         <member name="F:Puzzles.Meta.Concepts.Direction.Right">
             <summary>
             Indicates the diretcion is right.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.Concepts.Direction.UpLeft">
+            <summary>
+            Indicates the direction is up-left.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.Concepts.Direction.UpRight">
+            <summary>
+            Indicates the direction is up-right.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.Concepts.Direction.DownLeft">
+            <summary>
+            Indicates the direction is down-left.
+            </summary>
+        </member>
+        <member name="F:Puzzles.Meta.Concepts.Direction.DownRight">
+            <summary>
+            Indicates the direction is down-right.
             </summary>
         </member>
         <member name="T:Puzzles.Meta.Concepts.DirectionExtensions">

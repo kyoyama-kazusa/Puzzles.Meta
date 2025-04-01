@@ -20,6 +20,10 @@ public static class DirectionExtensions
 			Direction.Down => '↓',
 			Direction.Left => '←',
 			Direction.Right => '→',
+			Direction.UpLeft => '↖',
+			Direction.UpRight => '↗',
+			Direction.DownLeft => '↙',
+			Direction.DownRight => '↘',
 			_ => throw new ArgumentOutOfRangeException(nameof(@this))
 		};
 }

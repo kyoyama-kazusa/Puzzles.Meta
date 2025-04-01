@@ -28,5 +28,25 @@ public enum Direction : byte
 	/// <summary>
 	/// Indicates the diretcion is right.
 	/// </summary>
-	Right
+	Right,
+
+	/// <summary>
+	/// Indicates the direction is up-left.
+	/// </summary>
+	UpLeft,
+
+	/// <summary>
+	/// Indicates the direction is up-right.
+	/// </summary>
+	UpRight,
+
+	/// <summary>
+	/// Indicates the direction is down-left.
+	/// </summary>
+	DownLeft,
+
+	/// <summary>
+	/// Indicates the direction is down-right.
+	/// </summary>
+	DownRight
 }
