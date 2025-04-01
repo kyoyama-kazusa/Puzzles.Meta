@@ -1,4 +1,4 @@
-﻿namespace System.Linq.Iterators;
+namespace System.Linq.Iterators;
 
 /// <summary>
 /// Represents an enumerator that will be created after <see cref="ArrayEnumerable.Prepend"/>.
@@ -7,13 +7,8 @@
 /// <param name="_array">The array.</param>
 /// <param name="value">The final element to be iterated.</param>
 /// <seealso cref="ArrayEnumerable.Prepend"/>
-public sealed class ArrayPrependIterator<T>(T[] _array, T value) : IIterator<ArrayPrependIterator<T>, T>
+public sealed partial class ArrayPrependIterator<T>(T[] _array, [Field] T value) : IIterator<ArrayPrependIterator<T>, T>
 {
-	/// <summary>
-	/// Indicates the internal value.
-	/// </summary>
-	private readonly T _value = value;
-
 	/// <summary>
 	/// Indicates the index.
 	/// </summary>

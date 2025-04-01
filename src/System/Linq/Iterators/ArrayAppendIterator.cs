@@ -7,13 +7,8 @@ namespace System.Linq.Iterators;
 /// <param name="_array">The array.</param>
 /// <param name="value">The final element to be iterated.</param>
 /// <seealso cref="ArrayEnumerable.Append"/>
-public sealed class ArrayAppendIterator<T>(T[] _array, T value) : IIterator<ArrayAppendIterator<T>, T>
+public sealed partial class ArrayAppendIterator<T>(T[] _array, [Field] T value) : IIterator<ArrayAppendIterator<T>, T>
 {
-	/// <summary>
-	/// Indicates the internal value.
-	/// </summary>
-	private readonly T _value = value;
-
 	/// <summary>
 	/// Indicates the index.
 	/// </summary>

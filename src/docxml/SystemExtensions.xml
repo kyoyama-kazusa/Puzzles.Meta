@@ -3423,11 +3423,6 @@
             <param name="value">The final element to be iterated.</param>
             <seealso cref="M:System.Linq.ArrayEnumerable.Append``1(``0[],``0)"/>
         </member>
-        <member name="F:System.Linq.Iterators.ArrayAppendIterator`1._value">
-            <summary>
-            Indicates the internal value.
-            </summary>
-        </member>
         <member name="F:System.Linq.Iterators.ArrayAppendIterator`1._index">
             <summary>
             Indicates the index.
@@ -3444,6 +3439,11 @@
         </member>
         <member name="M:System.Linq.Iterators.ArrayAppendIterator`1.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="F:System.Linq.Iterators.ArrayAppendIterator`1._value">
+            <summary>
+            The generated field declaration for parameter <c>value</c>.
+            </summary>
         </member>
         <member name="T:System.Linq.Iterators.ArrayPrependIterator`1">
             <summary>
@@ -3463,11 +3463,6 @@
             <param name="value">The final element to be iterated.</param>
             <seealso cref="M:System.Linq.ArrayEnumerable.Prepend``1(``0[],``0)"/>
         </member>
-        <member name="F:System.Linq.Iterators.ArrayPrependIterator`1._value">
-            <summary>
-            Indicates the internal value.
-            </summary>
-        </member>
         <member name="F:System.Linq.Iterators.ArrayPrependIterator`1._index">
             <summary>
             Indicates the index.
@@ -3484,6 +3479,11 @@
         </member>
         <member name="M:System.Linq.Iterators.ArrayPrependIterator`1.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="F:System.Linq.Iterators.ArrayPrependIterator`1._value">
+            <summary>
+            The generated field declaration for parameter <c>value</c>.
+            </summary>
         </member>
         <member name="T:System.Linq.Iterators.IIterator`2">
             <summary>
