@@ -2077,6 +2077,61 @@
             <param name="epsilon">The epsilon value (the minimal differ).</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
+        <member name="T:System.IInlineArray`2">
+            <summary>
+            Represents a type that supports members which are generated automatically if the type is inline array,
+            marked <see cref="T:System.Runtime.CompilerServices.InlineArrayAttribute" />.
+            </summary>
+            <typeparam name="TSelf"><self-type-constraint>
+		<para>Indicates the type implementing this interface.</para>
+		<para>
+			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
+			The type will include a <see langword="where" /> constraint that implements the interface itself
+			to declare such "self constraint" usage:
+			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
+			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
+		</para>
+	</self-type-constraint></typeparam>
+            <typeparam name="TElement">The type of each element.</typeparam>
+            <seealso cref="T:System.Runtime.CompilerServices.InlineArrayAttribute" />
+        </member>
+        <member name="P:System.IInlineArray`2.Elements">
+            <summary>
+            Indicates the elements. For inline arrays, the value is equivalent to <c><see langword="this"/>[..]</c>.
+            </summary>
+        </member>
+        <member name="P:System.IInlineArray`2.InlineArrayLength">
+            <summary>
+            Indicates the length of inline array configured in <see cref="T:System.Runtime.CompilerServices.InlineArrayAttribute"/>.
+            </summary>
+        </member>
+        <member name="P:System.IInlineArray`2.Item(System.Int32)">
+            <summary>
+            Returns the reference to the element at the specified index.
+            </summary>
+            <param name="index">The desired index.</param>
+            <returns>The reference to the element.</returns>
+            <exception cref="T:System.IndexOutOfRangeException">Throws when the index is out of range.</exception>
+        </member>
+        <member name="M:System.IInlineArray`2.GetPinnableReference">
+            <summary>
+            Returns the reference that represents the current instance.
+            Generally the method returns <c><see langword="ref"/> <see langword="this"/>[0]</c>.
+            </summary>
+            <returns>The reference that represents the current instance.</returns>
+        </member>
+        <member name="M:System.IInlineArray`2.AsSpan">
+            <summary>
+            Cast the current instance into a <see cref="T:System.Span`1"/> instance.
+            </summary>
+            <returns>The <see cref="T:System.Span`1"/> instance.</returns>
+        </member>
+        <member name="M:System.IInlineArray`2.AsReadOnlySpan">
+            <summary>
+            Cast the current instance into a <see cref="T:System.ReadOnlySpan`1"/> instance.
+            </summary>
+            <returns>The <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
+        </member>
         <member name="T:System.ILogicalOperators`1">
             <summary>
             Defines a mechanism for computing the logical relation between two instances of type <typeparamref name="TSelf" />.
