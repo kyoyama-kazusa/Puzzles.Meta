@@ -41,4 +41,44 @@ public static class DictionaryExtensions
 		}
 		throw new InvalidOperationException();
 	}
+
+	/// <inheritdoc cref="ToDictionaryString{TKey, TValue}(Dictionary{TKey, TValue}, Func{TKey, string?}?, Func{TValue, string?}?)"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static string ToDictionaryString<TKey, TValue>(this Dictionary<TKey, TValue> @this) where TKey : notnull
+		=> @this.ToDictionaryString(null, null);
+
+	/// <summary>
+	/// Converts the current <see cref="Dictionary{TKey, TValue}"/> instance into string representation.
+	/// </summary>
+	/// <typeparam name="TKey">The type of key.</typeparam>
+	/// <typeparam name="TValue">The type of value.</typeparam>
+	/// <param name="this">The instance.</param>
+	/// <param name="keyConverter">
+	/// The key converter that converts <typeparamref name="TKey"/> instance into <see cref="string"/> representation.
+	/// </param>
+	/// <param name="valueConverter">
+	/// The key converter that converts <typeparamref name="TValue"/> instance into <see cref="string"/> representation.
+	/// </param>
+	/// <returns>The <see cref="string"/> representation.</returns>
+	public static string ToDictionaryString<TKey, TValue>(
+		this Dictionary<TKey, TValue> @this,
+		Func<TKey, string?>? keyConverter,
+		Func<TValue, string?>? valueConverter
+	)
+		where TKey : notnull
+	{
+		keyConverter ??= static key => key.ToString();
+		valueConverter ??= static value => value?.ToString();
+
+		const string separator = ", ";
+		var sb = new StringBuilder();
+		foreach (var (key, value) in @this)
+		{
+			sb.Append($"{keyConverter(key)}: {valueConverter(value)}");
+			sb.Append(separator);
+		}
+
+		sb.RemoveFrom(^separator.Length);
+		return $"[{sb}]";
+	}
 }

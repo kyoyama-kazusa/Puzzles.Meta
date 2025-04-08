@@ -503,6 +503,24 @@
             <returns>The key.</returns>
             <exception cref="T:System.InvalidOperationException">Throws when the dictionary has no valid value.</exception>
         </member>
+        <member name="M:System.Collections.Generic.DictionaryExtensions.ToDictionaryString``2(System.Collections.Generic.Dictionary{``0,``1})">
+            <inheritdoc cref="M:System.Collections.Generic.DictionaryExtensions.ToDictionaryString``2(System.Collections.Generic.Dictionary{``0,``1},System.Func{``0,System.String},System.Func{``1,System.String})"/>
+        </member>
+        <member name="M:System.Collections.Generic.DictionaryExtensions.ToDictionaryString``2(System.Collections.Generic.Dictionary{``0,``1},System.Func{``0,System.String},System.Func{``1,System.String})">
+            <summary>
+            Converts the current <see cref="T:System.Collections.Generic.Dictionary`2"/> instance into string representation.
+            </summary>
+            <typeparam name="TKey">The type of key.</typeparam>
+            <typeparam name="TValue">The type of value.</typeparam>
+            <param name="this">The instance.</param>
+            <param name="keyConverter">
+            The key converter that converts <typeparamref name="TKey"/> instance into <see cref="T:System.String"/> representation.
+            </param>
+            <param name="valueConverter">
+            The key converter that converts <typeparamref name="TValue"/> instance into <see cref="T:System.String"/> representation.
+            </param>
+            <returns>The <see cref="T:System.String"/> representation.</returns>
+        </member>
         <member name="T:System.Collections.Generic.HashSetExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Collections.Generic.HashSet`1"/>.
