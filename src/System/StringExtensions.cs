@@ -38,11 +38,4 @@ public static partial class StringExtensions
 		}
 		return result;
 	}
-
-	/// <inheritdoc cref="string.Split(char[], StringSplitOptions)"/>
-	/// <param name="this">The array itself.</param>
-	/// <param name="separator">The separator characters.</param>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<string> SplitBy(this string @this, params char[] separator)
-		=> @this.Split(separator, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 }

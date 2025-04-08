@@ -7218,11 +7218,6 @@
             <param name="length">The desired length.</param>
             <returns>A list of <see cref="T:System.String"/> values.</returns>
         </member>
-        <member name="M:System.StringExtensions.SplitBy(System.String,System.Char[])">
-            <inheritdoc cref="M:System.String.Split(System.Char[],System.StringSplitOptions)"/>
-            <param name="this">The array itself.</param>
-            <param name="separator">The separator characters.</param>
-        </member>
         <member name="T:System.Threading.Tasks.TimeSpanAwaitable">
             <summary>
             Provides with extension methods on <see cref="T:System.TimeSpan"/>.
