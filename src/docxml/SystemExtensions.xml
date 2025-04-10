@@ -7116,12 +7116,14 @@
             <summary>
             Represents for an enumerator that iterates on each elements stored in a <see cref="T:System.Runtime.CompilerServices.ITuple"/>.
             </summary>
+            <typeparam name="TTuple">The type of tuple.</typeparam>
             <param name="tuple">A tuple instance.</param>
         </member>
         <member name="M:System.Runtime.CompilerServices.TupleEnumerator`1.#ctor(`0)">
             <summary>
             Represents for an enumerator that iterates on each elements stored in a <see cref="T:System.Runtime.CompilerServices.ITuple"/>.
             </summary>
+            <typeparam name="TTuple">The type of tuple.</typeparam>
             <param name="tuple">A tuple instance.</param>
         </member>
         <member name="F:System.Runtime.CompilerServices.TupleEnumerator`1._index">

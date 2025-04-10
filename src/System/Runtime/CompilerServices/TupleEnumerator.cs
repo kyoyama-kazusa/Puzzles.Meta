@@ -3,6 +3,7 @@ namespace System.Runtime.CompilerServices;
 /// <summary>
 /// Represents for an enumerator that iterates on each elements stored in a <see cref="ITuple"/>.
 /// </summary>
+/// <typeparam name="TTuple">The type of tuple.</typeparam>
 /// <param name="tuple">A tuple instance.</param>
 [StructLayout(LayoutKind.Auto)]
 [TypeImpl(
