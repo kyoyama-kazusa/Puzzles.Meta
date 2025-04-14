@@ -8,20 +8,6 @@ namespace System;
 public static class ReadOnlySpanExtensions
 {
 	/// <summary>
-	/// Performs the specified action on each element of the <see cref="Span{T}"/>.
-	/// </summary>
-	/// <typeparam name="T">The type of elements in the span.</typeparam>
-	/// <param name="this">The current collection.</param>
-	/// <param name="action">The <see cref="ActionRef{T}"/> delegate to perform on each element of the <see cref="Span{T}"/>.</param>
-	public static void ForEach<T>(this Span<T> @this, ActionRef<T> action)
-	{
-		foreach (ref var element in @this)
-		{
-			action(ref element);
-		}
-	}
-
-	/// <summary>
 	/// Finds the first element satisfying the specified condition, and return its corresponding index.
 	/// </summary>
 	/// <typeparam name="T">The type of each element.</typeparam>
@@ -63,25 +49,12 @@ public static class ReadOnlySpanExtensions
 		return -1;
 	}
 
-	/// <inheritdoc cref="FindIndex{T}(ReadOnlySpan{T}, FuncRefReadOnly{T, bool})"/>
+	/// <inheritdoc cref="List{T}.FindIndex(Predicate{T})"/>
 	public static int FindIndex<T>(this ReadOnlySpan<T> @this, Func<T, bool> condition)
 	{
 		for (var i = 0; i < @this.Length; i++)
 		{
 			if (condition(@this[i]))
-			{
-				return i;
-			}
-		}
-		return -1;
-	}
-
-	/// <inheritdoc cref="List{T}.FindIndex(Predicate{T})"/>
-	public static int FindIndex<T>(this ReadOnlySpan<T> @this, FuncRefReadOnly<T, bool> condition)
-	{
-		for (var i = 0; i < @this.Length; i++)
-		{
-			if (condition(in @this[i]))
 			{
 				return i;
 			}
@@ -130,36 +103,22 @@ public static class ReadOnlySpanExtensions
 				: throw new ArgumentException(SR.ExceptionMessage("SpecifiedValueMustBeEven"), nameof(@this))
 		);
 
-	/// <inheritdoc cref="FindAll{T}(ReadOnlySpan{T}, FuncRefReadOnly{T, bool})"/>
+	/// <summary>
+	/// Retrieves all the elements that match the conditions defined by the specified predicate.
+	/// </summary>
+	/// <typeparam name="T">The type of the elements of the span.</typeparam>
+	/// <param name="this">The collection to be used and checked.</param>
+	/// <param name="match">The <see cref="Func{T, TResult}"/> that defines the conditions of the elements to search for.</param>
+	/// <returns>
+	/// A <see cref="ReadOnlySpan{T}"/> containing all the elements that match the conditions defined
+	/// by the specified predicate, if found; otherwise, an empty <see cref="ReadOnlySpan{T}"/>.
+	/// </returns>
 	public static ReadOnlySpan<T> FindAll<T>(this ReadOnlySpan<T> @this, Func<T, bool> match)
 	{
 		var result = new List<T>(@this.Length);
 		foreach (ref readonly var element in @this)
 		{
 			if (match(element))
-			{
-				result.AddRef(element);
-			}
-		}
-		return result.AsSpan();
-	}
-
-	/// <summary>
-	/// Retrieves all the elements that match the conditions defined by the specified predicate.
-	/// </summary>
-	/// <typeparam name="T">The type of the elements of the span.</typeparam>
-	/// <param name="this">The collection to be used and checked.</param>
-	/// <param name="match">The <see cref="FuncRefReadOnly{T, TResult}"/> that defines the conditions of the elements to search for.</param>
-	/// <returns>
-	/// A <see cref="ReadOnlySpan{T}"/> containing all the elements that match the conditions defined
-	/// by the specified predicate, if found; otherwise, an empty <see cref="ReadOnlySpan{T}"/>.
-	/// </returns>
-	public static ReadOnlySpan<T> FindAll<T>(this ReadOnlySpan<T> @this, FuncRefReadOnly<T, bool> match)
-	{
-		var result = new List<T>(@this.Length);
-		foreach (ref readonly var element in @this)
-		{
-			if (match(in element))
 			{
 				result.AddRef(element);
 			}

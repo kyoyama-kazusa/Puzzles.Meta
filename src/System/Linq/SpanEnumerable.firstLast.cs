@@ -19,8 +19,7 @@ public partial class SpanEnumerable
 	/// <param name="this">The sourc elementse.</param>
 	/// <returns>The element.</returns>
 	[Obsolete("Use 'span is [var first, ..] ? first : default' instead.", true)]
-	public static TSource? FirstOrDefault<TSource>(this ReadOnlySpan<TSource> @this)
-		=> @this is [var first, ..] ? first : default;
+	public static TSource? FirstOrDefault<TSource>(this ReadOnlySpan<TSource> @this) => @this is [var first, ..] ? first : default;
 
 	/// <inheritdoc cref="IFirstLastMethod{TSelf, TSource}.First(Func{TSource, bool})"/>
 	public static TSource First<TSource>(this ReadOnlySpan<TSource> @this, Func<TSource, bool> predicate)
@@ -46,32 +45,6 @@ public partial class SpanEnumerable
 			}
 		}
 		throw new InvalidOperationException(SR.ExceptionMessage("NoSuchElementSatisfyingCondition"));
-	}
-
-	/// <inheritdoc cref="IFirstLastMethod{TSelf, TSource}.First(Func{TSource, bool})"/>
-	public static ref readonly TSource FirstRef<TSource>(this ReadOnlySpan<TSource> @this, FuncRefReadOnly<TSource, bool> predicate)
-	{
-		foreach (ref readonly var element in @this)
-		{
-			if (predicate(in element))
-			{
-				return ref element;
-			}
-		}
-		throw new InvalidOperationException(SR.ExceptionMessage("NoSuchElementSatisfyingCondition"));
-	}
-
-	/// <inheritdoc cref="IFirstLastMethod{TSelf, TSource}.FirstOrDefault(Func{TSource, bool})"/>
-	public static ref readonly T FirstRefOrNullRef<T>(this ReadOnlySpan<T> @this, FuncRefReadOnly<T, bool> predicate)
-	{
-		foreach (ref readonly var element in @this)
-		{
-			if (predicate(in element))
-			{
-				return ref element;
-			}
-		}
-		return ref Unsafe.NullRef<T>();
 	}
 
 	/// <inheritdoc cref="IFirstLastMethod{TSelf, TSource}.FirstOrDefault(Func{TSource, bool}, TSource)"/>

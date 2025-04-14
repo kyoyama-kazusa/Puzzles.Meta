@@ -4569,18 +4569,12 @@
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.IAnyAllMethod`2.Any(System.Func{`1,System.Boolean})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.AnyUnsafe``1(System.ReadOnlySpan{``0},)">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Any``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.IAnyAllMethod`2.All(System.Func{`1,System.Boolean})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.AllUnsafe``1(System.ReadOnlySpan{``0},)">
@@ -4590,9 +4584,6 @@
             <inheritdoc cref="M:System.Linq.Providers.IAverageMethod`2.Average``2"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Count``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.ICountMethod`2.Count(System.Func{`1,System.Boolean})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.First``1(System.ReadOnlySpan{``0})">
@@ -4617,12 +4608,6 @@
         </member>
         <member name="M:System.Linq.SpanEnumerable.FirstRef``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.FirstRef``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.First(System.Func{`1,System.Boolean})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.FirstRefOrNullRef``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
-            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.FirstOrDefault(System.Func{`1,System.Boolean})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.FirstOrDefault``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.FirstOrDefault(System.Func{`1,System.Boolean},`1)"/>
@@ -4691,16 +4676,10 @@
             <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.Min"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Min``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Min``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
+            <inheritdoc cref="M:System.Linq.Enumerable.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.MinBy``1(System.Func{`1,``0})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.MinBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MinUnsafe``2(System.ReadOnlySpan{``0},)">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Min``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
@@ -4709,16 +4688,10 @@
             <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.Max"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
+            <inheritdoc cref="M:System.Linq.Enumerable.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.MaxBy``1(System.Func{`1,``0})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.MaxBy``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.MaxUnsafe``2(System.ReadOnlySpan{``0},)">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
@@ -4787,9 +4760,6 @@
             <inheritdoc cref="M:System.Linq.Providers.ISumMethod`2.Sum"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})">
             <summary>
             Totals up all elements, and return the result of the sum by the specified property calculated from each element.
             </summary>
@@ -4800,7 +4770,7 @@
             <returns>The value with the sum key in the sequence.</returns>
         </member>
         <member name="M:System.Linq.SpanEnumerable.SumUnsafe``2(System.ReadOnlySpan{``0},)">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,``1})"/>
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.Sum``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.Take``1(System.ReadOnlySpan{``0},System.Int32)">
             <inheritdoc cref="M:System.Linq.Providers.ITakeMethod`2.Take(System.Int32)"/>
@@ -6507,14 +6477,6 @@
             <seealso cref="T:System.Span`1"/>
             <seealso cref="T:System.ReadOnlySpan`1"/>
         </member>
-        <member name="M:System.ReadOnlySpanExtensions.ForEach``1(System.Span{``0},System.ActionRef{``0})">
-            <summary>
-            Performs the specified action on each element of the <see cref="T:System.Span`1"/>.
-            </summary>
-            <typeparam name="T">The type of elements in the span.</typeparam>
-            <param name="this">The current collection.</param>
-            <param name="action">The <see cref="T:System.ActionRef`1"/> delegate to perform on each element of the <see cref="T:System.Span`1"/>.</param>
-        </member>
         <member name="M:System.ReadOnlySpanExtensions.FirstIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <summary>
             Finds the first element satisfying the specified condition, and return its corresponding index.
@@ -6538,9 +6500,6 @@
             </returns>
         </member>
         <member name="M:System.ReadOnlySpanExtensions.FindIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.ReadOnlySpanExtensions.FindIndex``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.FindIndex``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
             <inheritdoc cref="M:System.Collections.Generic.List`1.FindIndex(System.Predicate{`0})"/>
         </member>
         <member name="M:System.ReadOnlySpanExtensions.Reverse``1(System.ReadOnlySpan{``0})">
@@ -6569,15 +6528,12 @@
             <returns>An enumerable collection.</returns>
         </member>
         <member name="M:System.ReadOnlySpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.ReadOnlySpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})"/>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.FuncRefReadOnly{``0,System.Boolean})">
             <summary>
             Retrieves all the elements that match the conditions defined by the specified predicate.
             </summary>
             <typeparam name="T">The type of the elements of the span.</typeparam>
             <param name="this">The collection to be used and checked.</param>
-            <param name="match">The <see cref="T:System.FuncRefReadOnly`2"/> that defines the conditions of the elements to search for.</param>
+            <param name="match">The <see cref="T:System.Func`2"/> that defines the conditions of the elements to search for.</param>
             <returns>
             A <see cref="T:System.ReadOnlySpan`1"/> containing all the elements that match the conditions defined
             by the specified predicate, if found; otherwise, an empty <see cref="T:System.ReadOnlySpan`1"/>.
@@ -7374,326 +7330,6 @@
             <typeparam name="TRest">The type of rest elements.</typeparam>
             <param name="this">The instance.</param>
             <returns>The <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
-        </member>
-        <member name="T:System.ActionRef`1">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`1">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`2">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`2">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`2">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`2">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`3">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`3">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`3">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`3">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`4">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`4">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`4">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`4">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`5">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`5">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`5">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`5">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`6">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`6">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`6">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`6">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`7">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`7">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`7">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`7">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`8">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`8">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`8">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`8">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`9">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`9">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`9">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`9">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`10">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`10">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`10">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`10">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`11">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`11">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`11">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`11">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`12">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`12">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`12">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`12">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`13">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`13">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`13">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`13">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`14">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`14">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`14">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`14">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`15">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`15">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`15">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`15">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`16">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`16">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRef`16">
-            <summary>
-            Encapsulates a method that returns void but pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.ActionRefReadOnly`16">
-            <summary>
-            Encapsulates a method that returns void but pass in a read-only reference or a list of read-only references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRef`17">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a reference or a list of references.
-            </summary>
-        </member>
-        <member name="T:System.FuncRefReadOnly`17">
-            <summary>
-            Encapsulates a method that returns a <typeparamref name="TResult"/> and pass in a read-only reference or a list of read-only references.
-            </summary>
         </member>
     </members>
 </doc>

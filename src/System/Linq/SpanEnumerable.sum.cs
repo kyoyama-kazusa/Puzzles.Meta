@@ -13,7 +13,14 @@ public partial class SpanEnumerable
 		return result;
 	}
 
-	/// <inheritdoc cref="Sum{TSource, TKey}(ReadOnlySpan{TSource}, FuncRefReadOnly{TSource, TKey})"/>
+	/// <summary>
+	/// Totals up all elements, and return the result of the sum by the specified property calculated from each element.
+	/// </summary>
+	/// <typeparam name="TSource">The type of the elements of source.</typeparam>
+	/// <typeparam name="TKey">The type of key to add up.</typeparam>
+	/// <param name="this">The collection to be used and checked.</param>
+	/// <param name="keySelector">A function to extract the key for each element.</param>
+	/// <returns>The value with the sum key in the sequence.</returns>
 	public static TKey Sum<TSource, TKey>(this ReadOnlySpan<TSource> @this, Func<TSource, TKey> keySelector)
 		where TKey : IAdditiveIdentity<TKey, TKey>, IAdditionOperators<TKey, TKey, TKey>
 	{
@@ -25,26 +32,7 @@ public partial class SpanEnumerable
 		return result;
 	}
 
-	/// <summary>
-	/// Totals up all elements, and return the result of the sum by the specified property calculated from each element.
-	/// </summary>
-	/// <typeparam name="TSource">The type of the elements of source.</typeparam>
-	/// <typeparam name="TKey">The type of key to add up.</typeparam>
-	/// <param name="this">The collection to be used and checked.</param>
-	/// <param name="keySelector">A function to extract the key for each element.</param>
-	/// <returns>The value with the sum key in the sequence.</returns>
-	public static TKey Sum<TSource, TKey>(this ReadOnlySpan<TSource> @this, FuncRefReadOnly<TSource, TKey> keySelector)
-		where TKey : IAdditiveIdentity<TKey, TKey>, IAdditionOperators<TKey, TKey, TKey>
-	{
-		var result = TKey.AdditiveIdentity;
-		foreach (ref readonly var element in @this)
-		{
-			result += keySelector(in element);
-		}
-		return result;
-	}
-
-	/// <inheritdoc cref="Sum{TSource, TKey}(ReadOnlySpan{TSource}, FuncRefReadOnly{TSource, TKey})"/>
+	/// <inheritdoc cref="Sum{TSource, TKey}(ReadOnlySpan{TSource}, Func{TSource, TKey})"/>
 	public static unsafe TResult SumUnsafe<T, TResult>(this ReadOnlySpan<T> source, delegate*<T, TResult> selector)
 		where TResult : IAdditionOperators<TResult, TResult, TResult>, IAdditiveIdentity<TResult, TResult>
 	{
