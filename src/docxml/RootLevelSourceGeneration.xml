@@ -54,19 +54,6 @@
             The auto-generated banner.
             </summary>
         </member>
-        <member name="T:AccessibilityExtensions">
-            <summary>
-            Provides with extension methods for <see cref="T:Accessibility"/>.
-            </summary>
-            <seealso cref="T:Accessibility"/>
-        </member>
-        <member name="M:AccessibilityExtensions.GetName(Accessibility)">
-            <summary>
-            Gets the name of the accessibility enumeration field.
-            </summary>
-            <param name="this">The field.</param>
-            <returns>The name of the field.</returns>
-        </member>
         <member name="T:Microsoft.CodeAnalysis.AttributeDataExtensions">
             <summary>
             Provides with extension methods on <see cref="T:Microsoft.CodeAnalysis.AttributeData"/>.
@@ -131,61 +118,6 @@
             <param name="enumerateInterfaces">Indicates whether this method enumerates interface members.</param>
             <returns>All members.</returns>
         </member>
-        <member name="M:Microsoft.CodeAnalysis.INamedTypeSymbolExtensions.ToFileName(Microsoft.CodeAnalysis.INamedTypeSymbol)">
-            <summary>
-            Get the file name of the type symbol.
-            </summary>
-            <param name="this">The symbol.</param>
-            <returns>
-            The file name. Due to the limited file name and the algorithm, if:
-            <list type="bullet">
-            <item>
-            The character is <c><![CDATA['<']]></c> or <c><![CDATA['>']]></c>:
-            Change them to <c>'['</c> and <c>']'</c>.
-            </item>
-            <item>The character is <c>','</c>: Change it to <c>'_'</c>.</item>
-            <item>The character is <c>' '</c>: Remove it.</item>
-            </list>
-            </returns>
-        </member>
-        <member name="M:Microsoft.CodeAnalysis.INamedTypeSymbolExtensions.GetTypeKindModifier(Microsoft.CodeAnalysis.INamedTypeSymbol)">
-            <summary>
-            Gets the type kind modifier for a symbol.
-            </summary>
-            <param name="this">The named type symbol.</param>
-            <returns>The string as the representation of the type kind modifier.</returns>
-            <exception cref="T:System.ArgumentException">
-            Throws when the current named type symbol holds an invalid case that doesn't contain
-            any possible type kind modifier.
-            </exception>
-        </member>
-        <member name="T:Microsoft.CodeAnalysis.INamespaceSymbolExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:Microsoft.CodeAnalysis.INamespaceSymbol"/>.
-            </summary>
-            <seealso cref="T:Microsoft.CodeAnalysis.INamespaceSymbol"/>
-        </member>
-        <member name="M:Microsoft.CodeAnalysis.INamespaceSymbolExtensions.GetAllNestedTypes(Microsoft.CodeAnalysis.INamespaceSymbol)">
-            <summary>
-            Try to fetch all possible types that is from the specified namespace and its children namespaces.
-            </summary>
-            <param name="this">The namespace.</param>
-            <returns>All found types.</returns>
-        </member>
-        <member name="T:Microsoft.CodeAnalysis.ISymbolExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:Microsoft.CodeAnalysis.ISymbol"/>.
-            </summary>
-        </member>
-        <member name="M:Microsoft.CodeAnalysis.ISymbolExtensions.ContainsAttribute``1(``0,Microsoft.CodeAnalysis.INamedTypeSymbol)">
-            <summary>
-            Determines whether the specified <see cref="T:Microsoft.CodeAnalysis.ISymbol"/> instance has marked the specified attribute type.
-            </summary>
-            <typeparam name="TSymbol">The type of the symbol.</typeparam>
-            <param name="this">The instance.</param>
-            <param name="attributeType">The attribute type.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
-        </member>
         <member name="T:Microsoft.CodeAnalysis.ITypeSymbolExtensions">
             <summary>
             Provides with extension methods on <see cref="T:Microsoft.CodeAnalysis.ITypeSymbol"/>.
@@ -233,10 +165,6 @@
             <param name="this">The string.</param>
             <returns>The converted string value.</returns>
         </member>
-        <member name="M:Microsoft.CodeAnalysis.StringExtensions.IsKeyword(System.String)">
-            <inheritdoc cref="M:Microsoft.CodeAnalysis.CSharp.SyntaxFacts.IsKeywordKind(Microsoft.CodeAnalysis.CSharp.SyntaxKind)"/>
-            <param name="this">The string.</param>
-        </member>
         <member name="T:System.Collections.Immutable.ImmutableArrayExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Collections.Immutable.ImmutableArray`1"/>.
@@ -252,22 +180,6 @@
             <param name="name">The name to be compared.</param>
             <param name="resultValue">The final found result value.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating whether we can use the argument <paramref name="resultValue"/>.</returns>
-        </member>
-        <member name="M:System.Collections.Immutable.ImmutableArrayExtensions.CastToNotNull``1(System.Collections.Immutable.ImmutableArray{System.Nullable{``0}})">
-            <summary>
-            Casts the current array elements into target typed values.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The array to be casted.</param>
-            <returns>The casted array.</returns>
-        </member>
-        <member name="M:System.Collections.Immutable.ImmutableArrayExtensions.CastToNotNull``1(System.Collections.Immutable.ImmutableArray{``0})">
-            <summary>
-            Casts the current array elements into target typed values.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The array to be casted.</param>
-            <returns>The casted array.</returns>
         </member>
         <member name="T:System.Collections.Generic.KeyValuePairExtensions">
             <summary>
@@ -304,20 +216,6 @@
         </member>
         <member name="M:System.Linq.SymbolGroupByExtensions.GroupBy``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,Microsoft.CodeAnalysis.INamedTypeSymbol},System.Boolean)">
             <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})"/>
-        </member>
-        <member name="T:System.Xml.XmlDocumentExtensions">
-            <summary>
-            Provides extension methods on <see cref="T:System.Xml.XmlDocument"/>.
-            </summary>
-            <seealso cref="T:System.Xml.XmlDocument"/>
-        </member>
-        <member name="M:System.Xml.XmlDocumentExtensions.OnLoading(System.Xml.XmlDocument,System.String)">
-            <summary>
-            Try to load the XML document located to the specified path.
-            </summary>
-            <param name="this">The current XML document instance.</param>
-            <param name="path">The path to load.</param>
-            <returns>The current reference to the XML document.</returns>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
             <summary>
@@ -873,23 +771,6 @@
             Returns the optional URL associated with this attribute instance.
             </summary>
         </member>
-        <member name="T:NameAttribute">
-            <summary>
-            The name attribute that applies to a field in enumeration field, indicating its name.
-            </summary>
-            <param name="name">The name of the field.</param>
-        </member>
-        <member name="M:NameAttribute.#ctor(System.String)">
-            <summary>
-            The name attribute that applies to a field in enumeration field, indicating its name.
-            </summary>
-            <param name="name">The name of the field.</param>
-        </member>
-        <member name="P:NameAttribute.Name">
-            <summary>
-            Indicates the name of the attribute.
-            </summary>
-        </member>
         <member name="T:VersionValueGenerator">
             <summary>
             Defines the incremental source generator that is used for the generation on sync the solution version.
@@ -897,6 +778,21 @@
         </member>
         <member name="M:VersionValueGenerator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)">
             <inheritdoc/>
+        </member>
+        <member name="T:Extensions">
+            <target name="class" when="extension">
+				<summary>
+					Provides with file-local extension methods.
+				</summary>
+			</target>
+        </member>
+        <member name="M:Extensions.OnLoading(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Try to load the XML document located to the specified path.
+            </summary>
+            <param name="this">The current XML document instance.</param>
+            <param name="path">The path to load.</param>
+            <returns>The current reference to the XML document.</returns>
         </member>
     </members>
 </doc>

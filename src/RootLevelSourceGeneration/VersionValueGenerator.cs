@@ -47,3 +47,20 @@ public sealed class VersionValueGenerator : IIncrementalGenerator
 			)
 		);
 }
+
+/// <include file='../../global-doc-comments.xml' path='g/csharp11/feature[@name="file-local"]/target[@name="class" and @when="extension"]'/>
+file static class Extensions
+{
+	/// <summary>
+	/// Try to load the XML document located to the specified path.
+	/// </summary>
+	/// <param name="this">The current XML document instance.</param>
+	/// <param name="path">The path to load.</param>
+	/// <returns>The current reference to the XML document.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static XmlDocument OnLoading(this XmlDocument @this, string path)
+	{
+		@this.Load(path);
+		return @this;
+	}
+}
