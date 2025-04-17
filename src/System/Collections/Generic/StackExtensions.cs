@@ -7,51 +7,49 @@ namespace System.Collections.Generic;
 public static class StackExtensions
 {
 	/// <summary>
-	/// <inheritdoc cref="Enumerable.Reverse{TSource}(IEnumerable{TSource})" path="/summary"/>
+	/// Provides extension members on <see cref="Stack{T}"/>.
 	/// </summary>
-	/// <param name="this"><inheritdoc cref="Enumerable.Reverse{TSource}(IEnumerable{TSource})" path="/param[@name='source']"/></param>
-	/// <returns><inheritdoc cref="Enumerable.Reverse{TSource}(IEnumerable{TSource})" path="/returns"/></returns>
-	public static Stack<T> Reverse<T>(this Stack<T> @this)
+	extension<T>(Stack<T> @this)
 	{
-		var result = new Stack<T>(@this.Count);
-		foreach (var element in @this)
+		/// <inheritdoc cref="Enumerable.Reverse{TSource}(IEnumerable{TSource})" />
+		public Stack<T> Reverse()
 		{
-			result.Push(element);
+			var result = new Stack<T>(@this.Count);
+			foreach (var element in @this)
+			{
+				result.Push(element);
+			}
+			return result;
 		}
-		return result;
+
+		/// <summary>
+		/// Returns the internal array of <see cref="Stack{T}"/>.
+		/// </summary>
+		/// <returns>The internal array.</returns>
+		/// <remarks>
+		/// <include
+		///     file="../../global-doc-comments.xml"
+		///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='others']"/>
+		/// <include
+		///     file="../../global-doc-comments.xml"
+		///     path="//g/dotnet/version[@value='9' and @preview-value='4']/feature[@name='unsafe-accessor']"/>
+		/// </remarks>
+		public T[] GetInternalArray() => StackEntry<T>.GetArray(@this);
+
+		/// <summary>
+		/// Returns the internal count value of <see cref="Stack{T}"/>.
+		/// </summary>
+		/// <returns>The internal field <c>_size</c>.</returns>
+		/// <remarks>
+		/// <include
+		///     file="../../global-doc-comments.xml"
+		///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='others']"/>
+		/// <include
+		///     file="../../global-doc-comments.xml"
+		///     path="//g/dotnet/version[@value='9' and @preview-value='4']/feature[@name='unsafe-accessor']"/>
+		/// </remarks>
+		public ref int GetCount() => ref StackEntry<T>.GetCount(@this);
 	}
-
-	/// <summary>
-	/// Returns the internal array of <see cref="Stack{T}"/>.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The stack.</param>
-	/// <returns>The internal array.</returns>
-	/// <remarks>
-	/// <include
-	///     file="../../global-doc-comments.xml"
-	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='others']"/>
-	/// <include
-	///     file="../../global-doc-comments.xml"
-	///     path="//g/dotnet/version[@value='9' and @preview-value='4']/feature[@name='unsafe-accessor']"/>
-	/// </remarks>
-	public static T[] GetInternalArray<T>(this Stack<T> @this) => StackEntry<T>.GetArray(@this);
-
-	/// <summary>
-	/// Returns the internal count value of <see cref="Stack{T}"/>.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The stack.</param>
-	/// <returns>The internal field <c>_size</c>.</returns>
-	/// <remarks>
-	/// <include
-	///     file="../../global-doc-comments.xml"
-	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='others']"/>
-	/// <include
-	///     file="../../global-doc-comments.xml"
-	///     path="//g/dotnet/version[@value='9' and @preview-value='4']/feature[@name='unsafe-accessor']"/>
-	/// </remarks>
-	public static ref int GetCount<T>(this Stack<T> @this) => ref StackEntry<T>.GetCount(@this);
 }
 
 /// <summary>

@@ -7,16 +7,20 @@ namespace System.Collections.Generic;
 public static class ICollectionExtensions
 {
 	/// <summary>
-	/// Adds the elements of the specified collection to the end of the <see cref="ICollection{T}"/>.
+	/// Provides extension members on <see cref="ICollection{T}"/>.
 	/// </summary>
-	/// <typeparam name="T">The type of elements in the list.</typeparam>
-	/// <param name="this">The source collection.</param>
-	/// <param name="elements">The collection whose elements should be added to the end of the <see cref="ICollection{T}"/>.</param>
-	public static void AddRange<T>(this ICollection<T> @this, IEnumerable<T> elements)
+	extension<T>(ICollection<T> @this)
 	{
-		foreach (var element in elements)
+		/// <summary>
+		/// Adds the elements of the specified collection to the end of the <see cref="ICollection{T}"/>.
+		/// </summary>
+		/// <param name="elements">The collection whose elements should be added to the end of the <see cref="ICollection{T}"/>.</param>
+		public void AddRange(IEnumerable<T> elements)
 		{
-			@this.Add(element);
+			foreach (var element in elements)
+			{
+				@this.Add(element);
+			}
 		}
 	}
 }

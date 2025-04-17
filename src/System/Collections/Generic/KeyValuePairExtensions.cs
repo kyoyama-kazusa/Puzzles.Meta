@@ -7,6 +7,31 @@ namespace System.Collections.Generic;
 public static class KeyValuePairExtensions
 {
 	/// <summary>
+	/// Provides extension members on <see cref="KeyValuePair{TKey, TValue}"/>.
+	/// </summary>
+	extension<TKey, TValue>(in KeyValuePair<TKey, TValue> @this)
+	{
+		/// <summary>
+		/// Indicates the reference of key.
+		/// </summary>
+		public ref TKey KeyRef => ref Entry<TKey, TValue>.GetKey(in @this);
+
+		/// <summary>
+		/// Indicates the reference to value.
+		/// </summary>
+		public ref TValue ValueRef => ref Entry<TKey, TValue>.GetValue(in @this);
+
+
+		/// <summary>
+		/// Converts the current <see cref="KeyValuePair{TKey, TValue}"/> instance into a pair of values.
+		/// </summary>
+		/// <returns>The final pair of values converted.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public (TKey, TValue) ToTuple() => (@this.Key, @this.Value);
+	}
+
+
+	/// <summary>
 	/// Casts the current instance into a new type of <see cref="KeyValuePair{TKey, TValue}"/>
 	/// with type projection:
 	/// <list type="bullet">
@@ -18,45 +43,13 @@ public static class KeyValuePairExtensions
 	/// <typeparam name="TValue">The type of value.</typeparam>
 	/// <typeparam name="TKeyResult">The type of result key.</typeparam>
 	/// <typeparam name="TValueResult">The type of result value.</typeparam>
-	/// <param name="this">The instance to be casted.</param>
+	/// <param name="this">The instance.</param>
 	/// <returns>The casted result.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static KeyValuePair<TKeyResult, TValueResult> Cast<TKey, TValue, TKeyResult, TValueResult>(this KeyValuePair<TKey, TValue> @this)
+	public static KeyValuePair<TKeyResult, TValueResult> Cast<TKey, TValue, TKeyResult, TValueResult>(this in KeyValuePair<TKey, TValue> @this)
 		where TKey : TKeyResult
 		where TValue : TValueResult
 		=> KeyValuePair.Create((TKeyResult)@this.Key, (TValueResult)@this.Value);
-
-	/// <summary>
-	/// Converts the current <see cref="KeyValuePair{TKey, TValue}"/> instance into a pair of values.
-	/// </summary>
-	/// <typeparam name="TKey">The type of key.</typeparam>
-	/// <typeparam name="TValue">The type of value.</typeparam>
-	/// <param name="this">A <see cref="KeyValuePair{TKey, TValue}"/> instance to be converted from.</param>
-	/// <returns>The final pair of values converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static (TKey, TValue) ToTuple<TKey, TValue>(this KeyValuePair<TKey, TValue> @this) => (@this.Key, @this.Value);
-
-	/// <summary>
-	/// Get reference to key.
-	/// </summary>
-	/// <typeparam name="TKey">The type of key.</typeparam>
-	/// <typeparam name="TValue">The type of value.</typeparam>
-	/// <param name="this">The current <see cref="KeyValuePair{TKey, TValue}"/> instance.</param>
-	/// <returns>The reference to key.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ref TKey KeyRef<TKey, TValue>(this in KeyValuePair<TKey, TValue> @this)
-		=> ref Entry<TKey, TValue>.GetKey(in @this);
-
-	/// <summary>
-	/// Get reference to value.
-	/// </summary>
-	/// <typeparam name="TKey">The type of key.</typeparam>
-	/// <typeparam name="TValue">The type of value.</typeparam>
-	/// <param name="this">The current <see cref="KeyValuePair{TKey, TValue}"/> instance.</param>
-	/// <returns>The reference to value.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ref TValue ValueRef<TKey, TValue>(this in KeyValuePair<TKey, TValue> @this)
-		=> ref Entry<TKey, TValue>.GetValue(in @this);
 }
 
 /// <summary>

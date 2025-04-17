@@ -6,7 +6,13 @@ namespace System.Collections.ObjectModel;
 /// <seealso cref="Collection{T}"/>
 public static class CollectionExtensions
 {
-	/// <inheritdoc cref="Collection{T}.RemoveAt(int)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static void RemoveAt<T>(this Collection<T> @this, Index index) => @this.RemoveAt(index.GetOffset(@this.Count));
+	/// <summary>
+	/// Provides extension members on <see cref="Collection{T}"/>.
+	/// </summary>
+	extension<T>(Collection<T> @this)
+	{
+		/// <inheritdoc cref="Collection{T}.RemoveAt(int)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void RemoveAt(Index index) => @this.RemoveAt(index.GetOffset(@this.Count));
+	}
 }

@@ -7,33 +7,35 @@ namespace System.Collections.Generic;
 public static class HashSetExtensions
 {
 	/// <summary>
-	/// Try to convert a <see cref="HashSet{T}"/> into an array, without any conversions among internal values.
+	/// Provides extension members on <see cref="HashSet{T}"/>.
 	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The value to be converted.</param>
-	/// <returns>An array converted.</returns>
-	public static T[] ToArray<T>(this HashSet<T> @this)
+	extension<T>(HashSet<T> @this)
 	{
-		var result = new T[@this.Count];
-		var enumerator = @this.GetEnumerator();
-		var i = 0;
-		while (enumerator.MoveNext())
+		/// <summary>
+		/// Try to convert a <see cref="HashSet{T}"/> into an array, without any conversions among internal values.
+		/// </summary>
+		/// <returns>An array converted.</returns>
+		public T[] ToArray()
 		{
-			var currentRef = Entry<T>.EnumeratorEntry.GetCurrentFieldRef(ref enumerator);
-			result[i++] = currentRef;
+			var result = new T[@this.Count];
+			var enumerator = @this.GetEnumerator();
+			var i = 0;
+			while (enumerator.MoveNext())
+			{
+				var currentRef = Entry<T>.EnumeratorEntry.GetCurrentFieldRef(ref enumerator);
+				result[i++] = currentRef;
+			}
+			return result;
 		}
-		return result;
-	}
 
-	/// <summary>
-	/// Try to convert a <see cref="HashSet{T}"/> into a <see cref="ReadOnlySpan{T}"/>,
-	/// without any conversions among internal values.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The value to be converted.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsReadOnlySpan<T>(this HashSet<T> @this) => @this.ToArray();
+		/// <summary>
+		/// Try to convert a <see cref="HashSet{T}"/> into a <see cref="ReadOnlySpan{T}"/>,
+		/// without any conversions among internal values.
+		/// </summary>
+		/// <returns>A <see cref="ReadOnlySpan{T}"/> converted.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsReadOnlySpan() => @this.ToArray();
+	}
 }
 
 /// <summary>

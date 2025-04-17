@@ -408,45 +408,45 @@
             </summary>
             <seealso cref="T:System.Collections.BitArray"/>
         </member>
-        <member name="M:System.Collections.BitArrayExtensions.SequenceEqual(System.Collections.BitArray,System.Collections.BitArray)">
+        <member name="T:System.Collections.BitArrayExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.BitArray"/>.
+            </summary>
+        </member>
+        <member name="P:System.Collections.BitArrayExtensions..Cardinality">
+            <summary>
+            Get the cardinality of the specified <see cref="T:System.Collections.BitArray"/>,
+            indicating the total number of bits set <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions..SequenceEqual(System.Collections.BitArray)">
             <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
         </member>
-        <member name="M:System.Collections.BitArrayExtensions.GetCardinality(System.Collections.BitArray)">
-            <summary>
-            Get the cardinality of the specified <see cref="T:System.Collections.BitArray"/>.
-            </summary>
-            <param name="this">The array.</param>
-            <returns>The total number of bits set <see langword="true"/>.</returns>
-        </member>
-        <member name="M:System.Collections.BitArrayExtensions.GetInternalArrayField(System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayExtensions..GetInternalArrayField">
             <summary>
             Try to get internal array field.
             </summary>
-            <param name="this">The array.</param>
             <returns>The field.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayExtensions.Slice(System.Collections.BitArray,System.Int32,System.Int32)">
+        <member name="M:System.Collections.BitArrayExtensions..Slice(System.Int32,System.Int32)">
             <summary>
             Slices the current <see cref="T:System.Collections.BitArray"/> instance.
             </summary>
-            <param name="this">The instance.</param>
             <param name="start">The start index.</param>
             <param name="count">The number.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayExtensions.Slice(System.Collections.BitArray,System.Int32)">
+        <member name="M:System.Collections.BitArrayExtensions..Slice(System.Int32)">
             <summary>
             Slices the current <see cref="T:System.Collections.BitArray"/> instance.
             </summary>
-            <param name="this">The instance.</param>
             <param name="start">The start index.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:System.Collections.BitArrayExtensions.AlignedOr(System.Collections.BitArray,System.Collections.BitArray)">
+        <member name="M:System.Collections.BitArrayExtensions..AlignedOr(System.Collections.BitArray)">
             <summary>
             Performs bitwise-or operation with the other instance at the start position, without equivalent length of the other object.
             </summary>
-            <param name="this">The current object.</param>
             <param name="other">The other object.</param>
             <returns>The current instance.</returns>
         </member>
@@ -487,37 +487,26 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.Dictionary`2"/>
         </member>
-        <member name="M:System.Collections.Generic.DictionaryExtensions.GetValueRef``2(System.Collections.Generic.Dictionary{``0,``1},``0@)">
+        <member name="T:System.Collections.Generic.DictionaryExtensions.`2">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.Dictionary`2"/>,
+            where <typeparamref name="TKey"/> satisfies <see langword="notnull"/> constraint.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.DictionaryExtensions.`2.GetValueRef(`0@)">
             <summary>
             Try to get the reference to the value whose corresponding key is specified one.
             </summary>
-            <typeparam name="TKey">The type of the key.</typeparam>
-            <typeparam name="TValue">The type of the value.</typeparam>
-            <param name="this">The current dictionary instance.</param>
             <param name="key">The key to be checked.</param>
             <returns>The reference to the value; or a <see langword="null"/> reference if the key is not found.</returns>
         </member>
-        <member name="M:System.Collections.Generic.DictionaryExtensions.GetKey``2(System.Collections.Generic.Dictionary{``0,``1},``1)">
-            <summary>
-            Try to fetch the key whose cooresponding value is the specified one.
-            </summary>
-            <typeparam name="TKey">The type of key.</typeparam>
-            <typeparam name="TValue">The type of value.</typeparam>
-            <param name="this">The dictionary to look up.</param>
-            <param name="value">The value to look up.</param>
-            <returns>The key.</returns>
-            <exception cref="T:System.InvalidOperationException">Throws when the dictionary has no valid value.</exception>
-        </member>
-        <member name="M:System.Collections.Generic.DictionaryExtensions.ToDictionaryString``2(System.Collections.Generic.Dictionary{``0,``1})">
+        <member name="M:System.Collections.Generic.DictionaryExtensions.`2.ToDictionaryString">
             <inheritdoc cref="M:System.Collections.Generic.DictionaryExtensions.ToDictionaryString``2(System.Collections.Generic.Dictionary{``0,``1},System.Func{``0,System.String},System.Func{``1,System.String})"/>
         </member>
-        <member name="M:System.Collections.Generic.DictionaryExtensions.ToDictionaryString``2(System.Collections.Generic.Dictionary{``0,``1},System.Func{``0,System.String},System.Func{``1,System.String})">
+        <member name="M:System.Collections.Generic.DictionaryExtensions.`2.ToDictionaryString(System.Func{`0,System.String},System.Func{`1,System.String})">
             <summary>
             Converts the current <see cref="T:System.Collections.Generic.Dictionary`2"/> instance into string representation.
             </summary>
-            <typeparam name="TKey">The type of key.</typeparam>
-            <typeparam name="TValue">The type of value.</typeparam>
-            <param name="this">The instance.</param>
             <param name="keyConverter">
             The key converter that converts <typeparamref name="TKey"/> instance into <see cref="T:System.String"/> representation.
             </param>
@@ -526,27 +515,43 @@
             </param>
             <returns>The <see cref="T:System.String"/> representation.</returns>
         </member>
+        <member name="T:System.Collections.Generic.DictionaryExtensions.`2">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.Dictionary`2"/>, where:<br/>
+            <typeparamref name="TKey"/> satisfies <see langword="notnull"/> constraint, <br/>
+            <typeparamref name="TValue"/> satisfies <see cref="T:System.IEquatable`1"/> constraint.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.DictionaryExtensions.`2.GetKey(`1)">
+            <summary>
+            Try to fetch the key whose cooresponding value is the specified one.
+            </summary>
+            <param name="value">The value to look up.</param>
+            <returns>The key.</returns>
+            <exception cref="T:System.InvalidOperationException">Throws when the dictionary has no valid value.</exception>
+        </member>
         <member name="T:System.Collections.Generic.HashSetExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Collections.Generic.HashSet`1"/>.
             </summary>
             <seealso cref="T:System.Collections.Generic.HashSet`1"/>
         </member>
-        <member name="M:System.Collections.Generic.HashSetExtensions.ToArray``1(System.Collections.Generic.HashSet{``0})">
+        <member name="T:System.Collections.Generic.HashSetExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.HashSet`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.HashSetExtensions.`1.ToArray">
             <summary>
             Try to convert a <see cref="T:System.Collections.Generic.HashSet`1"/> into an array, without any conversions among internal values.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The value to be converted.</param>
             <returns>An array converted.</returns>
         </member>
-        <member name="M:System.Collections.Generic.HashSetExtensions.AsReadOnlySpan``1(System.Collections.Generic.HashSet{``0})">
+        <member name="M:System.Collections.Generic.HashSetExtensions.`1.AsReadOnlySpan">
             <summary>
             Try to convert a <see cref="T:System.Collections.Generic.HashSet`1"/> into a <see cref="T:System.ReadOnlySpan`1"/>,
             without any conversions among internal values.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The value to be converted.</param>
             <returns>A <see cref="T:System.ReadOnlySpan`1"/> converted.</returns>
         </member>
         <member name="T:System.Collections.Generic.Entry`1">
@@ -601,12 +606,15 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.ICollection`1"/>
         </member>
-        <member name="M:System.Collections.Generic.ICollectionExtensions.AddRange``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+        <member name="T:System.Collections.Generic.ICollectionExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.ICollectionExtensions.`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
             <summary>
             Adds the elements of the specified collection to the end of the <see cref="T:System.Collections.Generic.ICollection`1"/>.
             </summary>
-            <typeparam name="T">The type of elements in the list.</typeparam>
-            <param name="this">The source collection.</param>
             <param name="elements">The collection whose elements should be added to the end of the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param>
         </member>
         <member name="T:System.Collections.Generic.IDictionaryEntry`1">
@@ -682,7 +690,28 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.KeyValuePair`2"/>
         </member>
-        <member name="M:System.Collections.Generic.KeyValuePairExtensions.Cast``4(System.Collections.Generic.KeyValuePair{``0,``1})">
+        <member name="T:System.Collections.Generic.KeyValuePairExtensions.`2">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.KeyValuePair`2"/>.
+            </summary>
+        </member>
+        <member name="P:System.Collections.Generic.KeyValuePairExtensions.`2.KeyRef">
+            <summary>
+            Indicates the reference of key.
+            </summary>
+        </member>
+        <member name="P:System.Collections.Generic.KeyValuePairExtensions.`2.ValueRef">
+            <summary>
+            Indicates the reference to value.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.KeyValuePairExtensions.`2.ToTuple">
+            <summary>
+            Converts the current <see cref="T:System.Collections.Generic.KeyValuePair`2"/> instance into a pair of values.
+            </summary>
+            <returns>The final pair of values converted.</returns>
+        </member>
+        <member name="M:System.Collections.Generic.KeyValuePairExtensions.Cast``4(System.Collections.Generic.KeyValuePair{``0,``1}@)">
             <summary>
             Casts the current instance into a new type of <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
             with type projection:
@@ -695,35 +724,8 @@
             <typeparam name="TValue">The type of value.</typeparam>
             <typeparam name="TKeyResult">The type of result key.</typeparam>
             <typeparam name="TValueResult">The type of result value.</typeparam>
-            <param name="this">The instance to be casted.</param>
+            <param name="this">The instance.</param>
             <returns>The casted result.</returns>
-        </member>
-        <member name="M:System.Collections.Generic.KeyValuePairExtensions.ToTuple``2(System.Collections.Generic.KeyValuePair{``0,``1})">
-            <summary>
-            Converts the current <see cref="T:System.Collections.Generic.KeyValuePair`2"/> instance into a pair of values.
-            </summary>
-            <typeparam name="TKey">The type of key.</typeparam>
-            <typeparam name="TValue">The type of value.</typeparam>
-            <param name="this">A <see cref="T:System.Collections.Generic.KeyValuePair`2"/> instance to be converted from.</param>
-            <returns>The final pair of values converted.</returns>
-        </member>
-        <member name="M:System.Collections.Generic.KeyValuePairExtensions.KeyRef``2(System.Collections.Generic.KeyValuePair{``0,``1}@)">
-            <summary>
-            Get reference to key.
-            </summary>
-            <typeparam name="TKey">The type of key.</typeparam>
-            <typeparam name="TValue">The type of value.</typeparam>
-            <param name="this">The current <see cref="T:System.Collections.Generic.KeyValuePair`2"/> instance.</param>
-            <returns>The reference to key.</returns>
-        </member>
-        <member name="M:System.Collections.Generic.KeyValuePairExtensions.ValueRef``2(System.Collections.Generic.KeyValuePair{``0,``1}@)">
-            <summary>
-            Get reference to value.
-            </summary>
-            <typeparam name="TKey">The type of key.</typeparam>
-            <typeparam name="TValue">The type of value.</typeparam>
-            <param name="this">The current <see cref="T:System.Collections.Generic.KeyValuePair`2"/> instance.</param>
-            <returns>The reference to value.</returns>
         </member>
         <member name="T:System.Collections.Generic.Entry`2">
             <summary>
@@ -828,38 +830,41 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.LinkedList`1"/>
         </member>
-        <member name="M:System.Collections.Generic.LinkedListExtensions.Exists``1(System.Collections.Generic.LinkedList{``0},System.Func{``0,System.Boolean})">
+        <member name="T:System.Collections.Generic.LinkedListExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.LinkedList`1"/>.
+            </summary>
+        </member>
+        <member name="P:System.Collections.Generic.LinkedListExtensions.`1.FirstValue">
+            <summary>
+            Indicates the value of the first node.
+            </summary>
+            <exception cref="T:System.NullReferenceException">Throws when the list is empty.</exception>
+        </member>
+        <member name="P:System.Collections.Generic.LinkedListExtensions.`1.LastValue">
+            <summary>
+            Indicates the value of the last node.
+            </summary>
+            <exception cref="T:System.NullReferenceException">Throws when the list is empty.</exception>
+        </member>
+        <member name="M:System.Collections.Generic.LinkedListExtensions.`1.Exists(System.Func{`0,System.Boolean})">
             <summary>
             Checks whether the collection exists at least one element satisfying the specified condition.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">A <see cref="T:System.Collections.Generic.LinkedList`1"/> instance.</param>
             <param name="match">A method to be called.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:System.Collections.Generic.LinkedListExtensions.RemoveFirstNode``1(System.Collections.Generic.LinkedList{``0})">
+        <member name="M:System.Collections.Generic.LinkedListExtensions.`1.RemoveFirstNode">
             <summary>
             Removes the first element and return that element.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The collection.</param>
             <returns>The first element to be removed.</returns>
         </member>
-        <member name="M:System.Collections.Generic.LinkedListExtensions.RemoveLastNode``1(System.Collections.Generic.LinkedList{``0})">
+        <member name="M:System.Collections.Generic.LinkedListExtensions.`1.RemoveLastNode">
             <summary>
             Removes the last element and return that element.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The collection.</param>
             <returns>The last element to be removed.</returns>
-        </member>
-        <member name="M:System.Collections.Generic.LinkedListExtensions.FirstValue``1(System.Collections.Generic.LinkedList{``0})">
-            <inheritdoc cref="P:System.Collections.Generic.LinkedList`1.First"/>
-            <exception cref="T:System.NullReferenceException">Throws when the list is empty.</exception>
-        </member>
-        <member name="M:System.Collections.Generic.LinkedListExtensions.LastValue``1(System.Collections.Generic.LinkedList{``0})">
-            <inheritdoc cref="P:System.Collections.Generic.LinkedList`1.Last"/>
-            <exception cref="T:System.NullReferenceException">Throws when the list is empty.</exception>
         </member>
         <member name="T:System.Collections.Generic.ListExtensions">
             <summary>
@@ -867,12 +872,15 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.List`1"/>
         </member>
-        <member name="M:System.Collections.Generic.ListExtensions.AddRef``1(System.Collections.Generic.List{``0},``0@)">
+        <member name="T:System.Collections.Generic.ListExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.ListExtensions.`1.AddRef(`0@)">
             <summary>
             Adds an object to the end of the <see cref="T:System.Collections.Generic.List`1" />.
             </summary>
-            <typeparam name="T">The type of elements in the list.</typeparam>
-            <param name="this">The current instance.</param>
             <param name="item">The object to be added to the end of the <see cref="T:System.Collections.Generic.List`1" />.</param>
             <remarks>
             <target name="others">
@@ -894,12 +902,10 @@
             </remarks>
             <seealso cref="T:System.Runtime.CompilerServices.UnsafeAccessorAttribute" />
         </member>
-        <member name="M:System.Collections.Generic.ListExtensions.AddRangeRef``1(System.Collections.Generic.List{``0},System.ReadOnlySpan{``0})">
+        <member name="M:System.Collections.Generic.ListExtensions.`1.AddRangeRef(System.ReadOnlySpan{`0})">
             <summary>
             Adds the elements of the specified <see cref="T:System.ReadOnlySpan`1" /> to the end of the <see cref="T:System.Collections.Generic.List`1" />.
             </summary>
-            <typeparam name="T">The type of elements in the list.</typeparam>
-            <param name="this">The current instance.</param>
             <param name="items">The collection whose elements should be added to the end of the <see cref="T:System.Collections.Generic.List`1" />.</param>
             <remarks>
             <target name="others">
@@ -925,55 +931,33 @@
             <seealso cref="T:System.ReadOnlySpan`1" />
             <seealso cref="T:System.Collections.Generic.IEnumerable`1" />
         </member>
-        <member name="M:System.Collections.Generic.ListExtensions.RemoveAt``1(System.Collections.Generic.List{``0},System.Index)">
+        <member name="M:System.Collections.Generic.ListExtensions.`1.RemoveAt(System.Index)">
             <inheritdoc cref="M:System.Collections.Generic.List`1.RemoveAt(System.Int32)"/>
         </member>
-        <member name="M:System.Collections.Generic.ListExtensions.SequenceEqual``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
-            <summary>
-            Determines whether two sequences are equal by comparing the elements by using <see cref="M:System.IEquatable`1.Equals(`0)"/> for their type.
-            </summary>
-            <typeparam name="TEquatable">The type of each element.</typeparam>
-            <param name="this">A <see cref="T:System.Collections.Generic.List`1"/> to compare to <paramref name="other"/>.</param>
-            <param name="other">A <see cref="T:System.Collections.Generic.List`1"/> to compare to <paramref name="this"/>.</param>
-            <returns>
-            <see langword="true"/> if the two source sequences are of equal length and their corresponding elements are equal according
-            to <see cref="M:System.IEquatable`1.Equals(`0)"/> for their type; otherwise, <see langword="false"/>.
-            </returns>
-        </member>
-        <member name="M:System.Collections.Generic.ListExtensions.Sum``1(System.Collections.Generic.List{``0})">
-            <inheritdoc cref="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int32})"/>
-        </member>
-        <member name="M:System.Collections.Generic.ListExtensions.AsSpan``1(System.Collections.Generic.List{``0})">
+        <member name="M:System.Collections.Generic.ListExtensions.`1.AsSpan">
             <summary>
             Gets a <see cref="T:System.ReadOnlySpan`1"/> view over the data in a list.
             Items should not be added or removed from the <see cref="T:System.Collections.Generic.List`1"/> while the <see cref="T:System.ReadOnlySpan`1"/> is in use.
             </summary>
-            <param name="this">The instance to be transformed.</param>
             <returns>A <see cref="T:System.ReadOnlySpan`1"/> instance over the <see cref="T:System.Collections.Generic.List`1"/>.</returns>
         </member>
-        <member name="M:System.Collections.Generic.ListExtensions.AsMemory``1(System.Collections.Generic.List{``0})">
+        <member name="M:System.Collections.Generic.ListExtensions.`1.AsMemory">
             <summary>
             Try to create a <see cref="T:System.ReadOnlyMemory`1"/> with values from the current <see cref="T:System.Collections.Generic.List`1"/> object,
             without any copy operation.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The list to create.</param>
             <returns>The created <see cref="T:System.ReadOnlyMemory`1"/> instance.</returns>
         </member>
-        <member name="M:System.Collections.Generic.ListExtensions.GetInternalArray``1(System.Collections.Generic.List{``0})">
+        <member name="M:System.Collections.Generic.ListExtensions.`1.GetInternalArray">
             <summary>
             Returns the internal array of <see cref="T:System.Collections.Generic.List`1"/>.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The list.</param>
             <returns>The internal array.</returns>
         </member>
-        <member name="M:System.Collections.Generic.ListExtensions.AddWithResize``1(System.Collections.Generic.List{``0},``0@)">
+        <member name="M:System.Collections.Generic.ListExtensions.`1.AddWithResize(`0@)">
             <summary>
             Add an item and resize the <see cref="T:System.Collections.Generic.List`1" /> of <typeparamref name="T" />.
             </summary>
-            <typeparam name="T">The type of the target value to be added.</typeparam>
-            <param name="this">The list.</param>
             <param name="item">An instance of type <typeparamref name="T" /> to be added.</param>
             <remarks>
             <target name="others">
@@ -984,12 +968,10 @@
 				</target>
             </remarks>
         </member>
-        <member name="M:System.Collections.Generic.ListExtensions.GetNewCapacity``1(System.Collections.Generic.List{``0},System.Int32)">
+        <member name="M:System.Collections.Generic.ListExtensions.`1.GetNewCapacity(System.Int32)">
             <summary>
             Try to get a new capacity value by the desired capacity to be set.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The collection.</param>
             <param name="capacity">The desired capacity to be set.</param>
             <returns>The result value to be set.</returns>
             <remarks>
@@ -1000,6 +982,32 @@
 					</para>
 				</target>
             </remarks>
+        </member>
+        <member name="T:System.Collections.Generic.ListExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.List`1"/>,
+            where <typeparamref name="T"/> satisfies <see cref="T:System.IEquatable`1"/> constraint.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.ListExtensions.`1.SequenceEqual(System.Collections.Generic.List{`0})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements
+            by using <see cref="M:System.IEquatable`1.Equals(`0)"/> for their type.
+            </summary>
+            <param name="other">A <see cref="T:System.Collections.Generic.List`1"/> to compare to.</param>
+            <returns>
+            <see langword="true"/> if the two source sequences are of equal length and their corresponding elements are equal according
+            to <see cref="M:System.IEquatable`1.Equals(`0)"/> for their type; otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="T:System.Collections.Generic.ListExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.List`1"/>,
+            where <typeparamref name="T"/> satisfies <see cref="T:System.Numerics.IAdditiveIdentity`2"/>, <see cref="T:System.Numerics.IAdditionOperators`3"/> constraints.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.ListExtensions.`1.Sum">
+            <inheritdoc cref="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int32})"/>
         </member>
         <member name="T:System.Collections.Generic.Entry`1">
             <summary>
@@ -1089,21 +1097,22 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.SortedSet`1"/>
         </member>
-        <member name="M:System.Collections.Generic.SortedSetExtensions.AddRange``1(System.Collections.Generic.SortedSet{``0},System.ReadOnlySpan{``0})">
+        <member name="T:System.Collections.Generic.SortedSetExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.SortedSet`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.SortedSetExtensions.`1.AddRange(System.ReadOnlySpan{`0})">
             <summary>
             Adds the elements into the collection.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The current collection.</param>
             <param name="values">The elements to be added.</param>
             <returns>The number of elements successfully to be added.</returns>
         </member>
-        <member name="M:System.Collections.Generic.SortedSetExtensions.ToArray``1(System.Collections.Generic.SortedSet{``0})">
+        <member name="M:System.Collections.Generic.SortedSetExtensions.`1.ToArray">
             <summary>
             Try to convert the current instance into an array.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The instance.</param>
             <returns>An array of <typeparamref name="T"/> elements.</returns>
         </member>
         <member name="T:System.Collections.Generic.StackExtensions">
@@ -1112,19 +1121,18 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.Stack`1"/>
         </member>
-        <member name="M:System.Collections.Generic.StackExtensions.Reverse``1(System.Collections.Generic.Stack{``0})">
+        <member name="T:System.Collections.Generic.StackExtensions.`1">
             <summary>
-            <inheritdoc cref="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})" path="/summary"/>
+            Provides extension members on <see cref="T:System.Collections.Generic.Stack`1"/>.
             </summary>
-            <param name="this"><inheritdoc cref="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})" path="/param[@name='source']"/></param>
-            <returns><inheritdoc cref="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})" path="/returns"/></returns>
         </member>
-        <member name="M:System.Collections.Generic.StackExtensions.GetInternalArray``1(System.Collections.Generic.Stack{``0})">
+        <member name="M:System.Collections.Generic.StackExtensions.`1.Reverse">
+            <inheritdoc cref="M:System.Linq.Enumerable.Reverse``1(System.Collections.Generic.IEnumerable{``0})" />
+        </member>
+        <member name="M:System.Collections.Generic.StackExtensions.`1.GetInternalArray">
             <summary>
             Returns the internal array of <see cref="T:System.Collections.Generic.Stack`1" />.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The stack.</param>
             <returns>The internal array.</returns>
             <remarks>
             <target name="others">
@@ -1141,12 +1149,10 @@
 			</feature>
             </remarks>
         </member>
-        <member name="M:System.Collections.Generic.StackExtensions.GetCount``1(System.Collections.Generic.Stack{``0})">
+        <member name="M:System.Collections.Generic.StackExtensions.`1.GetCount">
             <summary>
             Returns the internal count value of <see cref="T:System.Collections.Generic.Stack`1" />.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The stack.</param>
             <returns>The internal field <c>_size</c>.</returns>
             <remarks>
             <target name="others">
@@ -1226,23 +1232,24 @@
             </summary>
             <seealso cref="T:System.Collections.ObjectModel.ObservableCollection`1"/>
         </member>
-        <member name="M:System.Collections.ObjectModel.ObservableCollectionExtensions.FindIndex``1(System.Collections.ObjectModel.ObservableCollection{``0},System.Func{``0,System.Boolean})">
+        <member name="T:System.Collections.ObjectModel.ObservableCollectionExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.Collections.ObjectModel.ObservableCollectionExtensions.`1.FindIndex(System.Func{`0,System.Boolean})">
             <summary>
             Searches for an element that matches the conditions defined by the specified predicate,
             and returns the zero-based index of the first occurrence within the entire <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/>.
             </summary>
-            <typeparam name="T"><inheritdoc cref="T:System.Collections.Generic.List`1" path="/typeparam[@name='T']"/></typeparam>
-            <param name="this">The current collection.</param>
             <param name="match"><inheritdoc cref="M:System.Collections.Generic.List`1.FindIndex(System.Predicate{`0})" path="/param[@name='match']"/></param>
             <returns><inheritdoc cref="M:System.Collections.Generic.List`1.FindIndex(System.Predicate{`0})" path="/returns"/></returns>
         </member>
-        <member name="M:System.Collections.ObjectModel.ObservableCollectionExtensions.FindLastIndex``1(System.Collections.ObjectModel.ObservableCollection{``0},System.Func{``0,System.Boolean})">
+        <member name="M:System.Collections.ObjectModel.ObservableCollectionExtensions.`1.FindLastIndex(System.Func{`0,System.Boolean})">
             <summary>
             Searches for an element that matches the conditions defined by the specified predicate,
             and returns the zero-based index of the last occurrence within the entire <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/>.
             </summary>
-            <typeparam name="T"><inheritdoc cref="T:System.Collections.Generic.List`1" path="/typeparam[@name='T']"/></typeparam>
-            <param name="this">The current collection.</param>
             <param name="match"><inheritdoc cref="M:System.Collections.Generic.List`1.FindLastIndex(System.Predicate{`0})" path="/param[@name='match']"/></param>
             <returns><inheritdoc cref="M:System.Collections.Generic.List`1.FindLastIndex(System.Predicate{`0})" path="/returns"/></returns>
         </member>
@@ -1252,7 +1259,12 @@
             </summary>
             <seealso cref="T:System.Collections.ObjectModel.Collection`1"/>
         </member>
-        <member name="M:System.Collections.ObjectModel.CollectionExtensions.RemoveAt``1(System.Collections.ObjectModel.Collection{``0},System.Index)">
+        <member name="T:System.Collections.ObjectModel.CollectionExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.ObjectModel.Collection`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.Collections.ObjectModel.CollectionExtensions.`1.RemoveAt(System.Index)">
             <inheritdoc cref="M:System.Collections.ObjectModel.Collection`1.RemoveAt(System.Int32)"/>
         </member>
         <member name="T:System.delegate">
@@ -2256,18 +2268,23 @@
             </summary>
             <returns>A <see cref="T:System.TimeSpan"/> instance.</returns>
         </member>
-        <member name="T:System.IO.File2">
+        <member name="T:System.IO.FileExtensions">
             <summary>
-            Extends <see cref="T:System.IO.File"/>.
+            Provides extension methods on <see cref="T:System.IO.File"/>.
             </summary>
             <seealso cref="T:System.IO.File"/>
         </member>
-        <member name="F:System.IO.File2.InvalidCharacters">
+        <member name="F:System.IO.FileExtensions.InvalidCharacters">
             <summary>
             The field for invalid path characters as a file name.
             </summary>
         </member>
-        <member name="M:System.IO.File2.IsValidFileName(System.String)">
+        <member name="T:System.IO.FileExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.IO.File"/>.
+            </summary>
+        </member>
+        <member name="M:System.IO.FileExtensions..IsValidFileName(System.String)">
             <summary>
             Determines whether the specified file name is valid.
             </summary>
@@ -2280,11 +2297,15 @@
             </summary>
             <seealso cref="T:System.IO.StreamReader"/>
         </member>
-        <member name="M:System.IO.StreamReaderExtensions.EndsWithNewLine(System.IO.StreamReader)">
+        <member name="T:System.IO.StreamReaderExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.IO.StreamReader"/>.
+            </summary>
+        </member>
+        <member name="P:System.IO.StreamReaderExtensions..EndsWithNewLine">
             <summary>
             Determines whether a file ends with new line character.
             </summary>
-            <param name="this">The <see cref="T:System.IO.StreamReader"/> instance.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
             <exception cref="T:System.ArgumentException">Throws when the stream cannot seek.</exception>
         </member>
