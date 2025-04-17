@@ -1322,15 +1322,20 @@
             </summary>
             <seealso cref="T:System.Delegate"/>
         </member>
-        <member name="M:System.DelegateExtensions.GetInvocations``1(``0)">
+        <member name="T:System.DelegateExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Delegate"/>.
+            </summary>
+        </member>
+        <member name="M:System.DelegateExtensions..GetInvocations``1(``0)">
             <summary>
             Returns the invocation list of the delegate.
             </summary>
             <typeparam name="TDelegate">The type of the delegate.</typeparam>
-            <param name="this">The instance.</param>
+            <param name="delegate">The instance.</param>
             <returns>An array of delegates representing the invocation list of the current delegate.</returns>
         </member>
-        <member name="M:System.DelegateExtensions.GetEnumerator``1(``0)">
+        <member name="M:System.DelegateExtensions..GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Delegate.EnumerateInvocationList``1(``0)"/>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.ComponentMemberAttribute">
@@ -1999,75 +2004,33 @@
             <see cref="M:System.IDisposable.Dispose"/> and <see cref="M:System.IAsyncDisposable.DisposeAsync"/> will be generated.
             </summary>
         </member>
-        <member name="T:System.DoubleExtensions">
-            <summary>
-            Provides extension methods on <see cref="T:System.Double"/>.
-            </summary>
-            <seealso cref="T:System.Double"/>
-        </member>
-        <member name="M:System.DoubleExtensions.NearlyEquals(System.Double,System.Double)">
-            <summary>
-            Indicates whether the specified value is nearly equals to the current value.
-            </summary>
-            <param name="this">The value.</param>
-            <param name="other">The other value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:System.DoubleExtensions.NearlyEquals(System.Double,System.Double,System.Double)">
-            <summary>
-            Indicates whether the specified value is nearly equals to the current value.
-            If the differ of two values to compare is lower than the specified epsilon value,
-            the method will return <see langword="true"/>.
-            </summary>
-            <param name="this">The value.</param>
-            <param name="other">The other value to compare.</param>
-            <param name="epsilon">The epsilon value (the minimal differ).</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:System.DoubleExtensions.Seconds(System.Double)">
-            <summary>
-            Creates a <see cref="T:System.TimeSpan"/> instane using the specified value as seconds.
-            </summary>
-            <param name="this">The seconds.</param>
-            <returns>A <see cref="T:System.TimeSpan"/> instance.</returns>
-        </member>
-        <member name="M:System.DoubleExtensions.Milliseconds(System.Double)">
-            <summary>
-            Creates a <see cref="T:System.TimeSpan"/> instane using the specified value as milliseconds.
-            </summary>
-            <param name="this">The milliseconds.</param>
-            <returns>A <see cref="T:System.TimeSpan"/> instance.</returns>
-        </member>
         <member name="T:System.EnumExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.Enum"/>.
             </summary>
             <seealso cref="T:System.Enum"/>
         </member>
-        <member name="M:System.EnumExtensions.IsFlag``1(``0)">
+        <member name="T:System.EnumExtensions.`1">
+            <summary>
+            Provides extension members on <typeparamref name="T"/>,
+            where <typeparamref name="T"/> satisfies <see langword="unmanaged"/>, <see cref="T:System.Enum"/> constraints.
+            </summary>
+        </member>
+        <member name="P:System.EnumExtensions.`1.IsFlag">
             <summary>
             Checks whether the current enumeration field is a flag.
             </summary>
-            <typeparam name="T">The type of the current field.</typeparam>
-            <param name="this">The current field to check.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:System.EnumExtensions.GetAllFlags``1(``0)">
+        <member name="P:System.EnumExtensions.`1.AllFlags">
             <summary>
             To get all possible flags from a specified enumeration instance.
             </summary>
-            <typeparam name="T">The type of that enumeration.</typeparam>
-            <param name="this">The field.</param>
-            <returns>
-            All flags. If the enumeration field doesn't contain any flags, the return value will be <see langword="null"/>.
-            </returns>
         </member>
-        <member name="M:System.EnumExtensions.GetEnumerator``1(``0)">
+        <member name="M:System.EnumExtensions.`1.GetEnumerator">
             <summary>
             Get all possible flags that the current enumeration field set.
             </summary>
-            <typeparam name="T">The type of the enumeration.</typeparam>
-            <param name="this">The current enumeration type instance.</param>
             <returns>All flags.</returns>
             <exception cref="T:System.InvalidOperationException">
             Throws when the type isn't applied the attribute <see cref="T:System.FlagsAttribute"/>.
@@ -2079,23 +2042,69 @@
             </summary>
             <seealso cref="T:System.Numerics.IFloatingPoint`1"/>
         </member>
-        <member name="M:System.FloatingPointExtensions.NearlyEquals``1(``0,``0)">
+        <member name="T:System.FloatingPointExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Single"/>.
+            </summary>
+        </member>
+        <member name="M:System.FloatingPointExtensions..NearlyEquals(System.Single)">
             <summary>
             Indicates whether the specified value is nearly equals to the current value.
             </summary>
-            <typeparam name="T">The type of floating point.</typeparam>
-            <param name="this">The value.</param>
             <param name="other">The other value.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:System.FloatingPointExtensions.NearlyEquals``1(``0,``0,``0)">
+        <member name="M:System.FloatingPointExtensions..NearlyEquals(System.Single,System.Single)">
             <summary>
             Indicates whether the specified value is nearly equals to the current value.
             If the differ of two values to compare is lower than the specified epsilon value,
             the method will return <see langword="true"/>.
             </summary>
-            <typeparam name="T">The type of floating point.</typeparam>
-            <param name="this">The value.</param>
+            <param name="other">The other value to compare.</param>
+            <param name="epsilon">The epsilon value (the minimal differ).</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="T:System.FloatingPointExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Double"/>.
+            </summary>
+        </member>
+        <member name="M:System.FloatingPointExtensions..NearlyEquals(System.Double)">
+            <summary>
+            Indicates whether the specified value is nearly equals to the current value.
+            </summary>
+            <param name="other">The other value.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:System.FloatingPointExtensions..NearlyEquals(System.Double,System.Double)">
+            <summary>
+            Indicates whether the specified value is nearly equals to the current value.
+            If the differ of two values to compare is lower than the specified epsilon value,
+            the method will return <see langword="true"/>.
+            </summary>
+            <param name="other">The other value to compare.</param>
+            <param name="epsilon">The epsilon value (the minimal differ).</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="T:System.FloatingPointExtensions.`1">
+            <summary>
+            Provides extension members on <typeparamref name="T"/>,
+            where <typeparamref name="T"/> satisfies <see cref="T:System.Numerics.IFloatingPoint`1"/>, <see cref="T:System.Numerics.IFloatingPointIeee754`1"/> constraints.
+            </summary>
+        </member>
+        <member name="M:System.FloatingPointExtensions.`1.NearlyEquals(`0)">
+            <summary>
+            Indicates whether the specified value is nearly equals to the current value.
+            </summary>
+            <param name="other">The other value.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:System.FloatingPointExtensions.`1.NearlyEquals(`0,`0)">
+            <summary>
+            Indicates whether the specified value is nearly equals to the current value.
+            If the differ of two values to compare is lower than the specified epsilon value,
+            the method will return <see langword="true"/>.
+            </summary>
             <param name="other">The other value to compare.</param>
             <param name="epsilon">The epsilon value (the minimal differ).</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
@@ -2191,13 +2200,32 @@
             <param name="value">The value.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="T:System.IndexExtensions">
+        <member name="T:System.IndexRangeExtensions">
             <summary>
-            Provides with extension methods on <see cref="T:System.Index"/> instances.
+            Provides with extension methods on <see cref="T:System.Index"/> and <see cref="T:System.Range"/> instances.
             </summary>
             <seealso cref="T:System.Index"/>
+            <seealso cref="T:System.Range"/>
         </member>
-        <member name="M:System.IndexExtensions.Deconstruct(System.Index,System.Int32@,System.Boolean@)">
+        <member name="T:System.IndexRangeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Index"/>.
+            </summary>
+        </member>
+        <member name="M:System.IndexRangeExtensions..Deconstruct(System.Int32@,System.Boolean@)">
+            <target name="method">
+				<summary>
+					Deconstruct the current instance into multiple values, which means you can use
+					the value-tuple syntax like <c>(a, b, c)</c> to define your own deconstruction logic.
+				</summary>
+			</target>
+        </member>
+        <member name="T:System.IndexRangeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Range"/>.
+            </summary>
+        </member>
+        <member name="M:System.IndexRangeExtensions..Deconstruct(System.Index@,System.Index@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -2211,11 +2239,22 @@
             </summary>
             <seealso cref="T:System.Int32"/>
         </member>
-        <member name="M:System.Int32Extensions.Seconds(System.Int32)">
-            <inheritdoc cref="M:System.DoubleExtensions.Seconds(System.Double)"/>
+        <member name="T:System.Int32Extensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>.
+            </summary>
         </member>
-        <member name="M:System.Int32Extensions.Milliseconds(System.Int32)">
-            <inheritdoc cref="M:System.DoubleExtensions.Milliseconds(System.Double)"/>
+        <member name="P:System.Int32Extensions..Seconds">
+            <summary>
+            Creates a <see cref="T:System.TimeSpan"/> instane using the specified value as seconds.
+            </summary>
+            <returns>A <see cref="T:System.TimeSpan"/> instance.</returns>
+        </member>
+        <member name="P:System.Int32Extensions..Milliseconds">
+            <summary>
+            Creates a <see cref="T:System.TimeSpan"/> instane using the specified value as milliseconds.
+            </summary>
+            <returns>A <see cref="T:System.TimeSpan"/> instance.</returns>
         </member>
         <member name="T:System.IO.File2">
             <summary>
@@ -2538,7 +2577,7 @@
             <returns>A list of <typeparamref name="TSource"/> elements satisfying the condition.</returns>
         </member>
         <member name="M:System.Linq.ArrayGrouping`2.AsReadOnlySpan">
-            <inheritdoc cref="M:System.MemoryExtensions2.AsReadOnlySpan``1(``0[])"/>
+            <inheritdoc cref="M:System.MemoryExtensionsExtensions.AsReadOnlySpan``1(``0[])"/>
         </member>
         <member name="M:System.Linq.ArrayGrouping`2.GetEnumerator">
             <summary>
@@ -5673,7 +5712,12 @@
             </summary>
             <seealso cref="T:System.Math"/>
         </member>
-        <member name="M:System.MathExtensions.Min(System.Int32,System.Int32,System.Int32)">
+        <member name="T:System.MathExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Math"/>.
+            </summary>
+        </member>
+        <member name="M:System.MathExtensions..Min(System.Int32,System.Int32,System.Int32)">
             <summary>
             Get the minimal one of three values.
             </summary>
@@ -5682,7 +5726,7 @@
             <param name="c">The third value.</param>
             <returns>Which is the minimal value.</returns>
         </member>
-        <member name="M:System.MathExtensions.Max(System.Int32,System.Int32,System.Int32)">
+        <member name="M:System.MathExtensions..Max(System.Int32,System.Int32,System.Int32)">
             <summary>
             Get the maximum one of three values.
             </summary>
@@ -5691,13 +5735,18 @@
             <param name="c">The third value.</param>
             <returns>Which is the maximum value.</returns>
         </member>
-        <member name="T:System.MemoryExtensions2">
+        <member name="T:System.MemoryExtensionsExtensions">
             <summary>
-            Extends from type <see cref="T:System.MemoryExtensions"/>.
+            Provides with extension methods on <see cref="T:System.MemoryExtensions"/>.
             </summary>
             <seealso cref="T:System.MemoryExtensions"/>
         </member>
-        <member name="M:System.MemoryExtensions2.AsReadOnlySpan``1(``0[])">
+        <member name="T:System.MemoryExtensionsExtensions.`1">
+            <summary>
+            Provides extension members of <typeparamref name="T"/>[]? instances.
+            </summary>
+        </member>
+        <member name="M:System.MemoryExtensionsExtensions.`1.AsReadOnlySpan">
             <inheritdoc cref="M:System.MemoryExtensions.AsSpan``1(``0[])"/>
         </member>
         <member name="T:System.ModuleInitializer">
@@ -6425,29 +6474,19 @@
             </summary>
             <seealso cref="T:System.Random"/>
         </member>
-        <member name="M:System.RandomExtensions.NextGaussian(System.Random,System.Double,System.Double)">
+        <member name="T:System.RandomExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Random"/>.
+            </summary>
+        </member>
+        <member name="M:System.RandomExtensions..NextGaussian(System.Double,System.Double)">
             <summary>
             Generates a random number obeying Gaussian's Normal Distribution,
             with σ value <paramref name="sigma"/> and μ value <paramref name="mu"/>.
             </summary>
-            <param name="this">The random number generator instance.</param>
             <param name="mu">Mu μ value.</param>
             <param name="sigma">Sigma σ value.</param>
             <returns>The result value.</returns>
-        </member>
-        <member name="T:System.RangeExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.Range"/> instances.
-            </summary>
-            <seealso cref="T:System.Range"/>
-        </member>
-        <member name="M:System.RangeExtensions.Deconstruct(System.Range,System.Index@,System.Index@)">
-            <target name="method">
-				<summary>
-					Deconstruct the current instance into multiple values, which means you can use
-					the value-tuple syntax like <c>(a, b, c)</c> to define your own deconstruction logic.
-				</summary>
-			</target>
         </member>
         <member name="T:System.ReadOnlyMemoryExtensions">
             <summary>
@@ -6455,24 +6494,35 @@
             </summary>
             <seealso cref="T:System.ReadOnlyMemory`1"/>
         </member>
-        <member name="M:System.ReadOnlyMemoryExtensions.ElementAt``1(System.ReadOnlyMemory{``0},System.Int32)">
+        <member name="T:System.ReadOnlyMemoryExtensions.`1">
             <summary>
-            Fetch the element at the specified index inside a <see cref="T:System.ReadOnlyMemory`1"/>.
+            Provides extension members on <see cref="T:System.ReadOnlyMemory`1"/>.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The <see cref="T:System.ReadOnlyMemory`1"/> instance.</param>
+        </member>
+        <member name="P:System.ReadOnlyMemoryExtensions.`1.Item(System.Int32)">
+            <summary>
+            Gets the element at the specified index.
+            </summary>
             <param name="index">The desired index.</param>
             <returns>The reference to the element at the specified index.</returns>
         </member>
-        <member name="M:System.ReadOnlyMemoryExtensions.ElementAt``1(System.ReadOnlyMemory{``0},System.Index)">
+        <member name="P:System.ReadOnlyMemoryExtensions.`1.Item(System.Index)">
+            <inheritdoc cref="M:System.ReadOnlyMemoryExtensions.get_Item``1(System.ReadOnlyMemory{``0},System.Int32)"/>
+        </member>
+        <member name="M:System.ReadOnlyMemoryExtensions.`1.ElementAt(System.Int32)">
+            <summary>
+            Fetch the element at the specified index inside a <see cref="T:System.ReadOnlyMemory`1"/>.
+            </summary>
+            <param name="index">The desired index.</param>
+            <returns>The reference to the element at the specified index.</returns>
+        </member>
+        <member name="M:System.ReadOnlyMemoryExtensions.`1.ElementAt(System.Index)">
             <inheritdoc cref="M:System.ReadOnlyMemoryExtensions.ElementAt``1(System.ReadOnlyMemory{``0},System.Int32)"/>
         </member>
-        <member name="M:System.ReadOnlyMemoryExtensions.GetEnumerator``1(System.ReadOnlyMemory{``0})">
+        <member name="M:System.ReadOnlyMemoryExtensions.`1.GetEnumerator">
             <summary>
             Creates a <see cref="T:System.Linq.Enumerators.ReadOnlyMemoryEnumerator`1"/> instance that can be consumed by a <see langword="foreach"/> loop.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The sequence of <see cref="T:System.ReadOnlyMemory`1"/> instance.</param>
             <returns>A <see cref="T:System.Linq.Enumerators.ReadOnlyMemoryEnumerator`1"/> instance.</returns>
         </member>
         <member name="T:System.ReadOnlySpanExtensions">
@@ -6482,67 +6532,71 @@
             <seealso cref="T:System.Span`1"/>
             <seealso cref="T:System.ReadOnlySpan`1"/>
         </member>
-        <member name="M:System.ReadOnlySpanExtensions.FirstIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+        <member name="T:System.ReadOnlySpanExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.ReadOnlySpanExtensions.`1.FirstIndex(System.Func{`0,System.Boolean})">
             <summary>
             Finds the first element satisfying the specified condition, and return its corresponding index.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The sequence.</param>
             <param name="predicate">The condition.</param>
             <returns>
             An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
             </returns>
         </member>
-        <member name="M:System.ReadOnlySpanExtensions.LastIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+        <member name="M:System.ReadOnlySpanExtensions.`1.LastIndex(System.Func{`0,System.Boolean})">
             <summary>
             Finds the last element satisfying the specified condition, and return its corresponding index.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The sequence.</param>
             <param name="predicate">The condition.</param>
             <returns>
             An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
             </returns>
         </member>
-        <member name="M:System.ReadOnlySpanExtensions.FindIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+        <member name="M:System.ReadOnlySpanExtensions.`1.FindIndex(System.Func{`0,System.Boolean})">
             <inheritdoc cref="M:System.Collections.Generic.List`1.FindIndex(System.Predicate{`0})"/>
         </member>
-        <member name="M:System.ReadOnlySpanExtensions.Reverse``1(System.ReadOnlySpan{``0})">
-            <summary>
-            Returns a new <see cref="T:System.ReadOnlySpan`1"/> instance whose internal elements are all come from the current collection,
-            with reversed order.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The current collection.</param>
-            <returns>A new collection whose elements are in reversed order.</returns>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.EnumerateReversely``1(System.ReadOnlySpan{``0})">
+        <member name="M:System.ReadOnlySpanExtensions.`1.EnumerateReversely">
             <summary>
             Iterates on each element, in reverse order.
             </summary>
-            <typeparam name="T">The type of each element in the sequence.</typeparam>
-            <param name="this">The sequence to be iterated.</param>
             <returns>An enumerator type that iterates on each element.</returns>
         </member>
-        <member name="M:System.ReadOnlySpanExtensions.EnumeratePaired``1(System.ReadOnlySpan{``0})">
-            <summary>
-            Creates a <see cref="T:System.Linq.Enumerators.PairEnumerator`1"/> instance that iterates on each element of pair elements.
-            </summary>
-            <typeparam name="T">The type of the array elements.</typeparam>
-            <param name="this">The array.</param>
-            <returns>An enumerable collection.</returns>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.FindAll``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+        <member name="M:System.ReadOnlySpanExtensions.`1.FindAll(System.Func{`0,System.Boolean})">
             <summary>
             Retrieves all the elements that match the conditions defined by the specified predicate.
             </summary>
-            <typeparam name="T">The type of the elements of the span.</typeparam>
-            <param name="this">The collection to be used and checked.</param>
             <param name="match">The <see cref="T:System.Func`2"/> that defines the conditions of the elements to search for.</param>
             <returns>
             A <see cref="T:System.ReadOnlySpan`1"/> containing all the elements that match the conditions defined
             by the specified predicate, if found; otherwise, an empty <see cref="T:System.ReadOnlySpan`1"/>.
             </returns>
+        </member>
+        <member name="T:System.ReadOnlySpanExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>,
+            where <typeparamref name="T"/> satisfies <see langword="notnull"/> constraint.
+            </summary>
+        </member>
+        <member name="M:System.ReadOnlySpanExtensions.`1.EnumeratePaired">
+            <summary>
+            Creates a <see cref="T:System.Linq.Enumerators.PairEnumerator`1"/> instance that iterates on each element of pair elements.
+            </summary>
+            <returns>An enumerable collection.</returns>
+        </member>
+        <member name="T:System.ReadOnlySpanExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="scoped"/> <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.ReadOnlySpanExtensions.`1.Reverse">
+            <summary>
+            Returns a new <see cref="T:System.ReadOnlySpan`1"/> instance whose internal elements are all come from the current collection,
+            with reversed order.
+            </summary>
+            <returns>A new collection whose elements are in reversed order.</returns>
         </member>
         <member name="T:System.ref">
             <summary>
@@ -7144,58 +7198,35 @@
         <member name="M:System.Runtime.CompilerServices.TupleExtensions.GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
         </member>
-        <member name="T:System.SingleExtensions">
-            <summary>
-            Provides extension methods on <see cref="T:System.Single"/>.
-            </summary>
-            <seealso cref="T:System.Single"/>
-        </member>
-        <member name="M:System.SingleExtensions.NearlyEquals(System.Single,System.Single)">
-            <summary>
-            Indicates whether the specified value is nearly equals to the current value.
-            </summary>
-            <param name="this">The value.</param>
-            <param name="other">The other value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:System.SingleExtensions.NearlyEquals(System.Single,System.Single,System.Single)">
-            <summary>
-            Indicates whether the specified value is nearly equals to the current value.
-            If the differ of two values to compare is lower than the specified epsilon value,
-            the method will return <see langword="true"/>.
-            </summary>
-            <param name="this">The value.</param>
-            <param name="other">The other value to compare.</param>
-            <param name="epsilon">The epsilon value (the minimal differ).</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
         <member name="T:System.StringExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.String"/>.
             </summary>
             <seealso cref="T:System.String"/>
         </member>
-        <member name="M:System.StringExtensions.RemoveAll(System.String,System.Char)">
+        <member name="T:System.StringExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions..RemoveAll(System.Char)">
             <summary>
             Removes all specified characters.
             </summary>
-            <param name="this">The string value.</param>
             <param name="character">The character to be removed from the base string.</param>
             <returns>The result string value after removal.</returns>
         </member>
-        <member name="M:System.StringExtensions.ExpandCharacters(System.String)">
+        <member name="M:System.StringExtensions..ExpandCharacters">
             <summary>
             Gets a new <see cref="T:System.String"/>[] result, with each element (a <see cref="T:System.String"/> with a single character)
             from the specified <see cref="T:System.String"/>.
             </summary>
-            <param name="this">The current <see cref="T:System.String"/> instance.</param>
             <returns>An array of <see cref="T:System.String"/> elements.</returns>
         </member>
-        <member name="M:System.StringExtensions.Chunk(System.String,System.Int32)">
+        <member name="M:System.StringExtensions..Chunk(System.Int32)">
             <summary>
             Cut the array to multiple part, making them are all of length <paramref name="length"/>.
             </summary>
-            <param name="this">The string text.</param>
             <param name="length">The desired length.</param>
             <returns>A list of <see cref="T:System.String"/> values.</returns>
         </member>
@@ -7240,100 +7271,150 @@
             Represents with extension methods for value tuple type set.
             </summary>
         </member>
-        <member name="M:System.ValueTupleExtensions.GetEnumerator``1(System.ValueTuple{``0,``0}@)">
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:System.ValueTuple`2"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.GetEnumerator">
             <summary>
             Gets an <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance that can iterate for a pair of values
             via a value tuple <see cref="T:System.ValueTuple`2"/> of a uniform type <typeparamref name="T"/>.
             </summary>
-            <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-            <param name="this">The instance to be iterated.</param>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.ValueTupleExtensions.GetEnumerator``1(System.ValueTuple{``0,``0,``0}@)">
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="scoped in"/> <see cref="T:System.ValueTuple`2"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.AsSpan">
+            <summary>
+            Casts the current instance into a <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+            <returns>The <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
+        </member>
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:System.ValueTuple`3"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.GetEnumerator">
             <summary>
             Gets an <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance that can iterate for a pair of values
             via a value tuple <see cref="T:System.ValueTuple`3"/> of a uniform type <typeparamref name="T"/>.
             </summary>
-            <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-            <param name="this">The instance to be iterated.</param>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.ValueTupleExtensions.GetEnumerator``1(System.ValueTuple{``0,``0,``0,``0}@)">
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="scoped in"/> <see cref="T:System.ValueTuple`3"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.AsSpan">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:System.ValueTuple`4"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.GetEnumerator">
             <summary>
             Gets an <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance that can iterate for a pair of values
             via a value tuple <see cref="T:System.ValueTuple`4"/> of a uniform type <typeparamref name="T"/>.
             </summary>
-            <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-            <param name="this">The instance to be iterated.</param>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.ValueTupleExtensions.GetEnumerator``1(System.ValueTuple{``0,``0,``0,``0,``0}@)">
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="scoped in"/> <see cref="T:System.ValueTuple`4"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.AsSpan">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:System.ValueTuple`5"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.GetEnumerator">
             <summary>
             Gets an <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance that can iterate for a pair of values
             via a value tuple <see cref="T:System.ValueTuple`5"/> of a uniform type <typeparamref name="T"/>.
             </summary>
-            <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-            <param name="this">The instance to be iterated.</param>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.ValueTupleExtensions.GetEnumerator``1(System.ValueTuple{``0,``0,``0,``0,``0,``0}@)">
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="scoped in"/> <see cref="T:System.ValueTuple`5"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.AsSpan">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:System.ValueTuple`6"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.GetEnumerator">
             <summary>
             Gets an <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance that can iterate for a pair of values
             via a value tuple <see cref="T:System.ValueTuple`6"/> of a uniform type <typeparamref name="T"/>.
             </summary>
-            <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-            <param name="this">The instance to be iterated.</param>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.ValueTupleExtensions.GetEnumerator``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0}@)">
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="scoped in"/> <see cref="T:System.ValueTuple`6"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.AsSpan">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:System.ValueTuple`7"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.GetEnumerator">
             <summary>
             Gets an <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance that can iterate for a pair of values
             via a value tuple <see cref="T:System.ValueTuple`7"/> of a uniform type <typeparamref name="T"/>.
             </summary>
-            <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-            <param name="this">The instance to be iterated.</param>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.ValueTupleExtensions.GetEnumerator``2(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0,``1}@)">
+        <member name="T:System.ValueTupleExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="scoped in"/> <see cref="T:System.ValueTuple`7"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`1.AsSpan">
+            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
+        </member>
+        <member name="T:System.ValueTupleExtensions.`2">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:System.ValueTuple`8"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`2.GetEnumerator">
             <summary>
             Gets an <see cref="T:System.Linq.Enumerators.ValueTupleEnumerator`1"/> instance that can iterate for a pair of values
             via a value tuple <see cref="T:System.ValueTuple`8"/> of a uniform type <typeparamref name="T"/>.
             </summary>
-            <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-            <typeparam name="TRest">The type that encapsulates a list of rest elements.</typeparam>
-            <param name="this">The instance to be iterated.</param>
             <returns>An enumerator instance.</returns>
         </member>
-        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)">
+        <member name="T:System.ValueTupleExtensions.`2">
+            <summary>
+            Provides extension members on <see langword="scoped in"/> <see cref="T:System.ValueTuple`8"/> of <typeparamref name="T"/> values.
+            </summary>
+        </member>
+        <member name="M:System.ValueTupleExtensions.`2.AsSpan">
             <summary>
             Casts the current instance into a <see cref="T:System.ReadOnlySpan`1"/>.
             </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The instance.</param>
-            <returns>The <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
-        </member>
-        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0}@)">
-            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
-        </member>
-        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0,``0}@)">
-            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
-        </member>
-        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0,``0,``0}@)">
-            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
-        </member>
-        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0,``0,``0,``0}@)">
-            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
-        </member>
-        <member name="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0}@)">
-            <inheritdoc cref="M:System.ValueTupleExtensions.AsSpan``1(System.ValueTuple{``0,``0}@)"/>
-        </member>
-        <member name="M:System.ValueTupleExtensions.AsSpan``2(System.ValueTuple{``0,``0,``0,``0,``0,``0,``0,``1}@)">
-            <summary>
-            Casts the current instance into a <see cref="T:System.ReadOnlySpan`1"/>.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <typeparam name="TRest">The type of rest elements.</typeparam>
-            <param name="this">The instance.</param>
             <returns>The <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
         </member>
     </members>

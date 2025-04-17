@@ -25,7 +25,7 @@ public static class EnumFlagsEnumerable
 			throw new InvalidOperationException($"The enumeration type must be marked as '{nameof(FlagsAttribute)}'.");
 		}
 
-		if (@this.GetAllFlags() is not (var flags and not []))
+		if (@this.AllFlags is not (var flags and not []))
 		{
 			return [];
 		}

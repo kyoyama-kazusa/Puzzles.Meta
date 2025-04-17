@@ -7,17 +7,23 @@ namespace System;
 public static class DelegateExtensions
 {
 	/// <summary>
-	/// Returns the invocation list of the delegate.
+	/// Provides extension members on <see cref="Delegate"/>.
 	/// </summary>
-	/// <typeparam name="TDelegate">The type of the delegate.</typeparam>
-	/// <param name="this">The instance.</param>
-	/// <returns>An array of delegates representing the invocation list of the current delegate.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static TDelegate[] GetInvocations<TDelegate>(this TDelegate @this) where TDelegate : Delegate
-		=> from TDelegate element in @this.GetInvocationList() select element;
+	extension(Delegate)
+	{
+		/// <summary>
+		/// Returns the invocation list of the delegate.
+		/// </summary>
+		/// <typeparam name="TDelegate">The type of the delegate.</typeparam>
+		/// <param name="delegate">The instance.</param>
+		/// <returns>An array of delegates representing the invocation list of the current delegate.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static TDelegate[] GetInvocations<TDelegate>(TDelegate @delegate) where TDelegate : Delegate
+			=> from TDelegate element in @delegate.GetInvocationList() select element;
 
-	/// <inheritdoc cref="Delegate.EnumerateInvocationList{TDelegate}(TDelegate)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static DelegateEnumerator<TDelegate> GetEnumerator<TDelegate>(this TDelegate? @this) where TDelegate : Delegate
-		=> new(@this);
+		/// <inheritdoc cref="Delegate.EnumerateInvocationList{TDelegate}(TDelegate)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static DelegateEnumerator<TDelegate> GetEnumerator<TDelegate>(TDelegate? @delegate) where TDelegate : Delegate
+			=> new(@delegate);
+	}
 }

@@ -75,7 +75,7 @@ public sealed partial class ArrayGrouping<TSource, TKey>([Field] TSource[] eleme
 		return [.. result];
 	}
 
-	/// <inheritdoc cref="MemoryExtensions2.AsReadOnlySpan{T}(T[])"/>
+	/// <inheritdoc cref="MemoryExtensionsExtensions.AsReadOnlySpan{T}(T[])"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ReadOnlySpan<TSource> AsReadOnlySpan() => _elements;
 

@@ -7,25 +7,38 @@ namespace System;
 public static class ReadOnlyMemoryExtensions
 {
 	/// <summary>
-	/// Fetch the element at the specified index inside a <see cref="ReadOnlyMemory{T}"/>.
+	/// Provides extension members on <see cref="ReadOnlyMemory{T}"/>.
 	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The <see cref="ReadOnlyMemory{T}"/> instance.</param>
-	/// <param name="index">The desired index.</param>
-	/// <returns>The reference to the element at the specified index.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ref readonly T ElementAt<T>(this ReadOnlyMemory<T> @this, int index) => ref @this.Span[index];
+	extension<T>(ReadOnlyMemory<T> @this)
+	{
+		/// <summary>
+		/// Gets the element at the specified index.
+		/// </summary>
+		/// <param name="index">The desired index.</param>
+		/// <returns>The reference to the element at the specified index.</returns>
+		public ref readonly T this[int index] => ref @this.Span[index];
 
-	/// <inheritdoc cref="ElementAt{T}(ReadOnlyMemory{T}, int)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ref readonly T ElementAt<T>(this ReadOnlyMemory<T> @this, Index index) => ref @this.Span[index];
+		/// <inheritdoc cref="get_Item{T}(ReadOnlyMemory{T}, int)"/>
+		public ref readonly T this[Index index] => ref @this.Span[index];
 
-	/// <summary>
-	/// Creates a <see cref="ReadOnlyMemoryEnumerator{T}"/> instance that can be consumed by a <see langword="foreach"/> loop.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The sequence of <see cref="ReadOnlyMemory{T}"/> instance.</param>
-	/// <returns>A <see cref="ReadOnlyMemoryEnumerator{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlyMemoryEnumerator<T> GetEnumerator<T>(this ReadOnlyMemory<T> @this) => new(@this);
+
+		/// <summary>
+		/// Fetch the element at the specified index inside a <see cref="ReadOnlyMemory{T}"/>.
+		/// </summary>
+		/// <param name="index">The desired index.</param>
+		/// <returns>The reference to the element at the specified index.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ref readonly T ElementAt(int index) => ref @this.Span[index];
+
+		/// <inheritdoc cref="ElementAt{T}(ReadOnlyMemory{T}, int)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ref readonly T ElementAt(Index index) => ref @this.Span[index];
+
+		/// <summary>
+		/// Creates a <see cref="ReadOnlyMemoryEnumerator{T}"/> instance that can be consumed by a <see langword="foreach"/> loop.
+		/// </summary>
+		/// <returns>A <see cref="ReadOnlyMemoryEnumerator{T}"/> instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlyMemoryEnumerator<T> GetEnumerator() => new(@this);
+	}
 }

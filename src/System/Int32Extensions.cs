@@ -6,11 +6,21 @@ namespace System;
 /// <seealso cref="int"/>
 public static class Int32Extensions
 {
-	/// <inheritdoc cref="DoubleExtensions.Seconds(double)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static TimeSpan Seconds(this int @this) => ((double)@this).Seconds();
+	/// <summary>
+	/// Provides extension members on <see cref="int"/>.
+	/// </summary>
+	extension(int @this)
+	{
+		/// <summary>
+		/// Creates a <see cref="TimeSpan"/> instane using the specified value as seconds.
+		/// </summary>
+		/// <returns>A <see cref="TimeSpan"/> instance.</returns>
+		public TimeSpan Seconds => TimeSpan.FromSeconds(@this);
 
-	/// <inheritdoc cref="DoubleExtensions.Milliseconds(double)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static TimeSpan Milliseconds(this int @this) => ((double)@this).Milliseconds();
+		/// <summary>
+		/// Creates a <see cref="TimeSpan"/> instane using the specified value as milliseconds.
+		/// </summary>
+		/// <returns>A <see cref="TimeSpan"/> instance.</returns>
+		public TimeSpan Milliseconds => TimeSpan.FromMilliseconds(@this);
+	}
 }

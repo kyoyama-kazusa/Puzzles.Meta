@@ -6,125 +6,184 @@ namespace System;
 public static class ValueTupleExtensions
 {
 	/// <summary>
-	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
-	/// via a value tuple <see cref="ValueTuple{T1, T2}"/> of a uniform type <typeparamref name="T"/>.
+	/// Provides extension members on <see langword="in"/> <see cref="ValueTuple{T1, T2}"/> of <typeparamref name="T"/> values.
 	/// </summary>
-	/// <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-	/// <param name="this">The instance to be iterated.</param>
-	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T) @this) => new(@this);
-
-	/// <summary>
-	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
-	/// via a value tuple <see cref="ValueTuple{T1, T2, T3}"/> of a uniform type <typeparamref name="T"/>.
-	/// </summary>
-	/// <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-	/// <param name="this">The instance to be iterated.</param>
-	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T) @this) => new(@this);
-
-	/// <summary>
-	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
-	/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4}"/> of a uniform type <typeparamref name="T"/>.
-	/// </summary>
-	/// <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-	/// <param name="this">The instance to be iterated.</param>
-	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T, T) @this) => new(@this);
-
-	/// <summary>
-	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
-	/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5}"/> of a uniform type <typeparamref name="T"/>.
-	/// </summary>
-	/// <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-	/// <param name="this">The instance to be iterated.</param>
-	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T, T, T) @this) => new(@this);
-
-	/// <summary>
-	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
-	/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6}"/> of a uniform type <typeparamref name="T"/>.
-	/// </summary>
-	/// <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-	/// <param name="this">The instance to be iterated.</param>
-	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T, T, T, T) @this) => new(@this);
-
-	/// <summary>
-	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
-	/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7}"/> of a uniform type <typeparamref name="T"/>.
-	/// </summary>
-	/// <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-	/// <param name="this">The instance to be iterated.</param>
-	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ValueTupleEnumerator<T> GetEnumerator<T>(this in (T, T, T, T, T, T, T) @this) => new(@this);
-
-	/// <summary>
-	/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
-	/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7, TRest}"/> of a uniform type <typeparamref name="T"/>.
-	/// </summary>
-	/// <typeparam name="T">The uniform type that two instances defined in pair are.</typeparam>
-	/// <typeparam name="TRest">The type that encapsulates a list of rest elements.</typeparam>
-	/// <param name="this">The instance to be iterated.</param>
-	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ComplexValueTupleEnumerator<T, TRest> GetEnumerator<T, TRest>(this in ValueTuple<T, T, T, T, T, T, T, TRest> @this)
-		where TRest : struct => new(@this);
-
-	/// <summary>
-	/// Casts the current instance into a <see cref="ReadOnlySpan{T}"/>.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="this">The instance.</param>
-	/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T) @this) => (T[])[@this.Item1, @this.Item2];
-
-	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T) @this) => (T[])[@this.Item1, @this.Item2, @this.Item3];
-
-	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T, T) @this)
-		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4];
-
-	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T, T, T) @this)
-		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5];
-
-	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T, T, T, T) @this)
-		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6];
-
-	/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsSpan<T>(this scoped in (T, T, T, T, T, T, T) @this)
-		=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6, @this.Item7];
-
-	/// <summary>
-	/// Casts the current instance into a <see cref="ReadOnlySpan{T}"/>.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <typeparam name="TRest">The type of rest elements.</typeparam>
-	/// <param name="this">The instance.</param>
-	/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
-	public static ReadOnlySpan<T> AsSpan<T, TRest>(this scoped in ValueTuple<T, T, T, T, T, T, T, TRest> @this)
-		where TRest : struct
+	extension<T>(in (T, T) @this)
 	{
-		var result = new List<T>();
-		foreach (ref readonly var element in @this)
+		/// <summary>
+		/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
+		/// via a value tuple <see cref="ValueTuple{T1, T2}"/> of a uniform type <typeparamref name="T"/>.
+		/// </summary>
+		/// <returns>An enumerator instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="scoped in"/> <see cref="ValueTuple{T1, T2}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(scoped in (T, T) @this)
+	{
+		/// <summary>
+		/// Casts the current instance into a <see cref="ReadOnlySpan{T}"/>.
+		/// </summary>
+		/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2];
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="in"/> <see cref="ValueTuple{T1, T2, T3}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(in (T, T, T) @this)
+	{
+		/// <summary>
+		/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
+		/// via a value tuple <see cref="ValueTuple{T1, T2, T3}"/> of a uniform type <typeparamref name="T"/>.
+		/// </summary>
+		/// <returns>An enumerator instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="scoped in"/> <see cref="ValueTuple{T1, T2, T3}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(scoped in (T, T, T) @this)
+	{
+		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2, @this.Item3];
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="in"/> <see cref="ValueTuple{T1, T2, T3, T4}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(in (T, T, T, T) @this)
+	{
+		/// <summary>
+		/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
+		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4}"/> of a uniform type <typeparamref name="T"/>.
+		/// </summary>
+		/// <returns>An enumerator instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="scoped in"/> <see cref="ValueTuple{T1, T2, T3, T4}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(scoped in (T, T, T, T) @this)
+	{
+		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4];
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="in"/> <see cref="ValueTuple{T1, T2, T3, T4, T5}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(in (T, T, T, T, T) @this)
+	{
+		/// <summary>
+		/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
+		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5}"/> of a uniform type <typeparamref name="T"/>.
+		/// </summary>
+		/// <returns>An enumerator instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="scoped in"/> <see cref="ValueTuple{T1, T2, T3, T4, T5}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(scoped in (T, T, T, T, T) @this)
+	{
+		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5];
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="in"/> <see cref="ValueTuple{T1, T2, T3, T4, T5, T6}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(in (T, T, T, T, T, T) @this)
+	{
+		/// <summary>
+		/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
+		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6}"/> of a uniform type <typeparamref name="T"/>.
+		/// </summary>
+		/// <returns>An enumerator instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="scoped in"/> <see cref="ValueTuple{T1, T2, T3, T4, T5, T6}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(scoped in (T, T, T, T, T, T) @this)
+	{
+		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6];
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="in"/> <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(in (T, T, T, T, T, T, T) @this)
+	{
+		/// <summary>
+		/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
+		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7}"/> of a uniform type <typeparamref name="T"/>.
+		/// </summary>
+		/// <returns>An enumerator instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="scoped in"/> <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T>(scoped in (T, T, T, T, T, T, T) @this)
+	{
+		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsSpan()
+			=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6, @this.Item7];
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="in"/> <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7, TRest}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T, TRest>(in ValueTuple<T, T, T, T, T, T, T, TRest> @this) where TRest : struct
+	{
+		/// <summary>
+		/// Gets an <see cref="ValueTupleEnumerator{T}"/> instance that can iterate for a pair of values
+		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7, TRest}"/> of a uniform type <typeparamref name="T"/>.
+		/// </summary>
+		/// <returns>An enumerator instance.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ComplexValueTupleEnumerator<T, TRest> GetEnumerator() => new(@this);
+	}
+
+	/// <summary>
+	/// Provides extension members on <see langword="scoped in"/> <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7, TRest}"/> of <typeparamref name="T"/> values.
+	/// </summary>
+	extension<T, TRest>(scoped in ValueTuple<T, T, T, T, T, T, T, TRest> @this) where TRest : struct
+	{
+		/// <summary>
+		/// Casts the current instance into a <see cref="ReadOnlySpan{T}"/>.
+		/// </summary>
+		/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
+		public ReadOnlySpan<T> AsSpan()
 		{
-			result.AddRef(element);
+			var result = new List<T>();
+			foreach (ref readonly var element in @this)
+			{
+				result.AddRef(element);
+			}
+			return result.AsSpan();
 		}
-		return result.AsSpan();
 	}
 }

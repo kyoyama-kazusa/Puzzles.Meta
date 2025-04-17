@@ -7,27 +7,78 @@ namespace System;
 public static class FloatingPointExtensions
 {
 	/// <summary>
-	/// Indicates whether the specified value is nearly equals to the current value.
+	/// Provides extension members on <see cref="float"/>.
 	/// </summary>
-	/// <typeparam name="T">The type of floating point.</typeparam>
-	/// <param name="this">The value.</param>
-	/// <param name="other">The other value.</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool NearlyEquals<T>(this T @this, T other) where T : IFloatingPoint<T>, IFloatingPointIeee754<T>
-		=> @this.NearlyEquals(other, T.Epsilon);
+	extension(float @this)
+	{
+		/// <summary>
+		/// Indicates whether the specified value is nearly equals to the current value.
+		/// </summary>
+		/// <param name="other">The other value.</param>
+		/// <returns>A <see cref="bool"/> result indicating that.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool NearlyEquals(float other) => @this.NearlyEquals(other, float.Epsilon);
+
+		/// <summary>
+		/// Indicates whether the specified value is nearly equals to the current value.
+		/// If the differ of two values to compare is lower than the specified epsilon value,
+		/// the method will return <see langword="true"/>.
+		/// </summary>
+		/// <param name="other">The other value to compare.</param>
+		/// <param name="epsilon">The epsilon value (the minimal differ).</param>
+		/// <returns>A <see cref="bool"/> result indicating that.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool NearlyEquals(float other, float epsilon) => MathF.Abs(@this - other) < epsilon;
+	}
 
 	/// <summary>
-	/// Indicates whether the specified value is nearly equals to the current value.
-	/// If the differ of two values to compare is lower than the specified epsilon value,
-	/// the method will return <see langword="true"/>.
+	/// Provides extension members on <see cref="double"/>.
 	/// </summary>
-	/// <typeparam name="T">The type of floating point.</typeparam>
-	/// <param name="this">The value.</param>
-	/// <param name="other">The other value to compare.</param>
-	/// <param name="epsilon">The epsilon value (the minimal differ).</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool NearlyEquals<T>(this T @this, T other, T epsilon) where T : IFloatingPoint<T>, IFloatingPointIeee754<T>
-		=> T.Abs(@this - other) < epsilon;
+	extension(double @this)
+	{
+		/// <summary>
+		/// Indicates whether the specified value is nearly equals to the current value.
+		/// </summary>
+		/// <param name="other">The other value.</param>
+		/// <returns>A <see cref="bool"/> result indicating that.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool NearlyEquals(double other) => @this.NearlyEquals(other, double.Epsilon);
+
+		/// <summary>
+		/// Indicates whether the specified value is nearly equals to the current value.
+		/// If the differ of two values to compare is lower than the specified epsilon value,
+		/// the method will return <see langword="true"/>.
+		/// </summary>
+		/// <param name="other">The other value to compare.</param>
+		/// <param name="epsilon">The epsilon value (the minimal differ).</param>
+		/// <returns>A <see cref="bool"/> result indicating that.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool NearlyEquals(double other, double epsilon) => Math.Abs(@this - other) < epsilon;
+	}
+
+	/// <summary>
+	/// Provides extension members on <typeparamref name="T"/>,
+	/// where <typeparamref name="T"/> satisfies <see cref="IFloatingPoint{TSelf}"/>, <see cref="IFloatingPointIeee754{TSelf}"/> constraints.
+	/// </summary>
+	extension<T>(T @this) where T : IFloatingPoint<T>, IFloatingPointIeee754<T>
+	{
+		/// <summary>
+		/// Indicates whether the specified value is nearly equals to the current value.
+		/// </summary>
+		/// <param name="other">The other value.</param>
+		/// <returns>A <see cref="bool"/> result indicating that.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool NearlyEquals(T other) => @this.NearlyEquals(other, T.Epsilon);
+
+		/// <summary>
+		/// Indicates whether the specified value is nearly equals to the current value.
+		/// If the differ of two values to compare is lower than the specified epsilon value,
+		/// the method will return <see langword="true"/>.
+		/// </summary>
+		/// <param name="other">The other value to compare.</param>
+		/// <param name="epsilon">The epsilon value (the minimal differ).</param>
+		/// <returns>A <see cref="bool"/> result indicating that.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool NearlyEquals(T other, T epsilon) => T.Abs(@this - other) < epsilon;
+	}
 }

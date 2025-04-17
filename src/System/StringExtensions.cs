@@ -7,35 +7,39 @@ namespace System;
 public static partial class StringExtensions
 {
 	/// <summary>
-	/// Removes all specified characters.
+	/// Provides extension members on <see cref="string"/>.
 	/// </summary>
-	/// <param name="this">The string value.</param>
-	/// <param name="character">The character to be removed from the base string.</param>
-	/// <returns>The result string value after removal.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static string RemoveAll(this string @this, char character) => @this.Replace(character.ToString(), string.Empty);
-
-	/// <summary>
-	/// Gets a new <see cref="string"/>[] result, with each element (a <see cref="string"/> with a single character)
-	/// from the specified <see cref="string"/>.
-	/// </summary>
-	/// <param name="this">The current <see cref="string"/> instance.</param>
-	/// <returns>An array of <see cref="string"/> elements.</returns>
-	public static ReadOnlySpan<string> ExpandCharacters(this string @this) => from c in @this.AsSpan() select c.ToString();
-
-	/// <summary>
-	/// Cut the array to multiple part, making them are all of length <paramref name="length"/>.
-	/// </summary>
-	/// <param name="this">The string text.</param>
-	/// <param name="length">The desired length.</param>
-	/// <returns>A list of <see cref="string"/> values.</returns>
-	public static ReadOnlySpan<string> Chunk(this string @this, int length)
+	extension(string @this)
 	{
-		var result = new string[@this.Length % length == 0 ? @this.Length / length : @this.Length / length + 1];
-		for (var i = 0; i < @this.Length / length; i++)
+		/// <summary>
+		/// Removes all specified characters.
+		/// </summary>
+		/// <param name="character">The character to be removed from the base string.</param>
+		/// <returns>The result string value after removal.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public string RemoveAll(char character) => @this.Replace(character.ToString(), string.Empty);
+
+		/// <summary>
+		/// Gets a new <see cref="string"/>[] result, with each element (a <see cref="string"/> with a single character)
+		/// from the specified <see cref="string"/>.
+		/// </summary>
+		/// <returns>An array of <see cref="string"/> elements.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<string> ExpandCharacters() => from c in @this.AsSpan() select c.ToString();
+
+		/// <summary>
+		/// Cut the array to multiple part, making them are all of length <paramref name="length"/>.
+		/// </summary>
+		/// <param name="length">The desired length.</param>
+		/// <returns>A list of <see cref="string"/> values.</returns>
+		public ReadOnlySpan<string> Chunk(int length)
 		{
-			result[i] = @this.AsSpan().Slice(i * length, length).ToString();
+			var result = new string[@this.Length % length == 0 ? @this.Length / length : @this.Length / length + 1];
+			for (var i = 0; i < @this.Length / length; i++)
+			{
+				result[i] = @this.AsSpan().Slice(i * length, length).ToString();
+			}
+			return result;
 		}
-		return result;
 	}
 }
