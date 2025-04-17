@@ -4,6 +4,7 @@ namespace System.Numerics;
 /// Provides extension methods on <see cref="BitOperations"/>.
 /// </summary>
 /// <seealso cref="BitOperations"/>
+[SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "<Pending>")]
 public static partial class BitOperationsExtensions
 {
 	/// <summary>
