@@ -2245,29 +2245,6 @@
 				</summary>
 			</target>
         </member>
-        <member name="T:System.Int32Extensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.Int32"/>.
-            </summary>
-            <seealso cref="T:System.Int32"/>
-        </member>
-        <member name="T:System.Int32Extensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.Int32"/>.
-            </summary>
-        </member>
-        <member name="P:System.Int32Extensions..Seconds">
-            <summary>
-            Creates a <see cref="T:System.TimeSpan"/> instane using the specified value as seconds.
-            </summary>
-            <returns>A <see cref="T:System.TimeSpan"/> instance.</returns>
-        </member>
-        <member name="P:System.Int32Extensions..Milliseconds">
-            <summary>
-            Creates a <see cref="T:System.TimeSpan"/> instane using the specified value as milliseconds.
-            </summary>
-            <returns>A <see cref="T:System.TimeSpan"/> instance.</returns>
-        </member>
         <member name="T:System.IO.FileExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.IO.File"/>.
@@ -6224,23 +6201,23 @@
             <param name="oneCount">Indicates how many bits set one contained in the value.</param>
             <returns>A <see cref="T:System.Numerics.BitCombinationGenerator`1"/> instance.</returns>
         </member>
-        <member name="T:System.Numerics.Combinatorial">
+        <member name="T:System.Numerics.Combinatorics">
             <summary>
             Extracts the type that includes the methods that operates with combinatorial values.
             </summary>
         </member>
-        <member name="F:System.Numerics.Combinatorial.PascalTriangle">
+        <member name="F:System.Numerics.Combinatorics.PascalTriangle">
             <summary>
             Indicates the <see href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal's Triangle</see>
             (in Chinese: Yang Hui's Triangle), i.e. the combinatorial numbers from <c>C(1, 1)</c> to <c>C(30, 30)</c>.
             </summary>
         </member>
-        <member name="T:System.Numerics.Combinatorial.`1">
+        <member name="T:System.Numerics.Combinatorics.`1">
             <summary>
             Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.Combinatorial.`1.GetSubsets">
+        <member name="M:System.Numerics.Combinatorics.`1.GetSubsets">
             <summary>
             Get all subsets from the collection.
             </summary>
@@ -6248,7 +6225,7 @@
             All possible subsets returned.
             </returns>
         </member>
-        <member name="M:System.Numerics.Combinatorial.`1.GetSubsets(System.Int32)">
+        <member name="M:System.Numerics.Combinatorics.`1.GetSubsets(System.Int32)">
             <summary>
             Get all subsets from the specified number of the values to take.
             </summary>
@@ -6262,7 +6239,7 @@
             3 cases.
             </returns>
         </member>
-        <member name="M:System.Numerics.Combinatorial.`1.GetPermutations">
+        <member name="M:System.Numerics.Combinatorics.`1.GetPermutations">
             <summary>
             Get all permutations from the collection.
             </summary>
@@ -6270,7 +6247,7 @@
             All possible permutations returned.
             </returns>
         </member>
-        <member name="M:System.Numerics.Combinatorial.`1.GetPermutations(System.Int32)">
+        <member name="M:System.Numerics.Combinatorics.`1.GetPermutations(System.Int32)">
             <summary>
             Get all permutations from the specified number of the values to take.
             </summary>
@@ -6284,12 +6261,12 @@
             6 cases.
             </returns>
         </member>
-        <member name="T:System.Numerics.Combinatorial.`1">
+        <member name="T:System.Numerics.Combinatorics.`1">
             <summary>
             Provides extension members on <typeparamref name="T"/>[][].
             </summary>
         </member>
-        <member name="M:System.Numerics.Combinatorial.`1.GetExtractedCombinations">
+        <member name="M:System.Numerics.Combinatorics.`1.GetExtractedCombinations">
             <summary>
             Get all combinations that each sub-array only choose one.
             </summary>
@@ -6309,7 +6286,7 @@
             24 cases.
             </returns>
         </member>
-        <member name="M:System.Numerics.Combinatorial.CombinationOf(System.Int32,System.Int32)">
+        <member name="M:System.Numerics.Combinatorics.CombinationOf(System.Int32,System.Int32)">
             <summary>
             Returns the combination of (n, m).
             </summary>
@@ -6318,7 +6295,7 @@
             <returns>An <see cref="T:System.Int32"/> of result.</returns>
             <exception cref="T:System.OverflowException">Throws when the result value is too large.</exception>
         </member>
-        <member name="M:System.Numerics.Combinatorial.PermutationOf(System.Int32,System.Int32)">
+        <member name="M:System.Numerics.Combinatorics.PermutationOf(System.Int32,System.Int32)">
             <summary>
             Returns the permutation of (n, m).
             </summary>
@@ -6327,7 +6304,7 @@
             <returns>An <see cref="T:System.Int32"/> of result.</returns>
             <exception cref="T:System.OverflowException">Throws when the result value is too large.</exception>
         </member>
-        <member name="M:System.Numerics.Combinatorial.Factorial(System.Int32)">
+        <member name="M:System.Numerics.Combinatorics.Factorial(System.Int32)">
             <summary>
             Returns the factorial of <paramref name="n"/> (n!).
             </summary>
