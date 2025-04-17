@@ -50,19 +50,9 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <summary>
-		/// <para>Get an enumerator to iterate on each bits of the specified integer value.</para>
-		/// <para>This method will allow you to use <see langword="foreach"/> loop to iterate on all indices of set bits.</para>
+		/// Returns an enumerator type that can iterate on each position (index) whose cooresponding bit is set 1.
 		/// </summary>
-		/// <returns>All indices of set bits.</returns>
-		/// <remarks>
-		/// This method allows you using <see langword="foreach"/> loop to iterate this value:
-		/// <code><![CDATA[
-		/// foreach (var bit in 17)
-		/// {
-		///     // Do something...
-		/// }
-		/// ]]></code>
-		/// </remarks>
+		/// <returns>An enumerator object that can iterate on each position.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int32Enumerator GetEnumerator() => new((uint)@this);
