@@ -7,12 +7,16 @@ namespace System.Text.Json;
 public static class Utf8JsonReaderExtensions
 {
 	/// <summary>
-	/// To read as a nested object in the JSON string stream.
+	/// Provides extension members on <see langword="ref"/> <see cref="Utf8JsonReader"/>.
 	/// </summary>
-	/// <typeparam name="T">The type of the instance to be deserialized.</typeparam>
-	/// <param name="this">The <see cref="Utf8JsonReader"/> instance.</param>
-	/// <param name="options">The options.</param>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static T? GetNestedObject<T>(this ref Utf8JsonReader @this, JsonSerializerOptions? options = null)
-		=> JsonSerializer.Deserialize<T>(ref @this, options);
+	extension(ref Utf8JsonReader @this)
+	{
+		/// <summary>
+		/// To read as a nested object in the JSON string stream.
+		/// </summary>
+		/// <typeparam name="T">The type of the instance to be deserialized.</typeparam>
+		/// <param name="options">The options.</param>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public T? GetNestedObject<T>(JsonSerializerOptions? options = null) => JsonSerializer.Deserialize<T>(ref @this, options);
+	}
 }

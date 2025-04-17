@@ -44,6 +44,224 @@ public static class Combinatorial
 
 
 	/// <summary>
+	/// Provides extension members on <see cref="ReadOnlySpan{T}"/>.
+	/// </summary>
+	extension<T>(ReadOnlySpan<T> @this)
+	{
+		/// <summary>
+		/// Get all subsets from the collection.
+		/// </summary>
+		/// <returns>
+		/// All possible subsets returned.
+		/// </returns>
+		public ReadOnlySpan<T[]> GetSubsets()
+		{
+			var result = new List<T[]>();
+			for (var size = 1; size <= @this.Length; size++)
+			{
+				foreach (var element in @this.GetSubsets(size))
+				{
+					result.Add(element);
+				}
+			}
+			return result.AsSpan();
+		}
+
+		/// <summary>
+		/// Get all subsets from the specified number of the values to take.
+		/// </summary>
+		/// <param name="count">The number of elements you want to take.</param>
+		/// <returns>
+		/// The subsets of the list.
+		/// For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
+		/// <code><![CDATA[
+		/// [[1, 2], [1, 3], [2, 3]]
+		/// ]]></code>
+		/// 3 cases.
+		/// </returns>
+		public ReadOnlySpan<T[]> GetSubsets(int count)
+		{
+			if (count == 0)
+			{
+				return [];
+			}
+
+			var result = new List<T[]>();
+			GetSubsetsCore(@this.Length, count, count, stackalloc int[count], @this, result);
+			return result.AsSpan();
+		}
+
+		/// <summary>
+		/// Get all permutations from the collection.
+		/// </summary>
+		/// <returns>
+		/// All possible permutations returned.
+		/// </returns>
+		public ReadOnlySpan<ReadOnlyMemory<T>> GetPermutations()
+		{
+			var result = new List<ReadOnlyMemory<T>>();
+			for (var size = 1; size <= @this.Length; size++)
+			{
+				foreach (var element in @this.GetPermutations(size))
+				{
+					result.Add(element);
+				}
+			}
+			return result.AsSpan();
+		}
+
+		/// <summary>
+		/// Get all permutations from the specified number of the values to take.
+		/// </summary>
+		/// <param name="count">The number of elements you want to take.</param>
+		/// <returns>
+		/// The permutations of the list.
+		/// For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
+		/// <code><![CDATA[
+		/// [[1, 2], [2, 1], [1, 3], [3, 1], [2, 3], [3, 2]]
+		/// ]]></code>
+		/// 6 cases.
+		/// </returns>
+		public ReadOnlySpan<ReadOnlyMemory<T>> GetPermutations(int count)
+		{
+			if (count == 0)
+			{
+				return [];
+			}
+
+			var result = new List<ReadOnlyMemory<T>>(PermutationOf(@this.Length, count));
+			var used = (stackalloc bool[@this.Length]);
+			used.Clear();
+
+			GetPermutationsCore(new(count), @this, used, count, result);
+			return result.AsSpan();
+		}
+
+
+		private static void GetSubsetsCore(
+			int last,
+			int count,
+			int index,
+			Span<int> tempArray,
+			ReadOnlySpan<T> thisCopied, List<T[]> resultList
+		)
+		{
+			for (var i = last; i >= index; i--)
+			{
+				tempArray[index - 1] = i - 1;
+				if (index > 1)
+				{
+					GetSubsetsCore(i - 1, count, index - 1, tempArray, thisCopied, resultList);
+				}
+				else
+				{
+					var temp = new T[count];
+					for (var j = 0; j < tempArray.Length; j++)
+					{
+						temp[j] = thisCopied[tempArray[j]];
+					}
+					resultList.Add(temp);
+				}
+			}
+		}
+
+		private static void GetPermutationsCore(
+			List<T> temp,
+			ReadOnlySpan<T> array,
+			Span<bool> used,
+			int count,
+			List<ReadOnlyMemory<T>> result
+		)
+		{
+			if (temp.Count == count)
+			{
+				result.Add(temp.ToArray());
+				return;
+			}
+
+			for (var i = 0; i < array.Length; i++)
+			{
+				if (!used[i])
+				{
+					used[i] = true;
+					temp.Add(array[i]);
+
+					GetPermutationsCore(temp, array, used, count, result);
+
+					temp.RemoveAt(^1);
+					used[i] = false;
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Provides extension members on <typeparamref name="T"/>[][].
+	/// </summary>
+	extension<T>(T[][] @this)
+	{
+		/// <summary>
+		/// Get all combinations that each sub-array only choose one.
+		/// </summary>
+		/// <returns>
+		/// All combinations that each sub-array choose one.
+		/// For example, if one array is <c>[[1, 2, 3], [1, 3], [1, 4, 7, 10]]</c>, the final combinations will be
+		/// <code><![CDATA[
+		/// [
+		///     [1, 1, 1], [1, 1, 4], [1, 1, 7], [1, 1, 10],
+		///     [1, 3, 1], [1, 3, 4], [1, 3, 7], [1, 3, 10],
+		///     [2, 1, 1], [2, 1, 4], [2, 1, 7], [2, 1, 10],
+		///     [2, 3, 1], [2, 3, 4], [2, 3, 7], [2, 3, 10],
+		///     [3, 1, 1], [3, 1, 4], [3, 1, 7], [3, 1, 10],
+		///     [3, 3, 1], [3, 3, 4], [3, 3, 7], [3, 3, 10]
+		/// ]
+		/// ]]></code>
+		/// 24 cases.
+		/// </returns>
+		public T[][] GetExtractedCombinations()
+		{
+			var length = @this.Length;
+			var resultCount = 1;
+			var tempArray = (stackalloc int[length]);
+			for (var i = 0; i < length; i++)
+			{
+				tempArray[i] = -1;
+				resultCount *= @this[i].Length;
+			}
+
+			var (result, m, n) = (new T[resultCount][], -1, -1);
+			do
+			{
+				if (m < length - 1)
+				{
+					m++;
+				}
+
+				ref var value = ref tempArray[m];
+				value++;
+				if (value > @this[m].Length - 1)
+				{
+					value = -1;
+					m -= 2; // Backtrack.
+				}
+
+				if (m == length - 1)
+				{
+					n++;
+					result[n] = new T[m + 1];
+					for (var i = 0; i <= m; i++)
+					{
+						result[n][i] = @this[i][tempArray[i]];
+					}
+				}
+			} while (m >= -1);
+
+			return result;
+		}
+	}
+
+
+	/// <summary>
 	/// Returns the combination of (n, m).
 	/// </summary>
 	/// <param name="n">The number of all values.</param>
@@ -62,205 +280,6 @@ public static class Combinatorial
 	/// <exception cref="OverflowException">Throws when the result value is too large.</exception>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int PermutationOf(int n, int m) => checked((int)(Factorial(n) / Factorial(n - m)));
-
-	/// <summary>
-	/// Get all subsets from the collection.
-	/// </summary>
-	/// <param name="this">The collection to be used and checked.</param>
-	/// <returns>
-	/// All possible subsets returned.
-	/// </returns>
-	public static ReadOnlySpan<T[]> GetSubsets<T>(this ReadOnlySpan<T> @this)
-	{
-		var result = new List<T[]>();
-		for (var size = 1; size <= @this.Length; size++)
-		{
-			foreach (var element in @this.GetSubsets(size))
-			{
-				result.Add(element);
-			}
-		}
-		return result.AsSpan();
-	}
-
-	/// <summary>
-	/// Get all subsets from the specified number of the values to take.
-	/// </summary>
-	/// <param name="this">The collection to be used and checked.</param>
-	/// <param name="count">The number of elements you want to take.</param>
-	/// <returns>
-	/// The subsets of the list.
-	/// For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
-	/// <code><![CDATA[
-	/// [[1, 2], [1, 3], [2, 3]]
-	/// ]]></code>
-	/// 3 cases.
-	/// </returns>
-	public static ReadOnlySpan<T[]> GetSubsets<T>(this ReadOnlySpan<T> @this, int count)
-	{
-		if (count == 0)
-		{
-			return [];
-		}
-
-		var result = new List<T[]>();
-		g(@this.Length, count, count, stackalloc int[count], @this, result);
-		return result.AsSpan();
-
-
-		static void g(int last, int count, int index, Span<int> tempArray, ReadOnlySpan<T> @this, List<T[]> resultList)
-		{
-			for (var i = last; i >= index; i--)
-			{
-				tempArray[index - 1] = i - 1;
-				if (index > 1)
-				{
-					g(i - 1, count, index - 1, tempArray, @this, resultList);
-				}
-				else
-				{
-					var temp = new T[count];
-					for (var j = 0; j < tempArray.Length; j++)
-					{
-						temp[j] = @this[tempArray[j]];
-					}
-					resultList.Add(temp);
-				}
-			}
-		}
-	}
-
-	/// <summary>
-	/// Get all permutations from the collection.
-	/// </summary>
-	/// <param name="this">The collection to be used and checked.</param>
-	/// <returns>
-	/// All possible permutations returned.
-	/// </returns>
-	public static ReadOnlySpan<ReadOnlyMemory<T>> GetPermutations<T>(this ReadOnlySpan<T> @this)
-	{
-		var result = new List<ReadOnlyMemory<T>>();
-		for (var size = 1; size <= @this.Length; size++)
-		{
-			foreach (var element in @this.GetPermutations(size))
-			{
-				result.Add(element);
-			}
-		}
-		return result.AsSpan();
-	}
-
-	/// <summary>
-	/// Get all permutations from the specified number of the values to take.
-	/// </summary>
-	/// <param name="this">The collection to be used and checked.</param>
-	/// <param name="count">The number of elements you want to take.</param>
-	/// <returns>
-	/// The permutations of the list.
-	/// For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
-	/// <code><![CDATA[
-	/// [[1, 2], [2, 1], [1, 3], [3, 1], [2, 3], [3, 2]]
-	/// ]]></code>
-	/// 6 cases.
-	/// </returns>
-	public static ReadOnlySpan<ReadOnlyMemory<T>> GetPermutations<T>(this ReadOnlySpan<T> @this, int count)
-	{
-		if (count == 0)
-		{
-			return [];
-		}
-
-		var result = new List<ReadOnlyMemory<T>>(PermutationOf(@this.Length, count));
-		var used = (stackalloc bool[@this.Length]);
-		used.Clear();
-
-		g(new(count), @this, used, count, result);
-		return result.AsSpan();
-
-
-		static void g(List<T> temp, ReadOnlySpan<T> array, Span<bool> used, int count, List<ReadOnlyMemory<T>> result)
-		{
-			if (temp.Count == count)
-			{
-				result.Add(temp.ToArray());
-				return;
-			}
-
-			for (var i = 0; i < array.Length; i++)
-			{
-				if (!used[i])
-				{
-					used[i] = true;
-					temp.Add(array[i]);
-
-					g(temp, array, used, count, result);
-
-					temp.RemoveAt(^1);
-					used[i] = false;
-				}
-			}
-		}
-	}
-
-	/// <summary>
-	/// Get all combinations that each sub-array only choose one.
-	/// </summary>
-	/// <param name="this">The jigsaw array.</param>
-	/// <returns>
-	/// All combinations that each sub-array choose one.
-	/// For example, if one array is <c>[[1, 2, 3], [1, 3], [1, 4, 7, 10]]</c>, the final combinations will be
-	/// <code><![CDATA[
-	/// [
-	///     [1, 1, 1], [1, 1, 4], [1, 1, 7], [1, 1, 10],
-	///     [1, 3, 1], [1, 3, 4], [1, 3, 7], [1, 3, 10],
-	///     [2, 1, 1], [2, 1, 4], [2, 1, 7], [2, 1, 10],
-	///     [2, 3, 1], [2, 3, 4], [2, 3, 7], [2, 3, 10],
-	///     [3, 1, 1], [3, 1, 4], [3, 1, 7], [3, 1, 10],
-	///     [3, 3, 1], [3, 3, 4], [3, 3, 7], [3, 3, 10]
-	/// ]
-	/// ]]></code>
-	/// 24 cases.
-	/// </returns>
-	public static T[][] GetExtractedCombinations<T>(this T[][] @this)
-	{
-		var length = @this.Length;
-		var resultCount = 1;
-		var tempArray = (stackalloc int[length]);
-		for (var i = 0; i < length; i++)
-		{
-			tempArray[i] = -1;
-			resultCount *= @this[i].Length;
-		}
-
-		var (result, m, n) = (new T[resultCount][], -1, -1);
-		do
-		{
-			if (m < length - 1)
-			{
-				m++;
-			}
-
-			ref var value = ref tempArray[m];
-			value++;
-			if (value > @this[m].Length - 1)
-			{
-				value = -1;
-				m -= 2; // Backtrack.
-			}
-
-			if (m == length - 1)
-			{
-				n++;
-				result[n] = new T[m + 1];
-				for (var i = 0; i <= m; i++)
-				{
-					result[n][i] = @this[i][tempArray[i]];
-				}
-			}
-		} while (m >= -1);
-
-		return result;
-	}
 
 	/// <summary>
 	/// Returns the factorial of <paramref name="n"/> (n!).

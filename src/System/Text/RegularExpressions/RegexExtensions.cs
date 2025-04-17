@@ -7,23 +7,28 @@ namespace System.Text.RegularExpressions;
 public static class RegexExtensions
 {
 	/// <summary>
-	/// Find the string pattern occurred at the specified time from the specified string.
+	/// Provides extension members on <see cref="Regex"/>.
 	/// </summary>
-	/// <param name="this">The regular expression.</param>
-	/// <param name="str">The string to be matched.</param>
-	/// <param name="index">The index.</param>
-	/// <returns>The index.</returns>
-	public static int FindOccurenceAt(this Regex @this, ReadOnlySpan<char> str, int index)
+	extension(Regex @this)
 	{
-		var enumerator = @this.EnumerateMatches(str);
-		var i = -1;
-		while (enumerator.MoveNext())
+		/// <summary>
+		/// Find the string pattern occurred at the specified time from the specified string.
+		/// </summary>
+		/// <param name="str">The string to be matched.</param>
+		/// <param name="index">The index.</param>
+		/// <returns>The index.</returns>
+		public int FindOccurenceAt(ReadOnlySpan<char> str, int index)
 		{
-			if (++i == index)
+			var enumerator = @this.EnumerateMatches(str);
+			var i = -1;
+			while (enumerator.MoveNext())
 			{
-				return enumerator.Current.Index;
+				if (++i == index)
+				{
+					return enumerator.Current.Index;
+				}
 			}
+			return -1;
 		}
-		return -1;
 	}
 }

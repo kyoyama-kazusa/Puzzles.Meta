@@ -5427,11 +5427,15 @@
             </summary>
             <seealso cref="T:System.Text.RegularExpressions.Regex"/>
         </member>
-        <member name="M:System.Text.RegularExpressions.RegexExtensions.FindOccurenceAt(System.Text.RegularExpressions.Regex,System.ReadOnlySpan{System.Char},System.Int32)">
+        <member name="T:System.Text.RegularExpressions.RegexExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Text.RegularExpressions.Regex"/>.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.RegexExtensions..FindOccurenceAt(System.ReadOnlySpan{System.Char},System.Int32)">
             <summary>
             Find the string pattern occurred at the specified time from the specified string.
             </summary>
-            <param name="this">The regular expression.</param>
             <param name="str">The string to be matched.</param>
             <param name="index">The index.</param>
             <returns>The index.</returns>
@@ -5442,11 +5446,15 @@
             </summary>
             <seealso cref="T:System.Text.RegularExpressions.ValueMatch"/>
         </member>
-        <member name="M:System.Text.RegularExpressions.ValueMatchExtensions.MatchString(System.Text.RegularExpressions.ValueMatch,System.ReadOnlySpan{System.Char})">
+        <member name="T:System.Text.RegularExpressions.ValueMatchExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Text.RegularExpressions.ValueMatch"/>.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.ValueMatchExtensions..MatchString(System.ReadOnlySpan{System.Char})">
             <summary>
             Try to get the target match string at the specified position the current instance specified.
             </summary>
-            <param name="this">Indicates the instance.</param>
             <param name="originalString">The original string.</param>
             <returns>The target string.</returns>
         </member>
@@ -5494,7 +5502,12 @@
             </summary>
             <seealso cref="T:System.Text.Json.JsonSerializerOptions"/>
         </member>
-        <member name="M:System.Text.Json.JsonSerializerOptionsExtensions.GetConverter``2(System.Text.Json.JsonSerializerOptions)">
+        <member name="T:System.Text.Json.JsonSerializerOptionsExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Text.Json.JsonSerializerOptions"/>.
+            </summary>
+        </member>
+        <member name="M:System.Text.Json.JsonSerializerOptionsExtensions..GetConverter``2">
             <summary>
             Returns the converter that supports the given type, or the <typeparamref name="TConverter"/>
             will be used when the property <see cref="P:System.Text.Json.JsonSerializerOptions.Converters"/>
@@ -5504,7 +5517,6 @@
             <typeparam name="TConverter">
             The type that is the converter type to convert the instance of type <typeparamref name="T"/>.
             </typeparam>
-            <param name="this">The options to check the existence of the converter.</param>
             <returns>
             The converter that supports the given type, or the <typeparamref name="TConverter"/>
             will be used when the property <see cref="P:System.Text.Json.JsonSerializerOptions.Converters"/>
@@ -5563,12 +5575,16 @@
             </summary>
             <seealso cref="T:System.Text.Json.Utf8JsonReader"/>
         </member>
-        <member name="M:System.Text.Json.Utf8JsonReaderExtensions.GetNestedObject``1(System.Text.Json.Utf8JsonReader@,System.Text.Json.JsonSerializerOptions)">
+        <member name="T:System.Text.Json.Utf8JsonReaderExtensions.">
+            <summary>
+            Provides extension members on <see langword="ref"/> <see cref="T:System.Text.Json.Utf8JsonReader"/>.
+            </summary>
+        </member>
+        <member name="M:System.Text.Json.Utf8JsonReaderExtensions..GetNestedObject``1(System.Text.Json.JsonSerializerOptions)">
             <summary>
             To read as a nested object in the JSON string stream.
             </summary>
             <typeparam name="T">The type of the instance to be deserialized.</typeparam>
-            <param name="this">The <see cref="T:System.Text.Json.Utf8JsonReader"/> instance.</param>
             <param name="options">The options.</param>
         </member>
         <member name="T:System.Text.Json.Utf8JsonWriterExtensions">
@@ -5577,21 +5593,24 @@
             </summary>
             <seealso cref="T:System.Text.Json.Utf8JsonWriter"/>
         </member>
-        <member name="M:System.Text.Json.Utf8JsonWriterExtensions.WriteNestedObject``1(System.Text.Json.Utf8JsonWriter,``0,System.Text.Json.JsonSerializerOptions)">
+        <member name="T:System.Text.Json.Utf8JsonWriterExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Text.Json.Utf8JsonWriter"/>.
+            </summary>
+        </member>
+        <member name="M:System.Text.Json.Utf8JsonWriterExtensions..WriteNestedObject``1(``0,System.Text.Json.JsonSerializerOptions)">
             <summary>
             To write an object as nested one in the JSON string stream.
             </summary>
             <typeparam name="T">The type of the instance to be serialized.</typeparam>
-            <param name="this">The <see cref="T:System.Text.Json.Utf8JsonWriter"/> instance.</param>
             <param name="instance">The instance to be serialized.</param>
             <param name="options">The options.</param>
         </member>
-        <member name="M:System.Text.Json.Utf8JsonWriterExtensions.WriteArray``1(System.Text.Json.Utf8JsonWriter,``0[],System.Text.Json.JsonSerializerOptions)">
+        <member name="M:System.Text.Json.Utf8JsonWriterExtensions..WriteArray``1(``0[],System.Text.Json.JsonSerializerOptions)">
             <summary>
             To write an array of element type <typeparamref name="T"/>.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The <see cref="T:System.Text.Json.Utf8JsonWriter"/> instance.</param>
             <param name="array">The array.</param>
             <param name="options">The options.</param>
         </member>
@@ -5601,29 +5620,31 @@
             </summary>
             <seealso cref="T:System.Text.StringBuilder"/>
         </member>
-        <member name="M:System.Text.StringBuilderExtensions.RemoveFrom(System.Text.StringBuilder,System.Int32)">
+        <member name="T:System.Text.StringBuilderExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Text.StringBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions..RemoveFrom(System.Int32)">
             <summary>
             Remove all characters behind the character whose index is specified.
             </summary>
-            <param name="this">The instance to remove characters.</param>
             <param name="startIndex">The start index.</param>
             <returns>The reference of the current instance.</returns>
         </member>
-        <member name="M:System.Text.StringBuilderExtensions.RemoveFrom(System.Text.StringBuilder,System.Index)">
+        <member name="M:System.Text.StringBuilderExtensions..RemoveFrom(System.Index)">
             <summary>
             Remove all characters behind the character whose index is specified.
             </summary>
-            <param name="this">The instance to remove characters.</param>
             <param name="startIndex">The start index.</param>
             <returns>The reference of the current instance.</returns>
         </member>
-        <member name="M:System.Text.StringBuilderExtensions.AppendRange``1(System.Text.StringBuilder,System.Func{``0,System.String},System.Func{System.Text.StringBuilder,System.String,System.Text.StringBuilder},System.ReadOnlySpan{``0})">
+        <member name="M:System.Text.StringBuilderExtensions..AppendRange``1(System.Func{``0,System.String},System.Func{System.Text.StringBuilder,System.String,System.Text.StringBuilder},System.ReadOnlySpan{``0})">
             <summary>
             Appends a list of elements of type <typeparamref name="T" /> into the <see cref="T:System.Text.StringBuilder" /> instance,
             using the specified converter to convert each element into <see cref="T:System.String" /> value.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The <see cref="T:System.Text.StringBuilder" /> instance.</param>
             <param name="stringConverter">The converter method.</param>
             <param name="appender">
             The append method for the builder instance, telling the handler which appending operation will be handled.
@@ -6133,6 +6154,80 @@
             (in Chinese: Yang Hui's Triangle), i.e. the combinatorial numbers from <c>C(1, 1)</c> to <c>C(30, 30)</c>.
             </summary>
         </member>
+        <member name="T:System.Numerics.Combinatorial.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.Numerics.Combinatorial.`1.GetSubsets">
+            <summary>
+            Get all subsets from the collection.
+            </summary>
+            <returns>
+            All possible subsets returned.
+            </returns>
+        </member>
+        <member name="M:System.Numerics.Combinatorial.`1.GetSubsets(System.Int32)">
+            <summary>
+            Get all subsets from the specified number of the values to take.
+            </summary>
+            <param name="count">The number of elements you want to take.</param>
+            <returns>
+            The subsets of the list.
+            For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
+            <code><![CDATA[
+            [[1, 2], [1, 3], [2, 3]]
+            ]]></code>
+            3 cases.
+            </returns>
+        </member>
+        <member name="M:System.Numerics.Combinatorial.`1.GetPermutations">
+            <summary>
+            Get all permutations from the collection.
+            </summary>
+            <returns>
+            All possible permutations returned.
+            </returns>
+        </member>
+        <member name="M:System.Numerics.Combinatorial.`1.GetPermutations(System.Int32)">
+            <summary>
+            Get all permutations from the specified number of the values to take.
+            </summary>
+            <param name="count">The number of elements you want to take.</param>
+            <returns>
+            The permutations of the list.
+            For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
+            <code><![CDATA[
+            [[1, 2], [2, 1], [1, 3], [3, 1], [2, 3], [3, 2]]
+            ]]></code>
+            6 cases.
+            </returns>
+        </member>
+        <member name="T:System.Numerics.Combinatorial.`1">
+            <summary>
+            Provides extension members on <typeparamref name="T"/>[][].
+            </summary>
+        </member>
+        <member name="M:System.Numerics.Combinatorial.`1.GetExtractedCombinations">
+            <summary>
+            Get all combinations that each sub-array only choose one.
+            </summary>
+            <returns>
+            All combinations that each sub-array choose one.
+            For example, if one array is <c>[[1, 2, 3], [1, 3], [1, 4, 7, 10]]</c>, the final combinations will be
+            <code><![CDATA[
+            [
+                [1, 1, 1], [1, 1, 4], [1, 1, 7], [1, 1, 10],
+                [1, 3, 1], [1, 3, 4], [1, 3, 7], [1, 3, 10],
+                [2, 1, 1], [2, 1, 4], [2, 1, 7], [2, 1, 10],
+                [2, 3, 1], [2, 3, 4], [2, 3, 7], [2, 3, 10],
+                [3, 1, 1], [3, 1, 4], [3, 1, 7], [3, 1, 10],
+                [3, 3, 1], [3, 3, 4], [3, 3, 7], [3, 3, 10]
+            ]
+            ]]></code>
+            24 cases.
+            </returns>
+        </member>
         <member name="M:System.Numerics.Combinatorial.CombinationOf(System.Int32,System.Int32)">
             <summary>
             Returns the combination of (n, m).
@@ -6150,75 +6245,6 @@
             <param name="m">The number of values to get.</param>
             <returns>An <see cref="T:System.Int32"/> of result.</returns>
             <exception cref="T:System.OverflowException">Throws when the result value is too large.</exception>
-        </member>
-        <member name="M:System.Numerics.Combinatorial.GetSubsets``1(System.ReadOnlySpan{``0})">
-            <summary>
-            Get all subsets from the collection.
-            </summary>
-            <param name="this">The collection to be used and checked.</param>
-            <returns>
-            All possible subsets returned.
-            </returns>
-        </member>
-        <member name="M:System.Numerics.Combinatorial.GetSubsets``1(System.ReadOnlySpan{``0},System.Int32)">
-            <summary>
-            Get all subsets from the specified number of the values to take.
-            </summary>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="count">The number of elements you want to take.</param>
-            <returns>
-            The subsets of the list.
-            For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
-            <code><![CDATA[
-            [[1, 2], [1, 3], [2, 3]]
-            ]]></code>
-            3 cases.
-            </returns>
-        </member>
-        <member name="M:System.Numerics.Combinatorial.GetPermutations``1(System.ReadOnlySpan{``0})">
-            <summary>
-            Get all permutations from the collection.
-            </summary>
-            <param name="this">The collection to be used and checked.</param>
-            <returns>
-            All possible permutations returned.
-            </returns>
-        </member>
-        <member name="M:System.Numerics.Combinatorial.GetPermutations``1(System.ReadOnlySpan{``0},System.Int32)">
-            <summary>
-            Get all permutations from the specified number of the values to take.
-            </summary>
-            <param name="this">The collection to be used and checked.</param>
-            <param name="count">The number of elements you want to take.</param>
-            <returns>
-            The permutations of the list.
-            For example, if the input array is <c>[1, 2, 3]</c> and the argument <paramref name="count"/> is 2, the result will be
-            <code><![CDATA[
-            [[1, 2], [2, 1], [1, 3], [3, 1], [2, 3], [3, 2]]
-            ]]></code>
-            6 cases.
-            </returns>
-        </member>
-        <member name="M:System.Numerics.Combinatorial.GetExtractedCombinations``1(``0[][])">
-            <summary>
-            Get all combinations that each sub-array only choose one.
-            </summary>
-            <param name="this">The jigsaw array.</param>
-            <returns>
-            All combinations that each sub-array choose one.
-            For example, if one array is <c>[[1, 2, 3], [1, 3], [1, 4, 7, 10]]</c>, the final combinations will be
-            <code><![CDATA[
-            [
-                [1, 1, 1], [1, 1, 4], [1, 1, 7], [1, 1, 10],
-                [1, 3, 1], [1, 3, 4], [1, 3, 7], [1, 3, 10],
-                [2, 1, 1], [2, 1, 4], [2, 1, 7], [2, 1, 10],
-                [2, 3, 1], [2, 3, 4], [2, 3, 7], [2, 3, 10],
-                [3, 1, 1], [3, 1, 4], [3, 1, 7], [3, 1, 10],
-                [3, 3, 1], [3, 3, 4], [3, 3, 7], [3, 3, 10]
-            ]
-            ]]></code>
-            24 cases.
-            </returns>
         </member>
         <member name="M:System.Numerics.Combinatorial.Factorial(System.Int32)">
             <summary>
@@ -6683,19 +6709,22 @@
             </summary>
             <seealso cref="T:System.Reflection.Assembly"/>
         </member>
-        <member name="M:System.Reflection.AssemblyExtensions.GetDerivedTypes(System.Reflection.Assembly,System.Type)">
+        <member name="T:System.Reflection.AssemblyExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Reflection.Assembly"/>.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.AssemblyExtensions..GetDerivedTypes(System.Type)">
             <summary>
             Gets all possible types derived from an <see langword="interface"/> type,
             or a base <see langword="class"/> type, in the specified assembly.
             </summary>
-            <param name="this">The assembly to be checked.</param>
             <param name="baseType">The type as the base type.</param>
             <returns>All possible derived types.</returns>
         </member>
-        <member name="M:System.Reflection.AssemblyExtensions.GetDerivedTypes``1(System.Reflection.Assembly)">
+        <member name="M:System.Reflection.AssemblyExtensions..GetDerivedTypes``1">
             <inheritdoc cref="M:System.Reflection.AssemblyExtensions.GetDerivedTypes(System.Reflection.Assembly,System.Type)"/>
             <typeparam name="TBase">The type as the base type.</typeparam>
-            <param name="this"><inheritdoc/></param>
             <returns><inheritdoc/></returns>
         </member>
         <member name="T:System.Reflection.CustomAttributeProviderExtensions">
@@ -6756,11 +6785,15 @@
             </summary>
             <seealso cref="T:System.Reflection.MemberInfo"/>
         </member>
-        <member name="M:System.Reflection.MemberInfoExtensions.GetInitMethod(System.Reflection.PropertyInfo,System.Boolean)">
+        <member name="T:System.Reflection.MemberInfoExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Reflection.PropertyInfo"/>.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.MemberInfoExtensions..GetInitMethod(System.Boolean)">
             <summary>
             When overridden in a derived class, returns the <see langword="init"/> accessor for this property.
             </summary>
-            <param name="this">The property.</param>
             <param name="nonPublic">
             Indicates whether the accessor should be returned if it is non-public.
             <see langword="true"/> if a non-public accessor is to be returned; otherwise, <see langword="false"/>.
@@ -6790,7 +6823,12 @@
             </list>
             </returns>
         </member>
-        <member name="M:System.Reflection.MemberInfoExtensions.IsDefined``1(System.Reflection.MemberInfo)">
+        <member name="T:System.Reflection.MemberInfoExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Reflection.MemberInfo"/>.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.MemberInfoExtensions..IsDefined``1">
             <inheritdoc cref="M:System.Reflection.CustomAttributeExtensions.IsDefined(System.Reflection.MemberInfo,System.Type)"/>
         </member>
         <member name="T:System.Reflection.TypeExtensions">
@@ -6799,24 +6837,26 @@
             </summary>
             <seealso cref="T:System.Type"/>
         </member>
-        <member name="M:System.Reflection.TypeExtensions.IsGenericAssignableTo(System.Type,System.Type)">
+        <member name="T:System.Reflection.TypeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="P:System.Reflection.TypeExtensions..HasParameterlessConstructor">
+            <summary>
+            Determines whether the type has a parameterless constructor.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions..IsGenericAssignableTo(System.Type)">
             <summary>
             Determines whether the current type can be assigned to a variable of the specified
             <paramref name="targetType"/>, although it is with generic parameters.
             </summary>
-            <param name="this">The current type.</param>
             <param name="targetType">The type to compare with the current type.</param>
             <returns>Returns <see langword="true"/> if the target type is matched, without generic constraints.</returns>
             <seealso href="https://stackoverflow.com/questions/74616/how-to-detect-if-type-is-another-generic-type/1075059#1075059">
             Question: How to detect if type is another generic type
             </seealso>
-        </member>
-        <member name="M:System.Reflection.TypeExtensions.HasParameterlessConstructor(System.Type)">
-            <summary>
-            Determines whether the type has a parameterless constructor.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
         <member name="T:System.Resources.DynamicResource">
             <summary>
@@ -7200,6 +7240,18 @@
             </summary>
             <seealso cref="T:System.Runtime.CompilerServices.ITuple"/>
         </member>
+        <member name="T:System.Runtime.CompilerServices.TupleExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Runtime.CompilerServices.ITuple"/>.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.TupleExtensions..AsSpan``1">
+            <summary>
+            Converts the tuple elements into a valid span of elements of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The unified type for all elements.</typeparam>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
+        </member>
         <member name="M:System.Runtime.CompilerServices.TupleExtensions.ToArray``1(``0)">
             <summary>
             Converts the <see cref="T:System.Runtime.CompilerServices.ITuple"/> instance into an array of objects.
@@ -7207,14 +7259,6 @@
             <typeparam name="TTuple">The type of target tuple.</typeparam>
             <param name="this">The instance.</param>
             <returns>The array of elements.</returns>
-        </member>
-        <member name="M:System.Runtime.CompilerServices.TupleExtensions.AsSpan``1(System.Runtime.CompilerServices.ITuple)">
-            <summary>
-            Converts the tuple elements into a valid span of elements of type <typeparamref name="T"/>.
-            </summary>
-            <typeparam name="T">The unified type for all elements.</typeparam>
-            <param name="this">The tuple instance.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
         </member>
         <member name="M:System.Runtime.CompilerServices.TupleExtensions.GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
