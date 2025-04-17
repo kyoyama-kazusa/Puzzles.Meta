@@ -12,7 +12,7 @@ namespace System.Numerics;
 	ExplicitlyImplsDisposable = true)]
 public ref partial struct GenericIntegerEnumerator<TInteger>(TInteger _value, int _bitsCount) : IBitEnumerator
 #if NUMERIC_GENERIC_TYPE
-	where TInteger : IBitwiseOperators<TInteger, TInteger, TInteger>, INumber<TInteger>, IShiftOperators<TInteger, int, TInteger>
+	where TInteger : IBitwiseOperators<TInteger, TInteger, TInteger>, IBinaryInteger<TInteger>, IShiftOperators<TInteger, int, TInteger>
 #else
 	where TInteger :
 		IAdditiveIdentity<TInteger, TInteger>,
