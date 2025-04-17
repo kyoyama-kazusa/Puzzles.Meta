@@ -10,7 +10,12 @@
             </summary>
             <seealso cref="T:System.Array"/>
         </member>
-        <member name="M:System.ArrayExtensions.InitializeArray``1(``0[],System.ArrayInitializer{``0})">
+        <member name="T:System.ArrayExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Array"/>.
+            </summary>
+        </member>
+        <member name="M:System.ArrayExtensions..InitializeArray``1(``0[],System.ArrayInitializer{``0})">
             <summary>
             Initializes an array, using the specified method to initialize each element.
             </summary>
@@ -18,66 +23,66 @@
             <param name="array">The array.</param>
             <param name="initializer">The initializer callback method.</param>
         </member>
-        <member name="M:System.ArrayExtensions.Flat``1(``0[0:,0:])">
+        <member name="M:System.ArrayExtensions..Flat``1(``0[0:,0:])">
             <summary>
             Flats the specified 2D array into an 1D array.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">An array of elements of type <typeparamref name="T"/>.</param>
+            <param name="array">An array of elements of type <typeparamref name="T"/>.</param>
             <returns>An 1D array.</returns>
         </member>
-        <member name="M:System.ArrayExtensions.ToArrayString``1(``0[])">
+        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[])">
             <summary>
             Converts an array into a <see cref="T:System.String"/>.
             </summary>
             <typeparam name="T">The type of each element inside array.</typeparam>
-            <param name="this">The array.</param>
+            <param name="array">The array.</param>
             <returns>The string representation.</returns>
         </member>
-        <member name="M:System.ArrayExtensions.ToArrayString``1(``0[],System.Func{``0,System.String})">
+        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[],System.Func{``0,System.String})">
             <summary>
             Converts an array into a <see cref="T:System.String"/>, using the specified formatter method
             that can convert an instance of type <typeparamref name="T"/> into a <see cref="T:System.String"/> representation.
             </summary>
             <typeparam name="T">The type of each element inside array.</typeparam>
-            <param name="this">The array.</param>
+            <param name="array">The array.</param>
             <param name="valueConverter">The value converter method.</param>
             <returns>The string representation.</returns>
         </member>
-        <member name="M:System.ArrayExtensions.ToArrayString``1(``0[][])">
+        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[][])">
             <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[])"/>
         </member>
-        <member name="M:System.ArrayExtensions.ToArrayString``1(``0[][],System.Func{``0,System.String})">
+        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[][],System.Func{``0,System.String})">
             <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[],System.Func{``0,System.String})"/>
         </member>
-        <member name="M:System.ArrayExtensions.ToArrayString``1(``0[0:,0:])">
+        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[0:,0:])">
             <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[])"/>
         </member>
-        <member name="M:System.ArrayExtensions.ToArrayString``1(``0[0:,0:],System.Func{``0,System.String})">
+        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[0:,0:],System.Func{``0,System.String})">
             <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[],System.Func{``0,System.String})"/>
         </member>
-        <member name="M:System.ArrayExtensions.AsSpanUnsafe``1(``0[0:,0:])">
+        <member name="M:System.ArrayExtensions..AsSpanUnsafe``1(``0[0:,0:])">
             <summary>
             Returns the one-dimensional array representation from the two-dimensional array.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The array.</param>
+            <param name="array">The array.</param>
             <returns>The <see cref="T:System.Span`1"/> casted.</returns>
         </member>
-        <member name="M:System.ArrayExtensions.AsSpanUnsafe``1(``0[0:,0:,0:])">
+        <member name="M:System.ArrayExtensions..AsSpanUnsafe``1(``0[0:,0:,0:])">
             <summary>
             Returns the one-dimensional array representation from the three-dimensional array.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The array.</param>
+            <param name="array">The array.</param>
             <returns>The <see cref="T:System.Span`1"/> casted.</returns>
         </member>
-        <member name="M:System.ArrayExtensions.AsSpanUnsafe``1(System.Array)">
+        <member name="M:System.ArrayExtensions..AsSpanUnsafe``1(System.Array)">
             <summary>
             Reinterpret the specified multiple dimensional array into a <see cref="T:System.Span`1"/> instance.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
-            <param name="this">The multiple dimensional array to be reinterpreted.</param>
+            <param name="array">The multiple dimensional array to be reinterpreted.</param>
             <returns>A <see cref="T:System.Span`1"/> instance.</returns>
         </member>
         <member name="T:System.ArrayInitializer`1">
