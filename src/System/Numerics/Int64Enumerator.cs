@@ -14,7 +14,7 @@ public ref partial struct Int64Enumerator(ulong _value) : IBitEnumerator
 	public readonly int PopulationCount => BitOperations.PopCount(_value);
 
 	/// <inheritdoc/>
-	public readonly ReadOnlySpan<int> Bits => _value.GetAllSets();
+	public readonly ReadOnlySpan<int> Bits => _value.AllSets;
 
 	/// <inheritdoc cref="IEnumerator{T}.Current"/>
 	public int Current { get; private set; } = -1;

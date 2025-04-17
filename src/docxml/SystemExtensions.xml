@@ -5930,11 +5930,10 @@
             Provides extension members on <see cref="T:System.SByte"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
             <summary>
-            Find all offsets of set bits of the binary representation of a specified value.
+            Indicates all positions (indices) whose corresponding bits are set 1.
             </summary>
-            <returns>All offsets.</returns>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -5960,8 +5959,8 @@
             Provides extension members on <see cref="T:System.Byte"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..GetNextSet(System.Int32)">
             <summary>
@@ -6015,8 +6014,8 @@
             Provides extension members on <see cref="T:System.Int16"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..GetNextSet(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Byte,System.Int32)"/>
@@ -6043,8 +6042,8 @@
             Provides extension members on <see cref="T:System.UInt16"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -6057,8 +6056,8 @@
             Provides extension members on <see cref="T:System.Int32"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..GetNextSet(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Byte,System.Int32)"/>
@@ -6085,8 +6084,8 @@
             Provides extension members on <see cref="T:System.UInt32"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -6099,8 +6098,8 @@
             Provides extension members on <see cref="T:System.Int64"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..GetNextSet(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Byte,System.Int32)"/>
@@ -6127,8 +6126,8 @@
             Provides extension members on <see cref="T:System.UInt64"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -6141,8 +6140,8 @@
             Provides extension members on <see cref="T:System.Int128"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -6155,8 +6154,8 @@
             Provides extension members on <see cref="T:System.UInt128"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -6169,8 +6168,8 @@
             Provides extension members on <see cref="T:System.IntPtr"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -6183,8 +6182,8 @@
             Provides extension members on <see cref="T:System.UIntPtr"/>.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions..GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions..AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -6207,8 +6206,8 @@
             where <typeparamref name="TInteger"/> satisfies <see cref="T:System.Numerics.IBinaryInteger`1"/> constraint.
             </summary>
         </member>
-        <member name="M:System.Numerics.BitOperationsExtensions.`1.GetAllSets">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetAllSets(System.SByte)"/>
+        <member name="P:System.Numerics.BitOperationsExtensions.`1.AllSets">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
         <member name="T:System.Numerics.BitOperationsExtensions.`1">
             <summary>

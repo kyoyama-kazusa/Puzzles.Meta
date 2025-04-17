@@ -18,7 +18,7 @@ public ref partial struct NIntEnumerator(nuint _value) : IEnumerator<int>
 	/// <summary>
 	/// Indicates the bits set.
 	/// </summary>
-	public readonly ReadOnlySpan<int> Bits => _value.GetAllSets();
+	public readonly ReadOnlySpan<int> Bits => _value.AllSets;
 
 	/// <inheritdoc cref="IEnumerator{T}.Current"/>
 	public int Current { get; private set; } = -1;

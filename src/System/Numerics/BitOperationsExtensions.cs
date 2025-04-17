@@ -13,25 +13,27 @@ public static partial class BitOperationsExtensions
 	extension(sbyte @this)
 	{
 		/// <summary>
-		/// Find all offsets of set bits of the binary representation of a specified value.
+		/// Indicates all positions (indices) whose corresponding bits are set 1.
 		/// </summary>
-		/// <returns>All offsets.</returns>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[sbyte.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = sbyte.TrailingZeroCount(@this);
-				@this &= (sbyte)(@this - 1);
+				var (result, p) = (new int[sbyte.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = sbyte.TrailingZeroCount(@this);
+					@this &= (sbyte)(@this - 1);
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
@@ -71,23 +73,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(byte @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[byte.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = byte.TrailingZeroCount(@this);
-				@this &= (byte)(@this - 1);
+				var (result, p) = (new int[byte.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = byte.TrailingZeroCount(@this);
+					@this &= (byte)(@this - 1);
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <summary>
 		/// Find an index of the binary representation of a value after the specified index whose bit is set <see langword="true"/>.
@@ -188,23 +193,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(short @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[short.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = short.TrailingZeroCount(@this);
-				@this &= (short)(@this - 1);
+				var (result, p) = (new int[short.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = short.TrailingZeroCount(@this);
+					@this &= (short)(@this - 1);
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="GetNextSet(byte, int)"/>
 		public int GetNextSet(int index)
@@ -279,23 +287,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(ushort @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[ushort.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = ushort.TrailingZeroCount(@this);
-				@this &= (ushort)(@this - 1);
+				var (result, p) = (new int[ushort.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = ushort.TrailingZeroCount(@this);
+					@this &= (ushort)(@this - 1);
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
@@ -322,23 +333,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(int @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[int.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = int.TrailingZeroCount(@this);
-				@this &= @this - 1;
+				var (result, p) = (new int[int.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = int.TrailingZeroCount(@this);
+					@this &= @this - 1;
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="GetNextSet(byte, int)"/>
 		public int GetNextSet(int index)
@@ -414,23 +428,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(uint @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[uint.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = BitOperations.TrailingZeroCount(@this);
-				@this &= @this - 1;
+				var (result, p) = (new int[uint.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = BitOperations.TrailingZeroCount(@this);
+					@this &= @this - 1;
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
@@ -457,22 +474,24 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(long @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[long.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = BitOperations.TrailingZeroCount(@this);
-				@this &= @this - 1;
+				var (result, p) = (new int[long.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = BitOperations.TrailingZeroCount(@this);
+					@this &= @this - 1;
+				}
+				return result;
 			}
-			return result;
 		}
 
 		/// <inheritdoc cref="GetNextSet(byte, int)"/>
@@ -541,23 +560,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(ulong @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[ulong.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = BitOperations.TrailingZeroCount(@this);
-				@this &= @this - 1;
+				var (result, p) = (new int[ulong.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = BitOperations.TrailingZeroCount(@this);
+					@this &= @this - 1;
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
@@ -597,23 +619,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(Int128 @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[(int)Int128.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = (int)Int128.TrailingZeroCount(@this);
-				@this &= @this - 1;
+				var (result, p) = (new int[(int)Int128.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = (int)Int128.TrailingZeroCount(@this);
+					@this &= @this - 1;
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
@@ -640,23 +665,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(UInt128 @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[(int)UInt128.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = (int)UInt128.TrailingZeroCount(@this);
-				@this &= @this - 1;
+				var (result, p) = (new int[(int)UInt128.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = (int)UInt128.TrailingZeroCount(@this);
+					@this &= @this - 1;
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
@@ -683,23 +711,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(nint @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[(int)nint.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = (int)nint.TrailingZeroCount(@this);
-				@this &= @this - 1;
+				var (result, p) = (new int[(int)nint.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = (int)nint.TrailingZeroCount(@this);
+					@this &= @this - 1;
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
@@ -726,23 +757,26 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension(nuint @this)
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(2)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == 0)
+			get
 			{
-				return [];
-			}
+				if (@this == 0)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[(int)nuint.PopCount(@this)], 0);
-			while (@this != 0)
-			{
-				result[p++] = (int)nuint.TrailingZeroCount(@this);
-				@this &= @this - 1;
+				var (result, p) = (new int[(int)nuint.PopCount(@this)], 0);
+				while (@this != 0)
+				{
+					result[p++] = (int)nuint.TrailingZeroCount(@this);
+					@this &= @this - 1;
+				}
+				return result;
 			}
-			return result;
 		}
+
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
@@ -801,22 +835,24 @@ public static partial class BitOperationsExtensions
 	/// </summary>
 	extension<TInteger>(TInteger @this) where TInteger : IBinaryInteger<TInteger>
 	{
-		/// <inheritdoc cref="GetAllSets(sbyte)"/>
-		[OverloadResolutionPriority(1)]
-		public ReadOnlySpan<int> GetAllSets()
+		/// <inheritdoc cref="get_AllSets(sbyte)"/>
+		public ReadOnlySpan<int> AllSets
 		{
-			if (@this == TInteger.Zero)
+			get
 			{
-				return [];
-			}
+				if (@this == TInteger.Zero)
+				{
+					return [];
+				}
 
-			var (result, p) = (new int[int.CreateChecked(TInteger.PopCount(@this))], 0);
-			while (@this != TInteger.Zero)
-			{
-				result[p++] = int.CreateChecked(TInteger.TrailingZeroCount(@this));
-				@this &= @this - TInteger.One;
+				var (result, p) = (new int[int.CreateChecked(TInteger.PopCount(@this))], 0);
+				while (@this != TInteger.Zero)
+				{
+					result[p++] = int.CreateChecked(TInteger.TrailingZeroCount(@this));
+					@this &= @this - TInteger.One;
+				}
+				return result;
 			}
-			return result;
 		}
 	}
 

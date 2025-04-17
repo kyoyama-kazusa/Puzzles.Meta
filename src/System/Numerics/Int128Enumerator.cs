@@ -21,7 +21,7 @@ public ref partial struct Int128Enumerator(UInt128 _value) : IBitEnumerator
 	}
 
 	/// <inheritdoc/>
-	public readonly ReadOnlySpan<int> Bits => _value.GetAllSets();
+	public readonly ReadOnlySpan<int> Bits => _value.AllSets;
 
 	/// <inheritdoc cref="IEnumerator{T}.Current"/>
 	public int Current { get; private set; } = -1;
