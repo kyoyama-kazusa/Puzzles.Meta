@@ -3,7 +3,7 @@ namespace System.Numerics;
 /// <summary>
 /// Extracts the type that includes the methods that operates with combinatorial values.
 /// </summary>
-public static class Combinatorial
+public static class Combinatorics
 {
 	/// <summary>
 	/// Indicates the <see href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal's Triangle</see>
