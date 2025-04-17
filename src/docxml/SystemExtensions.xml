@@ -6185,6 +6185,83 @@
         <member name="M:System.Numerics.BitOperationsExtensions.`1.GetEnumerator">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetEnumerator(System.SByte)"/>
         </member>
+        <member name="T:System.Numerics.BitOperationsExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Numerics.BitOperations"/>.
+            </summary>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..TrailingZeroCount(System.SByte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.TrailingZeroCount(System.Int32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..TrailingZeroCount(System.Byte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.TrailingZeroCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..TrailingZeroCount(System.Int16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.TrailingZeroCount(System.Int32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..TrailingZeroCount(System.UInt16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.TrailingZeroCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..LeadingZeroCount(System.SByte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.LeadingZeroCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..LeadingZeroCount(System.Byte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.LeadingZeroCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..LeadingZeroCount(System.Int16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.LeadingZeroCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..LeadingZeroCount(System.UInt16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.LeadingZeroCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..LeadingZeroCount(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.LeadingZeroCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..LeadingZeroCount(System.Int64)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.LeadingZeroCount(System.UInt64)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..PopCount(System.SByte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.PopCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..PopCount(System.Byte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.PopCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..PopCount(System.Int16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.PopCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..PopCount(System.UInt16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.PopCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..PopCount(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.PopCount(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..PopCount(System.Int64)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.PopCount(System.UInt64)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..IsPow2(System.SByte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.IsPow2(System.Int32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..IsPow2(System.Byte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.IsPow2(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..IsPow2(System.Int16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.IsPow2(System.Int32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..IsPow2(System.UInt16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.IsPow2(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.SByte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.Byte)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.Int16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.UInt16)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UInt32)"/>
+        </member>
         <member name="T:System.Numerics.Bits">
             <summary>
             Represents a list of methods that operates with bits.

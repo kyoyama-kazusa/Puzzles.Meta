@@ -867,4 +867,126 @@ public static partial class BitOperationsExtensions
 		[OverloadResolutionPriority(1)]
 		public unsafe GenericIntegerEnumerator<TInteger> GetEnumerator() => new(@this, sizeof(TInteger) << 3);
 	}
+
+	/// <summary>
+	/// Provides extension members on <see cref="BitOperations"/>.
+	/// </summary>
+	extension(BitOperations)
+	{
+		//
+		// TrailingZeroCount
+		//
+
+		/// <inheritdoc cref="BitOperations.TrailingZeroCount(int)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int TrailingZeroCount(sbyte @this) => BitOperations.TrailingZeroCount(@this);
+
+		/// <inheritdoc cref="BitOperations.TrailingZeroCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int TrailingZeroCount(byte @this) => BitOperations.TrailingZeroCount((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.TrailingZeroCount(int)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int TrailingZeroCount(short @this) => BitOperations.TrailingZeroCount(@this);
+
+		/// <inheritdoc cref="BitOperations.TrailingZeroCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int TrailingZeroCount(ushort @this) => BitOperations.TrailingZeroCount((uint)@this);
+
+		//
+		// LeadingZeroCount
+		//
+
+		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int LeadingZeroCount(sbyte @this) => BitOperations.LeadingZeroCount((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int LeadingZeroCount(byte @this) => BitOperations.LeadingZeroCount(@this);
+
+		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int LeadingZeroCount(short @this) => BitOperations.LeadingZeroCount((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int LeadingZeroCount(ushort @this) => BitOperations.LeadingZeroCount(@this);
+
+		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int LeadingZeroCount(int @this) => BitOperations.LeadingZeroCount((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.LeadingZeroCount(ulong)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int LeadingZeroCount(long @this) => BitOperations.LeadingZeroCount((ulong)@this);
+
+		//
+		// PopCount
+		//
+
+		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int PopCount(sbyte @this) => BitOperations.PopCount((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int PopCount(byte @this) => BitOperations.PopCount(@this);
+
+		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int PopCount(short @this) => BitOperations.PopCount((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int PopCount(ushort @this) => BitOperations.PopCount(@this);
+
+		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int PopCount(int @this) => BitOperations.PopCount((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.PopCount(ulong)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int PopCount(long @this) => BitOperations.PopCount((ulong)@this);
+
+		//
+		// IsPow2
+		//
+
+		/// <inheritdoc cref="BitOperations.IsPow2(int)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool IsPow2(sbyte @this) => BitOperations.IsPow2(@this);
+
+		/// <inheritdoc cref="BitOperations.IsPow2(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool IsPow2(byte @this) => BitOperations.IsPow2((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.IsPow2(int)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool IsPow2(short @this) => BitOperations.IsPow2(@this);
+
+		/// <inheritdoc cref="BitOperations.IsPow2(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool IsPow2(ushort @this) => BitOperations.IsPow2((uint)@this);
+
+		//
+		// Log2
+		//
+
+		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int Log2(sbyte @this) => BitOperations.Log2((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int Log2(byte @this) => BitOperations.Log2(@this);
+
+		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int Log2(short @this) => BitOperations.Log2((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int Log2(ushort @this) => BitOperations.Log2(@this);
+	}
 }
