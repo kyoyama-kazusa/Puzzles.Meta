@@ -333,7 +333,7 @@ public static partial class BitOperationsExtensions
 					return [];
 				}
 
-				var (result, p) = (new int[int.PopCount(@this)], 0);
+				var (result, p) = (new int[BitOperations.PopCount(@this)], 0);
 				while (@this != 0)
 				{
 					result[p++] = int.TrailingZeroCount(@this);
