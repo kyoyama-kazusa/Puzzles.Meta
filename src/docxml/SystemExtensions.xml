@@ -6262,6 +6262,15 @@
         <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.UInt16)">
             <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UInt32)"/>
         </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UInt32)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.Int64)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UInt64)"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.IntPtr)">
+            <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UIntPtr)"/>
+        </member>
         <member name="T:System.Numerics.Bits">
             <summary>
             Represents a list of methods that operates with bits.

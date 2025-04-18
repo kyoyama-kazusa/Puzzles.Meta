@@ -988,5 +988,17 @@ public static partial class BitOperationsExtensions
 		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Log2(ushort @this) => BitOperations.Log2(@this);
+
+		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int Log2(int @this) => BitOperations.Log2((uint)@this);
+
+		/// <inheritdoc cref="BitOperations.Log2(ulong)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int Log2(long @this) => BitOperations.Log2((ulong)@this);
+
+		/// <inheritdoc cref="BitOperations.Log2(nuint)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static int Log2(nint @this) => BitOperations.Log2((nuint)@this);
 	}
 }
