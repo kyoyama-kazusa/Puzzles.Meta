@@ -59,6 +59,17 @@ public static class EnumExtensions
 
 
 		/// <summary>
+		/// Indicates the length of the elements stored in type <typeparamref name="T"/>.
+		/// </summary>
+		public static int Length => Enum.GetValues<T>().Length;
+
+		/// <summary>
+		/// Indicates the values.
+		/// </summary>
+		public static ReadOnlySpan<T> Values => Enum.GetValues<T>();
+
+
+		/// <summary>
 		/// Get all possible flags that the current enumeration field set.
 		/// </summary>
 		/// <returns>All flags.</returns>

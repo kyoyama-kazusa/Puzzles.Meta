@@ -2086,6 +2086,16 @@
             To get all possible flags from a specified enumeration instance.
             </summary>
         </member>
+        <member name="P:System.EnumExtensions.`1.Length">
+            <summary>
+            Indicates the length of the elements stored in type <typeparamref name="T"/>.
+            </summary>
+        </member>
+        <member name="P:System.EnumExtensions.`1.Values">
+            <summary>
+            Indicates the values.
+            </summary>
+        </member>
         <member name="M:System.EnumExtensions.`1.GetEnumerator">
             <summary>
             Get all possible flags that the current enumeration field set.
