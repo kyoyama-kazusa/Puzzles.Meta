@@ -638,30 +638,50 @@
         </member>
         <member name="T:System.Collections.Generic.IEnumerableExtensions">
             <summary>
-            Provides with extension methods on <see cref="T:System.Collections.IEnumerable"/> and <see cref="T:System.Collections.Generic.IEnumerable`1"/> instances.
+            Provides with extension methods on <see cref="T:System.Collections.Generic.IEnumerable`1"/> instances.
             </summary>
-            <seealso cref="T:System.Collections.IEnumerable"/>
             <seealso cref="T:System.Collections.Generic.IEnumerable`1"/>
-        </member>
-        <member name="T:System.Collections.Generic.IEnumerableExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.Collections.IEnumerable"/>.
-            </summary>
-        </member>
-        <member name="P:System.Collections.Generic.IEnumerableExtensions..Length">
-            <summary>
-            Indicates the length of the sequence.
-            </summary>
         </member>
         <member name="T:System.Collections.Generic.IEnumerableExtensions.`1">
             <summary>
             Provides extension members on <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
             </summary>
         </member>
+        <member name="P:System.Collections.Generic.IEnumerableExtensions.`1.IsEmpty">
+            <summary>
+            Indicates whether the sequence has no elements.
+            </summary>
+        </member>
         <member name="P:System.Collections.Generic.IEnumerableExtensions.`1.Length">
             <summary>
             Indicates the length of the sequence.
             </summary>
+        </member>
+        <member name="P:System.Collections.Generic.IEnumerableExtensions.`1.Item(System.Int32)">
+            <summary>
+            Gets the element at the specified index.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>The element.</returns>
+        </member>
+        <member name="P:System.Collections.Generic.IEnumerableExtensions.`1.Item(System.Index)">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerableExtensions.get_Item``1(System.Collections.Generic.IEnumerable{``0},System.Int32)"/>
+        </member>
+        <member name="P:System.Collections.Generic.IEnumerableExtensions.`1.Item(System.Range)">
+            <summary>
+            Gets the slice of the specified range.
+            </summary>
+            <param name="range">The range.</param>
+            <returns>The slice values.</returns>
+        </member>
+        <member name="M:System.Collections.Generic.IEnumerableExtensions.`1.Slice(System.Int32,System.Int32)">
+            <summary>
+            Slices the current sequence.
+            </summary>
+            <param name="start">The start index.</param>
+            <param name="length">The desired length.</param>
+            <returns>A new sequence start at index <paramref name="start"/>.</returns>
+            <exception cref="T:System.InvalidOperationException">Throws when the sequence has no valid elements to be iterated.</exception>
         </member>
         <member name="T:System.Collections.Generic.IFiniteSet`2">
             <summary>
