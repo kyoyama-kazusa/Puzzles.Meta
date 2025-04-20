@@ -1361,20 +1361,6 @@
             <param name="value">The value.</param>
             <returns>The value itself.</returns>
         </member>
-        <member name="M:System.delegate.YCombinator``2(System.Func{System.Func{``0,``1},System.Func{``0,``1}})">
-            <summary>
-            (Easter egg) Represents Y-Combinator. This method can allow you create recursive lambdas:
-            <code><![CDATA[
-            var factorial = YCombinator(static (Func<int, int> lambda) => value => value == 0 ? 1 : value * lambda(value - 1));
-            int result = factorial(5); // 120
-            Console.WriteLine(result);
-            ]]></code>
-            </summary>
-            <typeparam name="T">The type of the argument to be passed.</typeparam>
-            <typeparam name="TResult">The type of the result.</typeparam>
-            <param name="f">The recursion logic.</param>
-            <returns>A function that creates a nesting lambda that is a recursive lambda.</returns>
-        </member>
         <member name="T:System.DelegateExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.Delegate"/>.
@@ -2211,6 +2197,45 @@
             <param name="other">The other value to compare.</param>
             <param name="epsilon">The epsilon value (the minimal differ).</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="T:System.FuncExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Func`1"/> and its related types.
+            </summary>
+            <seealso cref="T:System.Func`1"/>
+        </member>
+        <member name="T:System.FuncExtensions.`2">
+            <summary>
+            Provides extension members on <see cref="T:System.Func`2"/>.
+            </summary>
+        </member>
+        <member name="M:System.FuncExtensions.`2.YCombinator(System.Func{System.Func{`0,`1},System.Func{`0,`1}})">
+             <summary>
+             (Easter egg) Represents Y-Combinator. This method can allow you create recursive lambdas.
+             For example, this code snippet will calculate for factorial of the specified digit:
+             <code><![CDATA[
+             var factorial = Func<int, int>.YCombinator(
+                 // Defines a lambda expression that is of type 'Func<int, int>'.
+                 lambda =>
+                     // Defines a parameter as input.
+                     value => value switch
+                     {
+                         // Negative value (invalid).
+                         < 0 => throw new ArgumentException("Invalid argument", nameof(value)),
+            
+                         // Recursion exit.
+                         0 or 1 => 1,
+            
+                         // Otherwise, do calculation recursively.
+                         // The core expression can use 'lambda' outside the lambda scope to invoke recursion.
+                         _ => value * lambda(value - 1)
+                     }
+             );
+             Console.WriteLine(factorial(5)); // 120
+             ]]></code>
+             </summary>
+             <param name="f">The recursion logic.</param>
+             <returns>A function that creates a nesting lambda that is a recursive lambda.</returns>
         </member>
         <member name="T:System.IInlineArray`2">
             <summary>
