@@ -2091,6 +2091,22 @@
             Throws when the type isn't applied the attribute <see cref="T:System.FlagsAttribute"/>.
             </exception>
         </member>
+        <member name="T:System.EnvironmentExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Environment"/>.
+            </summary>
+            <seealso cref="T:System.Environment"/>
+        </member>
+        <member name="T:System.EnvironmentExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Environment"/>.
+            </summary>
+        </member>
+        <member name="P:System.EnvironmentExtensions..DesktopPath">
+            <summary>
+            Indicates the desktop path.
+            </summary>
+        </member>
         <member name="T:System.ExceptionExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Exception"/> and its derived types.
