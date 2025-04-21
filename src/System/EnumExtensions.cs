@@ -78,5 +78,39 @@ public static class EnumExtensions
 		/// </exception>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public EnumFlagsEnumerator<T> GetEnumerator() => new(@this);
+
+
+		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char})"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryParse(ReadOnlySpan<char> value, out T result) => Enum.TryParse(value, out result);
+
+		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char}, bool)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryParse(ReadOnlySpan<char> value, bool ignoreCase, out T result)
+			=> Enum.TryParse(value, ignoreCase, out result);
+
+		/// <inheritdoc cref="Enum.Parse{TEnum}(string)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryParse(string? value, out T result) => Enum.TryParse(value, out result);
+
+		/// <inheritdoc cref="Enum.Parse{TEnum}(string, bool)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryParse(string? value, bool ignoreCase, out T result) => Enum.TryParse(value, ignoreCase, out result);
+
+		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char})"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static T Parse(ReadOnlySpan<char> value) => Enum.Parse<T>(value);
+
+		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char}, bool)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static T Parse(ReadOnlySpan<char> value, bool ignoreCase) => Enum.Parse<T>(value, ignoreCase);
+
+		/// <inheritdoc cref="Enum.Parse{TEnum}(string)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static T Parse(string value) => Enum.Parse<T>(value);
+
+		/// <inheritdoc cref="Enum.Parse{TEnum}(string, bool)"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static T Parse(string value, bool ignoreCase) => Enum.Parse<T>(value, ignoreCase);
 	}
 }

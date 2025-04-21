@@ -2091,6 +2091,30 @@
             Throws when the type isn't applied the attribute <see cref="T:System.FlagsAttribute"/>.
             </exception>
         </member>
+        <member name="M:System.EnumExtensions.`1.TryParse(System.ReadOnlySpan{System.Char},`0@)">
+            <inheritdoc cref="M:System.Enum.Parse``1(System.ReadOnlySpan{System.Char})"/>
+        </member>
+        <member name="M:System.EnumExtensions.`1.TryParse(System.ReadOnlySpan{System.Char},System.Boolean,`0@)">
+            <inheritdoc cref="M:System.Enum.Parse``1(System.ReadOnlySpan{System.Char},System.Boolean)"/>
+        </member>
+        <member name="M:System.EnumExtensions.`1.TryParse(System.String,`0@)">
+            <inheritdoc cref="M:System.Enum.Parse``1(System.String)"/>
+        </member>
+        <member name="M:System.EnumExtensions.`1.TryParse(System.String,System.Boolean,`0@)">
+            <inheritdoc cref="M:System.Enum.Parse``1(System.String,System.Boolean)"/>
+        </member>
+        <member name="M:System.EnumExtensions.`1.Parse(System.ReadOnlySpan{System.Char})">
+            <inheritdoc cref="M:System.Enum.Parse``1(System.ReadOnlySpan{System.Char})"/>
+        </member>
+        <member name="M:System.EnumExtensions.`1.Parse(System.ReadOnlySpan{System.Char},System.Boolean)">
+            <inheritdoc cref="M:System.Enum.Parse``1(System.ReadOnlySpan{System.Char},System.Boolean)"/>
+        </member>
+        <member name="M:System.EnumExtensions.`1.Parse(System.String)">
+            <inheritdoc cref="M:System.Enum.Parse``1(System.String)"/>
+        </member>
+        <member name="M:System.EnumExtensions.`1.Parse(System.String,System.Boolean)">
+            <inheritdoc cref="M:System.Enum.Parse``1(System.String,System.Boolean)"/>
+        </member>
         <member name="T:System.EnvironmentExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Environment"/>.
