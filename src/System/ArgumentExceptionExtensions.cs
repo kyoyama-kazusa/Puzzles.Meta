@@ -1,10 +1,10 @@
 namespace System;
 
 /// <summary>
-/// Provides with extension methods on <see cref="Exception"/> and its derived types.
+/// Provides with extension methods on <see cref="ArgumentException"/> and its derived types.
 /// </summary>
-/// <seealso cref="Exception"/>
-public static class ExceptionExtensions
+/// <seealso cref="ArgumentException"/>
+public static class ArgumentExceptionExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="ArgumentException"/>.

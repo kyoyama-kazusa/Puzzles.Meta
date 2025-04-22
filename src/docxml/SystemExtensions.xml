@@ -4,6 +4,40 @@
         <name>SystemExtensions</name>
     </assembly>
     <members>
+        <member name="T:System.ArgumentExceptionExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.ArgumentException"/> and its derived types.
+            </summary>
+            <seealso cref="T:System.ArgumentException"/>
+        </member>
+        <member name="T:System.ArgumentExceptionExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.ArgumentException"/>.
+            </summary>
+        </member>
+        <member name="M:System.ArgumentExceptionExtensions..ThrowIfAssertionFailed(System.Boolean,System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentException"/> instance if the specified assertion is failed.
+            </summary>
+            <param name="expression">The expression.</param>
+            <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
+        </member>
+        <member name="T:System.ArgumentExceptionExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+        </member>
+        <member name="M:System.ArgumentExceptionExtensions..ThrowIfOutOfRange``1(``0@,``0,``0,System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentOutOfRangeException"/> if the target instance is below <paramref name="min"/>,
+            or above or equals to <paramref name="max"/>.
+            </summary>
+            <typeparam name="T">The type of instance.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="min">The minimal limit.</param>
+            <param name="max">The maximal limit.</param>
+            <param name="variableName">The name of variable.</param>
+        </member>
         <member name="T:System.ArrayExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Array"/>, especially for one-dimensional array.
@@ -2131,40 +2165,6 @@
             Indicates the desktop path.
             </summary>
         </member>
-        <member name="T:System.ExceptionExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.Exception"/> and its derived types.
-            </summary>
-            <seealso cref="T:System.Exception"/>
-        </member>
-        <member name="T:System.ExceptionExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.ArgumentException"/>.
-            </summary>
-        </member>
-        <member name="M:System.ExceptionExtensions..ThrowIfAssertionFailed(System.Boolean,System.String)">
-            <summary>
-            Throws an <see cref="T:System.ArgumentException"/> instance if the specified assertion is failed.
-            </summary>
-            <param name="expression">The expression.</param>
-            <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
-        </member>
-        <member name="T:System.ExceptionExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.ArgumentOutOfRangeException"/>.
-            </summary>
-        </member>
-        <member name="M:System.ExceptionExtensions..ThrowIfOutOfRange``1(``0@,``0,``0,System.String)">
-            <summary>
-            Throws an <see cref="T:System.ArgumentOutOfRangeException"/> if the target instance is below <paramref name="min"/>,
-            or above or equals to <paramref name="max"/>.
-            </summary>
-            <typeparam name="T">The type of instance.</typeparam>
-            <param name="instance">The instance.</param>
-            <param name="min">The minimal limit.</param>
-            <param name="max">The maximal limit.</param>
-            <param name="variableName">The name of variable.</param>
-        </member>
         <member name="T:System.FloatingPointExtensions">
             <summary>
             Provides with extension methods on instances implementing <see cref="T:System.Numerics.IFloatingPoint`1"/>.
@@ -2400,6 +2400,24 @@
 					the value-tuple syntax like <c>(a, b, c)</c> to define your own deconstruction logic.
 				</summary>
 			</target>
+        </member>
+        <member name="T:System.InvalidOperationExceptionExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.InvalidOperationException"/> and its derived types.
+            </summary>
+            <seealso cref="T:System.InvalidOperationException"/>
+        </member>
+        <member name="T:System.InvalidOperationExceptionExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+        </member>
+        <member name="M:System.InvalidOperationExceptionExtensions..ThrowIfAssertionFailed(System.Boolean,System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentException"/> instance if the specified assertion is failed.
+            </summary>
+            <param name="expression">The expression.</param>
+            <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
         </member>
         <member name="T:System.IO.FileExtensions">
             <summary>
