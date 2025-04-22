@@ -12,6 +12,12 @@ public static partial class StringExtensions
 	extension(string @this)
 	{
 		/// <summary>
+		/// Indicates the representation of type <see cref="ReadOnlySpan{T}"/> of <see cref="char"/>.
+		/// </summary>
+		public ReadOnlySpan<char> Span => @this.AsSpan();
+
+
+		/// <summary>
 		/// Removes all specified characters.
 		/// </summary>
 		/// <param name="character">The character to be removed from the base string.</param>
@@ -25,7 +31,7 @@ public static partial class StringExtensions
 		/// </summary>
 		/// <returns>An array of <see cref="string"/> elements.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public ReadOnlySpan<string> ExpandCharacters() => from c in @this.AsSpan() select c.ToString();
+		public ReadOnlySpan<string> ExpandCharacters() => from c in @this.Span select c.ToString();
 
 		/// <summary>
 		/// Cut the array to multiple part, making them are all of length <paramref name="length"/>.
@@ -37,7 +43,7 @@ public static partial class StringExtensions
 			var result = new string[@this.Length % length == 0 ? @this.Length / length : @this.Length / length + 1];
 			for (var i = 0; i < @this.Length / length; i++)
 			{
-				result[i] = @this.AsSpan().Slice(i * length, length).ToString();
+				result[i] = @this.Span.Slice(i * length, length).ToString();
 			}
 			return result;
 		}

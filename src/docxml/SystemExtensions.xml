@@ -7574,6 +7574,11 @@
             Provides extension members on <see cref="T:System.String"/>.
             </summary>
         </member>
+        <member name="P:System.StringExtensions..Span">
+            <summary>
+            Indicates the representation of type <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Char"/>.
+            </summary>
+        </member>
         <member name="M:System.StringExtensions..RemoveAll(System.Char)">
             <summary>
             Removes all specified characters.

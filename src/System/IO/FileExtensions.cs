@@ -23,6 +23,6 @@ public static class FileExtensions
 		/// <param name="fileName">The file name to be checked.</param>
 		/// <returns>A <see cref="bool"/> result indicating that.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool IsValidFileName(string fileName) => !fileName.AsSpan().ContainsAny(InvalidCharacters);
+		public static bool IsValidFileName(string fileName) => !fileName.Span.ContainsAny(InvalidCharacters);
 	}
 }
