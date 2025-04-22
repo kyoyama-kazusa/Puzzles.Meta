@@ -11,20 +11,7 @@ namespace System.Numerics;
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
 public ref partial struct BitCombinationEnumerator<TInteger>(int bitCount, int oneCount) : IEnumerator<TInteger>
-#if NUMERIC_GENERIC_TYPE
 	where TInteger : IBinaryInteger<TInteger>
-#else
-	where TInteger :
-		IAdditionOperators<TInteger, TInteger, TInteger>,
-		IAdditiveIdentity<TInteger, TInteger>,
-		IBitwiseOperators<TInteger, TInteger, TInteger>,
-		IDivisionOperators<TInteger, TInteger, TInteger>,
-		IEqualityOperators<TInteger, TInteger, bool>,
-		IMultiplicativeIdentity<TInteger, TInteger>,
-		IUnaryNegationOperators<TInteger, TInteger>,
-		IShiftOperators<TInteger, int, TInteger>,
-		ISubtractionOperators<TInteger, TInteger, TInteger>
-#endif
 {
 	/// <summary>
 	/// The mask.

@@ -11,24 +11,10 @@ namespace System.Numerics;
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
 public ref partial struct GenericIntegerEnumerator<TInteger>(TInteger _value, int _bitsCount) : IBitEnumerator
-#if NUMERIC_GENERIC_TYPE
 	where TInteger : IBitwiseOperators<TInteger, TInteger, TInteger>, IBinaryInteger<TInteger>, IShiftOperators<TInteger, int, TInteger>
-#else
-	where TInteger :
-		IAdditiveIdentity<TInteger, TInteger>,
-		IBitwiseOperators<TInteger, TInteger, TInteger>,
-		IEqualityOperators<TInteger, TInteger, bool>,
-		IMultiplicativeIdentity<TInteger, TInteger>,
-		IShiftOperators<TInteger, int, TInteger>
-#endif
 {
 	/// <inheritdoc/>
-	public readonly int PopulationCount
-#if NUMERIC_GENERIC_TYPE
-		=> TInteger.PopCount(_value);
-#else
-		=> Bits.Length;
-#endif
+	public readonly int PopulationCount => int.CreateChecked(TInteger.PopCount(_value));
 
 	/// <inheritdoc/>
 	public readonly ReadOnlySpan<int> Bits
@@ -61,13 +47,7 @@ public ref partial struct GenericIntegerEnumerator<TInteger>(TInteger _value, in
 	{
 		while (++Current < _bitsCount)
 		{
-			if (
-#if NUMERIC_GENERIC_TYPE
-				(_value >> Current & TInteger.One) != TInteger.Zero
-#else
-				(_value >> Current & TInteger.MultiplicativeIdentity) != TInteger.AdditiveIdentity
-#endif
-			)
+			if ((_value >> Current & TInteger.One) != TInteger.Zero)
 			{
 				return true;
 			}

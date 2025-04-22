@@ -16,19 +16,6 @@ public static class Bits
 	/// <returns>A <see cref="BitCombinationGenerator{T}"/> instance.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitCombinationGenerator<TInteger> EnumerateOf<TInteger>(int bitCount, int oneCount)
-#if NUMERIC_GENERIC_TYPE
 		where TInteger : IBinaryInteger<TInteger>
-#else
-		where TInteger :
-			IAdditionOperators<TInteger, TInteger, TInteger>,
-			IAdditiveIdentity<TInteger, TInteger>,
-			IBitwiseOperators<TInteger, TInteger, TInteger>,
-			IDivisionOperators<TInteger, TInteger, TInteger>,
-			IEqualityOperators<TInteger, TInteger, bool>,
-			IMultiplicativeIdentity<TInteger, TInteger>,
-			IUnaryNegationOperators<TInteger, TInteger>,
-			IShiftOperators<TInteger, int, TInteger>,
-			ISubtractionOperators<TInteger, TInteger, TInteger>
-#endif
 		=> new(bitCount, oneCount);
 }

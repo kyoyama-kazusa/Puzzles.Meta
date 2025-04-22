@@ -9,20 +9,7 @@ namespace System.Numerics;
 [DebuggerStepThrough]
 [TypeImpl(TypeImplFlags.AllObjectMethods)]
 public readonly ref partial struct BitCombinationGenerator<TInteger>([Field] int bitCount, [Field] int oneCount)
-#if NUMERIC_GENERIC_TYPE
 	where TInteger : IBinaryInteger<TInteger>
-#else
-	where TInteger :
-		IAdditionOperators<TInteger, TInteger, TInteger>,
-		IAdditiveIdentity<TInteger, TInteger>,
-		IBitwiseOperators<TInteger, TInteger, TInteger>,
-		IDivisionOperators<TInteger, TInteger, TInteger>,
-		IEqualityOperators<TInteger, TInteger, bool>,
-		IMultiplicativeIdentity<TInteger, TInteger>,
-		IUnaryNegationOperators<TInteger, TInteger>,
-		IShiftOperators<TInteger, int, TInteger>,
-		ISubtractionOperators<TInteger, TInteger, TInteger>
-#endif
 {
 	/// <summary>
 	/// Gets the enumerator of the current instance in order to use <see langword="foreach"/> loop.

@@ -793,16 +793,7 @@ public static partial class BitOperationsExtensions
 	/// where <typeparamref name="TNumber"/> satisfies multiple constraints.
 	/// </summary>
 	extension<TNumber>(TNumber @this)
-#if NUMERIC_GENERIC_TYPE
 		where TNumber : IBitwiseOperators<TNumber, TNumber, TNumber>, INumber<TNumber>, IShiftOperators<TNumber, int, TNumber>
-#else
-		where TNumber :
-			IAdditiveIdentity<TNumber, TNumber>,
-			IBitwiseOperators<TNumber, TNumber, TNumber>,
-			IEqualityOperators<TNumber, TNumber, bool>,
-			IMultiplicativeIdentity<TNumber, TNumber>,
-			IShiftOperators<TNumber, int, TNumber>
-#endif
 	{
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(1)]
@@ -851,16 +842,7 @@ public static partial class BitOperationsExtensions
 	/// where <typeparamref name="TInteger"/> satisfies <see cref="IBinaryInteger{TSelf}"/> constraint.
 	/// </summary>
 	extension<TInteger>(TInteger @this)
-#if NUMERIC_GENERIC_TYPE
 		where TInteger : IBitwiseOperators<TInteger, TInteger, TInteger>, IBinaryInteger<TInteger>, IShiftOperators<TInteger, int, TInteger>
-#else
-		where TInteger :
-			IAdditiveIdentity<TInteger, TInteger>,
-			IBitwiseOperators<TInteger, TInteger, TInteger>,
-			IEqualityOperators<TInteger, TInteger, bool>,
-			IMultiplicativeIdentity<TInteger, TInteger>,
-			IShiftOperators<TInteger, int, TInteger>
-#endif
 	{
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
