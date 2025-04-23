@@ -282,6 +282,12 @@
             Indicates the down-right cell.
             </summary>
         </member>
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.System#Numerics#IMinMaxValue{Puzzles#Meta#Concepts#Coordinate}#MinValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Puzzles.Meta.Concepts.Coordinate.System#Numerics#IMinMaxValue{Puzzles#Meta#Concepts#Coordinate}#MaxValue">
+            <inheritdoc/>
+        </member>
         <member name="M:Puzzles.Meta.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
             <target name="method" cref="M:Puzzles.Meta.Concepts.Coordinate.PrintMembers(System.Text.StringBuilder)">
 				<summary>

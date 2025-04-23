@@ -10,6 +10,7 @@ public readonly partial record struct Coordinate(int X, int Y) :
 	IComparable<Coordinate>,
 	IComparisonOperators<Coordinate, Coordinate, bool>,
 	IEqualityOperators<Coordinate, Coordinate, bool>,
+	IMinMaxValue<Coordinate>,
 	ISubtractionOperators<Coordinate, Coordinate, Direction>
 {
 	/// <summary>
@@ -51,6 +52,13 @@ public readonly partial record struct Coordinate(int X, int Y) :
 	/// Indicates the down-right cell.
 	/// </summary>
 	public Coordinate DownRight => new(X + 1, Y + 1);
+
+
+	/// <inheritdoc/>
+	static Coordinate IMinMaxValue<Coordinate>.MinValue => new(int.MinValue, int.MinValue);
+
+	/// <inheritdoc/>
+	static Coordinate IMinMaxValue<Coordinate>.MaxValue => new(int.MaxValue, int.MaxValue);
 
 
 	/// <include
