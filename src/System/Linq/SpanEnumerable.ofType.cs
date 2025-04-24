@@ -16,6 +16,6 @@ public partial class SpanEnumerable
 				result[i++] = derived;
 			}
 		}
-		return result;
+		return result.AsReadOnlySpan()[..i];
 	}
 }
