@@ -12,6 +12,16 @@ public static partial class StringExtensions
 	extension(string @this)
 	{
 		/// <summary>
+		/// Indicates the upper-casing of the current string.
+		/// </summary>
+		public string UpperCasing => @this.ToUpper();
+
+		/// <summary>
+		/// Indicates the lower-casing of the current string.
+		/// </summary>
+		public string LowerCasing => @this.ToLower();
+
+		/// <summary>
 		/// Indicates the representation of type <see cref="ReadOnlySpan{T}"/> of <see cref="char"/>.
 		/// </summary>
 		public ReadOnlySpan<char> Span => @this.AsSpan();

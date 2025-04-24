@@ -223,6 +223,27 @@
             The generated field declaration for parameter <c>value</c>.
             </summary>
         </member>
+        <member name="T:System.CharExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Char"/>.
+            </summary>
+            <seealso cref="T:System.Char"/>
+        </member>
+        <member name="T:System.CharExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Char"/>.
+            </summary>
+        </member>
+        <member name="P:System.CharExtensions..UpperCasing">
+            <summary>
+            Indicates the upper-casing of the current character.
+            </summary>
+        </member>
+        <member name="P:System.CharExtensions..LowerCasing">
+            <summary>
+            Indicates the lower-casing of the current character.
+            </summary>
+        </member>
         <member name="T:System.Collections.BitArrayConverter">
             <summary>
             Provides with a converter that can convert the object <see cref="T:System.Collections.BitArray"/> into an array of commonly-used binary integer types.
@@ -7590,6 +7611,16 @@
         <member name="T:System.StringExtensions.">
             <summary>
             Provides extension members on <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:System.StringExtensions..UpperCasing">
+            <summary>
+            Indicates the upper-casing of the current string.
+            </summary>
+        </member>
+        <member name="P:System.StringExtensions..LowerCasing">
+            <summary>
+            Indicates the lower-casing of the current string.
             </summary>
         </member>
         <member name="P:System.StringExtensions..Span">
