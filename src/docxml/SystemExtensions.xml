@@ -1380,6 +1380,30 @@
             Provides extension members on <see cref="T:System.Console"/>.
             </summary>
         </member>
+        <member name="M:System.ConsoleExtensions..Write``1(``0)">
+            <inheritdoc cref="M:System.Console.WriteLine(System.Object)"/>
+        </member>
+        <member name="M:System.ConsoleExtensions..Write``1(``0,System.Byte,System.Byte,System.Byte)">
+            <inheritdoc cref="M:System.Console.WriteLine(System.Object)"/>
+        </member>
+        <member name="M:System.ConsoleExtensions..Write``1(``0,System.String,System.IFormatProvider)">
+            <inheritdoc cref="M:System.Console.WriteLine(System.Object)"/>
+        </member>
+        <member name="M:System.ConsoleExtensions..Write``1(``0,System.String,System.IFormatProvider,System.Byte,System.Byte,System.Byte)">
+            <inheritdoc cref="M:System.Console.WriteLine(System.Object)"/>
+        </member>
+        <member name="M:System.ConsoleExtensions..WriteLine``1(``0)">
+            <inheritdoc cref="M:System.Console.WriteLine(System.Object)"/>
+        </member>
+        <member name="M:System.ConsoleExtensions..WriteLine``1(``0,System.Byte,System.Byte,System.Byte)">
+            <inheritdoc cref="M:System.Console.WriteLine(System.Object)"/>
+        </member>
+        <member name="M:System.ConsoleExtensions..WriteLine``1(``0,System.String,System.IFormatProvider)">
+            <inheritdoc cref="M:System.Console.WriteLine(System.Object)"/>
+        </member>
+        <member name="M:System.ConsoleExtensions..WriteLine``1(``0,System.String,System.IFormatProvider,System.Byte,System.Byte,System.Byte)">
+            <inheritdoc cref="M:System.Console.WriteLine(System.Object)"/>
+        </member>
         <member name="M:System.ConsoleExtensions..PlayAsync(System.TimeSpan,System.String[])">
             <summary>
             Show contents one by one, by clearing the screen and displaying the contents, with the specified time span as delay.
