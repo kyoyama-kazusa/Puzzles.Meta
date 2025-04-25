@@ -1369,6 +1369,24 @@
         <member name="M:System.Collections.ObjectModel.CollectionExtensions.`1.RemoveAt(System.Index)">
             <inheritdoc cref="M:System.Collections.ObjectModel.Collection`1.RemoveAt(System.Int32)"/>
         </member>
+        <member name="T:System.ConsoleExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Console"/>.
+            </summary>
+            <seealso cref="T:System.Console"/>
+        </member>
+        <member name="T:System.ConsoleExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Console"/>.
+            </summary>
+        </member>
+        <member name="M:System.ConsoleExtensions..PlayAsync(System.TimeSpan,System.String[])">
+            <summary>
+            Show contents one by one, by clearing the screen and displaying the contents, with the specified time span as delay.
+            </summary>
+            <param name="delay">The delay.</param>
+            <param name="contents">The contents.</param>
+        </member>
         <member name="T:System.delegate">
             <summary>
             Represents a set of method groups that can be used as delegate-typed arguments, in easy ways.
