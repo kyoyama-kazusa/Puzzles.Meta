@@ -6413,6 +6413,16 @@
         <member name="P:System.Numerics.BitOperationsExtensions.`1.AllSets">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)"/>
         </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.`1.EnumerateOf(System.Int32,System.Int32)">
+            <summary>
+            Creates a <see cref="T:System.Numerics.BitCombinationGenerator`1"/> instance that can generate a list of <see cref="T:System.Int64"/>
+            values that are all possibilities of combinations of integer values containing specified number of bits,
+            and the specified number of bits set 1.
+            </summary>
+            <param name="bitCount">Indicates how many bits should be enumerated.</param>
+            <param name="oneCount">Indicates how many bits set one contained in the value.</param>
+            <returns>A <see cref="T:System.Numerics.BitCombinationGenerator`1"/> instance.</returns>
+        </member>
         <member name="T:System.Numerics.BitOperationsExtensions.`1">
             <summary>
             Provides extension members on <typeparamref name="TInteger"/>,
@@ -6507,22 +6517,6 @@
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..Log2(System.IntPtr)">
             <inheritdoc cref="M:System.Numerics.BitOperations.Log2(System.UIntPtr)"/>
-        </member>
-        <member name="T:System.Numerics.Bits">
-            <summary>
-            Represents a list of methods that operates with bits.
-            </summary>
-        </member>
-        <member name="M:System.Numerics.Bits.EnumerateOf``1(System.Int32,System.Int32)">
-            <summary>
-            Creates a <see cref="T:System.Numerics.BitCombinationGenerator`1"/> instance that can generate a list of <see cref="T:System.Int64"/>
-            values that are all possibilities of combinations of integer values containing specified number of bits,
-            and the specified number of bits set 1.
-            </summary>
-            <typeparam name="TInteger">The type of target integer value.</typeparam>
-            <param name="bitCount">Indicates how many bits should be enumerated.</param>
-            <param name="oneCount">Indicates how many bits set one contained in the value.</param>
-            <returns>A <see cref="T:System.Numerics.BitCombinationGenerator`1"/> instance.</returns>
         </member>
         <member name="T:System.Numerics.Combinatorics">
             <summary>
