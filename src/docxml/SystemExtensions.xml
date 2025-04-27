@@ -7154,6 +7154,24 @@
             <param name="this">The custom attribute provider.</param>
             <returns>The attributes.</returns>
         </member>
+        <member name="T:System.Reflection.EnumFieldExtensions">
+            <summary>
+            Provides with extension methods on fields on enumeration types.
+            </summary>
+        </member>
+        <member name="T:System.Reflection.EnumFieldExtensions.`1">
+            <summary>
+            Provides extension members on <typeparamref name="TEnum"/>,
+            where <typeparamref name="TEnum"/> satisfies <see cref="T:System.Enum"/> constraint.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.EnumFieldExtensions.`1.FieldInfoOf(`0)">
+            <summary>
+            Returns the field information of the specified field.
+            </summary>
+            <param name="field">The field.</param>
+            <returns>The <see cref="T:System.Reflection.FieldInfo"/> instance.</returns>
+        </member>
         <member name="T:System.Reflection.MemberInfoExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Reflection.MemberInfo"/> instances.
