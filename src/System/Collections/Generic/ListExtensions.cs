@@ -175,6 +175,19 @@ public static class ListExtensions
 			return result;
 		}
 	}
+
+	/// <summary>
+	/// Provides extension members on <see cref="List{T}"/>,
+	/// where <typeparamref name="T"/> satisfies <see cref="ICloneable"/> constraint.
+	/// </summary>
+	extension<T>(List<T> @this) where T : ICloneable
+	{
+		/// <summary>
+		/// Clones the whole collection, with each element being called <see cref="ICloneable.Clone"/>.
+		/// </summary>
+		/// <returns>A new collection.</returns>
+		public List<T> Clone() => [.. from element in @this select (T)element.Clone()];
+	}
 }
 
 /// <summary>

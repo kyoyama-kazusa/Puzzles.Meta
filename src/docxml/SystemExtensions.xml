@@ -1111,6 +1111,18 @@
         <member name="M:System.Collections.Generic.ListExtensions.`1.Sum">
             <inheritdoc cref="M:System.Linq.Enumerable.Sum(System.Collections.Generic.IEnumerable{System.Int32})"/>
         </member>
+        <member name="T:System.Collections.Generic.ListExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.List`1"/>,
+            where <typeparamref name="T"/> satisfies <see cref="T:System.ICloneable"/> constraint.
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.ListExtensions.`1.Clone">
+            <summary>
+            Clones the whole collection, with each element being called <see cref="M:System.ICloneable.Clone"/>.
+            </summary>
+            <returns>A new collection.</returns>
+        </member>
         <member name="T:System.Collections.Generic.Entry`1">
             <summary>
             Represents an entry to call internal fields on <see cref="T:System.Collections.Generic.List`1"/>.
