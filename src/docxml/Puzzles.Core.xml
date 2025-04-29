@@ -394,6 +394,14 @@
             <param name="grid">The grid.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
+        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions..IsOnBorder``1(``0)">
+            <summary>
+            Determine whether the coordinate is on the border rows or columns of the board.
+            </summary>
+            <typeparam name="TBoard">The type of the board.</typeparam>
+            <param name="grid">The grid.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
         <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions..ToIndex``1(``0)">
             <summary>
             Converts the current coordinate into an absolute index.
@@ -461,6 +469,11 @@
         <member name="T:Puzzles.Meta.Concepts.DirectionExtensions.">
             <summary>
             Provides extension members on <see cref="T:Puzzles.Meta.Concepts.Direction"/>.
+            </summary>
+        </member>
+        <member name="P:Puzzles.Meta.Concepts.DirectionExtensions..ReversedDirection">
+            <summary>
+            Indicates the reversed direction.
             </summary>
         </member>
         <member name="M:Puzzles.Meta.Concepts.DirectionExtensions..GetArrow">
