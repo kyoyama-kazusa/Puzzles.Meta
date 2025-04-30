@@ -1211,6 +1211,28 @@
 				</target>
             </remarks>
         </member>
+        <member name="T:System.Collections.Generic.SortedDictionaryExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Collections.Generic.SortedDictionary`2"/>.
+            </summary>
+            <seealso cref="T:System.Collections.Generic.SortedDictionary`2"/>
+        </member>
+        <member name="T:System.Collections.Generic.SortedDictionaryExtensions.`2">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.SortedDictionary`2"/>,
+            where <typeparamref name="TKey"/> satisfies <see langword="notnull"/> constraint.
+            </summary>
+        </member>
+        <member name="P:System.Collections.Generic.SortedDictionaryExtensions.`2.MinKey">
+            <summary>
+            Indicates the minimal key of the collection.
+            </summary>
+        </member>
+        <member name="P:System.Collections.Generic.SortedDictionaryExtensions.`2.MaxKey">
+            <summary>
+            Indicates the maximal key of the collection.
+            </summary>
+        </member>
         <member name="T:System.Collections.Generic.SortedSetExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Collections.Generic.SortedSet`1"/>.
