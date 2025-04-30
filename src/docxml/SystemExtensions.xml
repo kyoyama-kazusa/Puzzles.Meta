@@ -22,12 +22,18 @@
             <param name="expression">The expression.</param>
             <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
         </member>
-        <member name="T:System.ArgumentExceptionExtensions.">
+        <member name="T:System.ArgumentOutOfRangeExceptionExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+            <seealso cref="T:System.ArgumentOutOfRangeException"/>
+        </member>
+        <member name="T:System.ArgumentOutOfRangeExceptionExtensions.">
             <summary>
             Provides extension members on <see cref="T:System.ArgumentOutOfRangeException"/>.
             </summary>
         </member>
-        <member name="M:System.ArgumentExceptionExtensions..ThrowIfOutOfRange``1(``0@,``0,``0,System.String)">
+        <member name="M:System.ArgumentOutOfRangeExceptionExtensions..ThrowIfOutOfRange``1(``0@,``0,``0,System.String)">
             <summary>
             Throws an <see cref="T:System.ArgumentOutOfRangeException"/> if the target instance is below <paramref name="min"/>,
             or above or equals to <paramref name="max"/>.
