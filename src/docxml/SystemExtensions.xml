@@ -6950,6 +6950,27 @@
             <param name="sigma">Sigma σ value.</param>
             <returns>The result value.</returns>
         </member>
+        <member name="M:System.RandomExtensions..Choose``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Try to get one element from the collection.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="values">The values.</param>
+            <returns>The chosen element.</returns>
+            <exception cref="T:System.InvalidOperationException">Throws when the specified collection is empty.</exception>
+        </member>
+        <member name="M:System.RandomExtensions..Choose``1(System.ReadOnlySpan{``0},System.Int32)">
+            <summary>
+            Try to get a list of elements from the collection.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="values">The values.</param>
+            <param name="count">The desired number of elements to get.</param>
+            <returns>The chosen elements.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Throws when the specified collection doesn't contain enough elements to get.
+            </exception>
+        </member>
         <member name="T:System.ReadOnlyMemoryExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.ReadOnlyMemory`1"/>.
