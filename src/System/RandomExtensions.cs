@@ -28,16 +28,17 @@ public static class RandomExtensions
 		}
 
 		/// <summary>
-		/// Try to get one element from the collection.
+		/// Randomly select one element from the collection.
 		/// </summary>
 		/// <typeparam name="T">The type of each element.</typeparam>
 		/// <param name="values">The values.</param>
 		/// <returns>The chosen element.</returns>
 		/// <exception cref="InvalidOperationException">Throws when the specified collection is empty.</exception>
-		public T Choose<T>(ReadOnlySpan<T> values) => @this.Choose(values, 1)[0];
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public T Choose<T>(ReadOnlySpan<T> values) => values[@this.Next(0, values.Length)];
 
 		/// <summary>
-		/// Try to get a list of elements from the collection.
+		/// Randomly select a sequence of elements from the collection.
 		/// </summary>
 		/// <typeparam name="T">The type of each element.</typeparam>
 		/// <param name="values">The values.</param>

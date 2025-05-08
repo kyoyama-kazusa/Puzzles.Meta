@@ -6952,7 +6952,7 @@
         </member>
         <member name="M:System.RandomExtensions..Choose``1(System.ReadOnlySpan{``0})">
             <summary>
-            Try to get one element from the collection.
+            Randomly select one element from the collection.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
             <param name="values">The values.</param>
@@ -6961,7 +6961,7 @@
         </member>
         <member name="M:System.RandomExtensions..Choose``1(System.ReadOnlySpan{``0},System.Int32)">
             <summary>
-            Try to get a list of elements from the collection.
+            Randomly select a sequence of elements from the collection.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
             <param name="values">The values.</param>
