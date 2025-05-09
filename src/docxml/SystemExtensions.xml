@@ -7800,6 +7800,103 @@
         <member name="M:System.Threading.Tasks.TimeSpanAwaiter.OnCompleted(System.Action)">
             <inheritdoc cref="M:System.Runtime.CompilerServices.TaskAwaiter.OnCompleted(System.Action)"/>
         </member>
+        <member name="T:System.TimeSpanLiterals">
+            <summary>
+            Represents extension members that implicitly converts the value into a <see cref="T:System.TimeSpan"/> object
+            by using fluent way.
+            </summary>
+            <seealso cref="T:System.TimeSpan"/>
+        </member>
+        <member name="T:System.TimeSpanLiterals.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..ms">
+            <summary>
+            (<see cref="T:System.Int32"/> -> <see cref="T:System.TimeSpan"/>) in milliseconds.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..s">
+            <summary>
+            (<see cref="T:System.Int32"/> -> <see cref="T:System.TimeSpan"/>) in seconds.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..min">
+            <summary>
+            (<see cref="T:System.Int32"/> -> <see cref="T:System.TimeSpan"/>) in minutes.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..h">
+            <summary>
+            (<see cref="T:System.Int32"/> -> <see cref="T:System.TimeSpan"/>) in hours.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..d">
+            <summary>
+            (<see cref="T:System.Int32"/> -> <see cref="T:System.TimeSpan"/>) in days.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..week">
+            <summary>
+            (<see cref="T:System.Int32"/> -> <see cref="T:System.TimeSpan"/>) in weeks.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..month">
+            <summary>
+            (<see cref="T:System.Int32"/> -> <see cref="T:System.TimeSpan"/>) in months.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..year">
+            <summary>
+            (<see cref="T:System.Int32"/> -> <see cref="T:System.TimeSpan"/>) in years.
+            </summary>
+        </member>
+        <member name="T:System.TimeSpanLiterals.">
+            <summary>
+            Provides extension members on <see cref="T:System.Double"/>.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..ms">
+            <summary>
+            (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in milliseconds.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..s">
+            <summary>
+            (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in seconds.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..min">
+            <summary>
+            (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in minutes.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..h">
+            <summary>
+            (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in hours.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..d">
+            <summary>
+            (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in days.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..week">
+            <summary>
+            (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in weeks.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..month">
+            <summary>
+            (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in months.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..year">
+            <summary>
+            (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in years.
+            </summary>
+        </member>
         <member name="T:System.ValueTupleExtensions">
             <summary>
             Represents with extension methods for value tuple type set.
