@@ -6668,6 +6668,23 @@
             <param name="n">The value.</param>
             <returns>The result.</returns>
         </member>
+        <member name="T:System.Numerics.FallbackConstants">
+            <summary>
+            Provides with fallback constants that will be used for checking target values,
+            e.g. method <see cref="M:System.Numerics.BitOperations.TrailingZeroCount(System.Int32)"/>.
+            </summary>
+            <seealso cref="M:System.Numerics.BitOperations.TrailingZeroCount(System.Int32)"/>
+        </member>
+        <member name="F:System.Numerics.FallbackConstants.int">
+            <summary>
+            Indicates the fallback value is for <see cref="T:System.Int32"/> and <see cref="T:System.UInt32"/> type.
+            </summary>
+        </member>
+        <member name="F:System.Numerics.FallbackConstants.long">
+            <summary>
+            Indicates the fallback value is for <see cref="T:System.Int64"/> and <see cref="T:System.UInt64"/> type.
+            </summary>
+        </member>
         <member name="T:System.Numerics.GenericIntegerEnumerator`1">
             <summary>
             Defines an enumerator type that iterates on bits of an integer of generic type.
