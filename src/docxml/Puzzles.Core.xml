@@ -364,6 +364,25 @@
             Throws when the argument <paramref name="direction"/> is out of range.
             </exception>
         </member>
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_Addition(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
+            <summary>
+            Projects the base coordinate <paramref name="base"/> with the specified offset to the target coordinate,
+            by adding values to properties <see cref="P:Puzzles.Meta.Concepts.Coordinate.X"/> and <see cref="P:Puzzles.Meta.Concepts.Coordinate.Y"/> respectively.
+            </summary>
+            <param name="base">The base coordinate.</param>
+            <param name="offset">The offset to be used.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:Puzzles.Meta.Concepts.Coordinate.op_CheckedAddition(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
+            <summary>
+            Projects the base coordinate <paramref name="base"/> with the specified offset to the target coordinate,
+            by adding values to properties <see cref="P:Puzzles.Meta.Concepts.Coordinate.X"/> and <see cref="P:Puzzles.Meta.Concepts.Coordinate.Y"/> respectively.
+            </summary>
+            <param name="base">The base coordinate.</param>
+            <param name="offset">The offset to be used.</param>
+            <returns>The result.</returns>
+            <exception cref="T:System.OverflowException">Throws when overflows in adding operation.</exception>
+        </member>
         <member name="M:Puzzles.Meta.Concepts.Coordinate.op_GreaterThan(Puzzles.Meta.Concepts.Coordinate,Puzzles.Meta.Concepts.Coordinate)">
             <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThan(`0,`1)"/>
         </member>

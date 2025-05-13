@@ -7,6 +7,7 @@ namespace Puzzles.Meta.Concepts;
 /// <param name="Y">Indicates the column index.</param>
 [TypeImpl(TypeImplFlags.ComparisonOperators)]
 public readonly partial record struct Coordinate(int X, int Y) :
+	IAdditionOperators<Coordinate, Coordinate, Coordinate>,
 	IComparable<Coordinate>,
 	IComparisonOperators<Coordinate, Coordinate, bool>,
 	IEqualityOperators<Coordinate, Coordinate, bool>,
@@ -161,4 +162,26 @@ public readonly partial record struct Coordinate(int X, int Y) :
 	/// </exception>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Coordinate operator >>(Coordinate coordinate, Direction direction) => coordinate >> direction.GetArrow();
+
+	/// <summary>
+	/// Projects the base coordinate <paramref name="base"/> with the specified offset to the target coordinate,
+	/// by adding values to properties <see cref="X"/> and <see cref="Y"/> respectively.
+	/// </summary>
+	/// <param name="base">The base coordinate.</param>
+	/// <param name="offset">The offset to be used.</param>
+	/// <returns>The result.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Coordinate operator +(Coordinate @base, Coordinate offset) => new(@base.X + offset.X, @base.Y + offset.Y);
+
+	/// <summary>
+	/// Projects the base coordinate <paramref name="base"/> with the specified offset to the target coordinate,
+	/// by adding values to properties <see cref="X"/> and <see cref="Y"/> respectively.
+	/// </summary>
+	/// <param name="base">The base coordinate.</param>
+	/// <param name="offset">The offset to be used.</param>
+	/// <returns>The result.</returns>
+	/// <exception cref="OverflowException">Throws when overflows in adding operation.</exception>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Coordinate operator checked +(Coordinate @base, Coordinate offset)
+		=> new(checked(@base.X + offset.X), checked(@base.Y + offset.Y));
 }
