@@ -38,6 +38,43 @@ public static class RandomExtensions
 		public T Choose<T>(ReadOnlySpan<T> values) => values[@this.Next(0, values.Length)];
 
 		/// <summary>
+		/// Randomly select one element from the collection, with possibility specified by normalizer function.
+		/// </summary>
+		/// <typeparam name="T">The type of each element.</typeparam>
+		/// <typeparam name="TNumber">The type of value normalized.</typeparam>
+		/// <param name="values">The values.</param>
+		/// <param name="normalizer">The method that calculate the value (weight) of the object to be chosen.</param>
+		/// <returns>The chosen element.</returns>
+		/// <exception cref="InvalidOperationException">
+		/// Throws when the specified collection is empty, or normalizer produces a negative number.
+		/// </exception>
+		public T NormalizedChoose<T, TNumber>(ReadOnlySpan<T> values, Func<T, TNumber> normalizer)
+			where TNumber : INumber<TNumber>
+		{
+			InvalidOperationException.ThrowIfAssertionFailed(!values.IsEmpty);
+			InvalidOperationException.ThrowIfAssertionFailed(values.All(value => normalizer(value) >= TNumber.Zero));
+
+			var totalScore = values.Sum(normalizer);
+			var cumulative = new List<TNumber>();
+			var current = TNumber.Zero;
+			foreach (var value in values)
+			{
+				current += normalizer(value) / totalScore;
+				cumulative.Add(current);
+			}
+
+			var randomValue = TNumber.CreateChecked(@this.NextDouble());
+			for (var i = 0; i < cumulative.Count; i++)
+			{
+				if (randomValue < cumulative[i])
+				{
+					return values[i];
+				}
+			}
+			return values[^1];
+		}
+
+		/// <summary>
 		/// Randomly select a sequence of elements from the collection.
 		/// </summary>
 		/// <typeparam name="T">The type of each element.</typeparam>

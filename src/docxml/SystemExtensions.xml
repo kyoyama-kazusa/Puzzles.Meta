@@ -6595,6 +6595,7 @@
             ]]></code>
             3 cases.
             </returns>
+            <exception cref="T:System.ArgumentException">Throws when the argument is negative.</exception>
         </member>
         <member name="M:System.Numerics.Combinatorics.`1.GetPermutations">
             <summary>
@@ -6975,6 +6976,19 @@
             <param name="values">The values.</param>
             <returns>The chosen element.</returns>
             <exception cref="T:System.InvalidOperationException">Throws when the specified collection is empty.</exception>
+        </member>
+        <member name="M:System.RandomExtensions..NormalizedChoose``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <summary>
+            Randomly select one element from the collection, with possibility specified by normalizer function.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <typeparam name="TNumber">The type of value normalized.</typeparam>
+            <param name="values">The values.</param>
+            <param name="normalizer">The method that calculate the value (weight) of the object to be chosen.</param>
+            <returns>The chosen element.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Throws when the specified collection is empty, or normalizer produces a negative number.
+            </exception>
         </member>
         <member name="M:System.RandomExtensions..Choose``1(System.ReadOnlySpan{``0},System.Int32)">
             <summary>

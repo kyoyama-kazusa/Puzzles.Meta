@@ -79,8 +79,11 @@ public static class Combinatorics
 		/// ]]></code>
 		/// 3 cases.
 		/// </returns>
+		/// <exception cref="ArgumentException">Throws when the argument is negative.</exception>
 		public ReadOnlySpan<T[]> GetSubsets(int count)
 		{
+			ArgumentException.ThrowIfAssertionFailed(count >= 0);
+
 			if (count == 0)
 			{
 				return [];
