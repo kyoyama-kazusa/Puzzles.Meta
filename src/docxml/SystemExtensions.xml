@@ -2380,6 +2380,22 @@
              <param name="f">The recursion logic.</param>
              <returns>A function that creates a nesting lambda that is a recursive lambda.</returns>
         </member>
+        <member name="T:System.GenericExtensions">
+            <summary>
+            Provides with extension methods on generic type.
+            </summary>
+        </member>
+        <member name="T:System.GenericExtensions.`1">
+            <summary>
+            Provides extension members on <typeparamref name="T"/>,
+            where <typeparamref name="T"/> satisfies <see langword="struct"/> constraint.
+            </summary>
+        </member>
+        <member name="P:System.GenericExtensions.`1.nullref">
+            <summary>
+            Represents null reference of the type <typeparamref name="T"/>.
+            </summary>
+        </member>
         <member name="T:System.IInlineArray`2">
             <summary>
             Represents a type that supports members which are generated automatically if the type is inline array,
