@@ -28,26 +28,29 @@ public static class TupleExtensions
 		}
 	}
 
-
 	/// <summary>
-	/// Converts the <see cref="ITuple"/> instance into an array of objects.
+	/// Provides extension members on <typeparamref name="TTuple"/>,
+	/// where <typeparamref name="TTuple"/> satisfies <see cref="ITuple"/> constraint.
 	/// </summary>
-	/// <typeparam name="TTuple">The type of target tuple.</typeparam>
-	/// <param name="this">The instance.</param>
-	/// <returns>The array of elements.</returns>
-	public static object?[] ToArray<TTuple>(this TTuple @this) where TTuple : ITuple, allows ref struct
+	extension<TTuple>(TTuple @this) where TTuple : ITuple, allows ref struct
 	{
-		var result = new object?[@this.Length];
-		var i = 0;
-		foreach (var element in @this)
+		/// <summary>
+		/// Converts the <see cref="ITuple"/> instance into an array of objects.
+		/// </summary>
+		/// <returns>The array of elements.</returns>
+		public object?[] ToArray()
 		{
-			result[i++] = element;
+			var result = new object?[@this.Length];
+			var i = 0;
+			foreach (var element in @this)
+			{
+				result[i++] = element;
+			}
+			return result;
 		}
-		return result;
-	}
 
-	/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static TupleEnumerator<TTuple> GetEnumerator<TTuple>(this TTuple @this) where TTuple : ITuple?, allows ref struct
-		=> new(@this);
+		/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public TupleEnumerator<TTuple> GetEnumerator() => new(@this);
+	}
 }

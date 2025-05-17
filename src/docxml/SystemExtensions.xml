@@ -7753,15 +7753,19 @@
             <typeparam name="T">The unified type for all elements.</typeparam>
             <returns>A <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
         </member>
-        <member name="M:System.Runtime.CompilerServices.TupleExtensions.ToArray``1(``0)">
+        <member name="T:System.Runtime.CompilerServices.TupleExtensions.`1">
+            <summary>
+            Provides extension members on <typeparamref name="TTuple"/>,
+            where <typeparamref name="TTuple"/> satisfies <see cref="T:System.Runtime.CompilerServices.ITuple"/> constraint.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.TupleExtensions.`1.ToArray">
             <summary>
             Converts the <see cref="T:System.Runtime.CompilerServices.ITuple"/> instance into an array of objects.
             </summary>
-            <typeparam name="TTuple">The type of target tuple.</typeparam>
-            <param name="this">The instance.</param>
             <returns>The array of elements.</returns>
         </member>
-        <member name="M:System.Runtime.CompilerServices.TupleExtensions.GetEnumerator``1(``0)">
+        <member name="M:System.Runtime.CompilerServices.TupleExtensions.`1.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
         </member>
         <member name="T:System.StringExtensions">
