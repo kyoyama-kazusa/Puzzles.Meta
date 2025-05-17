@@ -7821,34 +7821,38 @@
             </summary>
             <seealso cref="T:System.TimeSpan"/>
         </member>
-        <member name="M:System.Threading.Tasks.TimeSpanAwaitable.GetAwaiter(System.TimeSpan)">
+        <member name="T:System.Threading.Tasks.TimeSpanAwaitable.">
             <summary>
-            Creates a <see cref="T:System.Threading.Tasks.TimeSpanAwaiter"/> instance used for <see langword="await"/> expressions.
+            Provides extension members on <see cref="T:System.TimeSpan"/>.
             </summary>
-            <param name="this">The time span.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.TimeSpanAwaiter"/> instance.</returns>
         </member>
-        <member name="T:System.Threading.Tasks.TimeSpanAwaiter">
+        <member name="M:System.Threading.Tasks.TimeSpanAwaitable..GetAwaiter">
             <summary>
-            Represents an awaiter for <see cref="T:System.TimeSpan"/> instance.
+            Creates a <see cref="T:System.Threading.Tasks.TimeSpanAwaitable.Awaiter"/> instance used for <see langword="await"/> expressions.
             </summary>
-            <param name="_awaiter">The base awaiter instance.</param>
-            <seealso cref="T:System.TimeSpan"/>
+            <returns>A <see cref="T:System.Threading.Tasks.TimeSpanAwaitable.Awaiter"/> instance.</returns>
         </member>
-        <member name="M:System.Threading.Tasks.TimeSpanAwaiter.#ctor(System.Runtime.CompilerServices.TaskAwaiter)">
+        <member name="T:System.Threading.Tasks.TimeSpanAwaitable.Awaiter">
             <summary>
             Represents an awaiter for <see cref="T:System.TimeSpan"/> instance.
             </summary>
             <param name="_awaiter">The base awaiter instance.</param>
             <seealso cref="T:System.TimeSpan"/>
         </member>
-        <member name="P:System.Threading.Tasks.TimeSpanAwaiter.IsCompleted">
+        <member name="M:System.Threading.Tasks.TimeSpanAwaitable.Awaiter.#ctor(System.Runtime.CompilerServices.TaskAwaiter)">
+            <summary>
+            Represents an awaiter for <see cref="T:System.TimeSpan"/> instance.
+            </summary>
+            <param name="_awaiter">The base awaiter instance.</param>
+            <seealso cref="T:System.TimeSpan"/>
+        </member>
+        <member name="P:System.Threading.Tasks.TimeSpanAwaitable.Awaiter.IsCompleted">
             <inheritdoc cref="P:System.Runtime.CompilerServices.TaskAwaiter.IsCompleted"/>
         </member>
-        <member name="M:System.Threading.Tasks.TimeSpanAwaiter.GetResult">
+        <member name="M:System.Threading.Tasks.TimeSpanAwaitable.Awaiter.GetResult">
             <inheritdoc cref="M:System.Runtime.CompilerServices.TaskAwaiter.GetResult"/>
         </member>
-        <member name="M:System.Threading.Tasks.TimeSpanAwaiter.OnCompleted(System.Action)">
+        <member name="M:System.Threading.Tasks.TimeSpanAwaitable.Awaiter.OnCompleted(System.Action)">
             <inheritdoc cref="M:System.Runtime.CompilerServices.TaskAwaiter.OnCompleted(System.Action)"/>
         </member>
         <member name="T:System.TimeSpanLiterals">
