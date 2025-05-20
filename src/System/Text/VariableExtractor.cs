@@ -3,18 +3,35 @@ namespace System.Text;
 /// <summary>
 /// Represents a type that can analyze text difference and fetch the values on different parts, parsing them into variables.
 /// </summary>
-/// <param name="literalLength">Indicates the number of characters in literal.</param>
-/// <param name="formattedCount">Indicates the number of interpolated items (variables).</param>
-/// <param name="original">Indicates the original string to be parsed.</param>
+/// <param name="literalLength"><inheritdoc cref="_literalLength" path="/summary"/></param>
+/// <param name="formattedCount"><inheritdoc cref="_formattedCount" path="/summary"/></param>
+/// <param name="original"><inheritdoc cref="_original" path="/summary"/></param>
 [InterpolatedStringHandler]
-[StructLayout(LayoutKind.Auto)]
 [TypeImpl(TypeImplFlags.Object_Equals | TypeImplFlags.Object_GetHashCode)]
-public unsafe ref partial struct VariableExtractor([Field] int literalLength, [Field] int formattedCount, [Field] string original)
+public unsafe ref partial struct VariableExtractor(int literalLength, int formattedCount, string original)
 {
 	/// <summary>
 	/// Indicates the placeholder character.
 	/// </summary>
 	private const char PlaceholderReservedCharacter = '\0';
+
+
+#pragma warning disable IDE0052
+	/// <summary>
+	/// Indicates the number of characters in literal.
+	/// </summary>
+	private readonly int _literalLength = literalLength;
+
+	/// <summary>
+	/// Indicates the number of interpolated items (variables).
+	/// </summary>
+	private readonly int _formattedCount = formattedCount;
+
+	/// <summary>
+	/// Indicates the original string to be parsed.
+	/// </summary>
+	private readonly string _original = original;
+#pragma warning restore IDE0052
 
 
 	/// <summary>

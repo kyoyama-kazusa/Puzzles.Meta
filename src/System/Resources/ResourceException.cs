@@ -3,9 +3,15 @@ namespace System.Resources;
 /// <summary>
 /// Represents an exception type that relates to resource dictionary.
 /// </summary>
-/// <param name="assembly">Indicates the target assembly.</param>
-public abstract partial class ResourceException([Field(Accessibility = "protected")] Assembly? assembly) : Exception
+/// <param name="assembly"><inheritdoc cref="_assembly" path="/summary"/></param>
+public abstract class ResourceException(Assembly? assembly) : Exception
 {
+	/// <summary>
+	/// Indicates the target assembly.
+	/// </summary>
+	protected readonly Assembly? _assembly = assembly;
+
+
 	/// <inheritdoc/>
 	public abstract override string Message { get; }
 
