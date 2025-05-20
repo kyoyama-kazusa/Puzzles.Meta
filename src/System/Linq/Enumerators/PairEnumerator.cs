@@ -4,15 +4,18 @@ namespace System.Linq.Enumerators;
 /// Represents an enumerator that can iterate on elements, paired.
 /// </summary>
 /// <typeparam name="T">The type of each element to be iterated.</typeparam>
-/// <param name="sequence">The sequence value.</param>
-[StructLayout(LayoutKind.Auto)]
+/// <param name="sequence"><inheritdoc cref="_sequence" path="/summary"/></param>
 [TypeImpl(
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct PairEnumerator<T>([Field] ReadOnlySpan<T> sequence) : IEnumerator<(T First, T Second)>
-	where T : notnull
+public ref partial struct PairEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumerator<(T First, T Second)> where T : notnull
 {
+	/// <summary>
+	/// The sequence value.
+	/// </summary>
+	private readonly ReadOnlySpan<T> _sequence = sequence;
+
 	/// <summary>
 	/// Indicates the index.
 	/// </summary>

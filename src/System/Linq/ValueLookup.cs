@@ -4,9 +4,9 @@ namespace System.Linq;
 /// Represents an instance that supports looking up on elements of type <typeparamref name="TElement"/>,
 /// grouped by key of type <typeparamref name="TKey"/>.
 /// </summary>
-/// <param name="groups">Indicates the groups to be initialized.</param>
 /// <typeparam name="TKey">The type of key.</typeparam>
 /// <typeparam name="TElement">The type of each element.</typeparam>
+/// <param name="groups"><inheritdoc cref="_groups" path="/summary"/></param>
 /// <remarks>
 /// Please note, this type only supports for <see cref="ISelectMethod{TSelf, TSource}"/>,
 /// <see cref="ISelectManyMethod{TSelf, TSource}"/> and <see cref="IWhereMethod{TSelf, TSource}"/>,
@@ -14,7 +14,7 @@ namespace System.Linq;
 /// If you want to use advanced ones, cast the object to a <see cref="ReadOnlySpan{T}"/> by calling
 /// method <see cref="AsSpan"/> and try them up then.
 /// </remarks>
-public readonly partial struct ValueLookup<TKey, TElement>([Field] Dictionary<TKey, TElement[]> groups) :
+public readonly partial struct ValueLookup<TKey, TElement>(Dictionary<TKey, TElement[]> groups) :
 	IEnumerable<SpanGrouping<TElement, TKey>>,
 	ILookup<TKey, TElement>,
 	IReadOnlyDictionary<TKey, TElement[]>,
@@ -23,6 +23,12 @@ public readonly partial struct ValueLookup<TKey, TElement>([Field] Dictionary<TK
 	IWhereMethod<ValueLookup<TKey, TElement>, SpanGrouping<TElement, TKey>>
 	where TKey : notnull
 {
+	/// <summary>
+	/// Indicates the groups to be initialized.
+	/// </summary>
+	private readonly Dictionary<TKey, TElement[]> _groups = groups;
+
+
 	/// <inheritdoc/>
 	public int Count => _groups.Count;
 

@@ -5,10 +5,16 @@ namespace System.Linq.Iterators;
 /// </summary>
 /// <typeparam name="T">The type of each element.</typeparam>
 /// <param name="_array">The array.</param>
-/// <param name="value">The final element to be iterated.</param>
+/// <param name="value"><inheritdoc cref="_value" path="/summary"/></param>
 /// <seealso cref="ArrayEnumerable.Prepend"/>
-public sealed partial class ArrayPrependIterator<T>(T[] _array, [Field] T value) : IIterator<ArrayPrependIterator<T>, T>
+public sealed class ArrayPrependIterator<T>(T[] _array, T value) : IIterator<ArrayPrependIterator<T>, T>
 {
+	/// <summary>
+	/// The final element to be iterated.
+	/// </summary>
+	[SuppressMessage("Style", "IDE0032:Use auto property", Justification = "<Pending>")]
+	private readonly T _value = value;
+
 	/// <summary>
 	/// Indicates the index.
 	/// </summary>

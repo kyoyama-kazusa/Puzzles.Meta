@@ -4,9 +4,15 @@ namespace System.Buffers;
 /// Represents an array with only one element.
 /// </summary>
 /// <typeparam name="T">The type of the only element of array.</typeparam>
-/// <param name="value">Indicates the value.</param>
-public sealed partial class SingletonArray<T>([Field(IsReadOnlyByDefault = false)] T value) : MemoryManager<T>
+/// <param name="value"><inheritdoc cref="_value" path="/summary"/></param>
+public sealed class SingletonArray<T>(T value) : MemoryManager<T>
 {
+	/// <summary>
+	/// Indicates the value.
+	/// </summary>
+	private T _value = value;
+
+
 	/// <summary>
 	/// Indicates the pointer of the value.
 	/// </summary>

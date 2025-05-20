@@ -6,14 +6,27 @@ namespace System.Linq;
 /// </summary>
 /// <typeparam name="TSource">The type of each element.</typeparam>
 /// <typeparam name="TKey">The type of the key.</typeparam>
-/// <param name="elements">Indicates the elements.</param>
-/// <param name="key">Indicates the key that can compare each element.</param>
+/// <param name="elements"><inheritdoc cref="_elements" path="/summary"/></param>
+/// <param name="key"><inheritdoc cref="Key" path="/summary"/></param>
 [DebuggerStepThrough]
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.EqualityOperators)]
-public sealed partial class ArrayGrouping<TSource, TKey>([Field] TSource[] elements, [Property, HashCodeMember, StringMember] TKey key) :
+public sealed partial class ArrayGrouping<TSource, TKey>(TSource[] elements, TKey key) :
 	IMyGrouping<ArrayGrouping<TSource, TKey>, TKey, TSource>
 	where TKey : notnull
 {
+	/// <summary>
+	/// Indicates the elements.
+	/// </summary>
+	private readonly TSource[] _elements = elements;
+
+
+	/// <summary>
+	/// Indicates the key that can compare each element.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public TKey Key { get; } = key;
+
 	/// <inheritdoc/>
 	ReadOnlySpan<TSource> IMyGrouping<ArrayGrouping<TSource, TKey>, TKey, TSource>.Elements => _elements;
 

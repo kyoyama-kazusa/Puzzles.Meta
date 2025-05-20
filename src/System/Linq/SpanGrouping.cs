@@ -6,19 +6,31 @@ namespace System.Linq;
 /// </summary>
 /// <typeparam name="TSource">The type of each element.</typeparam>
 /// <typeparam name="TKey">The type of the key.</typeparam>
-/// <param name="elements">Indicates the elements.</param>
-/// <param name="key">Indicates the key that can compare each element.</param>
-[StructLayout(LayoutKind.Auto)]
+/// <param name="elements"><inheritdoc cref="_elements" path="/summary"/></param>
+/// <param name="key"></param>
 [DebuggerStepThrough]
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.EqualityOperators)]
-public readonly partial struct SpanGrouping<TSource, TKey>([Field] TSource[] elements, [Property, HashCodeMember, StringMember] TKey key) :
+public readonly partial struct SpanGrouping<TSource, TKey>(TSource[] elements, TKey key) :
 	IMyGrouping<SpanGrouping<TSource, TKey>, TKey, TSource>
 	where TKey : notnull
 {
 	/// <summary>
+	/// Indicates the elements.
+	/// </summary>
+	private readonly TSource[] _elements = elements;
+
+
+	/// <summary>
 	/// Indicates the length of the value.
 	/// </summary>
 	public int Length => _elements.Length;
+
+	/// <summary>
+	/// Indicates the key that can compare each element.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public TKey Key { get; } = key;
 
 	[HashCodeMember]
 	private unsafe nint ElementsRawPointerValue => (nint)Unsafe.AsPointer(ref _elements[0]);

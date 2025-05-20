@@ -4,13 +4,9 @@ namespace System.Linq;
 /// Represents an enumerable instance that is based on an array of type <typeparamref name="T"/>.
 /// </summary>
 /// <typeparam name="T">Indicates the type of each element.</typeparam>
-/// <param name="values">Indicates the values.</param>
-/// <param name="selectors">
-/// <para>Indicates the selector functions that return <typeparamref name="T"/> instances, to be used as comparison.</para>
-/// <include file="../../global-doc-comments.xml" path="//g/csharp11/feature[@name='scoped-keyword']"/>
-/// <include file="../../global-doc-comments.xml" path="//g/csharp12/feature[@name='params-collections']/target[@name='parameter']"/>
-/// </param>
-public sealed partial class ArrayOrderedEnumerable<T>([Field] T[] values, [Field] params Func<T, T, int>[] selectors) :
+/// <param name="values"><inheritdoc cref="_values" path="/summary"/></param>
+/// <param name="selectors"><inheritdoc cref="_selectors" path="/summary"/></param>
+public sealed class ArrayOrderedEnumerable<T>(T[] values, params Func<T, T, int>[] selectors) :
 	IAggregateMethod<ArrayOrderedEnumerable<T>, T>,
 	IEnumerable<T>,
 	IGroupByMethod<ArrayOrderedEnumerable<T>, T>,
@@ -22,6 +18,17 @@ public sealed partial class ArrayOrderedEnumerable<T>([Field] T[] values, [Field
 	IToArrayMethod<ArrayOrderedEnumerable<T>, T>,
 	IWhereMethod<ArrayOrderedEnumerable<T>, T>
 {
+	/// <summary>
+	/// Indicates the values.
+	/// </summary>
+	private readonly T[] _values = values;
+
+	/// <summary>
+	/// Indicates the selector functions that return <typeparamref name="T"/> instances, to be used as comparison.
+	/// </summary>
+	private readonly Func<T, T, int>[] _selectors = selectors;
+
+
 	/// <summary>
 	/// Indicates the number of elements stored in the collection.
 	/// </summary>

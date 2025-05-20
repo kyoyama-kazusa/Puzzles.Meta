@@ -4,14 +4,18 @@ namespace System.Linq.Enumerators;
 /// Represents a reverse enumerator.
 /// </summary>
 /// <typeparam name="T">The type of the element.</typeparam>
-/// <param name="sequence">The internal sequence to be iterated.</param>
-[StructLayout(LayoutKind.Auto)]
+/// <param name="sequence"><inheritdoc cref="_sequence" path="/summary"/></param>
 [TypeImpl(
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct ReverseEnumerator<T>([Field] ReadOnlySpan<T> sequence) : IEnumerator<T>
+public ref partial struct ReverseEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumerator<T>
 {
+	/// <summary>
+	/// The internal sequence to be iterated.
+	/// </summary>
+	private readonly ReadOnlySpan<T> _sequence = sequence;
+
 	/// <summary>
 	/// Indicates the current index.
 	/// </summary>

@@ -3,21 +3,23 @@ namespace System.Linq.Enumerators;
 /// <summary>
 /// Defines an enumerator that iterates the possible fields of an enumeration type.
 /// </summary>
-/// <typeparam name="T">
-/// The type of the enumeration type, that is marked the attribute <see cref="FlagsAttribute"/>.
-/// </typeparam>
-/// <param name="baseField">Indicates the base field.</param>
-[StructLayout(LayoutKind.Auto)]
+/// <typeparam name="TEnum">The type of the enumeration type, that is marked the attribute <see cref="FlagsAttribute"/>.</typeparam>
+/// <param name="baseField"><inheritdoc cref="_baseField" path="/summary"/></param>
 [TypeImpl(
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct EnumFlagsEnumerator<T>([Field] T baseField) : IEnumerator<T> where T : unmanaged, Enum
+public ref partial struct EnumFlagsEnumerator<TEnum>(TEnum baseField) : IEnumerator<TEnum> where TEnum : unmanaged, Enum
 {
+	/// <summary>
+	/// Indicates the base field.
+	/// </summary>
+	private readonly TEnum _baseField = baseField;
+
 	/// <summary>
 	/// Indicates the fields of the type to iterate.
 	/// </summary>
-	private readonly T[] _fields = Enum.GetValues<T>();
+	private readonly TEnum[] _fields = Enum.GetValues<TEnum>();
 
 	/// <summary>
 	/// Indicates the current index being iterated.
@@ -26,16 +28,16 @@ public ref partial struct EnumFlagsEnumerator<T>([Field] T baseField) : IEnumera
 
 
 	/// <inheritdoc cref="IEnumerator.Current"/>
-	public T Current { get; private set; } = default;
+	public TEnum Current { get; private set; } = default;
 
 	/// <inheritdoc/>
 	readonly object IEnumerator.Current => Current;
 
 
 	/// <summary>
-	/// Indicates the size of <typeparamref name="T"/>.
+	/// Indicates the size of <typeparamref name="TEnum"/>.
 	/// </summary>
-	private static unsafe int SizeOfT => sizeof(T);
+	private static unsafe int SizeOfT => sizeof(TEnum);
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
@@ -46,12 +48,12 @@ public ref partial struct EnumFlagsEnumerator<T>([Field] T baseField) : IEnumera
 			var field = _fields[index];
 			switch (SizeOfT)
 			{
-				case 1 or 2 or 4 when BitOperations.IsPow2(Unsafe.As<T, int>(ref field)) && _baseField.HasFlag(field):
+				case 1 or 2 or 4 when BitOperations.IsPow2(Unsafe.As<TEnum, int>(ref field)) && _baseField.HasFlag(field):
 				{
 					Current = _fields[_index = index];
 					return true;
 				}
-				case 8 when BitOperations.IsPow2(Unsafe.As<T, long>(ref field)) && _baseField.HasFlag(field):
+				case 8 when BitOperations.IsPow2(Unsafe.As<TEnum, long>(ref field)) && _baseField.HasFlag(field):
 				{
 					Current = _fields[_index = index];
 					return true;

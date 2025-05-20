@@ -4,7 +4,7 @@ namespace System.Diagnostics.CodeAnalysis;
 /// Represents an attribute type that can help developers declare types simpler and easier on generating particular code.
 /// For example, automatically implementing <see cref="IEquatable{T}"/>.
 /// </summary>
-/// <param name="flags">Indicates the flags whose corresponding member will be generated.</param>
+/// <param name="flags"><inheritdoc cref="Flags" path="/summary"/></param>
 /// <remarks>
 /// For example, we have defined a record-like type <c>MyColor</c> declared like this:
 /// <code><![CDATA[
@@ -36,7 +36,7 @@ namespace System.Diagnostics.CodeAnalysis;
 /// ]]></code>
 /// </remarks>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, Inherited = false)]
-public sealed partial class TypeImplAttribute([Property] TypeImplFlags flags) : Attribute
+public sealed class TypeImplAttribute(TypeImplFlags flags) : Attribute
 {
 	/// <summary>
 	/// Indicates whether source generators will generate source code with modifiers <see langword="ref readonly"/>
@@ -143,4 +143,9 @@ public sealed partial class TypeImplAttribute([Property] TypeImplFlags flags) : 
 	/// By default, not null for value types and including null for reference types.
 	/// </summary>
 	public NullabilityPrefer OperandNullabilityPrefer { get; init; } = NullabilityPrefer.Default;
+
+	/// <summary>
+	/// Indicates the flags whose corresponding member will be generated.
+	/// </summary>
+	public TypeImplFlags Flags { get; } = flags;
 }

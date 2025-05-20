@@ -5,14 +5,12 @@ namespace System.Linq.Enumerators;
 /// of type <typeparamref name="TDelegate"/>.
 /// </summary>
 /// <typeparam name="TDelegate">The type of each function or action.</typeparam>
-/// <param name="value">The complex delegate object to be iterated.</param>
-[StructLayout(LayoutKind.Auto)]
+/// <param name="value"><inheritdoc cref="Value" path="/summary"/></param>
 [TypeImpl(
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct DelegateEnumerator<TDelegate>([Property] TDelegate? value) : IEnumerator<TDelegate>
-	where TDelegate : Delegate
+public ref partial struct DelegateEnumerator<TDelegate>(TDelegate? value) : IEnumerator<TDelegate> where TDelegate : Delegate
 {
 	/// <summary>
 	/// Indicates the backing enumerator.
@@ -22,6 +20,11 @@ public ref partial struct DelegateEnumerator<TDelegate>([Property] TDelegate? va
 
 	/// <inheritdoc cref="IEnumerator{T}.Current"/>
 	public readonly TDelegate Current => _enumerator.Current;
+
+	/// <summary>
+	/// The complex delegate object to be iterated.
+	/// </summary>
+	public readonly TDelegate? Value { get; } = value;
 
 	/// <inheritdoc/>
 	readonly object IEnumerator.Current => Current;

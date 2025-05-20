@@ -4,13 +4,24 @@ namespace System.Numerics;
 /// Represents a combination generator that iterations each combination of bits for the specified number of bits, and how many 1's in it.
 /// </summary>
 /// <typeparam name="TInteger">The type of the target integer value.</typeparam>
-/// <param name="bitCount">Indicates the number of bits.</param>
-/// <param name="oneCount">Indicates the number of bits set <see langword="true"/>.</param>
+/// <param name="bitCount"><inheritdoc cref="_bitCount" path="/summary"/></param>
+/// <param name="oneCount"><inheritdoc cref="_oneCount" path="/summary"/></param>
 [DebuggerStepThrough]
 [TypeImpl(TypeImplFlags.AllObjectMethods)]
-public readonly ref partial struct BitCombinationGenerator<TInteger>([Field] int bitCount, [Field] int oneCount)
+public readonly ref partial struct BitCombinationGenerator<TInteger>(int bitCount, int oneCount)
 	where TInteger : IBinaryInteger<TInteger>
 {
+	/// <summary>
+	/// Indicates the number of bits.
+	/// </summary>
+	private readonly int _bitCount = bitCount;
+
+	/// <summary>
+	/// Indicates the number of bits set <see langword="true"/>.
+	/// </summary>
+	private readonly int _oneCount = oneCount;
+
+
 	/// <summary>
 	/// Gets the enumerator of the current instance in order to use <see langword="foreach"/> loop.
 	/// </summary>

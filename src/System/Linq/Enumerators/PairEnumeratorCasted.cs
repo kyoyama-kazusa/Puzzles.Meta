@@ -4,16 +4,21 @@ namespace System.Linq.Enumerators;
 /// <typeparam name="T">The type of each element to be iterated.</typeparam>
 /// <typeparam name="TFirst">The type of the first element in a pair.</typeparam>
 /// <typeparam name="TSecond">The type of the second element in a pair.</typeparam>
-[StructLayout(LayoutKind.Auto)]
+/// <param name="sequence"><inheritdoc cref="_sequence" path="/summary"/></param>
 [TypeImpl(
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct PairEnumeratorCasted<T, TFirst, TSecond>([Field] ReadOnlySpan<T> sequence) : IEnumerator<(TFirst First, TSecond Second)>
+public ref partial struct PairEnumeratorCasted<T, TFirst, TSecond>(ReadOnlySpan<T> sequence) : IEnumerator<(TFirst First, TSecond Second)>
 	where T : notnull
 	where TFirst : T
 	where TSecond : T
 {
+	/// <summary>
+	/// Indicates the sequence values.
+	/// </summary>
+	private readonly ReadOnlySpan<T> _sequence = sequence;
+
 	/// <summary>
 	/// Indicates the index.
 	/// </summary>

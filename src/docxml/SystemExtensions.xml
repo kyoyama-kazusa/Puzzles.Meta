@@ -171,14 +171,19 @@
             Represents an array with only one element.
             </summary>
             <typeparam name="T">The type of the only element of array.</typeparam>
-            <param name="value">Indicates the value.</param>
+            <param name="value"><inheritdoc cref="F:System.Buffers.SingletonArray`1._value" path="/summary"/></param>
         </member>
         <member name="M:System.Buffers.SingletonArray`1.#ctor(`0)">
             <summary>
             Represents an array with only one element.
             </summary>
             <typeparam name="T">The type of the only element of array.</typeparam>
-            <param name="value">Indicates the value.</param>
+            <param name="value"><inheritdoc cref="F:System.Buffers.SingletonArray`1._value" path="/summary"/></param>
+        </member>
+        <member name="F:System.Buffers.SingletonArray`1._value">
+            <summary>
+            Indicates the value.
+            </summary>
         </member>
         <member name="P:System.Buffers.SingletonArray`1.Pointer">
             <summary>
@@ -223,11 +228,6 @@
             Creates a <see cref="T:System.ReadOnlyMemory`1"/> from the current instance without any copy operation.
             </summary>
             <param name="value">The value to be casted from.</param>
-        </member>
-        <member name="F:System.Buffers.SingletonArray`1._value">
-            <summary>
-            The generated field declaration for parameter <c>value</c>.
-            </summary>
         </member>
         <member name="T:System.CharExtensions">
             <summary>
@@ -1812,23 +1812,18 @@
             <summary>
             Indicates the marked member will participate to-string operation.
             </summary>
-            <param name="displayName">
-            Indicates the display name of the field or property to be changed.
-            By default the value is <see langword="null"/>, which means no conversion will be existing here.
-            </param>
+            <param name="displayName"><inheritdoc cref="P:System.Diagnostics.CodeAnalysis.StringMemberAttribute.DisplayName" path="/summary"/></param>
         </member>
         <member name="M:System.Diagnostics.CodeAnalysis.StringMemberAttribute.#ctor(System.String)">
             <summary>
             Indicates the marked member will participate to-string operation.
             </summary>
-            <param name="displayName">
-            Indicates the display name of the field or property to be changed.
-            By default the value is <see langword="null"/>, which means no conversion will be existing here.
-            </param>
+            <param name="displayName"><inheritdoc cref="P:System.Diagnostics.CodeAnalysis.StringMemberAttribute.DisplayName" path="/summary"/></param>
         </member>
         <member name="P:System.Diagnostics.CodeAnalysis.StringMemberAttribute.DisplayName">
             <summary>
-            The generated property declaration for parameter <c>displayName</c>.
+            Indicates the display name of the field or property to be changed.
+            By default the value is <see langword="null"/>, which means no conversion will be existing here.
             </summary>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.ToStringBehavior">
@@ -1876,7 +1871,7 @@
             Represents an attribute type that can help developers declare types simpler and easier on generating particular code.
             For example, automatically implementing <see cref="T:System.IEquatable`1"/>.
             </summary>
-            <param name="flags">Indicates the flags whose corresponding member will be generated.</param>
+            <param name="flags"><inheritdoc cref="P:System.Diagnostics.CodeAnalysis.TypeImplAttribute.Flags" path="/summary"/></param>
             <remarks>
             For example, we have defined a record-like type <c>MyColor</c> declared like this:
             <code><![CDATA[
@@ -1913,7 +1908,7 @@
             Represents an attribute type that can help developers declare types simpler and easier on generating particular code.
             For example, automatically implementing <see cref="T:System.IEquatable`1"/>.
             </summary>
-            <param name="flags">Indicates the flags whose corresponding member will be generated.</param>
+            <param name="flags"><inheritdoc cref="P:System.Diagnostics.CodeAnalysis.TypeImplAttribute.Flags" path="/summary"/></param>
             <remarks>
             For example, we have defined a record-like type <c>MyColor</c> declared like this:
             <code><![CDATA[
@@ -2053,7 +2048,7 @@
         </member>
         <member name="P:System.Diagnostics.CodeAnalysis.TypeImplAttribute.Flags">
             <summary>
-            The generated property declaration for parameter <c>flags</c>.
+            Indicates the flags whose corresponding member will be generated.
             </summary>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.TypeImplFlags">
@@ -2805,8 +2800,8 @@
             </summary>
             <typeparam name="TSource">The type of each element.</typeparam>
             <typeparam name="TKey">The type of the key.</typeparam>
-            <param name="elements">Indicates the elements.</param>
-            <param name="key">Indicates the key that can compare each element.</param>
+            <param name="elements"><inheritdoc cref="F:System.Linq.ArrayGrouping`2._elements" path="/summary"/></param>
+            <param name="key"><inheritdoc cref="P:System.Linq.ArrayGrouping`2.Key" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.ArrayGrouping`2.#ctor(`0[],`1)">
             <summary>
@@ -2815,8 +2810,18 @@
             </summary>
             <typeparam name="TSource">The type of each element.</typeparam>
             <typeparam name="TKey">The type of the key.</typeparam>
-            <param name="elements">Indicates the elements.</param>
-            <param name="key">Indicates the key that can compare each element.</param>
+            <param name="elements"><inheritdoc cref="F:System.Linq.ArrayGrouping`2._elements" path="/summary"/></param>
+            <param name="key"><inheritdoc cref="P:System.Linq.ArrayGrouping`2.Key" path="/summary"/></param>
+        </member>
+        <member name="F:System.Linq.ArrayGrouping`2._elements">
+            <summary>
+            Indicates the elements.
+            </summary>
+        </member>
+        <member name="P:System.Linq.ArrayGrouping`2.Key">
+            <summary>
+            Indicates the key that can compare each element.
+            </summary>
         </member>
         <member name="P:System.Linq.ArrayGrouping`2.System#Linq#IMyGrouping{System#Linq#ArrayGrouping{TSource,TKey},TKey,TSource}#Elements">
             <inheritdoc/>
@@ -2864,16 +2869,6 @@
         <member name="M:System.Linq.ArrayGrouping`2.System#Linq#Providers#IWhereMethod{System#Linq#ArrayGrouping{TSource,TKey},TSource}#Where(System.Func{`0,System.Boolean})">
             <inheritdoc/>
         </member>
-        <member name="F:System.Linq.ArrayGrouping`2._elements">
-            <summary>
-            The generated field declaration for parameter <c>elements</c>.
-            </summary>
-        </member>
-        <member name="P:System.Linq.ArrayGrouping`2.Key">
-            <summary>
-            The generated property declaration for parameter <c>key</c>.
-            </summary>
-        </member>
         <member name="M:System.Linq.ArrayGrouping`2.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
         </member>
@@ -2903,59 +2898,29 @@
         </member>
         <member name="T:System.Linq.ArrayOrderedEnumerable`1">
             <summary>
-            Represents an enumerable instance that is based on an array of type <typeparamref name="T" />.
+            Represents an enumerable instance that is based on an array of type <typeparamref name="T"/>.
             </summary>
             <typeparam name="T">Indicates the type of each element.</typeparam>
-            <param name="values">Indicates the values.</param>
-            <param name="selectors">
-            <para>Indicates the selector functions that return <typeparamref name="T" /> instances, to be used as comparison.</para>
-            <feature name="scoped-keyword">
-			<para>
-				The keyword <see langword="scoped" /> means the argument and local variable can only be used inside the method.
-				This means you cannot use this variable and argument outside the scope,
-				such as <c>new RefStructType(scoped_variable)</c>, <c>return scoped_variable</c> and <c>field = scoped_variable</c>.
-				Such expressions may store the <see langword="scoped" /> variables, unsafely expanding the variable's lifecycle.
-			</para>
-		</feature>
-            <target name="parameter">
-				<para>
-					If a <see langword="ref struct" />-typed parameter is marked as <see langword="params" />,
-					it will be implicit-<see langword="scoped" />, which means you must use this variables inside the method.
-					Value-storages are not permitted.
-				</para>
-				<para>
-					Use <see cref="T:System.Diagnostics.CodeAnalysis.UnscopedRefAttribute" /> if you want to store variable values.
-				</para>
-			</target>
-            </param>
+            <param name="values"><inheritdoc cref="F:System.Linq.ArrayOrderedEnumerable`1._values" path="/summary"/></param>
+            <param name="selectors"><inheritdoc cref="F:System.Linq.ArrayOrderedEnumerable`1._selectors" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.ArrayOrderedEnumerable`1.#ctor(`0[],System.Func{`0,`0,System.Int32}[])">
             <summary>
-            Represents an enumerable instance that is based on an array of type <typeparamref name="T" />.
+            Represents an enumerable instance that is based on an array of type <typeparamref name="T"/>.
             </summary>
             <typeparam name="T">Indicates the type of each element.</typeparam>
-            <param name="values">Indicates the values.</param>
-            <param name="selectors">
-            <para>Indicates the selector functions that return <typeparamref name="T" /> instances, to be used as comparison.</para>
-            <feature name="scoped-keyword">
-			<para>
-				The keyword <see langword="scoped" /> means the argument and local variable can only be used inside the method.
-				This means you cannot use this variable and argument outside the scope,
-				such as <c>new RefStructType(scoped_variable)</c>, <c>return scoped_variable</c> and <c>field = scoped_variable</c>.
-				Such expressions may store the <see langword="scoped" /> variables, unsafely expanding the variable's lifecycle.
-			</para>
-		</feature>
-            <target name="parameter">
-				<para>
-					If a <see langword="ref struct" />-typed parameter is marked as <see langword="params" />,
-					it will be implicit-<see langword="scoped" />, which means you must use this variables inside the method.
-					Value-storages are not permitted.
-				</para>
-				<para>
-					Use <see cref="T:System.Diagnostics.CodeAnalysis.UnscopedRefAttribute" /> if you want to store variable values.
-				</para>
-			</target>
-            </param>
+            <param name="values"><inheritdoc cref="F:System.Linq.ArrayOrderedEnumerable`1._values" path="/summary"/></param>
+            <param name="selectors"><inheritdoc cref="F:System.Linq.ArrayOrderedEnumerable`1._selectors" path="/summary"/></param>
+        </member>
+        <member name="F:System.Linq.ArrayOrderedEnumerable`1._values">
+            <summary>
+            Indicates the values.
+            </summary>
+        </member>
+        <member name="F:System.Linq.ArrayOrderedEnumerable`1._selectors">
+            <summary>
+            Indicates the selector functions that return <typeparamref name="T"/> instances, to be used as comparison.
+            </summary>
         </member>
         <member name="P:System.Linq.ArrayOrderedEnumerable`1.Length">
             <summary>
@@ -3073,16 +3038,6 @@
             <param name="descending">A <see cref="T:System.Boolean"/> value indicating whether the creation is for descending comparison rule.</param>
             <returns>An <see cref="T:System.Linq.ArrayOrderedEnumerable`1"/> instance.</returns>
         </member>
-        <member name="F:System.Linq.ArrayOrderedEnumerable`1._values">
-            <summary>
-            The generated field declaration for parameter <c>values</c>.
-            </summary>
-        </member>
-        <member name="F:System.Linq.ArrayOrderedEnumerable`1._selectors">
-            <summary>
-            The generated field declaration for parameter <c>selectors</c>.
-            </summary>
-        </member>
         <member name="T:System.Linq.DictionaryEnumerable">
             <summary>
             Represents LINQ methods used by <see cref="T:System.Collections.Generic.Dictionary`2"/> instances.
@@ -3160,14 +3115,19 @@
             Represents an enumerator that can be used in anonymous span iteration cases.
             </summary>
             <typeparam name="T">The type of elements.</typeparam>
-            <param name="elements">Indicates the elements.</param>
+            <param name="elements"><inheritdoc cref="F:System.Linq.Enumerators.AnonymousSpanEnumerator`1._elements" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.Enumerators.AnonymousSpanEnumerator`1.#ctor(System.ReadOnlySpan{`0})">
             <summary>
             Represents an enumerator that can be used in anonymous span iteration cases.
             </summary>
             <typeparam name="T">The type of elements.</typeparam>
-            <param name="elements">Indicates the elements.</param>
+            <param name="elements"><inheritdoc cref="F:System.Linq.Enumerators.AnonymousSpanEnumerator`1._elements" path="/summary"/></param>
+        </member>
+        <member name="F:System.Linq.Enumerators.AnonymousSpanEnumerator`1._elements">
+            <summary>
+            Indicates the elements.
+            </summary>
         </member>
         <member name="F:System.Linq.Enumerators.AnonymousSpanEnumerator`1._index">
             <summary>
@@ -3197,11 +3157,6 @@
         </member>
         <member name="M:System.Linq.Enumerators.AnonymousSpanEnumerator`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator">
             <inheritdoc/>
-        </member>
-        <member name="F:System.Linq.Enumerators.AnonymousSpanEnumerator`1._elements">
-            <summary>
-            The generated field declaration for parameter <c>elements</c>.
-            </summary>
         </member>
         <member name="M:System.Linq.Enumerators.AnonymousSpanEnumerator`1.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
@@ -3276,7 +3231,7 @@
             of type <typeparamref name="TDelegate"/>.
             </summary>
             <typeparam name="TDelegate">The type of each function or action.</typeparam>
-            <param name="value">The complex delegate object to be iterated.</param>
+            <param name="value"><inheritdoc cref="P:System.Linq.Enumerators.DelegateEnumerator`1.Value" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.Enumerators.DelegateEnumerator`1.#ctor(`0)">
             <summary>
@@ -3284,7 +3239,7 @@
             of type <typeparamref name="TDelegate"/>.
             </summary>
             <typeparam name="TDelegate">The type of each function or action.</typeparam>
-            <param name="value">The complex delegate object to be iterated.</param>
+            <param name="value"><inheritdoc cref="P:System.Linq.Enumerators.DelegateEnumerator`1.Value" path="/summary"/></param>
         </member>
         <member name="F:System.Linq.Enumerators.DelegateEnumerator`1._enumerator">
             <summary>
@@ -3294,6 +3249,11 @@
         <member name="P:System.Linq.Enumerators.DelegateEnumerator`1.Current">
             <inheritdoc cref="P:System.Collections.Generic.IEnumerator`1.Current"/>
         </member>
+        <member name="P:System.Linq.Enumerators.DelegateEnumerator`1.Value">
+            <summary>
+            The complex delegate object to be iterated.
+            </summary>
+        </member>
         <member name="P:System.Linq.Enumerators.DelegateEnumerator`1.System#Collections#IEnumerator#Current">
             <inheritdoc/>
         </member>
@@ -3302,11 +3262,6 @@
         </member>
         <member name="M:System.Linq.Enumerators.DelegateEnumerator`1.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
-        </member>
-        <member name="P:System.Linq.Enumerators.DelegateEnumerator`1.Value">
-            <summary>
-            The generated property declaration for parameter <c>value</c>.
-            </summary>
         </member>
         <member name="M:System.Linq.Enumerators.DelegateEnumerator`1.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
@@ -3325,19 +3280,20 @@
             <summary>
             Defines an enumerator that iterates the possible fields of an enumeration type.
             </summary>
-            <typeparam name="T">
-            The type of the enumeration type, that is marked the attribute <see cref="T:System.FlagsAttribute"/>.
-            </typeparam>
-            <param name="baseField">Indicates the base field.</param>
+            <typeparam name="TEnum">The type of the enumeration type, that is marked the attribute <see cref="T:System.FlagsAttribute"/>.</typeparam>
+            <param name="baseField"><inheritdoc cref="F:System.Linq.Enumerators.EnumFlagsEnumerator`1._baseField" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.Enumerators.EnumFlagsEnumerator`1.#ctor(`0)">
             <summary>
             Defines an enumerator that iterates the possible fields of an enumeration type.
             </summary>
-            <typeparam name="T">
-            The type of the enumeration type, that is marked the attribute <see cref="T:System.FlagsAttribute"/>.
-            </typeparam>
-            <param name="baseField">Indicates the base field.</param>
+            <typeparam name="TEnum">The type of the enumeration type, that is marked the attribute <see cref="T:System.FlagsAttribute"/>.</typeparam>
+            <param name="baseField"><inheritdoc cref="F:System.Linq.Enumerators.EnumFlagsEnumerator`1._baseField" path="/summary"/></param>
+        </member>
+        <member name="F:System.Linq.Enumerators.EnumFlagsEnumerator`1._baseField">
+            <summary>
+            Indicates the base field.
+            </summary>
         </member>
         <member name="F:System.Linq.Enumerators.EnumFlagsEnumerator`1._fields">
             <summary>
@@ -3357,7 +3313,7 @@
         </member>
         <member name="P:System.Linq.Enumerators.EnumFlagsEnumerator`1.SizeOfT">
             <summary>
-            Indicates the size of <typeparamref name="T"/>.
+            Indicates the size of <typeparamref name="TEnum"/>.
             </summary>
         </member>
         <member name="M:System.Linq.Enumerators.EnumFlagsEnumerator`1.MoveNext">
@@ -3365,11 +3321,6 @@
         </member>
         <member name="M:System.Linq.Enumerators.EnumFlagsEnumerator`1.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
-        </member>
-        <member name="F:System.Linq.Enumerators.EnumFlagsEnumerator`1._baseField">
-            <summary>
-            The generated field declaration for parameter <c>baseField</c>.
-            </summary>
         </member>
         <member name="M:System.Linq.Enumerators.EnumFlagsEnumerator`1.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
@@ -3389,14 +3340,19 @@
             Represents an enumerator that can iterate on elements, paired.
             </summary>
             <typeparam name="T">The type of each element to be iterated.</typeparam>
-            <param name="sequence">The sequence value.</param>
+            <param name="sequence"><inheritdoc cref="F:System.Linq.Enumerators.PairEnumerator`1._sequence" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.Enumerators.PairEnumerator`1.#ctor(System.ReadOnlySpan{`0})">
             <summary>
             Represents an enumerator that can iterate on elements, paired.
             </summary>
             <typeparam name="T">The type of each element to be iterated.</typeparam>
-            <param name="sequence">The sequence value.</param>
+            <param name="sequence"><inheritdoc cref="F:System.Linq.Enumerators.PairEnumerator`1._sequence" path="/summary"/></param>
+        </member>
+        <member name="F:System.Linq.Enumerators.PairEnumerator`1._sequence">
+            <summary>
+            The sequence value.
+            </summary>
         </member>
         <member name="F:System.Linq.Enumerators.PairEnumerator`1._index">
             <summary>
@@ -3431,11 +3387,6 @@
         <member name="M:System.Linq.Enumerators.PairEnumerator`1.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
         </member>
-        <member name="F:System.Linq.Enumerators.PairEnumerator`1._sequence">
-            <summary>
-            The generated field declaration for parameter <c>sequence</c>.
-            </summary>
-        </member>
         <member name="M:System.Linq.Enumerators.PairEnumerator`1.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
         </member>
@@ -3454,12 +3405,19 @@
             <typeparam name="T">The type of each element to be iterated.</typeparam>
             <typeparam name="TFirst">The type of the first element in a pair.</typeparam>
             <typeparam name="TSecond">The type of the second element in a pair.</typeparam>
+            <param name="sequence"><inheritdoc cref="F:System.Linq.Enumerators.PairEnumeratorCasted`3._sequence" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.Enumerators.PairEnumeratorCasted`3.#ctor(System.ReadOnlySpan{`0})">
             <inheritdoc cref="T:System.Linq.Enumerators.PairEnumerator`1"/>
             <typeparam name="T">The type of each element to be iterated.</typeparam>
             <typeparam name="TFirst">The type of the first element in a pair.</typeparam>
             <typeparam name="TSecond">The type of the second element in a pair.</typeparam>
+            <param name="sequence"><inheritdoc cref="F:System.Linq.Enumerators.PairEnumeratorCasted`3._sequence" path="/summary"/></param>
+        </member>
+        <member name="F:System.Linq.Enumerators.PairEnumeratorCasted`3._sequence">
+            <summary>
+            Indicates the sequence values.
+            </summary>
         </member>
         <member name="F:System.Linq.Enumerators.PairEnumeratorCasted`3._index">
             <summary>
@@ -3480,11 +3438,6 @@
         </member>
         <member name="M:System.Linq.Enumerators.PairEnumeratorCasted`3.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
-        </member>
-        <member name="F:System.Linq.Enumerators.PairEnumeratorCasted`3._sequence">
-            <summary>
-            The generated field declaration for parameter <c>sequence</c>.
-            </summary>
         </member>
         <member name="M:System.Linq.Enumerators.PairEnumeratorCasted`3.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
@@ -3558,14 +3511,19 @@
             Represents a reverse enumerator.
             </summary>
             <typeparam name="T">The type of the element.</typeparam>
-            <param name="sequence">The internal sequence to be iterated.</param>
+            <param name="sequence"><inheritdoc cref="F:System.Linq.Enumerators.ReverseEnumerator`1._sequence" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.Enumerators.ReverseEnumerator`1.#ctor(System.ReadOnlySpan{`0})">
             <summary>
             Represents a reverse enumerator.
             </summary>
             <typeparam name="T">The type of the element.</typeparam>
-            <param name="sequence">The internal sequence to be iterated.</param>
+            <param name="sequence"><inheritdoc cref="F:System.Linq.Enumerators.ReverseEnumerator`1._sequence" path="/summary"/></param>
+        </member>
+        <member name="F:System.Linq.Enumerators.ReverseEnumerator`1._sequence">
+            <summary>
+            The internal sequence to be iterated.
+            </summary>
         </member>
         <member name="F:System.Linq.Enumerators.ReverseEnumerator`1._index">
             <summary>
@@ -3597,11 +3555,6 @@
         </member>
         <member name="M:System.Linq.Enumerators.ReverseEnumerator`1.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
-        </member>
-        <member name="F:System.Linq.Enumerators.ReverseEnumerator`1._sequence">
-            <summary>
-            The generated field declaration for parameter <c>sequence</c>.
-            </summary>
         </member>
         <member name="M:System.Linq.Enumerators.ReverseEnumerator`1.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
@@ -3798,7 +3751,7 @@
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
             <param name="_array">The array.</param>
-            <param name="value">The final element to be iterated.</param>
+            <param name="value"><inheritdoc cref="F:System.Linq.Iterators.ArrayAppendIterator`1._value" path="/summary"/></param>
             <seealso cref="M:System.Linq.ArrayEnumerable.Append``1(``0[],``0)"/>
         </member>
         <member name="M:System.Linq.Iterators.ArrayAppendIterator`1.#ctor(`0[],`0)">
@@ -3807,8 +3760,13 @@
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
             <param name="_array">The array.</param>
-            <param name="value">The final element to be iterated.</param>
+            <param name="value"><inheritdoc cref="F:System.Linq.Iterators.ArrayAppendIterator`1._value" path="/summary"/></param>
             <seealso cref="M:System.Linq.ArrayEnumerable.Append``1(``0[],``0)"/>
+        </member>
+        <member name="F:System.Linq.Iterators.ArrayAppendIterator`1._value">
+            <summary>
+            The final element to be iterated.
+            </summary>
         </member>
         <member name="F:System.Linq.Iterators.ArrayAppendIterator`1._index">
             <summary>
@@ -3827,18 +3785,13 @@
         <member name="M:System.Linq.Iterators.ArrayAppendIterator`1.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
         </member>
-        <member name="F:System.Linq.Iterators.ArrayAppendIterator`1._value">
-            <summary>
-            The generated field declaration for parameter <c>value</c>.
-            </summary>
-        </member>
         <member name="T:System.Linq.Iterators.ArrayPrependIterator`1">
             <summary>
             Represents an enumerator that will be created after <see cref="M:System.Linq.ArrayEnumerable.Prepend``1(``0[],``0)"/>.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
             <param name="_array">The array.</param>
-            <param name="value">The final element to be iterated.</param>
+            <param name="value"><inheritdoc cref="F:System.Linq.Iterators.ArrayPrependIterator`1._value" path="/summary"/></param>
             <seealso cref="M:System.Linq.ArrayEnumerable.Prepend``1(``0[],``0)"/>
         </member>
         <member name="M:System.Linq.Iterators.ArrayPrependIterator`1.#ctor(`0[],`0)">
@@ -3847,8 +3800,13 @@
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
             <param name="_array">The array.</param>
-            <param name="value">The final element to be iterated.</param>
+            <param name="value"><inheritdoc cref="F:System.Linq.Iterators.ArrayPrependIterator`1._value" path="/summary"/></param>
             <seealso cref="M:System.Linq.ArrayEnumerable.Prepend``1(``0[],``0)"/>
+        </member>
+        <member name="F:System.Linq.Iterators.ArrayPrependIterator`1._value">
+            <summary>
+            The final element to be iterated.
+            </summary>
         </member>
         <member name="F:System.Linq.Iterators.ArrayPrependIterator`1._index">
             <summary>
@@ -3866,11 +3824,6 @@
         </member>
         <member name="M:System.Linq.Iterators.ArrayPrependIterator`1.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="F:System.Linq.Iterators.ArrayPrependIterator`1._value">
-            <summary>
-            The generated field declaration for parameter <c>value</c>.
-            </summary>
         </member>
         <member name="T:System.Linq.Iterators.IIterator`2">
             <summary>
@@ -5120,8 +5073,8 @@
             </summary>
             <typeparam name="TSource">The type of each element.</typeparam>
             <typeparam name="TKey">The type of the key.</typeparam>
-            <param name="elements">Indicates the elements.</param>
-            <param name="key">Indicates the key that can compare each element.</param>
+            <param name="elements"><inheritdoc cref="F:System.Linq.SpanGrouping`2._elements" path="/summary"/></param>
+            <param name="key"></param>
         </member>
         <member name="M:System.Linq.SpanGrouping`2.#ctor(`0[],`1)">
             <summary>
@@ -5130,12 +5083,22 @@
             </summary>
             <typeparam name="TSource">The type of each element.</typeparam>
             <typeparam name="TKey">The type of the key.</typeparam>
-            <param name="elements">Indicates the elements.</param>
-            <param name="key">Indicates the key that can compare each element.</param>
+            <param name="elements"><inheritdoc cref="F:System.Linq.SpanGrouping`2._elements" path="/summary"/></param>
+            <param name="key"></param>
+        </member>
+        <member name="F:System.Linq.SpanGrouping`2._elements">
+            <summary>
+            Indicates the elements.
+            </summary>
         </member>
         <member name="P:System.Linq.SpanGrouping`2.Length">
             <summary>
             Indicates the length of the value.
+            </summary>
+        </member>
+        <member name="P:System.Linq.SpanGrouping`2.Key">
+            <summary>
+            Indicates the key that can compare each element.
             </summary>
         </member>
         <member name="P:System.Linq.SpanGrouping`2.SourceSpan">
@@ -5193,16 +5156,6 @@
         <member name="M:System.Linq.SpanGrouping`2.System#Linq#Providers#IWhereMethod{System#Linq#SpanGrouping{TSource,TKey},TSource}#Where(System.Func{`0,System.Boolean})">
             <inheritdoc/>
         </member>
-        <member name="F:System.Linq.SpanGrouping`2._elements">
-            <summary>
-            The generated field declaration for parameter <c>elements</c>.
-            </summary>
-        </member>
-        <member name="P:System.Linq.SpanGrouping`2.Key">
-            <summary>
-            The generated property declaration for parameter <c>key</c>.
-            </summary>
-        </member>
         <member name="M:System.Linq.SpanGrouping`2.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
         </member>
@@ -5220,39 +5173,27 @@
         </member>
         <member name="T:System.Linq.SpanOrderedEnumerable`1">
             <summary>
-            Represents an enumerable instance that is based on a <see cref="T:System.ReadOnlySpan`1" />.
+            Represents an enumerable instance that is based on a <see cref="T:System.ReadOnlySpan`1"/>.
             </summary>
             <typeparam name="T">Indicates the type of each element.</typeparam>
-            <param name="values">Indicates the values.</param>
-            <param name="selectors">
-            <para>Indicates the selector functions that return <typeparamref name="T" /> instances, to be used as comparison.</para>
-            <feature name="scoped-keyword">
-			<para>
-				The keyword <see langword="scoped" /> means the argument and local variable can only be used inside the method.
-				This means you cannot use this variable and argument outside the scope,
-				such as <c>new RefStructType(scoped_variable)</c>, <c>return scoped_variable</c> and <c>field = scoped_variable</c>.
-				Such expressions may store the <see langword="scoped" /> variables, unsafely expanding the variable's lifecycle.
-			</para>
-		</feature>
-            <target name="parameter">
-				<para>
-					If a <see langword="ref struct" />-typed parameter is marked as <see langword="params" />,
-					it will be implicit-<see langword="scoped" />, which means you must use this variables inside the method.
-					Value-storages are not permitted.
-				</para>
-				<para>
-					Use <see cref="T:System.Diagnostics.CodeAnalysis.UnscopedRefAttribute" /> if you want to store variable values.
-				</para>
-			</target>
-            </param>
+            <param name="values"><inheritdoc cref="F:System.Linq.SpanOrderedEnumerable`1._values" path="/summary"/></param>
+            <param name="selectors"><inheritdoc cref="F:System.Linq.SpanOrderedEnumerable`1._selectors" path="/summary"/></param>
         </member>
         <member name="M:System.Linq.SpanOrderedEnumerable`1.#ctor(System.ReadOnlySpan{`0},System.ReadOnlySpan{System.Func{`0,`0,System.Int32}})">
             <summary>
-            Represents an enumerable instance that is based on a <see cref="T:System.ReadOnlySpan`1" />.
+            Represents an enumerable instance that is based on a <see cref="T:System.ReadOnlySpan`1"/>.
             </summary>
             <typeparam name="T">Indicates the type of each element.</typeparam>
-            <param name="values">Indicates the values.</param>
-            <param name="selectors">
+            <param name="values"><inheritdoc cref="F:System.Linq.SpanOrderedEnumerable`1._values" path="/summary"/></param>
+            <param name="selectors"><inheritdoc cref="F:System.Linq.SpanOrderedEnumerable`1._selectors" path="/summary"/></param>
+        </member>
+        <member name="F:System.Linq.SpanOrderedEnumerable`1._values">
+            <summary>
+            Indicates the values.
+            </summary>
+        </member>
+        <member name="F:System.Linq.SpanOrderedEnumerable`1._selectors">
+            <summary>
             <para>Indicates the selector functions that return <typeparamref name="T" /> instances, to be used as comparison.</para>
             <feature name="scoped-keyword">
 			<para>
@@ -5272,7 +5213,7 @@
 					Use <see cref="T:System.Diagnostics.CodeAnalysis.UnscopedRefAttribute" /> if you want to store variable values.
 				</para>
 			</target>
-            </param>
+            </summary>
         </member>
         <member name="P:System.Linq.SpanOrderedEnumerable`1.Length">
             <summary>
@@ -5428,16 +5369,6 @@
             <param name="descending">A <see cref="T:System.Boolean"/> value indicating whether the creation is for descending comparison rule.</param>
             <returns>An <see cref="T:System.Linq.SpanOrderedEnumerable`1"/> instance.</returns>
         </member>
-        <member name="F:System.Linq.SpanOrderedEnumerable`1._values">
-            <summary>
-            The generated field declaration for parameter <c>values</c>.
-            </summary>
-        </member>
-        <member name="F:System.Linq.SpanOrderedEnumerable`1._selectors">
-            <summary>
-            The generated field declaration for parameter <c>selectors</c>.
-            </summary>
-        </member>
         <member name="M:System.Linq.SpanOrderedEnumerable`1.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
         </member>
@@ -5511,9 +5442,9 @@
             Represents an instance that supports looking up on elements of type <typeparamref name="TElement"/>,
             grouped by key of type <typeparamref name="TKey"/>.
             </summary>
-            <param name="groups">Indicates the groups to be initialized.</param>
             <typeparam name="TKey">The type of key.</typeparam>
             <typeparam name="TElement">The type of each element.</typeparam>
+            <param name="groups"><inheritdoc cref="F:System.Linq.ValueLookup`2._groups" path="/summary"/></param>
             <remarks>
             Please note, this type only supports for <see cref="T:System.Linq.Providers.ISelectMethod`2"/>,
             <see cref="T:System.Linq.Providers.ISelectManyMethod`2"/> and <see cref="T:System.Linq.Providers.IWhereMethod`2"/>,
@@ -5527,9 +5458,9 @@
             Represents an instance that supports looking up on elements of type <typeparamref name="TElement"/>,
             grouped by key of type <typeparamref name="TKey"/>.
             </summary>
-            <param name="groups">Indicates the groups to be initialized.</param>
             <typeparam name="TKey">The type of key.</typeparam>
             <typeparam name="TElement">The type of each element.</typeparam>
+            <param name="groups"><inheritdoc cref="F:System.Linq.ValueLookup`2._groups" path="/summary"/></param>
             <remarks>
             Please note, this type only supports for <see cref="T:System.Linq.Providers.ISelectMethod`2"/>,
             <see cref="T:System.Linq.Providers.ISelectManyMethod`2"/> and <see cref="T:System.Linq.Providers.IWhereMethod`2"/>,
@@ -5537,6 +5468,11 @@
             If you want to use advanced ones, cast the object to a <see cref="T:System.ReadOnlySpan`1"/> by calling
             method <see cref="M:System.Linq.ValueLookup`2.AsSpan"/> and try them up then.
             </remarks>
+        </member>
+        <member name="F:System.Linq.ValueLookup`2._groups">
+            <summary>
+            Indicates the groups to be initialized.
+            </summary>
         </member>
         <member name="P:System.Linq.ValueLookup`2.Count">
             <inheritdoc/>
@@ -5646,11 +5582,6 @@
         </member>
         <member name="M:System.Linq.ValueLookup`2.Enumerator.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
-        </member>
-        <member name="F:System.Linq.ValueLookup`2._groups">
-            <summary>
-            The generated field declaration for parameter <c>groups</c>.
-            </summary>
         </member>
         <member name="T:System.Text.RegularExpressions.GroupCollectionEnumerable">
             <summary>
@@ -6132,32 +6063,32 @@
             Represents a combination generator that iterations each combination of bits for the specified number of bits, and how many 1's in it.
             </summary>
             <typeparam name="TInteger">The type of the target integer value.</typeparam>
-            <param name="bitCount">Indicates the number of bits.</param>
-            <param name="oneCount">Indicates the number of bits set <see langword="true"/>.</param>
+            <param name="bitCount"><inheritdoc cref="F:System.Numerics.BitCombinationGenerator`1._bitCount" path="/summary"/></param>
+            <param name="oneCount"><inheritdoc cref="F:System.Numerics.BitCombinationGenerator`1._oneCount" path="/summary"/></param>
         </member>
         <member name="M:System.Numerics.BitCombinationGenerator`1.#ctor(System.Int32,System.Int32)">
             <summary>
             Represents a combination generator that iterations each combination of bits for the specified number of bits, and how many 1's in it.
             </summary>
             <typeparam name="TInteger">The type of the target integer value.</typeparam>
-            <param name="bitCount">Indicates the number of bits.</param>
-            <param name="oneCount">Indicates the number of bits set <see langword="true"/>.</param>
+            <param name="bitCount"><inheritdoc cref="F:System.Numerics.BitCombinationGenerator`1._bitCount" path="/summary"/></param>
+            <param name="oneCount"><inheritdoc cref="F:System.Numerics.BitCombinationGenerator`1._oneCount" path="/summary"/></param>
+        </member>
+        <member name="F:System.Numerics.BitCombinationGenerator`1._bitCount">
+            <summary>
+            Indicates the number of bits.
+            </summary>
+        </member>
+        <member name="F:System.Numerics.BitCombinationGenerator`1._oneCount">
+            <summary>
+            Indicates the number of bits set <see langword="true"/>.
+            </summary>
         </member>
         <member name="M:System.Numerics.BitCombinationGenerator`1.GetEnumerator">
             <summary>
             Gets the enumerator of the current instance in order to use <see langword="foreach"/> loop.
             </summary>
             <returns>The enumerator instance.</returns>
-        </member>
-        <member name="F:System.Numerics.BitCombinationGenerator`1._bitCount">
-            <summary>
-            The generated field declaration for parameter <c>bitCount</c>.
-            </summary>
-        </member>
-        <member name="F:System.Numerics.BitCombinationGenerator`1._oneCount">
-            <summary>
-            The generated field declaration for parameter <c>oneCount</c>.
-            </summary>
         </member>
         <member name="M:System.Numerics.BitCombinationGenerator`1.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>

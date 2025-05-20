@@ -4,18 +4,14 @@ namespace System.Linq;
 /// Represents an enumerable instance that is based on a <see cref="ReadOnlySpan{T}"/>.
 /// </summary>
 /// <typeparam name="T">Indicates the type of each element.</typeparam>
-/// <param name="values">Indicates the values.</param>
-/// <param name="selectors">
-/// <para>Indicates the selector functions that return <typeparamref name="T"/> instances, to be used as comparison.</para>
-/// <include file="../../global-doc-comments.xml" path="//g/csharp11/feature[@name='scoped-keyword']"/>
-/// <include file="../../global-doc-comments.xml" path="//g/csharp12/feature[@name='params-collections']/target[@name='parameter']"/>
-/// </param>
+/// <param name="values"><inheritdoc cref="_values" path="/summary"/></param>
+/// <param name="selectors"><inheritdoc cref="_selectors" path="/summary"/></param>
 [DebuggerStepThrough]
 [StructLayout(LayoutKind.Auto)]
 [TypeImpl(TypeImplFlags.AllObjectMethods)]
 public readonly ref partial struct SpanOrderedEnumerable<T>(
-	[Field] ReadOnlySpan<T> values,
-	[Field, UnscopedRef] params ReadOnlySpan<Func<T, T, int>> selectors
+	ReadOnlySpan<T> values,
+	[UnscopedRef] params ReadOnlySpan<Func<T, T, int>> selectors
 ) :
 	IEnumerable<T>,
 	IGroupByMethod<SpanOrderedEnumerable<T>, T>,
@@ -27,6 +23,19 @@ public readonly ref partial struct SpanOrderedEnumerable<T>(
 	IToArrayMethod<SpanOrderedEnumerable<T>, T>,
 	IWhereMethod<SpanOrderedEnumerable<T>, T>
 {
+	/// <summary>
+	/// Indicates the values.
+	/// </summary>
+	private readonly ReadOnlySpan<T> _values = values;
+
+	/// <summary>
+	/// <para>Indicates the selector functions that return <typeparamref name="T"/> instances, to be used as comparison.</para>
+	/// <include file="../../global-doc-comments.xml" path="//g/csharp11/feature[@name='scoped-keyword']"/>
+	/// <include file="../../global-doc-comments.xml" path="//g/csharp12/feature[@name='params-collections']/target[@name='parameter']"/>
+	/// </summary>
+	private readonly ReadOnlySpan<Func<T, T, int>> _selectors = selectors;
+
+
 	/// <summary>
 	/// Indicates the number of elements stored in the collection.
 	/// </summary>

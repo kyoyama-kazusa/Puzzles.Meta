@@ -4,14 +4,18 @@ namespace System.Linq.Enumerators;
 /// Represents an enumerator that can be used in anonymous span iteration cases.
 /// </summary>
 /// <typeparam name="T">The type of elements.</typeparam>
-/// <param name="elements">Indicates the elements.</param>
-[StructLayout(LayoutKind.Auto)]
+/// <param name="elements"><inheritdoc cref="_elements" path="/summary"/></param>
 [TypeImpl(
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
 	OtherModifiersOnDisposableDispose = "readonly",
 	ExplicitlyImplsDisposable = true)]
-public ref partial struct AnonymousSpanEnumerator<T>([Field] ReadOnlySpan<T> elements) : IEnumerator<T>, IEnumerable<T>
+public ref partial struct AnonymousSpanEnumerator<T>(ReadOnlySpan<T> elements) : IEnumerator<T>, IEnumerable<T>
 {
+	/// <summary>
+	/// Indicates the elements.
+	/// </summary>
+	private readonly ReadOnlySpan<T> _elements = elements;
+
 	/// <summary>
 	/// Indicates the index.
 	/// </summary>
