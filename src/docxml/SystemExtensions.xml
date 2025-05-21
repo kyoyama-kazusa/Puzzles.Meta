@@ -5820,21 +5820,36 @@
             <summary>
             Represents a type that can analyze text difference and fetch the values on different parts, parsing them into variables.
             </summary>
-            <param name="literalLength">Indicates the number of characters in literal.</param>
-            <param name="formattedCount">Indicates the number of interpolated items (variables).</param>
-            <param name="original">Indicates the original string to be parsed.</param>
+            <param name="literalLength"><inheritdoc cref="F:System.Text.VariableExtractor._literalLength" path="/summary"/></param>
+            <param name="formattedCount"><inheritdoc cref="F:System.Text.VariableExtractor._formattedCount" path="/summary"/></param>
+            <param name="original"><inheritdoc cref="F:System.Text.VariableExtractor._original" path="/summary"/></param>
         </member>
         <member name="M:System.Text.VariableExtractor.#ctor(System.Int32,System.Int32,System.String)">
             <summary>
             Represents a type that can analyze text difference and fetch the values on different parts, parsing them into variables.
             </summary>
-            <param name="literalLength">Indicates the number of characters in literal.</param>
-            <param name="formattedCount">Indicates the number of interpolated items (variables).</param>
-            <param name="original">Indicates the original string to be parsed.</param>
+            <param name="literalLength"><inheritdoc cref="F:System.Text.VariableExtractor._literalLength" path="/summary"/></param>
+            <param name="formattedCount"><inheritdoc cref="F:System.Text.VariableExtractor._formattedCount" path="/summary"/></param>
+            <param name="original"><inheritdoc cref="F:System.Text.VariableExtractor._original" path="/summary"/></param>
         </member>
         <member name="F:System.Text.VariableExtractor.PlaceholderReservedCharacter">
             <summary>
             Indicates the placeholder character.
+            </summary>
+        </member>
+        <member name="F:System.Text.VariableExtractor._literalLength">
+            <summary>
+            Indicates the number of characters in literal.
+            </summary>
+        </member>
+        <member name="F:System.Text.VariableExtractor._formattedCount">
+            <summary>
+            Indicates the number of interpolated items (variables).
+            </summary>
+        </member>
+        <member name="F:System.Text.VariableExtractor._original">
+            <summary>
+            Indicates the original string to be parsed.
             </summary>
         </member>
         <member name="F:System.Text.VariableExtractor._pointers">
@@ -5874,21 +5889,6 @@
             <param name="original">Indicates the original text.</param>
             <param name="extractor">Indicates the interpolated string that inserts custom variables to be parsed.</param>
             <exception cref="T:System.InvalidOperationException">Throws when the text is invalid to be checked.</exception>
-        </member>
-        <member name="F:System.Text.VariableExtractor._literalLength">
-            <summary>
-            The generated field declaration for parameter <c>literalLength</c>.
-            </summary>
-        </member>
-        <member name="F:System.Text.VariableExtractor._formattedCount">
-            <summary>
-            The generated field declaration for parameter <c>formattedCount</c>.
-            </summary>
-        </member>
-        <member name="F:System.Text.VariableExtractor._original">
-            <summary>
-            The generated field declaration for parameter <c>original</c>.
-            </summary>
         </member>
         <member name="M:System.Text.VariableExtractor.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
@@ -7298,13 +7298,18 @@
             <summary>
             Represents an exception type that relates to resource dictionary.
             </summary>
-            <param name="assembly">Indicates the target assembly.</param>
+            <param name="assembly"><inheritdoc cref="F:System.Resources.ResourceException._assembly" path="/summary"/></param>
         </member>
         <member name="M:System.Resources.ResourceException.#ctor(System.Reflection.Assembly)">
             <summary>
             Represents an exception type that relates to resource dictionary.
             </summary>
-            <param name="assembly">Indicates the target assembly.</param>
+            <param name="assembly"><inheritdoc cref="F:System.Resources.ResourceException._assembly" path="/summary"/></param>
+        </member>
+        <member name="F:System.Resources.ResourceException._assembly">
+            <summary>
+            Indicates the target assembly.
+            </summary>
         </member>
         <member name="P:System.Resources.ResourceException.Message">
             <inheritdoc/>
@@ -7312,30 +7317,35 @@
         <member name="P:System.Resources.ResourceException.Data">
             <inheritdoc/>
         </member>
-        <member name="F:System.Resources.ResourceException._assembly">
-            <summary>
-            The generated field declaration for parameter <c>assembly</c>.
-            </summary>
-        </member>
         <member name="T:System.Resources.ResourceNotFoundException">
             <summary>
             Indicates an exception that will be thrown if target resource is not found.
             </summary>
             <param name="assembly"><inheritdoc/></param>
-            <param name="resourceKey">The resource key.</param>
-            <param name="culture">The culture information.</param>
+            <param name="resourceKey"><inheritdoc cref="F:System.Resources.ResourceNotFoundException._resourceKey" path="/summary"/></param>
+            <param name="culture"><inheritdoc cref="F:System.Resources.ResourceNotFoundException._culture" path="/summary"/></param>
         </member>
         <member name="M:System.Resources.ResourceNotFoundException.#ctor(System.Reflection.Assembly,System.String,System.Globalization.CultureInfo)">
             <summary>
             Indicates an exception that will be thrown if target resource is not found.
             </summary>
             <param name="assembly"><inheritdoc/></param>
-            <param name="resourceKey">The resource key.</param>
-            <param name="culture">The culture information.</param>
+            <param name="resourceKey"><inheritdoc cref="F:System.Resources.ResourceNotFoundException._resourceKey" path="/summary"/></param>
+            <param name="culture"><inheritdoc cref="F:System.Resources.ResourceNotFoundException._culture" path="/summary"/></param>
         </member>
         <member name="F:System.Resources.ResourceNotFoundException.CultureNotSpecifiedDefaultText">
             <summary>
             The "unspecified" text.
+            </summary>
+        </member>
+        <member name="F:System.Resources.ResourceNotFoundException._resourceKey">
+            <summary>
+            The resource key.
+            </summary>
+        </member>
+        <member name="F:System.Resources.ResourceNotFoundException._culture">
+            <summary>
+            The culture information.
             </summary>
         </member>
         <member name="P:System.Resources.ResourceNotFoundException.Message">
@@ -7343,16 +7353,6 @@
         </member>
         <member name="P:System.Resources.ResourceNotFoundException.Data">
             <inheritdoc/>
-        </member>
-        <member name="F:System.Resources.ResourceNotFoundException._resourceKey">
-            <summary>
-            The generated field declaration for parameter <c>resourceKey</c>.
-            </summary>
-        </member>
-        <member name="F:System.Resources.ResourceNotFoundException._culture">
-            <summary>
-            The generated field declaration for parameter <c>culture</c>.
-            </summary>
         </member>
         <member name="T:System.Resources.SR">
             <summary>
@@ -7572,14 +7572,19 @@
             Represents for an enumerator that iterates on each elements stored in a <see cref="T:System.Runtime.CompilerServices.ITuple"/>.
             </summary>
             <typeparam name="TTuple">The type of tuple.</typeparam>
-            <param name="tuple">A tuple instance.</param>
+            <param name="tuple"><inheritdoc cref="F:System.Runtime.CompilerServices.TupleEnumerator`1._tuple" path="/summary"/></param>
         </member>
         <member name="M:System.Runtime.CompilerServices.TupleEnumerator`1.#ctor(`0)">
             <summary>
             Represents for an enumerator that iterates on each elements stored in a <see cref="T:System.Runtime.CompilerServices.ITuple"/>.
             </summary>
             <typeparam name="TTuple">The type of tuple.</typeparam>
-            <param name="tuple">A tuple instance.</param>
+            <param name="tuple"><inheritdoc cref="F:System.Runtime.CompilerServices.TupleEnumerator`1._tuple" path="/summary"/></param>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.TupleEnumerator`1._tuple">
+            <summary>
+            A tuple instance.
+            </summary>
         </member>
         <member name="F:System.Runtime.CompilerServices.TupleEnumerator`1._index">
             <summary>
@@ -7594,11 +7599,6 @@
         </member>
         <member name="M:System.Runtime.CompilerServices.TupleEnumerator`1.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
-        </member>
-        <member name="F:System.Runtime.CompilerServices.TupleEnumerator`1._tuple">
-            <summary>
-            The generated field declaration for parameter <c>tuple</c>.
-            </summary>
         </member>
         <member name="M:System.Runtime.CompilerServices.TupleEnumerator`1.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>

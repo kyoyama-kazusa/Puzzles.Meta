@@ -4,15 +4,26 @@ namespace System.Resources;
 /// Indicates an exception that will be thrown if target resource is not found.
 /// </summary>
 /// <param name="assembly"><inheritdoc/></param>
-/// <param name="resourceKey">The resource key.</param>
-/// <param name="culture">The culture information.</param>
-public sealed partial class ResourceNotFoundException(Assembly? assembly, [Field] string resourceKey, [Field] CultureInfo? culture) :
+/// <param name="resourceKey"><inheritdoc cref="_resourceKey" path="/summary"/></param>
+/// <param name="culture"><inheritdoc cref="_culture" path="/summary"/></param>
+public sealed class ResourceNotFoundException(Assembly? assembly, string resourceKey, CultureInfo? culture) :
 	ResourceException(assembly)
 {
 	/// <summary>
 	/// The "unspecified" text.
 	/// </summary>
 	private const string CultureNotSpecifiedDefaultText = "<Unspecified>";
+
+
+	/// <summary>
+	/// The resource key.
+	/// </summary>
+	private readonly string _resourceKey = resourceKey;
+
+	/// <summary>
+	/// The culture information.
+	/// </summary>
+	private readonly CultureInfo? _culture = culture;
 
 
 	/// <inheritdoc/>
