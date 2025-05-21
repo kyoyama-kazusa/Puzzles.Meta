@@ -17,10 +17,6 @@ internal static class PrimaryConstructorMemberHandler
 
 	private const string AccessibilityPropertyName = "Accessibility";
 
-	private const string EmitPropertyStylePropertyName = "EmitPropertyStyle";
-
-	private const string SetterPropertyName = "Setter";
-
 
 	/// <inheritdoc/>
 	public static void Output(SourceProductionContext spc, ImmutableArray<string> values)
@@ -196,17 +192,13 @@ internal static class PrimaryConstructorMemberHandler
 				.Replace(">@", parameterName.ToPascalCase())
 				.Replace("<@", parameterName.ToCamelCase())
 				.Replace("@", parameterName);
-			var emitPropertyStyle = n.TryGetValueOrDefault<int>(EmitPropertyStylePropertyName, out var emitPropertyStyleLocal)
-				? emitPropertyStyleLocal
-				: default;
-			var setter = n.TryGetValueOrDefault<string>(SetterPropertyName, out var setterLocal)
-				? setterLocal!
-				: string.Empty;
+			var emitPropertyStyle = LocalEmitPropertyStyle.AssignToProperty;
+			var setter = string.Empty;
 			var assignment = emitPropertyStyle switch
 			{
-				(int)LocalEmitPropertyStyle.AssignToProperty
+				LocalEmitPropertyStyle.AssignToProperty
 					=> $$"""{ get;{{(string.IsNullOrEmpty(setter) ? string.Empty : $" {setter};")}} } = {{parameterName}}""",
-				(int)LocalEmitPropertyStyle.ReturnParameter
+				LocalEmitPropertyStyle.ReturnParameter
 					=> $$"""=> {{parameterName}}""",
 				_
 					=> null
