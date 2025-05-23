@@ -4,27 +4,6 @@
         <name>Puzzles.SourceGeneration</name>
     </assembly>
     <members>
-        <member name="T:System.StringExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.String"/>.
-            </summary>
-            <seealso cref="T:System.String"/>
-        </member>
-        <member name="M:System.StringExtensions.ToPascalCasing(System.String)">
-            <summary>
-            Try to convert the specified identifier into pascal casing.
-            </summary>
-        </member>
-        <member name="M:System.StringExtensions.ToCamelCasing(System.String)">
-            <summary>
-            Try to convert the specified identifier into camel casing.
-            </summary>
-        </member>
-        <member name="M:System.StringExtensions.ToUnderscoreCamelCasing(System.String)">
-            <summary>
-            Try to convert the specified identifier into camel casing, with a leading underscore character.
-            </summary>
-        </member>
         <member name="T:Puzzles.SourceGeneration.Generator">
             <summary>
             Represents a source generator type that runs multiple different usage of source output services on compiling code.
@@ -59,108 +38,55 @@
             <param name="_"/>
             <returns>The value.</returns>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.PrimaryConstructorMemberHandler">
-            <summary>
-            The generator handler for primary constructor member parameters.
-            </summary>
-        </member>
-        <member name="M:Puzzles.SourceGeneration.Handlers.PrimaryConstructorMemberHandler.Output(Microsoft.CodeAnalysis.SourceProductionContext,System.Collections.Immutable.ImmutableArray{System.String})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Puzzles.SourceGeneration.Handlers.PrimaryConstructorMemberHandler.Transform(Microsoft.CodeAnalysis.GeneratorSyntaxContext,System.Threading.CancellationToken)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.LocalEmitPropertyStyle">
-            <summary>
-            Represents a local emit property style.
-            </summary>
-        </member>
-        <member name="F:Puzzles.SourceGeneration.Handlers.LocalEmitPropertyStyle.AssignToProperty">
-            <summary>
-            Indicates the behavior is to generate an assignment to property:
-            <code><![CDATA[public int Property { get; } = value;]]></code>
-            </summary>
-        </member>
-        <member name="F:Puzzles.SourceGeneration.Handlers.LocalEmitPropertyStyle.ReturnParameter">
-            <summary>
-            Indicates the behavior is to generate a return statement that directly returns parameter:
-            <code><![CDATA[public int Property => value;]]></code>
-            </summary>
-        </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.ParameterLocalData">
-            <summary>
-            Represents local data of parameter symbol.
-            </summary>
-            <param name="Symbol">Indicates the symbol itself.</param>
-            <param name="FieldPart">Indicates the field part.</param>
-            <param name="PropertyPart">Indicates the property part.</param>
-        </member>
-        <member name="M:Puzzles.SourceGeneration.Handlers.ParameterLocalData.#ctor(Microsoft.CodeAnalysis.IParameterSymbol,Microsoft.CodeAnalysis.AttributeData,Microsoft.CodeAnalysis.AttributeData)">
-            <summary>
-            Represents local data of parameter symbol.
-            </summary>
-            <param name="Symbol">Indicates the symbol itself.</param>
-            <param name="FieldPart">Indicates the field part.</param>
-            <param name="PropertyPart">Indicates the property part.</param>
-        </member>
-        <member name="P:Puzzles.SourceGeneration.Handlers.ParameterLocalData.Symbol">
-            <summary>Indicates the symbol itself.</summary>
-        </member>
-        <member name="P:Puzzles.SourceGeneration.Handlers.ParameterLocalData.FieldPart">
-            <summary>Indicates the field part.</summary>
-        </member>
-        <member name="P:Puzzles.SourceGeneration.Handlers.ParameterLocalData.PropertyPart">
-            <summary>Indicates the property part.</summary>
-        </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.TypeImplHandler">
+        <member name="T:Puzzles.SourceGeneration.TypeImplHandler">
             <summary>
             The hub file that generates modal source code on some commonly-used members.
             </summary>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.TypeImplFlag">
+        <member name="T:Puzzles.SourceGeneration.TypeImplFlag">
             <summary>
             Indicates the implementation flags.
             </summary>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.LengthOrCountPropertyKind">
+        <member name="T:Puzzles.SourceGeneration.LengthOrCountPropertyKind">
             <summary>
             Indicates the property kind of length or count property.
             </summary>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.EqualsBehavior">
+        <member name="T:Puzzles.SourceGeneration.EqualsBehavior">
             <summary>
             Represents a behavior for generating <see cref="M:System.Object.Equals(System.Object)"/> method.
             </summary>
             <seealso cref="M:System.Object.Equals(System.Object)"/>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.GetHashCodeBehavior">
+        <member name="T:Puzzles.SourceGeneration.GetHashCodeBehavior">
             <summary>
             Represents a behavior for generating <see cref="M:System.Object.GetHashCode"/> method.
             </summary>
             <seealso cref="M:System.Object.GetHashCode"/>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.ToStringBehavior">
+        <member name="T:Puzzles.SourceGeneration.ToStringBehavior">
             <summary>
             Represents a behavior for generating <see cref="M:System.Object.ToString"/> method.
             </summary>
             <seealso cref="M:System.Object.ToString"/>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.EqualityOperatorsBehavior">
+        <member name="T:Puzzles.SourceGeneration.EqualityOperatorsBehavior">
             <summary>
             Represents a behavior for generating equality operators.
             </summary>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.ComparisonOperatorsBehavior">
+        <member name="T:Puzzles.SourceGeneration.ComparisonOperatorsBehavior">
             <summary>
             Represents a behavior for generating comparison operators.
             </summary>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.PrimaryConstructor">
+        <member name="T:Puzzles.SourceGeneration.PrimaryConstructor">
             <summary>
             Provides with primary constructor operations.
             </summary>
         </member>
-        <member name="M:Puzzles.SourceGeneration.Handlers.PrimaryConstructor.MapMemberNames``1(Microsoft.CodeAnalysis.INamedTypeSymbol,Microsoft.CodeAnalysis.SemanticModel,Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax,Microsoft.CodeAnalysis.INamedTypeSymbol,System.Func{Microsoft.CodeAnalysis.AttributeData,System.Boolean},System.Func{Microsoft.CodeAnalysis.ISymbol,``0},System.Threading.CancellationToken)">
+        <member name="M:Puzzles.SourceGeneration.PrimaryConstructor.MapMemberNames``1(Microsoft.CodeAnalysis.INamedTypeSymbol,Microsoft.CodeAnalysis.SemanticModel,Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax,Microsoft.CodeAnalysis.INamedTypeSymbol,System.Func{Microsoft.CodeAnalysis.AttributeData,System.Boolean},System.Func{Microsoft.CodeAnalysis.ISymbol,``0},System.Threading.CancellationToken)">
             <summary>
             Try to map member names.
             </summary>
@@ -174,20 +100,35 @@
             <param name="cancellationToken">The cancellation token that can cancel the operation.</param>
             <returns>A list of values (member names and extra data).</returns>
         </member>
-        <member name="T:Puzzles.SourceGeneration.Handlers.Extensions">
+        <member name="T:Puzzles.SourceGeneration.Extensions">
             <target name="class" when="extension">
 				<summary>
 					Provides with file-local extension methods.
 				</summary>
 			</target>
         </member>
-        <member name="M:Puzzles.SourceGeneration.Handlers.Extensions.InternalHandle(System.String,System.String)">
+        <member name="M:Puzzles.SourceGeneration.Extensions.InternalHandle(System.String,System.String)">
             <summary>
             Internal handle the naming rule, converting it into a valid identifier via specified parameter name.
             </summary>
             <param name="this">The naming rule.</param>
             <param name="parameterName">The parameter name.</param>
             <returns>The final identifier.</returns>
+        </member>
+        <member name="M:Puzzles.SourceGeneration.Extensions.ToPascalCasing(System.String)">
+            <summary>
+            Try to convert the specified identifier into pascal casing.
+            </summary>
+        </member>
+        <member name="M:Puzzles.SourceGeneration.Extensions.ToCamelCasing(System.String)">
+            <summary>
+            Try to convert the specified identifier into camel casing.
+            </summary>
+        </member>
+        <member name="M:Puzzles.SourceGeneration.Extensions.ToUnderscoreCamelCasing(System.String)">
+            <summary>
+            Try to convert the specified identifier into camel casing, with a leading underscore character.
+            </summary>
         </member>
         <member name="T:SolutionVersion">
             <summary>
