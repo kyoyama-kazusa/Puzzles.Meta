@@ -1470,17 +1470,6 @@
             <returns>A string that is equal to <see cref="F:System.String.Empty"/>.</returns>
             <seealso cref="F:System.String.Empty"/>
         </member>
-        <member name="M:System.delegate.BitMerger``1(``0,``0)">
-            <summary>
-            Merges two integers by bits. This method will be used by LINQ method
-            <see cref="M:System.Linq.Enumerable.Aggregate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})"/>.
-            </summary>
-            <typeparam name="TBinaryInteger">The type of the value. The value must be an integer type, and supports for shifting operators.</typeparam>
-            <param name="interim">The interim value.</param>
-            <param name="next">The next value to be merged by its bits.</param>
-            <returns>The final value merged.</returns>
-            <seealso cref="M:System.Linq.Enumerable.Aggregate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})"/>
-        </member>
         <member name="M:System.delegate.EnumFlagMerger``1(``0,``0)">
             <summary>
             Merges two flags of type <typeparamref name="TEnum"/>.
