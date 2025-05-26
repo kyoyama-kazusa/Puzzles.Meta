@@ -41,29 +41,28 @@ public static class RandomExtensions
 		/// Randomly select one element from the collection, with possibility specified by normalizer function.
 		/// </summary>
 		/// <typeparam name="T">The type of each element.</typeparam>
-		/// <typeparam name="TNumber">The type of value normalized.</typeparam>
+		/// <typeparam name="TKey">The type of value normalized.</typeparam>
 		/// <param name="values">The values.</param>
 		/// <param name="normalizer">The method that calculate the value (weight) of the object to be chosen.</param>
 		/// <returns>The chosen element.</returns>
 		/// <exception cref="InvalidOperationException">
 		/// Throws when the specified collection is empty, or normalizer produces a negative number.
 		/// </exception>
-		public T NormalizedChoose<T, TNumber>(ReadOnlySpan<T> values, Func<T, TNumber> normalizer)
-			where TNumber : INumber<TNumber>
+		public T NormalizedChoose<T, TKey>(ReadOnlySpan<T> values, Func<T, TKey> normalizer) where TKey : INumber<TKey>
 		{
 			InvalidOperationException.ThrowIfAssertionFailed(!values.IsEmpty);
-			InvalidOperationException.ThrowIfAssertionFailed(values.All(value => normalizer(value) >= TNumber.Zero));
+			InvalidOperationException.ThrowIfAssertionFailed(values.All(value => normalizer(value) >= TKey.Zero));
 
 			var totalScore = values.Sum(normalizer);
-			var cumulative = new List<TNumber>();
-			var current = TNumber.Zero;
+			var cumulative = new List<TKey>();
+			var current = TKey.Zero;
 			foreach (var value in values)
 			{
 				current += normalizer(value) / totalScore;
 				cumulative.Add(current);
 			}
 
-			var randomValue = TNumber.CreateChecked(@this.NextDouble());
+			var randomValue = TKey.CreateChecked(@this.NextDouble());
 			for (var i = 0; i < cumulative.Count; i++)
 			{
 				if (randomValue < cumulative[i])

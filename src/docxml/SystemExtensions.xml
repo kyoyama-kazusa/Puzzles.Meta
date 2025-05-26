@@ -6818,7 +6818,7 @@
             Randomly select one element from the collection, with possibility specified by normalizer function.
             </summary>
             <typeparam name="T">The type of each element.</typeparam>
-            <typeparam name="TNumber">The type of value normalized.</typeparam>
+            <typeparam name="TKey">The type of value normalized.</typeparam>
             <param name="values">The values.</param>
             <param name="normalizer">The method that calculate the value (weight) of the object to be chosen.</param>
             <returns>The chosen element.</returns>
