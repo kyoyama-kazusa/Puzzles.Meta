@@ -5856,7 +5856,7 @@
             <param name="a">The first value.</param>
             <param name="b">The second value.</param>
             <param name="c">The third value.</param>
-            <returns>Which is the minimal value.</returns>
+            <returns>The minimal one.</returns>
         </member>
         <member name="M:System.MathExtensions..Max(System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -5865,7 +5865,45 @@
             <param name="a">The first value.</param>
             <param name="b">The second value.</param>
             <param name="c">The third value.</param>
-            <returns>Which is the maximum value.</returns>
+            <returns>The maximum one.</returns>
+        </member>
+        <member name="M:System.MathExtensions..Min``1(``0,``0)">
+            <summary>
+            Gets the minimal one of two values.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+            <returns>The minimal one.</returns>
+        </member>
+        <member name="M:System.MathExtensions..Min``1(``0,``0,``0)">
+            <summary>
+            Gets the minimal one of 3 values.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+            <param name="c">The third value.</param>
+            <returns>The minimal one.</returns>
+        </member>
+        <member name="M:System.MathExtensions..Max``1(``0,``0)">
+            <summary>
+            Gets the maximal one of two values.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+            <returns>The maximal one.</returns>
+        </member>
+        <member name="M:System.MathExtensions..Max``1(``0,``0,``0)">
+            <summary>
+            Gets the maximal one of 3 values.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+            <param name="c">The third value.</param>
+            <returns>The maximal one.</returns>
         </member>
         <member name="T:System.MemoryExtensionsExtensions">
             <summary>
