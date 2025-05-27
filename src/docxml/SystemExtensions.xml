@@ -1470,15 +1470,6 @@
             <returns>A string that is equal to <see cref="F:System.String.Empty"/>.</returns>
             <seealso cref="F:System.String.Empty"/>
         </member>
-        <member name="M:System.delegate.EnumFlagMerger``1(``0,``0)">
-            <summary>
-            Merges two flags of type <typeparamref name="TEnum"/>.
-            </summary>
-            <typeparam name="TEnum">The type of the enumeration.</typeparam>
-            <param name="left">The first instance to be merged.</param>
-            <param name="right">The second instance to be merged.</param>
-            <returns>A merged result.</returns>
-        </member>
         <member name="M:System.delegate.Self``1(``0)">
             <summary>
             Returns the argument <paramref name="value"/>.
@@ -2109,6 +2100,13 @@
         </member>
         <member name="M:System.EnumExtensions.`1.Parse(System.String,System.Boolean)">
             <inheritdoc cref="M:System.Enum.Parse``1(System.String,System.Boolean)"/>
+        </member>
+        <member name="M:System.EnumExtensions.`1.MergeFlags(System.ReadOnlySpan{`0})">
+            <summary>
+            Merges all flags into one.
+            </summary>
+            <param name="flags">The flags.</param>
+            <returns>The merged value.</returns>
         </member>
         <member name="T:System.EnvironmentExtensions">
             <summary>

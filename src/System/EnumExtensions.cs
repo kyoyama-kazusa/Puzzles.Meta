@@ -80,6 +80,7 @@ public static class EnumExtensions
 		public EnumFlagsEnumerator<T> GetEnumerator() => new(@this);
 
 
+
 		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char})"/>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool TryParse(ReadOnlySpan<char> value, out T result) => Enum.TryParse(value, out result);
@@ -112,5 +113,57 @@ public static class EnumExtensions
 		/// <inheritdoc cref="Enum.Parse{TEnum}(string, bool)"/>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Parse(string value, bool ignoreCase) => Enum.Parse<T>(value, ignoreCase);
+
+		/// <summary>
+		/// Merges all flags into one.
+		/// </summary>
+		/// <param name="flags">The flags.</param>
+		/// <returns>The merged value.</returns>
+		public static unsafe T MergeFlags(ReadOnlySpan<T> flags)
+		{
+			switch (sizeof(T))
+			{
+				case 1:
+				{
+					var result = (byte)0;
+					foreach (var flag in flags)
+					{
+						result |= Unsafe.As<T, byte>(ref Unsafe.AsRef(in flag));
+					}
+					return Unsafe.As<byte, T>(ref result);
+				}
+				case 2:
+				{
+					var result = (ushort)0;
+					foreach (var flag in flags)
+					{
+						result |= Unsafe.As<T, ushort>(ref Unsafe.AsRef(in flag));
+					}
+					return Unsafe.As<ushort, T>(ref result);
+				}
+				case 4:
+				{
+					var result = (uint)0;
+					foreach (var flag in flags)
+					{
+						result |= Unsafe.As<T, uint>(ref Unsafe.AsRef(in flag));
+					}
+					return Unsafe.As<uint, T>(ref result);
+				}
+				case 8:
+				{
+					var result = (ulong)0;
+					foreach (var flag in flags)
+					{
+						result |= Unsafe.As<T, ulong>(ref Unsafe.AsRef(in flag));
+					}
+					return Unsafe.As<ulong, T>(ref result);
+				}
+				default:
+				{
+					throw new InvalidOperationException();
+				}
+			}
+		}
 	}
 }

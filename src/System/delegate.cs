@@ -25,22 +25,6 @@ public static class @delegate
 	public static string ReturnEmptyString<T>(T instance) where T : allows ref struct => string.Empty;
 
 	/// <summary>
-	/// Merges two flags of type <typeparamref name="TEnum"/>.
-	/// </summary>
-	/// <typeparam name="TEnum">The type of the enumeration.</typeparam>
-	/// <param name="left">The first instance to be merged.</param>
-	/// <param name="right">The second instance to be merged.</param>
-	/// <returns>A merged result.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static unsafe TEnum EnumFlagMerger<TEnum>(TEnum left, TEnum right) where TEnum : unmanaged, Enum
-		=> sizeof(TEnum) switch
-		{
-			1 or 2 or 4 when (Unsafe.As<TEnum, int>(ref left) | Unsafe.As<TEnum, int>(ref right)) is var f => Unsafe.As<int, TEnum>(ref f),
-			8 when (Unsafe.As<TEnum, long>(ref left) | Unsafe.As<TEnum, long>(ref right)) is var f => Unsafe.As<long, TEnum>(ref f),
-			_ => throw new NotSupportedException(SR.ExceptionMessage("UnderlyingTypeNotSupported"))
-		};
-
-	/// <summary>
 	/// Returns the argument <paramref name="value"/>.
 	/// </summary>
 	/// <typeparam name="T">The type of the argument.</typeparam>
