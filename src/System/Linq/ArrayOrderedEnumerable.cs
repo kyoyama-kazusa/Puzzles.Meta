@@ -192,13 +192,13 @@ public sealed class ArrayOrderedEnumerable<T>(T[] values, params Func<T, T, int>
 
 	/// <inheritdoc/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public T? Aggregate(Func<T?, T?, T> func) => Aggregate(default, func, @delegate.Self);
+	public T? Aggregate(Func<T?, T?, T> func) => Aggregate(default, func, Func<T?>.Self);
 
 	/// <inheritdoc/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public TAccumulate Aggregate<TAccumulate>(TAccumulate seed, Func<TAccumulate, T, TAccumulate> func)
 		where TAccumulate : allows ref struct
-		=> Aggregate(seed, func, @delegate.Self);
+		=> Aggregate(seed, func, Func<TAccumulate>.Self);
 
 	/// <inheritdoc/>
 	public TResult Aggregate<TAccumulate, TResult>(TAccumulate seed, Func<TAccumulate, T, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)

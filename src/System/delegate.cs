@@ -23,13 +23,4 @@ public static class @delegate
 	/// <seealso cref="string.Empty"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static string ReturnEmptyString<T>(T instance) where T : allows ref struct => string.Empty;
-
-	/// <summary>
-	/// Returns the argument <paramref name="value"/>.
-	/// </summary>
-	/// <typeparam name="T">The type of the argument.</typeparam>
-	/// <param name="value">The value.</param>
-	/// <returns>The value itself.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static T Self<T>(T value) where T : allows ref struct => value;
 }

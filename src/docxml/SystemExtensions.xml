@@ -1470,14 +1470,6 @@
             <returns>A string that is equal to <see cref="F:System.String.Empty"/>.</returns>
             <seealso cref="F:System.String.Empty"/>
         </member>
-        <member name="M:System.delegate.Self``1(``0)">
-            <summary>
-            Returns the argument <paramref name="value"/>.
-            </summary>
-            <typeparam name="T">The type of the argument.</typeparam>
-            <param name="value">The value.</param>
-            <returns>The value itself.</returns>
-        </member>
         <member name="T:System.DelegateExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.Delegate"/>.
@@ -1499,6 +1491,16 @@
         </member>
         <member name="M:System.DelegateExtensions..GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Delegate.EnumerateInvocationList``1(``0)"/>
+        </member>
+        <member name="T:System.DelegateExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Func`2"/>.
+            </summary>
+        </member>
+        <member name="P:System.DelegateExtensions.`1.Self">
+            <summary>
+            Creates a <see cref="T:System.Func`2"/> instance that directly returns parameter.
+            </summary>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.ComponentMemberAttribute">
             <summary>

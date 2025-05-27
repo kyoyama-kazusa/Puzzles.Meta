@@ -26,4 +26,19 @@ public static class DelegateExtensions
 		public static DelegateEnumerator<TDelegate> GetEnumerator<TDelegate>(TDelegate? @delegate) where TDelegate : Delegate
 			=> new(@delegate);
 	}
+
+	/// <summary>
+	/// Provides extension members on <see cref="Func{T, TResult}"/>.
+	/// </summary>
+	extension<T>(Func<T>) where T : allows ref struct
+	{
+		/// <summary>
+		/// Creates a <see cref="Func{T, TResult}"/> instance that directly returns parameter.
+		/// </summary>
+		public static Func<T, T> Self => SelfMethod;
+
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		private static T SelfMethod(T instance) => instance;
+	}
 }
