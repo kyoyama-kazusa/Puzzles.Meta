@@ -28,6 +28,26 @@ public static class DelegateExtensions
 	}
 
 	/// <summary>
+	/// Provides extension members on <see cref="Action"/>.
+	/// </summary>
+	extension(Action)
+	{
+		/// <summary>
+		/// Creates an <see cref="Action"/> instance that do nothing.
+		/// </summary>
+		public static Action DoNothing => DoNothingMethod;
+
+
+		/// <summary>
+		/// Represents a method that do nothing.
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void DoNothingMethod()
+		{
+		}
+	}
+
+	/// <summary>
 	/// Provides extension members on <see cref="Func{T, TResult}"/>.
 	/// </summary>
 	extension<T>(Func<T>) where T : allows ref struct
@@ -38,7 +58,10 @@ public static class DelegateExtensions
 		public static Func<T, T> Self => SelfMethod;
 
 
+		/// <summary>
+		/// Represents a method that directly returns <paramref name="instance"/>.
+		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		private static T SelfMethod(T instance) => instance;
+		public static T SelfMethod(T instance) => instance;
 	}
 }

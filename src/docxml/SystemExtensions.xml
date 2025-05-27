@@ -1451,25 +1451,6 @@
             <param name="delay">The delay.</param>
             <param name="contents">The contents.</param>
         </member>
-        <member name="T:System.delegate">
-            <summary>
-            Represents a set of method groups that can be used as delegate-typed arguments, in easy ways.
-            </summary>
-        </member>
-        <member name="M:System.delegate.DoNothing">
-            <summary>
-            Do nothing. This method is equivalent to lambda expression <c>static () => {}</c>.
-            </summary>
-        </member>
-        <member name="M:System.delegate.ReturnEmptyString``1(``0)">
-            <summary>
-            Returns an empty string equivalent to <see cref="F:System.String.Empty"/> no matter what the argument is.
-            </summary>
-            <typeparam name="T">The type of the argument. In fact the argument won't be used in this method.</typeparam>
-            <param name="instance">The instance. In fact the argument won't be used in this method.</param>
-            <returns>A string that is equal to <see cref="F:System.String.Empty"/>.</returns>
-            <seealso cref="F:System.String.Empty"/>
-        </member>
         <member name="T:System.DelegateExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.Delegate"/>.
@@ -1492,6 +1473,21 @@
         <member name="M:System.DelegateExtensions..GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Delegate.EnumerateInvocationList``1(``0)"/>
         </member>
+        <member name="T:System.DelegateExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Action"/>.
+            </summary>
+        </member>
+        <member name="P:System.DelegateExtensions..DoNothing">
+            <summary>
+            Creates an <see cref="T:System.Action"/> instance that do nothing.
+            </summary>
+        </member>
+        <member name="M:System.DelegateExtensions..DoNothingMethod">
+            <summary>
+            Represents a method that do nothing.
+            </summary>
+        </member>
         <member name="T:System.DelegateExtensions.`1">
             <summary>
             Provides extension members on <see cref="T:System.Func`2"/>.
@@ -1500,6 +1496,11 @@
         <member name="P:System.DelegateExtensions.`1.Self">
             <summary>
             Creates a <see cref="T:System.Func`2"/> instance that directly returns parameter.
+            </summary>
+        </member>
+        <member name="M:System.DelegateExtensions.`1.SelfMethod(`0)">
+            <summary>
+            Represents a method that directly returns <paramref name="instance"/>.
             </summary>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.ComponentMemberAttribute">
