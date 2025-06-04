@@ -25,9 +25,10 @@ public static class FuncExtensions
 	}
 
 	/// <summary>
-	/// Provides extension members on <see cref="Func{T, TResult}"/>.
+	/// Provides extension members on <see cref="Func{T, TResult}"/>
+	/// of <see cref="Func{T, TResult}"/> and <see cref="Func{T, TResult}"/>.
 	/// </summary>
-	extension<T, TResult>(Func<T, TResult>)
+	extension<T, TResult>(Func<Func<T, TResult>, Func<T, TResult>> @this)
 		where T : allows ref struct
 		where TResult : allows ref struct
 	{
@@ -55,8 +56,7 @@ public static class FuncExtensions
 		/// Console.WriteLine(factorial(5)); // 120
 		/// ]]></code>
 		/// </summary>
-		/// <param name="f">The recursion logic.</param>
 		/// <returns>A function that creates a nesting lambda that is a recursive lambda.</returns>
-		public static Func<T, TResult> YCombinator(Func<Func<T, TResult>, Func<T, TResult>> f) => value => f(YCombinator(f))(value);
+		public Func<T, TResult> YCombinator => value => @this(get_YCombinator(@this))(value);
 	}
 }

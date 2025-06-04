@@ -2214,10 +2214,11 @@
         </member>
         <member name="T:System.FuncExtensions.`2">
             <summary>
-            Provides extension members on <see cref="T:System.Func`2"/>.
+            Provides extension members on <see cref="T:System.Func`2"/>
+            of <see cref="T:System.Func`2"/> and <see cref="T:System.Func`2"/>.
             </summary>
         </member>
-        <member name="M:System.FuncExtensions.`2.YCombinator(System.Func{System.Func{`0,`1},System.Func{`0,`1}})">
+        <member name="P:System.FuncExtensions.`2.YCombinator">
              <summary>
              (Easter egg) Represents Y-Combinator. This method can allow you create recursive lambdas.
              For example, this code snippet will calculate for factorial of the specified digit:
@@ -2242,7 +2243,6 @@
              Console.WriteLine(factorial(5)); // 120
              ]]></code>
              </summary>
-             <param name="f">The recursion logic.</param>
              <returns>A function that creates a nesting lambda that is a recursive lambda.</returns>
         </member>
         <member name="T:System.GenericExtensions">
