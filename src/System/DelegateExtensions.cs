@@ -26,42 +26,4 @@ public static class DelegateExtensions
 		public static DelegateEnumerator<TDelegate> GetEnumerator<TDelegate>(TDelegate? @delegate) where TDelegate : Delegate
 			=> new(@delegate);
 	}
-
-	/// <summary>
-	/// Provides extension members on <see cref="Action"/>.
-	/// </summary>
-	extension(Action)
-	{
-		/// <summary>
-		/// Creates an <see cref="Action"/> instance that do nothing.
-		/// </summary>
-		public static Action DoNothing => DoNothingMethod;
-
-
-		/// <summary>
-		/// Represents a method that do nothing.
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void DoNothingMethod()
-		{
-		}
-	}
-
-	/// <summary>
-	/// Provides extension members on <see cref="Func{T, TResult}"/>.
-	/// </summary>
-	extension<T>(Func<T>) where T : allows ref struct
-	{
-		/// <summary>
-		/// Creates a <see cref="Func{T, TResult}"/> instance that directly returns parameter.
-		/// </summary>
-		public static Func<T, T> Self => SelfMethod;
-
-
-		/// <summary>
-		/// Represents a method that directly returns <paramref name="instance"/>.
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static T SelfMethod(T instance) => instance;
-	}
 }

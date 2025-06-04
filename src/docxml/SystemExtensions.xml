@@ -4,6 +4,27 @@
         <name>SystemExtensions</name>
     </assembly>
     <members>
+        <member name="T:System.ActionExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Action"/> and its related types.
+            </summary>
+            <seealso cref="T:System.Action"/>
+        </member>
+        <member name="T:System.ActionExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Action"/>.
+            </summary>
+        </member>
+        <member name="P:System.ActionExtensions..DoNothing">
+            <summary>
+            Creates an <see cref="T:System.Action"/> instance that do nothing.
+            </summary>
+        </member>
+        <member name="M:System.ActionExtensions..DoNothingMethod">
+            <summary>
+            Represents a method that do nothing.
+            </summary>
+        </member>
         <member name="T:System.ArgumentExceptionExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.ArgumentException"/> and its derived types.
@@ -1473,36 +1494,6 @@
         <member name="M:System.DelegateExtensions..GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Delegate.EnumerateInvocationList``1(``0)"/>
         </member>
-        <member name="T:System.DelegateExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.Action"/>.
-            </summary>
-        </member>
-        <member name="P:System.DelegateExtensions..DoNothing">
-            <summary>
-            Creates an <see cref="T:System.Action"/> instance that do nothing.
-            </summary>
-        </member>
-        <member name="M:System.DelegateExtensions..DoNothingMethod">
-            <summary>
-            Represents a method that do nothing.
-            </summary>
-        </member>
-        <member name="T:System.DelegateExtensions.`1">
-            <summary>
-            Provides extension members on <see cref="T:System.Func`2"/>.
-            </summary>
-        </member>
-        <member name="P:System.DelegateExtensions.`1.Self">
-            <summary>
-            Creates a <see cref="T:System.Func`2"/> instance that directly returns parameter.
-            </summary>
-        </member>
-        <member name="M:System.DelegateExtensions.`1.SelfMethod(`0)">
-            <summary>
-            Represents a method that directly returns <paramref name="instance"/>.
-            </summary>
-        </member>
         <member name="T:System.Diagnostics.CodeAnalysis.ComponentMemberAttribute">
             <summary>
             Represents an attribute type that describes a data member is a component member,
@@ -2205,6 +2196,21 @@
             Provides with extension methods on <see cref="T:System.Func`1"/> and its related types.
             </summary>
             <seealso cref="T:System.Func`1"/>
+        </member>
+        <member name="T:System.FuncExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Func`2"/>.
+            </summary>
+        </member>
+        <member name="P:System.FuncExtensions.`1.Self">
+            <summary>
+            Creates a <see cref="T:System.Func`2"/> instance that directly returns parameter.
+            </summary>
+        </member>
+        <member name="M:System.FuncExtensions.`1.SelfMethod(`0)">
+            <summary>
+            Represents a method that directly returns <paramref name="instance"/>.
+            </summary>
         </member>
         <member name="T:System.FuncExtensions.`2">
             <summary>

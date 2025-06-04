@@ -9,6 +9,24 @@ public static class FuncExtensions
 	/// <summary>
 	/// Provides extension members on <see cref="Func{T, TResult}"/>.
 	/// </summary>
+	extension<T>(Func<T>) where T : allows ref struct
+	{
+		/// <summary>
+		/// Creates a <see cref="Func{T, TResult}"/> instance that directly returns parameter.
+		/// </summary>
+		public static Func<T, T> Self => SelfMethod;
+
+
+		/// <summary>
+		/// Represents a method that directly returns <paramref name="instance"/>.
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static T SelfMethod(T instance) => instance;
+	}
+
+	/// <summary>
+	/// Provides extension members on <see cref="Func{T, TResult}"/>.
+	/// </summary>
 	extension<T, TResult>(Func<T, TResult>)
 		where T : allows ref struct
 		where TResult : allows ref struct
