@@ -6346,6 +6346,29 @@
             <summary>
             Provides extension members on <see cref="T:System.Numerics.BitOperations"/>.
             </summary>
+            <remarks>
+            <para>
+            In hardware aspects, there's no concept for integer types narrowed than <see cref="T:System.Int32"/>,
+            so there's no such overloads for <see cref="T:System.Byte"/>, <see cref="T:System.Int16"/> and so on.
+            Methods provided here will make the calling operation easier, without casting from <see cref="T:System.Int32"/> to <see cref="T:System.UInt32"/>,
+            or casting <see cref="T:System.Int64"/> to <see cref="T:System.UInt64"/>, but it may effect performance when utilized:
+            <code><![CDATA[
+            short b = 42;
+            _ = BitOperations.TrailingZeroCount(b); // Calls overload 'TrailingZeroCount(short)' (not good)
+            _ = BitOperations.TrailingZeroCount((uint)b); // Calls 'TrailingZeroCount(uint)', which is built-in (good)
+            ]]></code>
+            Although I append [<see cref="T:System.Runtime.CompilerServices.MethodImplAttribute"/>(<see cref="F:System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining"/>)]
+            in order to annotate all methods here, there's no need to mark because JIT can determine whether the code can be inlined
+            in such cases.
+            </para>
+            <para>
+            Why I persist to create such overloads, even if I know the problem?
+            Well, I just want to make the overloading methods complete :)
+            </para>
+            </remarks>
+            <seealso cref="T:System.Numerics.BitOperations"/>
+            <seealso cref="T:System.Runtime.CompilerServices.MethodImplAttribute"/>
+            <seealso cref="F:System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions..TrailingZeroCount(System.SByte)">
             <inheritdoc cref="M:System.Numerics.BitOperations.TrailingZeroCount(System.Int32)"/>

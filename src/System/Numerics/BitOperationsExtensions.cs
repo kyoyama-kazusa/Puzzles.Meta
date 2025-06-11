@@ -866,6 +866,29 @@ public static partial class BitOperationsExtensions
 	/// <summary>
 	/// Provides extension members on <see cref="BitOperations"/>.
 	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// In hardware aspects, there's no concept for integer types narrowed than <see cref="int"/>,
+	/// so there's no such overloads for <see cref="byte"/>, <see cref="short"/> and so on.
+	/// Methods provided here will make the calling operation easier, without casting from <see cref="int"/> to <see cref="uint"/>,
+	/// or casting <see cref="long"/> to <see cref="ulong"/>, but it may effect performance when utilized:
+	/// <code><![CDATA[
+	/// short b = 42;
+	/// _ = BitOperations.TrailingZeroCount(b); // Calls overload 'TrailingZeroCount(short)' (not good)
+	/// _ = BitOperations.TrailingZeroCount((uint)b); // Calls 'TrailingZeroCount(uint)', which is built-in (good)
+	/// ]]></code>
+	/// Although I append [<see cref="MethodImplAttribute"/>(<see cref="MethodImplOptions.AggressiveInlining"/>)]
+	/// in order to annotate all methods here, there's no need to mark because JIT can determine whether the code can be inlined
+	/// in such cases.
+	/// </para>
+	/// <para>
+	/// Why I persist to create such overloads, even if I know the problem?
+	/// Well, I just want to make the overloading methods complete :)
+	/// </para>
+	/// </remarks>
+	/// <seealso cref="BitOperations"/>
+	/// <seealso cref="MethodImplAttribute"/>
+	/// <seealso cref="MethodImplOptions.AggressiveInlining"/>
 	extension(BitOperations)
 	{
 		//
