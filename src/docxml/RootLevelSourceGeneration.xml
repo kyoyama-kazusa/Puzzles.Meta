@@ -786,11 +786,15 @@
 				</summary>
 			</target>
         </member>
-        <member name="M:Extensions.OnLoading(System.Xml.XmlDocument,System.String)">
+        <member name="T:Extensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Xml.XmlDocument"/>.
+            </summary>
+        </member>
+        <member name="M:Extensions..LoadFile(System.String)">
             <summary>
             Try to load the XML document located to the specified path.
             </summary>
-            <param name="this">The current XML document instance.</param>
             <param name="path">The path to load.</param>
             <returns>The current reference to the XML document.</returns>
         </member>

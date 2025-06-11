@@ -38,9 +38,9 @@
             <param name="_"/>
             <returns>The value.</returns>
         </member>
-        <member name="T:Puzzles.SourceGeneration.TypeImplHandler">
+        <member name="T:Puzzles.SourceGeneration.FileLocalHandler">
             <summary>
-            The hub file that generates modal source code on some commonly-used members.
+            The file-local type that generates modal source code on some commonly-used members.
             </summary>
         </member>
         <member name="T:Puzzles.SourceGeneration.TypeImplFlag">

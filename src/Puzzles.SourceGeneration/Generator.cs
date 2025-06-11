@@ -1,10 +1,17 @@
-namespace Puzzles.SourceGeneration;
-
+using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Threading;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using static Microsoft.CodeAnalysis.NullableAnnotation;
 using static Microsoft.CodeAnalysis.SpecialType;
 using static SolutionVersion;
-using static TypeImplHandler;
-using NamedArgs = ImmutableArray<KeyValuePair<string, TypedConstant>>;
+using NamedArgs = System.Collections.Immutable.ImmutableArray<System.Collections.Generic.KeyValuePair<string, Microsoft.CodeAnalysis.TypedConstant>>;
+
+namespace Puzzles.SourceGeneration;
 
 /// <summary>
 /// Represents a source generator type that runs multiple different usage of source output services on compiling code.
@@ -20,10 +27,10 @@ public sealed class Generator : IIncrementalGenerator
 				.ForAttributeWithMetadataName(
 					"System.Diagnostics.CodeAnalysis.TypeImplAttribute",
 					IsPartialTypePredicate,
-					Transform
+					FileLocalHandler.Transform
 				)
 				.Collect(),
-			Output
+			FileLocalHandler.Output
 		);
 
 
@@ -56,9 +63,9 @@ public sealed class Generator : IIncrementalGenerator
 }
 
 /// <summary>
-/// The hub file that generates modal source code on some commonly-used members.
+/// The file-local type that generates modal source code on some commonly-used members.
 /// </summary>
-file static class TypeImplHandler
+file static class FileLocalHandler
 {
 	private const string ValueTaskFullTypeName = "global::System.Threading.Tasks.ValueTask";
 
@@ -254,7 +261,7 @@ file static class TypeImplHandler
 					{
 						/// <inheritdoc cref="object.Equals(object?)"/>
 						{{attributesMarked}}
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						public {{otherModifiersString}}override {{readOnlyModifier}}bool Equals([global::System.Diagnostics.CodeAnalysis.NotNullWhenAttribute(true)] object? obj)
 							=> {{expressionString}};
@@ -431,7 +438,7 @@ file static class TypeImplHandler
 					{
 						/// <inheritdoc cref="object.GetHashCode"/>
 						{{attributesMarked}}
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						public {{otherModifiersString}}override {{readOnlyModifier}}int GetHashCode()
 						{{codeBlock}}
@@ -620,7 +627,7 @@ file static class TypeImplHandler
 					{
 						/// <inheritdoc cref="object.ToString"/>
 						{{attributesMarked}}
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						public {{otherModifiersString}}override {{readOnlyModifier}}string ToString()
 							=> {{expression}};
@@ -761,13 +768,13 @@ file static class TypeImplHandler
 				/// <inheritdoc/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.Numerics.IEqualityOperators<{{fullTypeNameString}}, {{fullTypeNameString}}, bool>.operator ==({{fullTypeNameString}} left, {{fullTypeNameString}} right) => left == right;
 
 						/// <inheritdoc/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.Numerics.IEqualityOperators<{{fullTypeNameString}}, {{fullTypeNameString}}, bool>.operator !=({{fullTypeNameString}} left, {{fullTypeNameString}} right) => left != right;
 				""";
 		}
@@ -779,14 +786,14 @@ file static class TypeImplHandler
 				/// <inheritdoc cref="global::System.Numerics.IEqualityOperators{TSelf, TOther, TResult}.op_Equality(TSelf, TOther)"/>
 						{{attributesMarked}}
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator ==({{fullTypeNameString}}{{nullabilityToken}} left, {{fullTypeNameString}}{{nullabilityToken}} right)
 							=> {{i1}};
 
 						/// <inheritdoc cref="global::System.Numerics.IEqualityOperators{TSelf, TOther, TResult}.op_Inequality(TSelf, TOther)"/>
 						{{attributesMarked}}
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator !=({{fullTypeNameString}}{{nullabilityToken}} left, {{fullTypeNameString}}{{nullabilityToken}} right)
 							=> {{i2}};
 				""",
@@ -795,14 +802,14 @@ file static class TypeImplHandler
 				/// <inheritdoc cref="global::System.Numerics.IEqualityOperators{TSelf, TOther, TResult}.op_Equality(TSelf, TOther)"/>
 						{{attributesMarked}}
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator ==(in {{fullTypeNameString}}{{nullabilityToken}} left, in {{fullTypeNameString}}{{nullabilityToken}} right)
 							=> {{i1}};
 
 						/// <inheritdoc cref="global::System.Numerics.IEqualityOperators{TSelf, TOther, TResult}.op_Inequality(TSelf, TOther)"/>
 						{{attributesMarked}}
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator !=(in {{fullTypeNameString}}{{nullabilityToken}} left, in {{fullTypeNameString}}{{nullabilityToken}} right)
 							=> {{i2}};
 
@@ -903,24 +910,24 @@ file static class TypeImplHandler
 				/// <inheritdoc/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.Numerics.IComparisonOperators<{{fullTypeNameString}}, {{fullTypeNameString}}, bool>.operator >({{fullTypeNameString}} left, {{fullTypeNameString}} right) => left > right;
 
 						/// <inheritdoc/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.Numerics.IComparisonOperators<{{fullTypeNameString}}, {{fullTypeNameString}}, bool>.operator <({{fullTypeNameString}} left, {{fullTypeNameString}} right) => left < right;
 
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.Numerics.IComparisonOperators<{{fullTypeNameString}}, {{fullTypeNameString}}, bool>.operator >=({{fullTypeNameString}} left, {{fullTypeNameString}} right) => left >= right;
 
 						/// <inheritdoc/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.Numerics.IComparisonOperators<{{fullTypeNameString}}, {{fullTypeNameString}}, bool>.operator <=({{fullTypeNameString}} left, {{fullTypeNameString}} right) => left <= right;
 				""";
 		}
@@ -932,28 +939,28 @@ file static class TypeImplHandler
 				/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_GreaterThan(TSelf, TOther)"/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator >({{fullTypeNameString}} left, {{fullTypeNameString}} right)
 							=> {{i1}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_LessThan(TSelf, TOther)"/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator <({{fullTypeNameString}} left, {{fullTypeNameString}} right)
 							=> {{i2}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_GreaterThanOrEqual(TSelf, TOther)"/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator >=({{fullTypeNameString}} left, {{fullTypeNameString}} right)
 							=> {{i3}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_LessThanOrEqual(TSelf, TOther)"/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator <=({{fullTypeNameString}} left, {{fullTypeNameString}} right)
 							=> {{i4}};
 				""",
@@ -962,28 +969,28 @@ file static class TypeImplHandler
 				/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_GreaterThan(TSelf, TOther)"/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator >(in {{fullTypeNameString}} left, in {{fullTypeNameString}} right)
 							=> {{i1}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_LessThan(TSelf, TOther)"/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator <(in {{fullTypeNameString}} left, in {{fullTypeNameString}} right)
 							=> {{i2}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_GreaterThanOrEqual(TSelf, TOther)"/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator >=(in {{fullTypeNameString}} left, in {{fullTypeNameString}} right)
 							=> {{i3}};
 
 						/// <inheritdoc cref="global::System.Numerics.IComparisonOperators{TSelf, TOther, TResult}.op_LessThanOrEqual(TSelf, TOther)"/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						public static bool operator <=(in {{fullTypeNameString}} left, in {{fullTypeNameString}} right)
 							=> {{i4}};
 
@@ -1071,13 +1078,13 @@ file static class TypeImplHandler
 				/// <inheritdoc/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.ILogicalOperators<{{fullTypeNameString}}>.operator true({{fullTypeNameString}} value) => value.{{modeString}} != 0;
 
 						/// <inheritdoc/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.ILogicalOperators<{{fullTypeNameString}}>.operator false({{fullTypeNameString}} value) => value.{{modeString}} == 0;
 				""";
 		}
@@ -1090,14 +1097,14 @@ file static class TypeImplHandler
 				{
 					/// <inheritdoc cref="global::System.ILogicalOperators{TSelf}.op_True(TSelf)"/>
 					[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 					[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 					public static bool operator true({{modifierString}}{{fullTypeNameString}} value)
 						=> value.{{modeString}} != 0;
 
 					/// <inheritdoc cref="global::System.ILogicalOperators{TSelf}.op_False(TSelf)"/>
 					[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 					[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 					public static bool operator false({{modifierString}}{{fullTypeNameString}} value)
 						=> value.{{modeString}} == 0;
@@ -1175,7 +1182,7 @@ file static class TypeImplHandler
 				/// <inheritdoc/>
 						[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						static bool global::System.ILogicalOperators<{{fullTypeNameString}}>.operator !({{fullTypeNameString}} value) => value.{{modeString}} == 0;
 				""";
 		}
@@ -1188,7 +1195,7 @@ file static class TypeImplHandler
 				{
 					/// <inheritdoc cref="global::System.ILogicalOperators{TSelf}.op_LogicalNot(TSelf)"/>
 					[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 					[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 					public static bool operator !({{modifierString}}{{fullTypeNameString}} value)
 						=> value.{{modeString}} == 0;
@@ -1393,7 +1400,7 @@ file static class TypeImplHandler
 				partial {{typeKindString}} {{typeNameString}}
 				{
 					/// <inheritdoc/>
-					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 					[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 					public {{otherModifiersString}}{{readOnlyModifier}}bool Equals({{paramMarkup}}{{fullTypeNameString}}{{nullableToken}} other)
 						=> {{otherIsNullCheckString}}{{expressionString}};
@@ -1408,7 +1415,7 @@ file static class TypeImplHandler
 				partial {{typeKindString}} {{typeNameString}}
 				{
 					/// <inheritdoc cref="global::System.IEquatable{T}.Equals(T)"/>
-					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 					[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 					public {{otherModifiersString}}{{readOnlyModifier}}bool Equals({{largeStructModifier}} {{fullTypeNameString}} other)
 						=> {{expressionString}};
@@ -1590,7 +1597,7 @@ file static class TypeImplHandler
 							/// </summary>
 					{{seealsoCrefPart}}
 							/// <seealso cref="global::System.ObjectDisposedException"/>
-							[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+							[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 							[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 							private bool _isDisposed;
 					""";
@@ -1610,7 +1617,7 @@ file static class TypeImplHandler
 
 						/// <inheritdoc/>
 						/// <exception cref="ObjectDisposedException">Throws when the object had already been disposed.</exception>
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(TypeImplHandler).FullName}}", "{{Value}}")]
+						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
 						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 						{{methodDeclarationLine}}
 						{

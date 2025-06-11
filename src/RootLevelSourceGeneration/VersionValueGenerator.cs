@@ -11,7 +11,7 @@ public sealed class VersionValueGenerator : IIncrementalGenerator
 				.Where(static file => file.Path.EndsWith("Directory.Build.props", StringComparison.Ordinal))
 				.Select(
 					static (text, _) => new XmlDocument()
-						.OnLoading(text.Path)
+						.LoadFile(text.Path)
 						.DocumentElement
 						.SelectNodes("descendant::PropertyGroup")
 						.Cast<XmlNode>()
@@ -52,15 +52,20 @@ public sealed class VersionValueGenerator : IIncrementalGenerator
 file static class Extensions
 {
 	/// <summary>
-	/// Try to load the XML document located to the specified path.
+	/// Provides extension members on <see cref="XmlDocument"/>.
 	/// </summary>
-	/// <param name="this">The current XML document instance.</param>
-	/// <param name="path">The path to load.</param>
-	/// <returns>The current reference to the XML document.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static XmlDocument OnLoading(this XmlDocument @this, string path)
+	extension(XmlDocument @this)
 	{
-		@this.Load(path);
-		return @this;
+		/// <summary>
+		/// Try to load the XML document located to the specified path.
+		/// </summary>
+		/// <param name="path">The path to load.</param>
+		/// <returns>The current reference to the XML document.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public XmlDocument LoadFile(string path)
+		{
+			@this.Load(path);
+			return @this;
+		}
 	}
 }
