@@ -11,6 +11,7 @@ public static class ReadOnlyMemoryExtensions
 	/// </summary>
 	extension<T>(ReadOnlyMemory<T> @this)
 	{
+#if false
 		/// <summary>
 		/// Gets the element at the specified index.
 		/// </summary>
@@ -20,6 +21,7 @@ public static class ReadOnlyMemoryExtensions
 
 		/// <inheritdoc cref="get_Item{T}(ReadOnlyMemory{T}, int)"/>
 		public ref readonly T this[Index index] => ref @this.Span[index];
+#endif
 
 
 		/// <summary>

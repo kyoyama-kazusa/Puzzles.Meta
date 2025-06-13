@@ -16,12 +16,15 @@ public static class IEnumerableExtensions
 		/// </summary>
 		public bool IsEmpty => @this.Any();
 
+#if INCLUDES_LENGTH_PROPERTY && false
 		/// <summary>
 		/// Indicates the length of the sequence.
 		/// </summary>
 		public int Length => @this.Count();
+#endif
 
 
+#if false
 		/// <summary>
 		/// Gets the element at the specified index.
 		/// </summary>
@@ -45,6 +48,7 @@ public static class IEnumerableExtensions
 				return @this.Slice(offset, length);
 			}
 		}
+#endif
 
 
 		/// <summary>
