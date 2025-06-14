@@ -5724,6 +5724,15 @@
         <member name="M:System.Linq.ValueLookup`2.Enumerator.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
         </member>
+        <member name="T:System.Text.RegularExpressions.CaptureCollectionEnumerable">
+            <summary>
+            Provides LINQ-based extension methods on <see cref="T:System.Text.RegularExpressions.CaptureCollection"/>.
+            </summary>
+            <seealso cref="T:System.Text.RegularExpressions.CaptureCollection"/>
+        </member>
+        <member name="M:System.Text.RegularExpressions.CaptureCollectionEnumerable.Select``1(System.Text.RegularExpressions.CaptureCollection,System.Func{System.Text.RegularExpressions.Capture,``0})">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
+        </member>
         <member name="T:System.Text.RegularExpressions.GroupCollectionEnumerable">
             <summary>
             Provides LINQ-based extension methods on <see cref="T:System.Text.RegularExpressions.GroupCollection"/>.
