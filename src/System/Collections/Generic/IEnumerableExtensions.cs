@@ -11,10 +11,12 @@ public static class IEnumerableExtensions
 	/// </summary>
 	extension<T>(IEnumerable<T> @this)
 	{
+#if INCLUDES_IS_EMPTY_PROPERTY && false
 		/// <summary>
 		/// Indicates whether the sequence has no elements.
 		/// </summary>
 		public bool IsEmpty => @this.Any();
+#endif
 
 #if INCLUDES_LENGTH_PROPERTY && false
 		/// <summary>
@@ -61,7 +63,7 @@ public static class IEnumerableExtensions
 		public IEnumerable<T> Slice(int start, int length)
 		{
 			var skiped = @this.Skip(start);
-			if (skiped.IsEmpty)
+			if (!skiped.Any())
 			{
 				throw new InvalidOperationException();
 			}

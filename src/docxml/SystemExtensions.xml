@@ -729,11 +729,6 @@
             Provides extension members on <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
             </summary>
         </member>
-        <member name="P:System.Collections.Generic.IEnumerableExtensions.`1.IsEmpty">
-            <summary>
-            Indicates whether the sequence has no elements.
-            </summary>
-        </member>
         <member name="M:System.Collections.Generic.IEnumerableExtensions.`1.Slice(System.Int32,System.Int32)">
             <summary>
             Slices the current sequence.
