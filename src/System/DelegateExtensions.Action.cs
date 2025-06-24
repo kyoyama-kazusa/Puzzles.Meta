@@ -1,10 +1,6 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="Action"/> and its related types.
-/// </summary>
-/// <seealso cref="Action"/>
-public static class ActionExtensions
+public partial class DelegateExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="Action"/>.

@@ -1,10 +1,6 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="Func{TResult}"/> and its related types.
-/// </summary>
-/// <seealso cref="Func{TResult}"/>
-public static class FuncExtensions
+public partial class DelegateExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="Func{T, TResult}"/>.

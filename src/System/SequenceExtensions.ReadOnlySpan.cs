@@ -1,11 +1,6 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="Span{T}"/> and <see cref="ReadOnlySpan{T}"/>.
-/// </summary>
-/// <seealso cref="Span{T}"/>
-/// <seealso cref="ReadOnlySpan{T}"/>
-public static class ReadOnlySpanExtensions
+public partial class SequenceExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="ReadOnlySpan{T}"/>.

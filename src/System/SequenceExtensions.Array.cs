@@ -1,11 +1,17 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="Array"/>, especially for one-dimensional array.
-/// </summary>
-/// <seealso cref="Array"/>
-public static class ArrayExtensions
+public partial class SequenceExtensions
 {
+	/// <summary>
+	/// Provides extension members of <typeparamref name="T"/>[]? instances.
+	/// </summary>
+	extension<T>(T[]? @this)
+	{
+		/// <inheritdoc cref="MemoryExtensions.AsSpan{T}(T[])"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsReadOnlySpan() => new(@this);
+	}
+
 	/// <summary>
 	/// Provides extension members on <see cref="Array"/>.
 	/// </summary>

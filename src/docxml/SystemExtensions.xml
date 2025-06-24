@@ -4,148 +4,6 @@
         <name>SystemExtensions</name>
     </assembly>
     <members>
-        <member name="T:System.ActionExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.Action"/> and its related types.
-            </summary>
-            <seealso cref="T:System.Action"/>
-        </member>
-        <member name="T:System.ActionExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.Action"/>.
-            </summary>
-        </member>
-        <member name="P:System.ActionExtensions..DoNothing">
-            <summary>
-            Creates an <see cref="T:System.Action"/> instance that do nothing.
-            </summary>
-        </member>
-        <member name="M:System.ActionExtensions..DoNothingMethod">
-            <summary>
-            Represents a method that do nothing.
-            </summary>
-        </member>
-        <member name="T:System.ArgumentExceptionExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.ArgumentException"/> and its derived types.
-            </summary>
-            <seealso cref="T:System.ArgumentException"/>
-        </member>
-        <member name="T:System.ArgumentExceptionExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.ArgumentException"/>.
-            </summary>
-        </member>
-        <member name="M:System.ArgumentExceptionExtensions..ThrowIfAssertionFailed(System.Boolean,System.String)">
-            <summary>
-            Throws an <see cref="T:System.ArgumentException"/> instance if the specified assertion is failed.
-            </summary>
-            <param name="expression">The expression.</param>
-            <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
-        </member>
-        <member name="T:System.ArgumentOutOfRangeExceptionExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.ArgumentOutOfRangeException"/>.
-            </summary>
-            <seealso cref="T:System.ArgumentOutOfRangeException"/>
-        </member>
-        <member name="T:System.ArgumentOutOfRangeExceptionExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.ArgumentOutOfRangeException"/>.
-            </summary>
-        </member>
-        <member name="M:System.ArgumentOutOfRangeExceptionExtensions..ThrowIfOutOfRange``1(``0@,``0,``0,System.String)">
-            <summary>
-            Throws an <see cref="T:System.ArgumentOutOfRangeException"/> if the target instance is below <paramref name="min"/>,
-            or above or equals to <paramref name="max"/>.
-            </summary>
-            <typeparam name="T">The type of instance.</typeparam>
-            <param name="instance">The instance.</param>
-            <param name="min">The minimal limit.</param>
-            <param name="max">The maximal limit.</param>
-            <param name="variableName">The name of variable.</param>
-        </member>
-        <member name="T:System.ArrayExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.Array"/>, especially for one-dimensional array.
-            </summary>
-            <seealso cref="T:System.Array"/>
-        </member>
-        <member name="T:System.ArrayExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.Array"/>.
-            </summary>
-        </member>
-        <member name="M:System.ArrayExtensions..InitializeArray``1(``0[],System.ArrayInitializer{``0})">
-            <summary>
-            Initializes an array, using the specified method to initialize each element.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="array">The array.</param>
-            <param name="initializer">The initializer callback method.</param>
-        </member>
-        <member name="M:System.ArrayExtensions..Flat``1(``0[0:,0:])">
-            <summary>
-            Flats the specified 2D array into an 1D array.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="array">An array of elements of type <typeparamref name="T"/>.</param>
-            <returns>An 1D array.</returns>
-        </member>
-        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[])">
-            <summary>
-            Converts an array into a <see cref="T:System.String"/>.
-            </summary>
-            <typeparam name="T">The type of each element inside array.</typeparam>
-            <param name="array">The array.</param>
-            <returns>The string representation.</returns>
-        </member>
-        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[],System.Func{``0,System.String})">
-            <summary>
-            Converts an array into a <see cref="T:System.String"/>, using the specified formatter method
-            that can convert an instance of type <typeparamref name="T"/> into a <see cref="T:System.String"/> representation.
-            </summary>
-            <typeparam name="T">The type of each element inside array.</typeparam>
-            <param name="array">The array.</param>
-            <param name="valueConverter">The value converter method.</param>
-            <returns>The string representation.</returns>
-        </member>
-        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[][])">
-            <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[])"/>
-        </member>
-        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[][],System.Func{``0,System.String})">
-            <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[],System.Func{``0,System.String})"/>
-        </member>
-        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[0:,0:])">
-            <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[])"/>
-        </member>
-        <member name="M:System.ArrayExtensions..ToArrayString``1(``0[0:,0:],System.Func{``0,System.String})">
-            <inheritdoc cref="M:System.ArrayExtensions.ToArrayString``1(``0[],System.Func{``0,System.String})"/>
-        </member>
-        <member name="M:System.ArrayExtensions..AsSpanUnsafe``1(``0[0:,0:])">
-            <summary>
-            Returns the one-dimensional array representation from the two-dimensional array.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="array">The array.</param>
-            <returns>The <see cref="T:System.Span`1"/> casted.</returns>
-        </member>
-        <member name="M:System.ArrayExtensions..AsSpanUnsafe``1(``0[0:,0:,0:])">
-            <summary>
-            Returns the one-dimensional array representation from the three-dimensional array.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="array">The array.</param>
-            <returns>The <see cref="T:System.Span`1"/> casted.</returns>
-        </member>
-        <member name="M:System.ArrayExtensions..AsSpanUnsafe``1(System.Array)">
-            <summary>
-            Reinterpret the specified multiple dimensional array into a <see cref="T:System.Span`1"/> instance.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="array">The multiple dimensional array to be reinterpreted.</param>
-            <returns>A <see cref="T:System.Span`1"/> instance.</returns>
-        </member>
         <member name="T:System.ArrayInitializer`1">
             <summary>
             Represents a method that initializes for an element of type <typeparamref name="T"/>?,
@@ -250,26 +108,66 @@
             </summary>
             <param name="value">The value to be casted from.</param>
         </member>
-        <member name="T:System.CharExtensions">
+        <member name="T:System.CharSetExtensions">
             <summary>
-            Provides with extension methods on <see cref="T:System.Char"/>.
+            Provides with extension members on <see cref="T:System.Char"/> and <see cref="T:System.String"/>.
             </summary>
-            <seealso cref="T:System.Char"/>
         </member>
-        <member name="T:System.CharExtensions.">
+        <member name="T:System.CharSetExtensions.">
             <summary>
             Provides extension members on <see cref="T:System.Char"/>.
             </summary>
         </member>
-        <member name="P:System.CharExtensions..UpperCasing">
+        <member name="P:System.CharSetExtensions..UpperCasing">
             <summary>
             Indicates the upper-casing of the current character.
             </summary>
         </member>
-        <member name="P:System.CharExtensions..LowerCasing">
+        <member name="P:System.CharSetExtensions..LowerCasing">
             <summary>
             Indicates the lower-casing of the current character.
             </summary>
+        </member>
+        <member name="T:System.CharSetExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="P:System.CharSetExtensions..UpperCasing">
+            <summary>
+            Indicates the upper-casing of the current string.
+            </summary>
+        </member>
+        <member name="P:System.CharSetExtensions..LowerCasing">
+            <summary>
+            Indicates the lower-casing of the current string.
+            </summary>
+        </member>
+        <member name="P:System.CharSetExtensions..Span">
+            <summary>
+            Indicates the representation of type <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Char"/>.
+            </summary>
+        </member>
+        <member name="M:System.CharSetExtensions..RemoveAll(System.Char)">
+            <summary>
+            Removes all specified characters.
+            </summary>
+            <param name="character">The character to be removed from the base string.</param>
+            <returns>The result string value after removal.</returns>
+        </member>
+        <member name="M:System.CharSetExtensions..ExpandCharacters">
+            <summary>
+            Gets a new <see cref="T:System.String"/>[] result, with each element (a <see cref="T:System.String"/> with a single character)
+            from the specified <see cref="T:System.String"/>.
+            </summary>
+            <returns>An array of <see cref="T:System.String"/> elements.</returns>
+        </member>
+        <member name="M:System.CharSetExtensions..Chunk(System.Int32)">
+            <summary>
+            Cut the array to multiple part, making them are all of length <paramref name="length"/>.
+            </summary>
+            <param name="length">The desired length.</param>
+            <returns>A list of <see cref="T:System.String"/> values.</returns>
         </member>
         <member name="T:System.Collections.BitArrayConverter">
             <summary>
@@ -1453,6 +1351,21 @@
         </member>
         <member name="T:System.DelegateExtensions.">
             <summary>
+            Provides extension members on <see cref="T:System.Action"/>.
+            </summary>
+        </member>
+        <member name="P:System.DelegateExtensions..DoNothing">
+            <summary>
+            Creates an <see cref="T:System.Action"/> instance that do nothing.
+            </summary>
+        </member>
+        <member name="M:System.DelegateExtensions..DoNothingMethod">
+            <summary>
+            Represents a method that do nothing.
+            </summary>
+        </member>
+        <member name="T:System.DelegateExtensions.">
+            <summary>
             Provides extension members on <see cref="T:System.Delegate"/>.
             </summary>
         </member>
@@ -1466,6 +1379,54 @@
         </member>
         <member name="M:System.DelegateExtensions..GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Delegate.EnumerateInvocationList``1(``0)"/>
+        </member>
+        <member name="T:System.DelegateExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Func`2"/>.
+            </summary>
+        </member>
+        <member name="P:System.DelegateExtensions.`1.Self">
+            <summary>
+            Creates a <see cref="T:System.Func`2"/> instance that directly returns parameter.
+            </summary>
+        </member>
+        <member name="M:System.DelegateExtensions.`1.SelfMethod(`0)">
+            <summary>
+            Represents a method that directly returns <paramref name="instance"/>.
+            </summary>
+        </member>
+        <member name="T:System.DelegateExtensions.`2">
+            <summary>
+            Provides extension members on <see cref="T:System.Func`2"/>
+            of <see cref="T:System.Func`2"/> and <see cref="T:System.Func`2"/>.
+            </summary>
+        </member>
+        <member name="P:System.DelegateExtensions.`2.YCombinator">
+             <summary>
+             (Easter egg) Represents Y-Combinator. This method can allow you create recursive lambdas.
+             For example, this code snippet will calculate for factorial of the specified digit:
+             <code><![CDATA[
+             var factorial = Func<int, int>.YCombinator(
+                 // Defines a lambda expression that is of type 'Func<int, int>'.
+                 lambda =>
+                     // Defines a parameter as input.
+                     value => value switch
+                     {
+                         // Negative value (invalid).
+                         < 0 => throw new ArgumentException("Invalid argument", nameof(value)),
+            
+                         // Recursion exit.
+                         0 or 1 => 1,
+            
+                         // Otherwise, do calculation recursively.
+                         // The core expression can use 'lambda' outside the lambda scope to invoke recursion.
+                         _ => value * lambda(value - 1)
+                     }
+             );
+             Console.WriteLine(factorial(5)); // 120
+             ]]></code>
+             </summary>
+             <returns>A function that creates a nesting lambda that is a recursive lambda.</returns>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.ComponentMemberAttribute">
             <summary>
@@ -2076,33 +2037,56 @@
             Indicates the desktop path.
             </summary>
         </member>
+        <member name="T:System.ExceptionExtensions">
+            <summary>
+            Provides with extension members on <see cref="T:System.Exception"/> and its derived types.
+            </summary>
+        </member>
+        <member name="T:System.ExceptionExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.ArgumentException"/>.
+            </summary>
+        </member>
+        <member name="M:System.ExceptionExtensions..ThrowIfAssertionFailed(System.Boolean,System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentException"/> instance if the specified assertion is failed.
+            </summary>
+            <param name="expression">The expression.</param>
+            <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
+        </member>
+        <member name="T:System.ExceptionExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </summary>
+        </member>
+        <member name="M:System.ExceptionExtensions..ThrowIfOutOfRange``1(``0@,``0,``0,System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentOutOfRangeException"/> if the target instance is below <paramref name="min"/>,
+            or above or equals to <paramref name="max"/>.
+            </summary>
+            <typeparam name="T">The type of instance.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="min">The minimal limit.</param>
+            <param name="max">The maximal limit.</param>
+            <param name="variableName">The name of variable.</param>
+        </member>
+        <member name="T:System.ExceptionExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+        </member>
+        <member name="M:System.ExceptionExtensions..ThrowIf(System.Boolean,System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentException"/> instance if the specified assertion is failed.
+            </summary>
+            <param name="expression">The expression.</param>
+            <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
+        </member>
         <member name="T:System.FloatingPointExtensions">
             <summary>
             Provides with extension methods on instances implementing <see cref="T:System.Numerics.IFloatingPoint`1"/>.
             </summary>
             <seealso cref="T:System.Numerics.IFloatingPoint`1"/>
-        </member>
-        <member name="T:System.FloatingPointExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.Single"/>.
-            </summary>
-        </member>
-        <member name="M:System.FloatingPointExtensions..NearlyEquals(System.Single)">
-            <summary>
-            Indicates whether the specified value is nearly equals to the current value.
-            </summary>
-            <param name="other">The other value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:System.FloatingPointExtensions..NearlyEquals(System.Single,System.Single)">
-            <summary>
-            Indicates whether the specified value is nearly equals to the current value.
-            If the differ of two values to compare is lower than the specified epsilon value,
-            the method will return <see langword="true"/>.
-            </summary>
-            <param name="other">The other value to compare.</param>
-            <param name="epsilon">The epsilon value (the minimal differ).</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
         <member name="T:System.FloatingPointExtensions.">
             <summary>
@@ -2149,59 +2133,27 @@
             <param name="epsilon">The epsilon value (the minimal differ).</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="T:System.FuncExtensions">
+        <member name="T:System.FloatingPointExtensions.">
             <summary>
-            Provides with extension methods on <see cref="T:System.Func`1"/> and its related types.
-            </summary>
-            <seealso cref="T:System.Func`1"/>
-        </member>
-        <member name="T:System.FuncExtensions.`1">
-            <summary>
-            Provides extension members on <see cref="T:System.Func`2"/>.
+            Provides extension members on <see cref="T:System.Single"/>.
             </summary>
         </member>
-        <member name="P:System.FuncExtensions.`1.Self">
+        <member name="M:System.FloatingPointExtensions..NearlyEquals(System.Single)">
             <summary>
-            Creates a <see cref="T:System.Func`2"/> instance that directly returns parameter.
+            Indicates whether the specified value is nearly equals to the current value.
             </summary>
+            <param name="other">The other value.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:System.FuncExtensions.`1.SelfMethod(`0)">
+        <member name="M:System.FloatingPointExtensions..NearlyEquals(System.Single,System.Single)">
             <summary>
-            Represents a method that directly returns <paramref name="instance"/>.
+            Indicates whether the specified value is nearly equals to the current value.
+            If the differ of two values to compare is lower than the specified epsilon value,
+            the method will return <see langword="true"/>.
             </summary>
-        </member>
-        <member name="T:System.FuncExtensions.`2">
-            <summary>
-            Provides extension members on <see cref="T:System.Func`2"/>
-            of <see cref="T:System.Func`2"/> and <see cref="T:System.Func`2"/>.
-            </summary>
-        </member>
-        <member name="P:System.FuncExtensions.`2.YCombinator">
-             <summary>
-             (Easter egg) Represents Y-Combinator. This method can allow you create recursive lambdas.
-             For example, this code snippet will calculate for factorial of the specified digit:
-             <code><![CDATA[
-             var factorial = Func<int, int>.YCombinator(
-                 // Defines a lambda expression that is of type 'Func<int, int>'.
-                 lambda =>
-                     // Defines a parameter as input.
-                     value => value switch
-                     {
-                         // Negative value (invalid).
-                         < 0 => throw new ArgumentException("Invalid argument", nameof(value)),
-            
-                         // Recursion exit.
-                         0 or 1 => 1,
-            
-                         // Otherwise, do calculation recursively.
-                         // The core expression can use 'lambda' outside the lambda scope to invoke recursion.
-                         _ => value * lambda(value - 1)
-                     }
-             );
-             Console.WriteLine(factorial(5)); // 120
-             ]]></code>
-             </summary>
-             <returns>A function that creates a nesting lambda that is a recursive lambda.</returns>
+            <param name="other">The other value to compare.</param>
+            <param name="epsilon">The epsilon value (the minimal differ).</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
         <member name="T:System.GenericExtensions">
             <summary>
@@ -2342,24 +2294,6 @@
 					the value-tuple syntax like <c>(a, b, c)</c> to define your own deconstruction logic.
 				</summary>
 			</target>
-        </member>
-        <member name="T:System.InvalidOperationExceptionExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.InvalidOperationException"/> and its derived types.
-            </summary>
-            <seealso cref="T:System.InvalidOperationException"/>
-        </member>
-        <member name="T:System.InvalidOperationExceptionExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.InvalidOperationException"/>.
-            </summary>
-        </member>
-        <member name="M:System.InvalidOperationExceptionExtensions..ThrowIfAssertionFailed(System.Boolean,System.String)">
-            <summary>
-            Throws an <see cref="T:System.ArgumentException"/> instance if the specified assertion is failed.
-            </summary>
-            <param name="expression">The expression.</param>
-            <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
         </member>
         <member name="T:System.IO.FileExtensions">
             <summary>
@@ -2716,7 +2650,7 @@
             <returns>A list of <typeparamref name="TSource"/> elements satisfying the condition.</returns>
         </member>
         <member name="M:System.Linq.ArrayGrouping`2.AsReadOnlySpan">
-            <inheritdoc cref="M:System.MemoryExtensionsExtensions.AsReadOnlySpan``1(``0[])"/>
+            <inheritdoc cref="M:System.SequenceExtensions.AsReadOnlySpan``1(``0[])"/>
         </member>
         <member name="M:System.Linq.ArrayGrouping`2.GetEnumerator">
             <summary>
@@ -5868,20 +5802,6 @@
             <param name="c">The third value.</param>
             <returns>The maximal one.</returns>
         </member>
-        <member name="T:System.MemoryExtensionsExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.MemoryExtensions"/>.
-            </summary>
-            <seealso cref="T:System.MemoryExtensions"/>
-        </member>
-        <member name="T:System.MemoryExtensionsExtensions.`1">
-            <summary>
-            Provides extension members of <typeparamref name="T"/>[]? instances.
-            </summary>
-        </member>
-        <member name="M:System.MemoryExtensionsExtensions.`1.AsReadOnlySpan">
-            <inheritdoc cref="M:System.MemoryExtensions.AsSpan``1(``0[])"/>
-        </member>
         <member name="T:System.ModuleInitializer">
             <target name="type">
 				<summary>
@@ -6862,106 +6782,6 @@
             Throws when the specified collection doesn't contain enough elements to get.
             </exception>
         </member>
-        <member name="T:System.ReadOnlyMemoryExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.ReadOnlyMemory`1"/>.
-            </summary>
-            <seealso cref="T:System.ReadOnlyMemory`1"/>
-        </member>
-        <member name="T:System.ReadOnlyMemoryExtensions.`1">
-            <summary>
-            Provides extension members on <see cref="T:System.ReadOnlyMemory`1"/>.
-            </summary>
-        </member>
-        <member name="M:System.ReadOnlyMemoryExtensions.`1.ElementAt(System.Int32)">
-            <summary>
-            Fetch the element at the specified index inside a <see cref="T:System.ReadOnlyMemory`1"/>.
-            </summary>
-            <param name="index">The desired index.</param>
-            <returns>The reference to the element at the specified index.</returns>
-        </member>
-        <member name="M:System.ReadOnlyMemoryExtensions.`1.ElementAt(System.Index)">
-            <inheritdoc cref="M:System.ReadOnlyMemoryExtensions.ElementAt``1(System.ReadOnlyMemory{``0},System.Int32)"/>
-        </member>
-        <member name="M:System.ReadOnlyMemoryExtensions.`1.GetEnumerator">
-            <summary>
-            Creates a <see cref="T:System.Linq.Enumerators.ReadOnlyMemoryEnumerator`1"/> instance that can be consumed by a <see langword="foreach"/> loop.
-            </summary>
-            <returns>A <see cref="T:System.Linq.Enumerators.ReadOnlyMemoryEnumerator`1"/> instance.</returns>
-        </member>
-        <member name="T:System.ReadOnlySpanExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:System.Span`1"/> and <see cref="T:System.ReadOnlySpan`1"/>.
-            </summary>
-            <seealso cref="T:System.Span`1"/>
-            <seealso cref="T:System.ReadOnlySpan`1"/>
-        </member>
-        <member name="T:System.ReadOnlySpanExtensions.`1">
-            <summary>
-            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>.
-            </summary>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.`1.FirstIndex(System.Func{`0,System.Boolean})">
-            <summary>
-            Finds the first element satisfying the specified condition, and return its corresponding index.
-            </summary>
-            <param name="predicate">The condition.</param>
-            <returns>
-            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-            </returns>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.`1.LastIndex(System.Func{`0,System.Boolean})">
-            <summary>
-            Finds the last element satisfying the specified condition, and return its corresponding index.
-            </summary>
-            <param name="predicate">The condition.</param>
-            <returns>
-            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-            </returns>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.`1.FindIndex(System.Func{`0,System.Boolean})">
-            <inheritdoc cref="M:System.Collections.Generic.List`1.FindIndex(System.Predicate{`0})"/>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.`1.EnumerateReversely">
-            <summary>
-            Iterates on each element, in reverse order.
-            </summary>
-            <returns>An enumerator type that iterates on each element.</returns>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.`1.FindAll(System.Func{`0,System.Boolean})">
-            <summary>
-            Retrieves all the elements that match the conditions defined by the specified predicate.
-            </summary>
-            <param name="match">The <see cref="T:System.Func`2"/> that defines the conditions of the elements to search for.</param>
-            <returns>
-            A <see cref="T:System.ReadOnlySpan`1"/> containing all the elements that match the conditions defined
-            by the specified predicate, if found; otherwise, an empty <see cref="T:System.ReadOnlySpan`1"/>.
-            </returns>
-        </member>
-        <member name="T:System.ReadOnlySpanExtensions.`1">
-            <summary>
-            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>,
-            where <typeparamref name="T"/> satisfies <see langword="notnull"/> constraint.
-            </summary>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.`1.EnumeratePaired">
-            <summary>
-            Creates a <see cref="T:System.Linq.Enumerators.PairEnumerator`1"/> instance that iterates on each element of pair elements.
-            </summary>
-            <returns>An enumerable collection.</returns>
-        </member>
-        <member name="T:System.ReadOnlySpanExtensions.`1">
-            <summary>
-            Provides extension members on <see langword="scoped"/> <see cref="T:System.ReadOnlySpan`1"/>.
-            </summary>
-        </member>
-        <member name="M:System.ReadOnlySpanExtensions.`1.Reverse">
-            <summary>
-            Returns a new <see cref="T:System.ReadOnlySpan`1"/> instance whose internal elements are all come from the current collection,
-            with reversed order.
-            </summary>
-            <returns>A new collection whose elements are in reversed order.</returns>
-        </member>
         <member name="T:System.ref">
             <summary>
             Represents a list of methods that can check for the concept "References" defined in C#.
@@ -7602,52 +7422,181 @@
         <member name="M:System.Runtime.CompilerServices.TupleExtensions.`1.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
         </member>
-        <member name="T:System.StringExtensions">
+        <member name="T:System.SequenceExtensions">
             <summary>
-            Provides extension methods on <see cref="T:System.String"/>.
-            </summary>
-            <seealso cref="T:System.String"/>
-        </member>
-        <member name="T:System.StringExtensions.">
-            <summary>
-            Provides extension members on <see cref="T:System.String"/>.
+            Provides with extension members on <see cref="T:System.Array"/> derived types,
+            <see cref="T:System.ReadOnlySpan`1"/> and <see cref="T:System.ReadOnlyMemory`1"/>.
             </summary>
         </member>
-        <member name="P:System.StringExtensions..UpperCasing">
+        <member name="T:System.SequenceExtensions.`1">
             <summary>
-            Indicates the upper-casing of the current string.
+            Provides extension members of <typeparamref name="T"/>[]? instances.
             </summary>
         </member>
-        <member name="P:System.StringExtensions..LowerCasing">
+        <member name="M:System.SequenceExtensions.`1.AsReadOnlySpan">
+            <inheritdoc cref="M:System.MemoryExtensions.AsSpan``1(``0[])"/>
+        </member>
+        <member name="T:System.SequenceExtensions.">
             <summary>
-            Indicates the lower-casing of the current string.
+            Provides extension members on <see cref="T:System.Array"/>.
             </summary>
         </member>
-        <member name="P:System.StringExtensions..Span">
+        <member name="M:System.SequenceExtensions..InitializeArray``1(``0[],System.ArrayInitializer{``0})">
             <summary>
-            Indicates the representation of type <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Char"/>.
+            Initializes an array, using the specified method to initialize each element.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="array">The array.</param>
+            <param name="initializer">The initializer callback method.</param>
+        </member>
+        <member name="M:System.SequenceExtensions..Flat``1(``0[0:,0:])">
+            <summary>
+            Flats the specified 2D array into an 1D array.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="array">An array of elements of type <typeparamref name="T"/>.</param>
+            <returns>An 1D array.</returns>
+        </member>
+        <member name="M:System.SequenceExtensions..ToArrayString``1(``0[])">
+            <summary>
+            Converts an array into a <see cref="T:System.String"/>.
+            </summary>
+            <typeparam name="T">The type of each element inside array.</typeparam>
+            <param name="array">The array.</param>
+            <returns>The string representation.</returns>
+        </member>
+        <member name="M:System.SequenceExtensions..ToArrayString``1(``0[],System.Func{``0,System.String})">
+            <summary>
+            Converts an array into a <see cref="T:System.String"/>, using the specified formatter method
+            that can convert an instance of type <typeparamref name="T"/> into a <see cref="T:System.String"/> representation.
+            </summary>
+            <typeparam name="T">The type of each element inside array.</typeparam>
+            <param name="array">The array.</param>
+            <param name="valueConverter">The value converter method.</param>
+            <returns>The string representation.</returns>
+        </member>
+        <member name="M:System.SequenceExtensions..ToArrayString``1(``0[][])">
+            <inheritdoc cref="M:System.SequenceExtensions.ToArrayString``1(``0[])"/>
+        </member>
+        <member name="M:System.SequenceExtensions..ToArrayString``1(``0[][],System.Func{``0,System.String})">
+            <inheritdoc cref="M:System.SequenceExtensions.ToArrayString``1(``0[],System.Func{``0,System.String})"/>
+        </member>
+        <member name="M:System.SequenceExtensions..ToArrayString``1(``0[0:,0:])">
+            <inheritdoc cref="M:System.SequenceExtensions.ToArrayString``1(``0[])"/>
+        </member>
+        <member name="M:System.SequenceExtensions..ToArrayString``1(``0[0:,0:],System.Func{``0,System.String})">
+            <inheritdoc cref="M:System.SequenceExtensions.ToArrayString``1(``0[],System.Func{``0,System.String})"/>
+        </member>
+        <member name="M:System.SequenceExtensions..AsSpanUnsafe``1(``0[0:,0:])">
+            <summary>
+            Returns the one-dimensional array representation from the two-dimensional array.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="array">The array.</param>
+            <returns>The <see cref="T:System.Span`1"/> casted.</returns>
+        </member>
+        <member name="M:System.SequenceExtensions..AsSpanUnsafe``1(``0[0:,0:,0:])">
+            <summary>
+            Returns the one-dimensional array representation from the three-dimensional array.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="array">The array.</param>
+            <returns>The <see cref="T:System.Span`1"/> casted.</returns>
+        </member>
+        <member name="M:System.SequenceExtensions..AsSpanUnsafe``1(System.Array)">
+            <summary>
+            Reinterpret the specified multiple dimensional array into a <see cref="T:System.Span`1"/> instance.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="array">The multiple dimensional array to be reinterpreted.</param>
+            <returns>A <see cref="T:System.Span`1"/> instance.</returns>
+        </member>
+        <member name="T:System.SequenceExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlyMemory`1"/>.
             </summary>
         </member>
-        <member name="M:System.StringExtensions..RemoveAll(System.Char)">
+        <member name="M:System.SequenceExtensions.`1.ElementAt(System.Int32)">
             <summary>
-            Removes all specified characters.
+            Fetch the element at the specified index inside a <see cref="T:System.ReadOnlyMemory`1"/>.
             </summary>
-            <param name="character">The character to be removed from the base string.</param>
-            <returns>The result string value after removal.</returns>
+            <param name="index">The desired index.</param>
+            <returns>The reference to the element at the specified index.</returns>
         </member>
-        <member name="M:System.StringExtensions..ExpandCharacters">
-            <summary>
-            Gets a new <see cref="T:System.String"/>[] result, with each element (a <see cref="T:System.String"/> with a single character)
-            from the specified <see cref="T:System.String"/>.
-            </summary>
-            <returns>An array of <see cref="T:System.String"/> elements.</returns>
+        <member name="M:System.SequenceExtensions.`1.ElementAt(System.Index)">
+            <inheritdoc cref="M:System.SequenceExtensions.ElementAt``1(System.ReadOnlyMemory{``0},System.Int32)"/>
         </member>
-        <member name="M:System.StringExtensions..Chunk(System.Int32)">
+        <member name="M:System.SequenceExtensions.`1.GetEnumerator">
             <summary>
-            Cut the array to multiple part, making them are all of length <paramref name="length"/>.
+            Creates a <see cref="T:System.Linq.Enumerators.ReadOnlyMemoryEnumerator`1"/> instance that can be consumed by a <see langword="foreach"/> loop.
             </summary>
-            <param name="length">The desired length.</param>
-            <returns>A list of <see cref="T:System.String"/> values.</returns>
+            <returns>A <see cref="T:System.Linq.Enumerators.ReadOnlyMemoryEnumerator`1"/> instance.</returns>
+        </member>
+        <member name="T:System.SequenceExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.SequenceExtensions.`1.FirstIndex(System.Func{`0,System.Boolean})">
+            <summary>
+            Finds the first element satisfying the specified condition, and return its corresponding index.
+            </summary>
+            <param name="predicate">The condition.</param>
+            <returns>
+            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
+            </returns>
+        </member>
+        <member name="M:System.SequenceExtensions.`1.LastIndex(System.Func{`0,System.Boolean})">
+            <summary>
+            Finds the last element satisfying the specified condition, and return its corresponding index.
+            </summary>
+            <param name="predicate">The condition.</param>
+            <returns>
+            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
+            </returns>
+        </member>
+        <member name="M:System.SequenceExtensions.`1.FindIndex(System.Func{`0,System.Boolean})">
+            <inheritdoc cref="M:System.Collections.Generic.List`1.FindIndex(System.Predicate{`0})"/>
+        </member>
+        <member name="M:System.SequenceExtensions.`1.EnumerateReversely">
+            <summary>
+            Iterates on each element, in reverse order.
+            </summary>
+            <returns>An enumerator type that iterates on each element.</returns>
+        </member>
+        <member name="M:System.SequenceExtensions.`1.FindAll(System.Func{`0,System.Boolean})">
+            <summary>
+            Retrieves all the elements that match the conditions defined by the specified predicate.
+            </summary>
+            <param name="match">The <see cref="T:System.Func`2"/> that defines the conditions of the elements to search for.</param>
+            <returns>
+            A <see cref="T:System.ReadOnlySpan`1"/> containing all the elements that match the conditions defined
+            by the specified predicate, if found; otherwise, an empty <see cref="T:System.ReadOnlySpan`1"/>.
+            </returns>
+        </member>
+        <member name="T:System.SequenceExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>,
+            where <typeparamref name="T"/> satisfies <see langword="notnull"/> constraint.
+            </summary>
+        </member>
+        <member name="M:System.SequenceExtensions.`1.EnumeratePaired">
+            <summary>
+            Creates a <see cref="T:System.Linq.Enumerators.PairEnumerator`1"/> instance that iterates on each element of pair elements.
+            </summary>
+            <returns>An enumerable collection.</returns>
+        </member>
+        <member name="T:System.SequenceExtensions.`1">
+            <summary>
+            Provides extension members on <see langword="scoped"/> <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.SequenceExtensions.`1.Reverse">
+            <summary>
+            Returns a new <see cref="T:System.ReadOnlySpan`1"/> instance whose internal elements are all come from the current collection,
+            with reversed order.
+            </summary>
+            <returns>A new collection whose elements are in reversed order.</returns>
         </member>
         <member name="T:System.Threading.Tasks.TimeSpanAwaitable">
             <summary>
