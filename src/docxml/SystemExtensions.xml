@@ -2304,6 +2304,110 @@
 				</summary>
 			</target>
         </member>
+        <member name="T:System.IO.CsvReader">
+            <summary>
+            Provides lightweight CSV parsing functionality from a <see cref="T:System.IO.TextReader"/> source.
+            Supports optional headers and column-based access.
+            </summary>
+            <seealso cref="T:System.IO.TextReader"/>
+        </member>
+        <member name="F:System.IO.CsvReader._reader">
+            <summary>
+            Indicates the backing reader object.
+            </summary>
+        </member>
+        <member name="F:System.IO.CsvReader._headerMap">
+            <summary>
+            Indicates the header map.
+            </summary>
+        </member>
+        <member name="F:System.IO.CsvReader._expectedFieldCount">
+            <summary>
+            Indicates the expected field count.
+            </summary>
+        </member>
+        <member name="M:System.IO.CsvReader.#ctor(System.String)">
+            <inheritdoc cref="M:System.IO.CsvReader.#ctor(System.String,System.Boolean,System.Collections.Generic.IEqualityComparer{System.String})"/>
+        </member>
+        <member name="M:System.IO.CsvReader.#ctor(System.String,System.Boolean)">
+            <inheritdoc cref="M:System.IO.CsvReader.#ctor(System.String,System.Boolean,System.Collections.Generic.IEqualityComparer{System.String})"/>
+        </member>
+        <member name="M:System.IO.CsvReader.#ctor(System.String,System.Boolean,System.Collections.Generic.IEqualityComparer{System.String})">
+            <summary>
+            Initializes a <see cref="T:System.IO.CsvReader"/> instance.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <param name="hasHeader">Indicates whether the file has header line.</param>
+            <param name="comparer">The comparer that will be used for comparison on header column names.</param>
+        </member>
+        <member name="M:System.IO.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Collections.Generic.IEqualityComparer{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.IO.CsvReader"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:System.IO.TextReader"/> to read CSV data from.</param>
+            <param name="hasHeader">Indicates whether the CSV includes a header row.</param>
+            <param name="comparer">Optional comparer for header name matching.</param>
+        </member>
+        <member name="P:System.IO.CsvReader.HasHeader">
+            <summary>
+            Indicates whether the file has header line.
+            </summary>
+        </member>
+        <member name="P:System.IO.CsvReader.HeaderColumnNames">
+            <summary>
+            Indicates the header column names.
+            </summary>
+        </member>
+        <member name="P:System.IO.CsvReader.Comparer">
+            <summary>
+            Indicates the header matching comparer.
+            </summary>
+        </member>
+        <member name="M:System.IO.CsvReader.ReadColumn(System.String)">
+            <summary>
+            Reads the next line from the CSV and returns the value of a specified column.
+            </summary>
+            <param name="columnName">The name of the column to retrieve.</param>
+            <returns>The field value, or null if not found or end of input.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if headers are not enabled.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if the specified column is not found.</exception>
+        </member>
+        <member name="M:System.IO.CsvReader.ReadLine">
+            <summary>
+            Reads the next line from the CSV and parses it into fields.
+            </summary>
+            <returns>List of string fields, or null if end of input.</returns>
+        </member>
+        <member name="M:System.IO.CsvReader.Validate(System.IO.TextReader,System.Boolean,System.Int32@,System.Collections.Generic.IEqualityComparer{System.String})">
+            <summary>
+            Validates a CSV file to ensure consistent column count across all rows.
+            </summary>
+            <param name="reader">The text reader to validate.</param>
+            <param name="hasHeader">Indicates whether the CSV includes a header row.</param>
+            <param name="errorLine">The offending line index if validation fails.</param>
+            <param name="comparer">Optional comparer for header name matching.</param>
+            <returns>True if valid; otherwise, false.</returns>
+        </member>
+        <member name="M:System.IO.CsvReader.ParseCsvLine(System.String)">
+            <summary>
+            Parses a single CSV line into individual fields, handling quoted values.
+            </summary>
+            <param name="line">The CSV line to parse.</param>
+            <returns>List of parsed string fields.</returns>
+        </member>
+        <member name="F:System.IO.CsvReader._isDisposed">
+            <summary>
+            Indicates whether the object had already been disposed before <see cref="M:System.IO.CsvReader.Dispose"/> was called.
+            If this field holds <see langword="false"/> value, <see cref="M:System.IO.CsvReader.Dispose"/> will throw an
+            <see cref="T:System.ObjectDisposedException"/> to report the error.
+            </summary>
+            <seealso cref="M:System.IO.CsvReader.Dispose"/>
+            <seealso cref="T:System.ObjectDisposedException"/>
+        </member>
+        <member name="M:System.IO.CsvReader.Dispose">
+            <inheritdoc/>
+            <exception cref="T:System.ObjectDisposedException">Throws when the object had already been disposed.</exception>
+        </member>
         <member name="T:System.IO.FileExtensions">
             <summary>
             Provides extension methods on <see cref="T:System.IO.File"/>.
