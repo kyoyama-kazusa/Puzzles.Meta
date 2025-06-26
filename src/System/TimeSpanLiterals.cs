@@ -106,7 +106,7 @@ public static class TimeSpanLiterals
 	extension(TimeSpan)
 	{
 		/// <summary>
-		/// Represents normal format '<c>hh:mm:ss.fff</c>.
+		/// Represents normal format <c>"hh:mm:ss.fff"</c>.
 		/// </summary>
 		public static string NormalFormat => @"hh\:mm\:ss\.fff";
 	}

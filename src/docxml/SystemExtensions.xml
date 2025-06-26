@@ -7855,7 +7855,7 @@
         </member>
         <member name="P:System.TimeSpanLiterals..NormalFormat">
             <summary>
-            Represents normal format '<c>hh:mm:ss.fff</c>.
+            Represents normal format <c>"hh:mm:ss.fff"</c>.
             </summary>
         </member>
         <member name="T:System.ValueTupleExtensions">
