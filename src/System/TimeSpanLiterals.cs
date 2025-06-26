@@ -99,4 +99,15 @@ public static class TimeSpanLiterals
 		/// </summary>
 		public TimeSpan year => TimeSpan.FromDays(@this * 365);
 	}
+
+	/// <summary>
+	/// Provides extension members on <see cref="TimeSpan"/>.
+	/// </summary>
+	extension(TimeSpan)
+	{
+		/// <summary>
+		/// Represents normal format '<c>hh:mm:ss.fff</c>.
+		/// </summary>
+		public static string NormalFormat => @"hh\:mm\:ss\.fff";
+	}
 }

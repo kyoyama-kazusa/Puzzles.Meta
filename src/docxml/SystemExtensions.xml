@@ -7848,6 +7848,16 @@
             (<see cref="T:System.Double"/> -> <see cref="T:System.TimeSpan"/>) in years.
             </summary>
         </member>
+        <member name="T:System.TimeSpanLiterals.">
+            <summary>
+            Provides extension members on <see cref="T:System.TimeSpan"/>.
+            </summary>
+        </member>
+        <member name="P:System.TimeSpanLiterals..NormalFormat">
+            <summary>
+            Represents normal format '<c>hh:mm:ss.fff</c>.
+            </summary>
+        </member>
         <member name="T:System.ValueTupleExtensions">
             <summary>
             Represents with extension methods for value tuple type set.
