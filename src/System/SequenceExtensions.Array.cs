@@ -106,7 +106,7 @@ public partial class SequenceExtensions
 		/// <inheritdoc cref="ToArrayString{T}(T[], Func{T, string?})"/>
 		public static string ToArrayString<T>(T[,] array, Func<T, string?>? valueConverter)
 		{
-			valueConverter ??= (static value => value?.ToString());
+			valueConverter ??= static value => value?.ToString();
 
 			var (m, n) = (array.GetLength(0), array.GetLength(1));
 			var sb = new StringBuilder();
