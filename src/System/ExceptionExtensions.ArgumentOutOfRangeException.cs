@@ -1,10 +1,6 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="ArgumentOutOfRangeException"/>.
-/// </summary>
-/// <seealso cref="ArgumentOutOfRangeException"/>
-public static class ArgumentOutOfRangeExceptionExtensions
+public partial class ExceptionExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="ArgumentOutOfRangeException"/>.

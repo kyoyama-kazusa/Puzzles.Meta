@@ -1,11 +1,17 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="Array"/>, especially for one-dimensional array.
-/// </summary>
-/// <seealso cref="Array"/>
-public static class ArrayExtensions
+public partial class SequenceExtensions
 {
+	/// <summary>
+	/// Provides extension members of <typeparamref name="T"/>[]? instances.
+	/// </summary>
+	extension<T>(T[]? @this)
+	{
+		/// <inheritdoc cref="MemoryExtensions.AsSpan{T}(T[])"/>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<T> AsReadOnlySpan() => new(@this);
+	}
+
 	/// <summary>
 	/// Provides extension members on <see cref="Array"/>.
 	/// </summary>
@@ -100,7 +106,7 @@ public static class ArrayExtensions
 		/// <inheritdoc cref="ToArrayString{T}(T[], Func{T, string?})"/>
 		public static string ToArrayString<T>(T[,] array, Func<T, string?>? valueConverter)
 		{
-			valueConverter ??= (static value => value?.ToString());
+			valueConverter ??= static value => value?.ToString();
 
 			var (m, n) = (array.GetLength(0), array.GetLength(1));
 			var sb = new StringBuilder();

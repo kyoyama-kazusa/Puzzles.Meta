@@ -1,10 +1,6 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="ReadOnlyMemory{T}"/>.
-/// </summary>
-/// <seealso cref="ReadOnlyMemory{T}"/>
-public static class ReadOnlyMemoryExtensions
+public partial class SequenceExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="ReadOnlyMemory{T}"/>.

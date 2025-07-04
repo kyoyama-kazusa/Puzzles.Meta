@@ -1,10 +1,6 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="char"/>.
-/// </summary>
-/// <seealso cref="char"/>
-public static class CharExtensions
+public partial class CharSetExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="char"/>.

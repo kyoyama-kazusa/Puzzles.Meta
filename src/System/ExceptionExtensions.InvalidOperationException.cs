@@ -1,10 +1,6 @@
 namespace System;
 
-/// <summary>
-/// Provides with extension methods on <see cref="InvalidOperationException"/> and its derived types.
-/// </summary>
-/// <seealso cref="InvalidOperationException"/>
-public static class InvalidOperationExceptionExtensions
+public partial class ExceptionExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="InvalidOperationException"/>.
@@ -16,7 +12,7 @@ public static class InvalidOperationExceptionExtensions
 		/// </summary>
 		/// <param name="expression">The expression.</param>
 		/// <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
-		public static void ThrowIfAssertionFailed(
+		public static void ThrowIf(
 			[DoesNotReturnIf(false)] bool expression,
 			[CallerArgumentExpression(nameof(expression))] string failedExpressionString = null!
 		)

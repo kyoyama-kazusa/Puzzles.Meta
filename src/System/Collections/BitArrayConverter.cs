@@ -10,7 +10,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="bits">The bits.</param>
 	/// <returns>A <see cref="bool"/>[] instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool[] ToBooleanArray(BitArray bits)
 	{
 		var result = new bool[bits.Count];
@@ -23,7 +22,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="bits">The bits.</param>
 	/// <returns>A <see cref="byte"/>[] instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static byte[] ToByteArray(BitArray bits)
 	{
 		var result = new byte[(bits.Count + 7) / 8];
@@ -140,7 +138,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="bits">The bits.</param>
 	/// <returns>An <see cref="int"/>[] instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int[] ToInt32Array(BitArray bits)
 	{
 		var result = new int[(bits.Count + 31) / 32];
@@ -494,7 +491,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">A <see cref="short"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromInt16Array(short[] array) => FromUInt16Array(Unsafe.As<short[], ushort[]>(ref array));
 
 	/// <summary>
@@ -502,7 +498,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">An <see cref="uint"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromUInt32Array(uint[] array) => new(Unsafe.As<uint[], int[]>(ref array));
 
 	/// <summary>
@@ -510,7 +505,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">An <see cref="int"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromInt32Array(int[] array) => new(array);
 
 	/// <summary>
@@ -536,7 +530,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">A <see cref="long"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromInt64Array(long[] array) => FromUInt64Array(Unsafe.As<long[], ulong[]>(ref array));
 
 	/// <summary>
@@ -562,7 +555,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">An <see cref="Int128"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromInt128Array(Int128[] array) => FromUInt128Array(Unsafe.As<Int128[], UInt128[]>(ref array));
 
 	/// <summary>
@@ -589,7 +581,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">An <see cref="nint"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromNIntArray(nint[] array) => FromNUIntArray(Unsafe.As<nint[], nuint[]>(ref array));
 
 	/// <summary>
