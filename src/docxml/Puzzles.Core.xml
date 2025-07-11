@@ -400,12 +400,12 @@
             Represents a coordinate.
             </summary>
         </member>
-        <member name="T:Puzzles.Meta.Concepts.CoordinateExtensions.<>E__0">
+        <member name="T:Puzzles.Meta.Concepts.CoordinateExtensions.">
             <summary>
             Provides extension members on <see cref="T:Puzzles.Meta.Concepts.Coordinate"/>.
             </summary>
         </member>
-        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions.<>E__0.IsOutOfBound``1(``0)">
+        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions..IsOutOfBound``1(``0)">
             <summary>
             Indicates whether the coordinate is out of bound.
             </summary>
@@ -413,7 +413,7 @@
             <param name="grid">The grid.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions.<>E__0.IsOnBorder``1(``0)">
+        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions..IsOnBorder``1(``0)">
             <summary>
             Determine whether the coordinate is on the border rows or columns of the board.
             </summary>
@@ -421,22 +421,13 @@
             <param name="grid">The grid.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions.<>E__0.ToIndex``1(``0)">
+        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions..ToIndex``1(``0)">
             <summary>
             Converts the current coordinate into an absolute index.
             </summary>
             <typeparam name="TBoard">The type of the board.</typeparam>
             <param name="grid">The grid.</param>
             <returns>The absolute index.</returns>
-        </member>
-        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions.IsOutOfBound``1(Puzzles.Meta.Concepts.Coordinate,``0)">
-            <inheritdoc cref="M:Puzzles.Meta.Concepts.CoordinateExtensions.<>E__0.IsOutOfBound``1(``0)"/>
-        </member>
-        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions.IsOnBorder``1(Puzzles.Meta.Concepts.Coordinate,``0)">
-            <inheritdoc cref="M:Puzzles.Meta.Concepts.CoordinateExtensions.<>E__0.IsOnBorder``1(``0)"/>
-        </member>
-        <member name="M:Puzzles.Meta.Concepts.CoordinateExtensions.ToIndex``1(Puzzles.Meta.Concepts.Coordinate,``0)">
-            <inheritdoc cref="M:Puzzles.Meta.Concepts.CoordinateExtensions.<>E__0.ToIndex``1(``0)"/>
         </member>
         <member name="T:Puzzles.Meta.Concepts.Direction">
             <summary>
@@ -494,28 +485,22 @@
             </summary>
             <seealso cref="T:Puzzles.Meta.Concepts.Direction"/>
         </member>
-        <member name="T:Puzzles.Meta.Concepts.DirectionExtensions.<>E__0">
+        <member name="T:Puzzles.Meta.Concepts.DirectionExtensions.">
             <summary>
             Provides extension members on <see cref="T:Puzzles.Meta.Concepts.Direction"/>.
             </summary>
         </member>
-        <member name="P:Puzzles.Meta.Concepts.DirectionExtensions.<>E__0.ReversedDirection">
+        <member name="P:Puzzles.Meta.Concepts.DirectionExtensions..ReversedDirection">
             <summary>
             Indicates the reversed direction.
             </summary>
         </member>
-        <member name="M:Puzzles.Meta.Concepts.DirectionExtensions.<>E__0.GetArrow">
+        <member name="M:Puzzles.Meta.Concepts.DirectionExtensions..GetArrow">
             <summary>
             Gets an arrow text that represents the specified direction.
             </summary>
             <returns>The character.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is out of range.</exception>
-        </member>
-        <member name="M:Puzzles.Meta.Concepts.DirectionExtensions.get_ReversedDirection(Puzzles.Meta.Concepts.Direction)">
-            <inheritdoc cref="P:Puzzles.Meta.Concepts.DirectionExtensions.<>E__0.ReversedDirection"/>
-        </member>
-        <member name="M:Puzzles.Meta.Concepts.DirectionExtensions.GetArrow(Puzzles.Meta.Concepts.Direction)">
-            <inheritdoc cref="M:Puzzles.Meta.Concepts.DirectionExtensions.<>E__0.GetArrow"/>
         </member>
         <member name="T:Puzzles.Meta.Concepts.IBoard">
             <summary>

@@ -786,20 +786,17 @@
 				</summary>
 			</target>
         </member>
-        <member name="T:Extensions.<>E__0">
+        <member name="T:Extensions.">
             <summary>
             Provides extension members on <see cref="T:System.Xml.XmlDocument"/>.
             </summary>
         </member>
-        <member name="M:Extensions.<>E__0.LoadFile(System.String)">
+        <member name="M:Extensions..LoadFile(System.String)">
             <summary>
             Try to load the XML document located to the specified path.
             </summary>
             <param name="path">The path to load.</param>
             <returns>The current reference to the XML document.</returns>
-        </member>
-        <member name="M:Extensions.LoadFile(System.Xml.XmlDocument,System.String)">
-            <inheritdoc cref="M:Extensions.<>E__0.LoadFile(System.String)"/>
         </member>
     </members>
 </doc>
