@@ -6919,46 +6919,6 @@
             <param name="length">The length.</param>
             <returns><see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
         </member>
-        <member name="T:System.ref">
-            <summary>
-            Represents a list of methods that can check for the concept "References" defined in C#.
-            </summary>
-        </member>
-        <member name="M:System.ref.Swap``1(``0@,``0@)">
-            <summary>
-            Swaps for two elements.
-            </summary>
-            <typeparam name="T">The type of both two arguments.</typeparam>
-            <param name="left">The first element to be swapped.</param>
-            <param name="right">The second element to be swapped.</param>
-        </member>
-        <member name="M:System.ref.ByteRef``1(``0@)">
-            <summary>
-            Simply invokes the method <see cref="M:System.Runtime.CompilerServices.Unsafe.As``2(``0@)"/>, but with target generic type being fixed type <see cref="T:System.Byte"/>.
-            </summary>
-            <typeparam name="T">The base type that is converted from.</typeparam>
-            <param name="ref">
-            The reference to the value. Generally speaking the value should be a <see langword="ref readonly"/> parameter, but C# disallows it,
-            using <see langword="ref readonly"/> as a combined parameter modifier.
-            </param>
-        </member>
-        <member name="M:System.ref.ReadOnlyByteRef``1(``0@)">
-            <inheritdoc cref="M:System.ref.ByteRef``1(``0@)"/>
-        </member>
-        <member name="M:System.ref.Add``1(``0@,System.Int32)">
-            <summary>
-            Advances the pointer to an element after the specified number of block memory elements.
-            </summary>
-            <typeparam name="T">The type of the element in block memory.</typeparam>
-            <param name="ref">The reference to be advanced.</param>
-            <param name="length">The length that the pointer moves.</param>
-            <returns>The target reference to the specified element.</returns>
-            <remarks>
-            Pass negative value into parameter <paramref name="length"/> if you want to move previously,
-            which is equivalent to method call <see cref="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)"/>
-            </remarks>
-            <seealso cref="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)"/>
-        </member>
         <member name="T:System.Reflection.AssemblyExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Reflection.Assembly"/>.
@@ -7887,6 +7847,51 @@
             <summary>
             Represents normal format <c>"hh:mm:ss.fff"</c>.
             </summary>
+        </member>
+        <member name="T:System.UnsafeExtensions">
+            <summary>
+            Represents a list of methods that can check for the concept "References" defined in C#.
+            </summary>
+        </member>
+        <member name="T:System.UnsafeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Runtime.CompilerServices.Unsafe"/>.
+            </summary>
+        </member>
+        <member name="M:System.UnsafeExtensions..Swap``1(``0@,``0@)">
+            <summary>
+            Swaps for two elements.
+            </summary>
+            <typeparam name="T">The type of both two arguments.</typeparam>
+            <param name="left">The first element to be swapped.</param>
+            <param name="right">The second element to be swapped.</param>
+        </member>
+        <member name="M:System.UnsafeExtensions..ByteRef``1(``0@)">
+            <summary>
+            Simply invokes the method <see cref="M:System.Runtime.CompilerServices.Unsafe.As``2(``0@)"/>, but with target generic type being fixed type <see cref="T:System.Byte"/>.
+            </summary>
+            <typeparam name="T">The base type that is converted from.</typeparam>
+            <param name="reference">
+            The reference to the value. Generally speaking the value should be a <see langword="ref readonly"/> parameter, but C# disallows it,
+            using <see langword="ref readonly"/> as a combined parameter modifier.
+            </param>
+        </member>
+        <member name="M:System.UnsafeExtensions..ReadOnlyByteRef``1(``0@)">
+            <inheritdoc cref="M:System.UnsafeExtensions.ByteRef``1(``0@)"/>
+        </member>
+        <member name="M:System.UnsafeExtensions..Add``1(``0@,System.Int32)">
+            <summary>
+            Advances the pointer to an element after the specified number of block memory elements.
+            </summary>
+            <typeparam name="T">The type of the element in block memory.</typeparam>
+            <param name="reference">The reference to be advanced.</param>
+            <param name="length">The length that the pointer moves.</param>
+            <returns>The target reference to the specified element.</returns>
+            <remarks>
+            Pass negative value into parameter <paramref name="length"/> if you want to move previously,
+            which is equivalent to method call <see cref="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)"/>
+            </remarks>
+            <seealso cref="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)"/>
         </member>
         <member name="T:System.ValueTupleExtensions">
             <summary>
