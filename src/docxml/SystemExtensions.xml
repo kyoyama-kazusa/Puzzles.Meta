@@ -6895,6 +6895,30 @@
             Throws when the specified collection doesn't contain enough elements to get.
             </exception>
         </member>
+        <member name="T:System.ReadOnlySpanUnsafeExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+        </member>
+        <member name="T:System.ReadOnlySpanUnsafeExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.ReadOnlySpanUnsafeExtensions.`1.AsNonReadOnly">
+            <summary>
+            Converts the current instance as a non-read-only span.
+            </summary>
+            <returns>A <see cref="T:System.Span`1"/> instance.</returns>
+        </member>
+        <member name="M:System.ReadOnlySpanUnsafeExtensions.`1.Create(`0@,System.Int32)">
+            <summary>
+            Creates a <see cref="T:System.ReadOnlySpan`1"/> instance.
+            </summary>
+            <param name="reference">The reference to the first element.</param>
+            <param name="length">The length.</param>
+            <returns><see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
+        </member>
         <member name="T:System.ref">
             <summary>
             Represents a list of methods that can check for the concept "References" defined in C#.
@@ -6934,24 +6958,6 @@
             which is equivalent to method call <see cref="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)"/>
             </remarks>
             <seealso cref="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)"/>
-        </member>
-        <member name="M:System.ref.AsSpan``1(``0@,System.Int32)">
-            <summary>
-            Casts the reference to a valid <see cref="T:System.Span`1"/> object.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="firstElementReference">The reference to the first element in a sequence.</param>
-            <param name="length">The length.</param>
-            <returns>A <see cref="T:System.Span`1"/> instance.</returns>
-        </member>
-        <member name="M:System.ref.AsReadOnlySpan``1(``0@,System.Int32)">
-            <summary>
-            Casts the reference to a valid <see cref="T:System.ReadOnlySpan`1"/> object.
-            </summary>
-            <typeparam name="T">The type of each element.</typeparam>
-            <param name="firstElementReference">The reference to the first element in a sequence.</param>
-            <param name="length">The length.</param>
-            <returns>A <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
         </member>
         <member name="T:System.Reflection.AssemblyExtensions">
             <summary>
@@ -7710,6 +7716,30 @@
             with reversed order.
             </summary>
             <returns>A new collection whose elements are in reversed order.</returns>
+        </member>
+        <member name="T:System.SpanUnsafeExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Span`1"/>.
+            </summary>
+        </member>
+        <member name="T:System.SpanUnsafeExtensions.`1">
+            <summary>
+            Provides extension members on <see cref="T:System.Span`1"/>.
+            </summary>
+        </member>
+        <member name="M:System.SpanUnsafeExtensions.`1.AsReadOnly">
+            <summary>
+            Converts the current instance as a read-only span.
+            </summary>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
+        </member>
+        <member name="M:System.SpanUnsafeExtensions.`1.Create(`0@,System.Int32)">
+            <summary>
+            Creates a <see cref="T:System.Span`1"/> instance.
+            </summary>
+            <param name="reference">The reference to the first element.</param>
+            <param name="length">The length.</param>
+            <returns><see cref="T:System.Span`1"/> instance.</returns>
         </member>
         <member name="T:System.Threading.Tasks.TimeSpanAwaitable">
             <summary>

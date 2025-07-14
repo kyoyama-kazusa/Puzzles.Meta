@@ -53,26 +53,4 @@ public static unsafe class @ref
 	/// <seealso cref="Unsafe.Subtract{T}(ref T, int)"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ref T Add<T>(ref T @ref, int length) where T : allows ref struct => ref Unsafe.Add(ref @ref, length);
-
-	/// <summary>
-	/// Casts the reference to a valid <see cref="Span{T}"/> object.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="firstElementReference">The reference to the first element in a sequence.</param>
-	/// <param name="length">The length.</param>
-	/// <returns>A <see cref="Span{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Span<T> AsSpan<T>(ref T firstElementReference, int length)
-		=> new(Unsafe.AsPointer(ref firstElementReference), length);
-
-	/// <summary>
-	/// Casts the reference to a valid <see cref="ReadOnlySpan{T}"/> object.
-	/// </summary>
-	/// <typeparam name="T">The type of each element.</typeparam>
-	/// <param name="firstElementReference">The reference to the first element in a sequence.</param>
-	/// <param name="length">The length.</param>
-	/// <returns>A <see cref="ReadOnlySpan{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<T> AsReadOnlySpan<T>(ref readonly T firstElementReference, int length)
-		=> new(Unsafe.AsPointer(ref Unsafe.AsRef(in firstElementReference)), length);
 }
