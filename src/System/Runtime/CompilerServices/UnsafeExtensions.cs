@@ -1,4 +1,4 @@
-namespace System;
+namespace System.Runtime.CompilerServices;
 
 /// <summary>
 /// Represents a list of methods that can check for the concept "References" defined in C#.
