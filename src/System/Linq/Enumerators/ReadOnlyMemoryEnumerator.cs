@@ -5,17 +5,12 @@ namespace System.Linq.Enumerators;
 /// </summary>
 /// <typeparam name="T">The type of each element.</typeparam>
 /// <seealso cref="ReadOnlyMemory{T}"/>
-[StructLayout(LayoutKind.Auto)]
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct ReadOnlyMemoryEnumerator<T>(ReadOnlyMemory<T> value) : IEnumerator<T>
+public ref struct ReadOnlyMemoryEnumerator<T>(ReadOnlyMemory<T> _value) : IEnumerator<T>
 {
 	/// <summary>
 	/// Indicates the span to the memory.
 	/// </summary>
-	private readonly ReadOnlySpan<T> _span = value.Span;
+	private readonly ReadOnlySpan<T> _span = _value.Span;
 
 	/// <summary>
 	/// Indicates the index that is currently iterated.
@@ -36,9 +31,14 @@ public ref partial struct ReadOnlyMemoryEnumerator<T>(ReadOnlyMemory<T> value) :
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
-	public bool MoveNext() => ++_index < value.Length;
+	public bool MoveNext() => ++_index < _value.Length;
 
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

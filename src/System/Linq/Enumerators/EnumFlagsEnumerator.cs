@@ -5,11 +5,7 @@ namespace System.Linq.Enumerators;
 /// </summary>
 /// <typeparam name="TEnum">The type of the enumeration type, that is marked the attribute <see cref="FlagsAttribute"/>.</typeparam>
 /// <param name="baseField"><inheritdoc cref="_baseField" path="/summary"/></param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct EnumFlagsEnumerator<TEnum>(TEnum baseField) : IEnumerator<TEnum> where TEnum : unmanaged, Enum
+public ref struct EnumFlagsEnumerator<TEnum>(TEnum baseField) : IEnumerator<TEnum> where TEnum : unmanaged, Enum
 {
 	/// <summary>
 	/// Indicates the base field.
@@ -48,12 +44,12 @@ public ref partial struct EnumFlagsEnumerator<TEnum>(TEnum baseField) : IEnumera
 			var field = _fields[index];
 			switch (SizeOfT)
 			{
-				case 1 or 2 or 4 when BitOperations.IsPow2(Unsafe.As<TEnum, int>(ref field)) && _baseField.HasFlag(field):
+				case 1 or 2 or 4 when BitOperations.IsPow2(Unsafe.As<TEnum, uint>(ref field)) && _baseField.HasFlag(field):
 				{
 					Current = _fields[_index = index];
 					return true;
 				}
-				case 8 when BitOperations.IsPow2(Unsafe.As<TEnum, long>(ref field)) && _baseField.HasFlag(field):
+				case 8 when BitOperations.IsPow2(Unsafe.As<TEnum, ulong>(ref field)) && _baseField.HasFlag(field):
 				{
 					Current = _fields[_index = index];
 					return true;
@@ -66,4 +62,9 @@ public ref partial struct EnumFlagsEnumerator<TEnum>(TEnum baseField) : IEnumera
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

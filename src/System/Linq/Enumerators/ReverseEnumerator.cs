@@ -5,11 +5,7 @@ namespace System.Linq.Enumerators;
 /// </summary>
 /// <typeparam name="T">The type of the element.</typeparam>
 /// <param name="sequence"><inheritdoc cref="_sequence" path="/summary"/></param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct ReverseEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumerator<T>
+public ref struct ReverseEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumerator<T>
 {
 	/// <summary>
 	/// The internal sequence to be iterated.
@@ -49,4 +45,9 @@ public ref partial struct ReverseEnumerator<T>(ReadOnlySpan<T> sequence) : IEnum
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

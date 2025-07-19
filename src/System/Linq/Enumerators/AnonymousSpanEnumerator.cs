@@ -5,11 +5,7 @@ namespace System.Linq.Enumerators;
 /// </summary>
 /// <typeparam name="T">The type of elements.</typeparam>
 /// <param name="elements"><inheritdoc cref="_elements" path="/summary"/></param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct AnonymousSpanEnumerator<T>(ReadOnlySpan<T> elements) : IEnumerator<T>, IEnumerable<T>
+public ref struct AnonymousSpanEnumerator<T>(ReadOnlySpan<T> elements) : IEnumerator<T>, IEnumerable<T>
 {
 	/// <summary>
 	/// Indicates the elements.
@@ -36,12 +32,16 @@ public ref partial struct AnonymousSpanEnumerator<T>(ReadOnlySpan<T> elements) :
 	public readonly AnonymousSpanEnumerator<T> GetEnuemrator() => this;
 
 	/// <inheritdoc/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public bool MoveNext() => ++_index < _elements.Length;
 
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 
 	/// <inheritdoc/>
 	readonly IEnumerator IEnumerable.GetEnumerator() => _elements.ToArray().GetEnumerator();

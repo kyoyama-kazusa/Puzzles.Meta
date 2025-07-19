@@ -6,11 +6,7 @@ namespace System.Linq.Enumerators;
 /// </summary>
 /// <typeparam name="TDelegate">The type of each function or action.</typeparam>
 /// <param name="value"><inheritdoc cref="Value" path="/summary"/></param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct DelegateEnumerator<TDelegate>(TDelegate? value) : IEnumerator<TDelegate> where TDelegate : Delegate
+public ref struct DelegateEnumerator<TDelegate>(TDelegate? value) : IEnumerator<TDelegate> where TDelegate : Delegate
 {
 	/// <summary>
 	/// Indicates the backing enumerator.
@@ -36,4 +32,9 @@ public ref partial struct DelegateEnumerator<TDelegate>(TDelegate? value) : IEnu
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

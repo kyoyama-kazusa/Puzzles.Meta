@@ -6,11 +6,7 @@ namespace System.Numerics;
 /// <typeparam name="TInteger">The type of the target integer value.</typeparam>
 /// <param name="bitCount">The number of bits.</param>
 /// <param name="oneCount">The number of <see langword="true"/> bits.</param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct BitCombinationEnumerator<TInteger>(int bitCount, int oneCount) : IEnumerator<TInteger>
+public ref struct BitCombinationEnumerator<TInteger>(int bitCount, int oneCount) : IEnumerator<TInteger>
 	where TInteger : IBinaryInteger<TInteger>
 {
 	/// <summary>
@@ -32,7 +28,6 @@ public ref partial struct BitCombinationEnumerator<TInteger>(int bitCount, int o
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public bool MoveNext()
 	{
 		var result = HasNext();
@@ -51,11 +46,15 @@ public ref partial struct BitCombinationEnumerator<TInteger>(int bitCount, int o
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
 
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
+
 	/// <summary>
 	/// Changes the state of the fields, and check whether the bit has another available possibility to be iterated.
 	/// </summary>
 	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private bool HasNext()
 	{
 		var result = !_isLast;

@@ -7,9 +7,7 @@ namespace System.Linq;
 /// <param name="values"><inheritdoc cref="_values" path="/summary"/></param>
 /// <param name="selectors"><inheritdoc cref="_selectors" path="/summary"/></param>
 [DebuggerStepThrough]
-[StructLayout(LayoutKind.Auto)]
-[TypeImpl(TypeImplFlags.AllObjectMethods)]
-public readonly ref partial struct SpanOrderedEnumerable<T>(
+public readonly ref struct SpanOrderedEnumerable<T>(
 	ReadOnlySpan<T> values,
 	[UnscopedRef] params ReadOnlySpan<Func<T, T, int>> selectors
 ) :

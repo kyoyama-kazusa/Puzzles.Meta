@@ -4,11 +4,7 @@ namespace System.Numerics;
 /// Represents an enumerator that iterates an <see cref="int"/> or <see cref="uint"/> value.
 /// </summary>
 /// <param name="_value">The value to be iterated.</param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct Int32Enumerator(uint _value) : IBitEnumerator
+public ref struct Int32Enumerator(uint _value) : IBitEnumerator
 {
 	/// <inheritdoc/>
 	public readonly int PopulationCount => (int)uint.PopCount(_value);
@@ -44,4 +40,9 @@ public ref partial struct Int32Enumerator(uint _value) : IBitEnumerator
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

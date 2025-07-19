@@ -7,8 +7,7 @@ namespace System.Text;
 /// <param name="formattedCount"><inheritdoc cref="_formattedCount" path="/summary"/></param>
 /// <param name="original"><inheritdoc cref="_original" path="/summary"/></param>
 [InterpolatedStringHandler]
-[TypeImpl(TypeImplFlags.Object_Equals | TypeImplFlags.Object_GetHashCode)]
-public unsafe ref partial struct VariableExtractor(int literalLength, int formattedCount, string original)
+public unsafe ref struct VariableExtractor(int literalLength, int formattedCount, string original)
 {
 	/// <summary>
 	/// Indicates the placeholder character.

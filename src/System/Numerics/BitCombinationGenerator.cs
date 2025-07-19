@@ -7,8 +7,7 @@ namespace System.Numerics;
 /// <param name="bitCount"><inheritdoc cref="_bitCount" path="/summary"/></param>
 /// <param name="oneCount"><inheritdoc cref="_oneCount" path="/summary"/></param>
 [DebuggerStepThrough]
-[TypeImpl(TypeImplFlags.AllObjectMethods)]
-public readonly ref partial struct BitCombinationGenerator<TInteger>(int bitCount, int oneCount)
+public readonly ref struct BitCombinationGenerator<TInteger>(int bitCount, int oneCount)
 	where TInteger : IBinaryInteger<TInteger>
 {
 	/// <summary>
@@ -26,6 +25,5 @@ public readonly ref partial struct BitCombinationGenerator<TInteger>(int bitCoun
 	/// Gets the enumerator of the current instance in order to use <see langword="foreach"/> loop.
 	/// </summary>
 	/// <returns>The enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public BitCombinationEnumerator<TInteger> GetEnumerator() => new(_bitCount, _oneCount);
 }

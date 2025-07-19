@@ -5,11 +5,7 @@ namespace System.Linq.Enumerators;
 /// </summary>
 /// <typeparam name="T">The type of each element to be iterated.</typeparam>
 /// <param name="sequence"><inheritdoc cref="_sequence" path="/summary"/></param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct PairEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumerator<(T First, T Second)> where T : notnull
+public ref struct PairEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumerator<(T First, T Second)> where T : notnull
 {
 	/// <summary>
 	/// The sequence value.
@@ -30,7 +26,6 @@ public ref partial struct PairEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumera
 
 
 	/// <inheritdoc cref="ReverseEnumerator{T}.GetEnumerator"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public readonly PairEnumerator<T> GetEnumerator() => this;
 
 	/// <summary>
@@ -44,7 +39,6 @@ public ref partial struct PairEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumera
 	/// <inheritdoc cref="PairEnumeratorCasted{T, TFirst, TSecond}" path="/typeparam[@name='TSecond']"/>
 	/// </typeparam>
 	/// <returns>A <see cref="PairEnumeratorCasted{T, TFirst, TSecond}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public readonly PairEnumeratorCasted<T, TFirst, TSecond> Cast<TFirst, TSecond>() where TFirst : T where TSecond : T
 		=> new(_sequence);
 
@@ -54,4 +48,9 @@ public ref partial struct PairEnumerator<T>(ReadOnlySpan<T> sequence) : IEnumera
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

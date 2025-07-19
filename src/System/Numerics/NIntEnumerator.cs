@@ -4,11 +4,7 @@ namespace System.Numerics;
 /// Represents an enumerator that iterates an <see cref="nint"/> or <see cref="nuint"/> value.
 /// </summary>
 /// <param name="_value">The value to be iterated.</param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct NIntEnumerator(nuint _value) : IEnumerator<int>
+public ref struct NIntEnumerator(nuint _value) : IEnumerator<int>
 {
 	/// <summary>
 	/// Indicates the population count of the value.
@@ -47,4 +43,9 @@ public ref partial struct NIntEnumerator(nuint _value) : IEnumerator<int>
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

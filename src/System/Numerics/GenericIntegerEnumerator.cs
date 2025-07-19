@@ -6,12 +6,11 @@ namespace System.Numerics;
 /// <typeparam name="TInteger">The type of the integer that supports for iteration on bits.</typeparam>
 /// <param name="_value">The integer to be iterated.</param>
 /// <param name="_bitsCount">The integer of bits to be iterated.</param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct GenericIntegerEnumerator<TInteger>(TInteger _value, int _bitsCount) : IBitEnumerator
-	where TInteger : IBitwiseOperators<TInteger, TInteger, TInteger>, IBinaryInteger<TInteger>, IShiftOperators<TInteger, int, TInteger>
+public ref struct GenericIntegerEnumerator<TInteger>(TInteger _value, int _bitsCount) : IBitEnumerator
+	where TInteger :
+		IBitwiseOperators<TInteger, TInteger, TInteger>,
+		IBinaryInteger<TInteger>,
+		IShiftOperators<TInteger, int, TInteger>
 {
 	/// <inheritdoc/>
 	public readonly int PopulationCount => int.CreateChecked(TInteger.PopCount(_value));
@@ -58,4 +57,9 @@ public ref partial struct GenericIntegerEnumerator<TInteger>(TInteger _value, in
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

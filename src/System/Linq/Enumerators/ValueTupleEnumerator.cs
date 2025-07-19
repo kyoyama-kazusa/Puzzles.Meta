@@ -4,11 +4,7 @@ namespace System.Linq.Enumerators;
 /// Provides with a mechanism to iterate a value tuple instance of a uniform type <typeparamref name="T"/>.
 /// </summary>
 /// <typeparam name="T">The uniform type of a pair of instances.</typeparam>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct ValueTupleEnumerator<T> : IEnumerator<T>
+public ref struct ValueTupleEnumerator<T> : IEnumerator<T>
 {
 	/// <summary>
 	/// Indicates the maximum number of values to be iterated.
@@ -98,10 +94,14 @@ public ref partial struct ValueTupleEnumerator<T> : IEnumerator<T>
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public bool MoveNext() => ++_index < _limit;
 
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

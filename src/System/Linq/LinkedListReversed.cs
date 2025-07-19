@@ -9,21 +9,15 @@ namespace System.Linq;
 public readonly ref partial struct LinkedListReversed<T>(LinkedList<T> baseList)
 {
 	/// <inheritdoc/>
-	public int Count
-	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		get => baseList.Count;
-	}
+	public int Count => baseList.Count;
 
 
 	/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Enumerator GetEnumerator() => new(baseList);
 
 	/// <summary>
 	/// Reverses the enumeration on each element. The method will directly return the base <see cref="LinkedList{T}"/> instance.
 	/// </summary>
 	/// <returns>The <see cref="LinkedList{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public LinkedList<T> Reverse() => baseList;
 }

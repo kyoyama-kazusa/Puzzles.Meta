@@ -4,11 +4,7 @@ namespace System.Numerics;
 /// Represents an enumerator that iterates a <see cref="Int128"/> or <see cref="UInt128"/> value.
 /// </summary>
 /// <param name="_value">The value to be iterated.</param>
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct Int128Enumerator(UInt128 _value) : IBitEnumerator
+public ref struct Int128Enumerator(UInt128 _value) : IBitEnumerator
 {
 	/// <inheritdoc/>
 	public readonly int PopulationCount
@@ -51,4 +47,9 @@ public ref partial struct Int128Enumerator(UInt128 _value) : IBitEnumerator
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }

@@ -5,12 +5,7 @@ namespace System.Runtime.CompilerServices;
 /// </summary>
 /// <typeparam name="TTuple">The type of tuple.</typeparam>
 /// <param name="tuple"><inheritdoc cref="_tuple" path="/summary"/></param>
-[StructLayout(LayoutKind.Auto)]
-[TypeImpl(
-	TypeImplFlags.AllObjectMethods | TypeImplFlags.Disposable,
-	OtherModifiersOnDisposableDispose = "readonly",
-	ExplicitlyImplsDisposable = true)]
-public ref partial struct TupleEnumerator<TTuple>(TTuple tuple) : IEnumerator<object?> where TTuple : ITuple?, allows ref struct
+public ref struct TupleEnumerator<TTuple>(TTuple tuple) : IEnumerator<object?> where TTuple : ITuple?, allows ref struct
 {
 	/// <summary>
 	/// A tuple instance.
@@ -33,4 +28,9 @@ public ref partial struct TupleEnumerator<TTuple>(TTuple tuple) : IEnumerator<ob
 	/// <inheritdoc/>
 	[DoesNotReturn]
 	readonly void IEnumerator.Reset() => throw new NotImplementedException();
+
+	/// <inheritdoc/>
+	readonly void IDisposable.Dispose()
+	{
+	}
 }
