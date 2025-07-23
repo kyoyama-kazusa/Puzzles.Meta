@@ -42,7 +42,6 @@ public static class MemberInfoExtensions
 		/// </item>
 		/// </list>
 		/// </returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public MethodInfo? GetInitMethod(bool nonPublic)
 			=> @this.GetSetMethod(nonPublic) switch
 			{
@@ -58,7 +57,6 @@ public static class MemberInfoExtensions
 	extension(MemberInfo @this)
 	{
 		/// <inheritdoc cref="CustomAttributeExtensions.IsDefined(MemberInfo, Type)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool IsDefined<TAttribute>() where TAttribute : Attribute => @this.IsDefined(typeof(TAttribute));
 	}
 }

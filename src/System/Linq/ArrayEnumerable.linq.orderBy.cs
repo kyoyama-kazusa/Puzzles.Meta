@@ -3,7 +3,6 @@ namespace System.Linq;
 public partial class ArrayEnumerable
 {
 	/// <inheritdoc cref="Enumerable.ThenBy{TSource, TKey}(IOrderedEnumerable{TSource}, Func{TSource, TKey})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ArrayOrderedEnumerable<T> OrderBy<T, TKey>(this T[] @this, Func<T, TKey> selector)
 		=> new(
 			@this,
@@ -15,7 +14,6 @@ public partial class ArrayEnumerable
 		);
 
 	/// <inheritdoc cref="Enumerable.ThenByDescending{TSource, TKey}(IOrderedEnumerable{TSource}, Func{TSource, TKey})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ArrayOrderedEnumerable<T> OrderByDescending<T, TKey>(this T[] @this, Func<T, TKey> selector)
 		=> new(
 			@this,

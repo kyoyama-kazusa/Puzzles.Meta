@@ -15,7 +15,6 @@ public static class ValueTupleExtensions
 		/// via a value tuple <see cref="ValueTuple{T1, T2}"/> of a uniform type <typeparamref name="T"/>.
 		/// </summary>
 		/// <returns>An enumerator instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
 	}
 
@@ -28,7 +27,6 @@ public static class ValueTupleExtensions
 		/// Casts the current instance into a <see cref="ReadOnlySpan{T}"/>.
 		/// </summary>
 		/// <returns>The <see cref="ReadOnlySpan{T}"/> instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2];
 	}
 
@@ -42,7 +40,6 @@ public static class ValueTupleExtensions
 		/// via a value tuple <see cref="ValueTuple{T1, T2, T3}"/> of a uniform type <typeparamref name="T"/>.
 		/// </summary>
 		/// <returns>An enumerator instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
 	}
 
@@ -52,7 +49,6 @@ public static class ValueTupleExtensions
 	extension<T>(scoped in (T, T, T) @this)
 	{
 		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2, @this.Item3];
 	}
 
@@ -66,7 +62,6 @@ public static class ValueTupleExtensions
 		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4}"/> of a uniform type <typeparamref name="T"/>.
 		/// </summary>
 		/// <returns>An enumerator instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
 	}
 
@@ -76,7 +71,6 @@ public static class ValueTupleExtensions
 	extension<T>(scoped in (T, T, T, T) @this)
 	{
 		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4];
 	}
 
@@ -90,7 +84,6 @@ public static class ValueTupleExtensions
 		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5}"/> of a uniform type <typeparamref name="T"/>.
 		/// </summary>
 		/// <returns>An enumerator instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
 	}
 
@@ -100,7 +93,6 @@ public static class ValueTupleExtensions
 	extension<T>(scoped in (T, T, T, T, T) @this)
 	{
 		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5];
 	}
 
@@ -114,7 +106,6 @@ public static class ValueTupleExtensions
 		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6}"/> of a uniform type <typeparamref name="T"/>.
 		/// </summary>
 		/// <returns>An enumerator instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
 	}
 
@@ -124,7 +115,6 @@ public static class ValueTupleExtensions
 	extension<T>(scoped in (T, T, T, T, T, T) @this)
 	{
 		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<T> AsSpan() => (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6];
 	}
 
@@ -138,7 +128,6 @@ public static class ValueTupleExtensions
 		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7}"/> of a uniform type <typeparamref name="T"/>.
 		/// </summary>
 		/// <returns>An enumerator instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ValueTupleEnumerator<T> GetEnumerator() => new(@this);
 	}
 
@@ -148,7 +137,6 @@ public static class ValueTupleExtensions
 	extension<T>(scoped in (T, T, T, T, T, T, T) @this)
 	{
 		/// <inheritdoc cref="AsSpan{T}(in ValueTuple{T, T})"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<T> AsSpan()
 			=> (T[])[@this.Item1, @this.Item2, @this.Item3, @this.Item4, @this.Item5, @this.Item6, @this.Item7];
 	}
@@ -163,7 +151,6 @@ public static class ValueTupleExtensions
 		/// via a value tuple <see cref="ValueTuple{T1, T2, T3, T4, T5, T6, T7, TRest}"/> of a uniform type <typeparamref name="T"/>.
 		/// </summary>
 		/// <returns>An enumerator instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ComplexValueTupleEnumerator<T, TRest> GetEnumerator() => new(@this);
 	}
 

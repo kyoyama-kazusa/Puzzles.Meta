@@ -16,7 +16,6 @@ public static class Utf8JsonReaderExtensions
 		/// </summary>
 		/// <typeparam name="T">The type of the instance to be deserialized.</typeparam>
 		/// <param name="options">The options.</param>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T? GetNestedObject<T>(JsonSerializerOptions? options = null) => JsonSerializer.Deserialize<T>(ref @this, options);
 	}
 }

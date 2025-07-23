@@ -13,7 +13,6 @@ public static class CustomAttributeProviderExtensions
 	/// <param name="this">The instance.</param>
 	/// <param name="genericAttributeType">The generic attribute type.</param>
 	/// <returns>The types of the generic type arguments.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Type[] GetGenericAttributeTypeArguments<TCustomAttributeProvider>(this TCustomAttributeProvider @this, Type genericAttributeType)
 		where TCustomAttributeProvider : class, ICustomAttributeProvider
 		=> @this.GetCustomGenericAttribute(genericAttributeType)?.GetType().GenericTypeArguments ?? Type.EmptyTypes;
@@ -27,7 +26,6 @@ public static class CustomAttributeProviderExtensions
 	/// <returns>
 	/// <inheritdoc cref="Attribute.GetCustomAttribute(MemberInfo, Type)" path="/returns"/>
 	/// </returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Attribute? GetCustomGenericAttribute<TCustomAttributeProvider>(this TCustomAttributeProvider @this, Type genericAttributeType)
 		where TCustomAttributeProvider : class, ICustomAttributeProvider
 		=> genericAttributeType switch
@@ -50,7 +48,6 @@ public static class CustomAttributeProviderExtensions
 	/// <returns>
 	/// <inheritdoc cref="Attribute.GetCustomAttributes(MemberInfo, Type)" path="/returns"/>
 	/// </returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Attribute[] GetCustomGenericAttributes<TCustomAttributeProvider>(this TCustomAttributeProvider @this, Type genericAttributeType)
 		where TCustomAttributeProvider : class, ICustomAttributeProvider
 		=> genericAttributeType switch
@@ -68,7 +65,6 @@ public static class CustomAttributeProviderExtensions
 	/// </summary>
 	/// <param name="this">The string text.</param>
 	/// <returns>The index of the backtick in the string.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private static int IndexOfBacktick(this string @this) => @this.IndexOf('`');
 
 	/// <summary>
@@ -77,7 +73,6 @@ public static class CustomAttributeProviderExtensions
 	/// <typeparam name="TCustomAttributeProvider">The type of the provider.</typeparam>
 	/// <param name="this">The custom attribute provider.</param>
 	/// <returns>The attributes.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private static Attribute[] GetAttributesCore<TCustomAttributeProvider>(this TCustomAttributeProvider @this)
 		where TCustomAttributeProvider : class, ICustomAttributeProvider
 		=> @this switch

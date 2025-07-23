@@ -13,7 +13,6 @@ public static class IndexRangeExtensions
 	extension(Index @this)
 	{
 		/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void Deconstruct(out int value, out bool isFromEnd) => (value, isFromEnd) = (@this.Value, @this.IsFromEnd);
 	}
 
@@ -23,7 +22,6 @@ public static class IndexRangeExtensions
 	extension(Range @this)
 	{
 		/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void Deconstruct(out Index start, out Index end) => (start, end) = (@this.Start, @this.End);
 	}
 }

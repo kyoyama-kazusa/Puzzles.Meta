@@ -17,7 +17,6 @@ public static class Utf8JsonWriterExtensions
 		/// <typeparam name="T">The type of the instance to be serialized.</typeparam>
 		/// <param name="instance">The instance to be serialized.</param>
 		/// <param name="options">The options.</param>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void WriteNestedObject<T>(T instance, JsonSerializerOptions? options = null)
 			=> JsonSerializer.Serialize(@this, instance, options);
 

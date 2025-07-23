@@ -43,27 +43,23 @@ public sealed class SingletonArray<T>(T value) : MemoryManager<T>
 	/// Creates a <see cref="Span{T}"/> from the current instance without any copy operation.
 	/// </summary>
 	/// <param name="value">The value to be casted from.</param>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static implicit operator Span<T>(SingletonArray<T> value) => new(ref value._value);
 
 	/// <summary>
 	/// Creates a <see cref="ReadOnlySpan{T}"/> from the current instance without any copy operation.
 	/// </summary>
 	/// <param name="value">The value to be casted from.</param>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static implicit operator ReadOnlySpan<T>(SingletonArray<T> value) => new(in value._value);
 
 	/// <summary>
 	/// Creates a <see cref="Memory{T}"/> from the current instance without any copy operation.
 	/// </summary>
 	/// <param name="value">The value to be casted from.</param>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static implicit operator Memory<T>(SingletonArray<T> value) => value.Memory;
 
 	/// <summary>
 	/// Creates a <see cref="ReadOnlyMemory{T}"/> from the current instance without any copy operation.
 	/// </summary>
 	/// <param name="value">The value to be casted from.</param>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static implicit operator ReadOnlyMemory<T>(SingletonArray<T> value) => value.Memory;
 }

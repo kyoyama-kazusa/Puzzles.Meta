@@ -16,7 +16,6 @@ public static unsafe class UnsafeExtensions
 		/// <typeparam name="T">The type of both two arguments.</typeparam>
 		/// <param name="left">The first element to be swapped.</param>
 		/// <param name="right">The second element to be swapped.</param>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void Swap<T>(ref T left, ref T right) where T : allows ref struct
 		{
 			if (!Unsafe.AreSame(in left, in right))
@@ -35,11 +34,9 @@ public static unsafe class UnsafeExtensions
 		/// The reference to the value. Generally speaking the value should be a <see langword="ref readonly"/> parameter, but C# disallows it,
 		/// using <see langword="ref readonly"/> as a combined parameter modifier.
 		/// </param>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static ref byte ByteRef<T>(ref T reference) where T : allows ref struct => ref Unsafe.As<T, byte>(ref reference);
 
 		/// <inheritdoc cref="ByteRef{T}(ref T)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static ref readonly byte ReadOnlyByteRef<T>(ref readonly T reference) where T : allows ref struct
 			=> ref Unsafe.As<T, byte>(ref Unsafe.AsRef(in reference));
 
@@ -55,7 +52,6 @@ public static unsafe class UnsafeExtensions
 		/// which is equivalent to method call <see cref="Unsafe.Subtract{T}(ref T, int)"/>
 		/// </remarks>
 		/// <seealso cref="Unsafe.Subtract{T}(ref T, int)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static ref T Add<T>(ref T reference, int length) where T : allows ref struct => ref Unsafe.Add(ref reference, length);
 	}
 }

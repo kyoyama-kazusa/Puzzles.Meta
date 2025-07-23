@@ -33,7 +33,6 @@ public static class SortedSetExtensions
 		/// Try to convert the current instance into an array.
 		/// </summary>
 		/// <returns>An array of <typeparamref name="T"/> elements.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T[] ToArray()
 		{
 			var result = new T[@this.Count];

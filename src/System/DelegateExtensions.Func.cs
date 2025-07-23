@@ -16,7 +16,6 @@ public partial class DelegateExtensions
 		/// <summary>
 		/// Represents a method that directly returns <paramref name="instance"/>.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T SelfMethod(T instance) => instance;
 	}
 

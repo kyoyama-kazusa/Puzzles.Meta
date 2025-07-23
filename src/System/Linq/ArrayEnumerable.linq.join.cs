@@ -2,7 +2,6 @@ namespace System.Linq;
 public partial class ArrayEnumerable
 {
 	/// <inheritdoc cref="Enumerable.Join{TOuter, TInner, TKey, TResult}(IEnumerable{TOuter}, IEnumerable{TInner}, Func{TOuter, TKey}, Func{TInner, TKey}, Func{TOuter, TInner, TResult})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static TResult[] Join<TOuter, TInner, TKey, TResult>(
 		this TOuter[] outer,
 		TInner[] inner,
@@ -51,7 +50,6 @@ public partial class ArrayEnumerable
 	}
 
 	/// <inheritdoc cref="Enumerable.GroupJoin{TOuter, TInner, TKey, TResult}(IEnumerable{TOuter}, IEnumerable{TInner}, Func{TOuter, TKey}, Func{TInner, TKey}, Func{TOuter, IEnumerable{TInner}, TResult})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static TResult[] GroupJoin<TOuter, TInner, TKey, TResult>(
 		this TOuter[] outer,
 		TInner[] inner,

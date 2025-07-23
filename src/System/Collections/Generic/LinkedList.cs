@@ -12,7 +12,6 @@ public static class LinkedList
 	/// <typeparam name="T">The type of each element of the return value.</typeparam>
 	/// <param name="value">The value to be created.</param>
 	/// <returns>A <see cref="LinkedList{T}"/> instance, with only one element inside it.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static LinkedList<T> Singleton<T>(T value)
 	{
 		var result = new LinkedList<T>();
@@ -27,7 +26,6 @@ public static class LinkedList
 	/// <param name="original">The original collection.</param>
 	/// <param name="newValue">The new value to be added.</param>
 	/// <returns>A <see cref="LinkedList{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static LinkedList<T> Create<T>(LinkedList<T> original, T newValue)
 	{
 		var result = new LinkedList<T>(original);

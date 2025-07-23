@@ -33,7 +33,6 @@ public static class HashSetExtensions
 		/// without any conversions among internal values.
 		/// </summary>
 		/// <returns>A <see cref="ReadOnlySpan{T}"/> converted.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<T> AsReadOnlySpan() => @this.ToArray();
 	}
 }

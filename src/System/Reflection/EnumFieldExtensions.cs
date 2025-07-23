@@ -16,7 +16,6 @@ public static class EnumFieldExtensions
 		/// </summary>
 		/// <param name="field">The field.</param>
 		/// <returns>The <see cref="FieldInfo"/> instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static FieldInfo? FieldInfoOf(TEnum field) => typeof(TEnum).GetField(field.ToString());
 	}
 }

@@ -16,7 +16,6 @@ public partial class DelegateExtensions
 		/// <summary>
 		/// Represents a method that do nothing.
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void DoNothingMethod()
 		{
 		}

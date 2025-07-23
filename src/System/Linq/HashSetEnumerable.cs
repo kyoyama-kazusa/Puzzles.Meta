@@ -13,7 +13,6 @@ public static class HashSetEnumerable
 	/// <param name="source">The collection.</param>
 	/// <returns>The first element of the collection.</returns>
 	/// <exception cref="InvalidOperationException">Throws when the collection contains no elements.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static TSource First<TSource>(this HashSet<TSource> source)
 	{
 		using var enumerator = source.GetEnumerator();

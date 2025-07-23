@@ -61,7 +61,6 @@ file static class Extensions
 		/// </summary>
 		/// <param name="path">The path to load.</param>
 		/// <returns>The current reference to the XML document.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public XmlDocument LoadFile(string path)
 		{
 			@this.Load(path);

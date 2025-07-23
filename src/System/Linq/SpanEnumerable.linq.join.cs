@@ -3,7 +3,6 @@ namespace System.Linq;
 public partial class SpanEnumerable
 {
 	/// <inheritdoc cref="IJoinMethod{TSelf, TSource}.Join{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, TInner, TResult})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ReadOnlySpan<TResult> Join<TOuter, TInner, TKey, TResult>(
 		this ReadOnlySpan<TOuter> outer,
 		ReadOnlySpan<TInner> inner,
@@ -53,7 +52,6 @@ public partial class SpanEnumerable
 	}
 
 	/// <inheritdoc cref="IJoinMethod{TSelf, TSource}.GroupJoin{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, IEnumerable{TInner}, TResult})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ReadOnlySpan<TResult> GroupJoin<TOuter, TInner, TKey, TResult>(
 		this ReadOnlySpan<TOuter> outer,
 		ReadOnlySpan<TInner> inner,

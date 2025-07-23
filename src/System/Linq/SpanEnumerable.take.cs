@@ -3,7 +3,6 @@ namespace System.Linq;
 public partial class SpanEnumerable
 {
 	/// <inheritdoc cref="ITakeMethod{TSelf, TSource}.Take(int)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ReadOnlySpan<TSource> Take<TSource>(this ReadOnlySpan<TSource> @this, int count)
 	{
 		var result = new List<TSource>(count);
@@ -12,7 +11,6 @@ public partial class SpanEnumerable
 	}
 
 	/// <inheritdoc cref="ITakeMethod{TSelf, TSource}.Take(Range)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ReadOnlySpan<TSource> Take<TSource>(this ReadOnlySpan<TSource> @this, Range range)
 	{
 		var minIndex = range.Start.GetOffset(@this.Length);

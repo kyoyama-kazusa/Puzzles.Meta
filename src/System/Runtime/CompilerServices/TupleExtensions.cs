@@ -50,7 +50,6 @@ public static class TupleExtensions
 		}
 
 		/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public TupleEnumerator<TTuple> GetEnumerator() => new(@this);
 	}
 }

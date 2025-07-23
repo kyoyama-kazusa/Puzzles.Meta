@@ -22,7 +22,6 @@ public partial class SR
 	/// </summary>
 	/// <inheritdoc cref="TryGet(string, out string?, CultureInfo?, Assembly?)"/>
 	/// <exception cref="ResourceNotFoundException">Throws when the specified resource is not found.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static string ExceptionMessage(string resourceKey, CultureInfo? culture = null, Assembly? assembly = null)
 		=> TryGet(resourceKey.StartsWith("ErrorInfo_") ? resourceKey : $"ErrorInfo_{resourceKey}", out var resource, culture, assembly)
 			? resource
@@ -33,7 +32,6 @@ public partial class SR
 	/// </summary>
 	/// <inheritdoc cref="TryGet(string, out string?, CultureInfo?, Assembly?)"/>
 	/// <exception cref="ResourceNotFoundException">Throws when the specified resource is not found.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static string Get(string resourceKey, CultureInfo? culture = null, Assembly? assembly = null)
 		=> TryGet(resourceKey, out var resource, culture, assembly)
 			? resource

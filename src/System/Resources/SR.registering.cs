@@ -18,7 +18,6 @@ public partial class SR
 	/// <exception cref="MissingResourceManagerException">
 	/// Throws when the current calling assembly doesn't contain any resource manager.
 	/// </exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void RegisterResourceManager<TResourceManagerProvider>() where TResourceManagerProvider : class
 		=> ResourceManagers.Add(
 			(

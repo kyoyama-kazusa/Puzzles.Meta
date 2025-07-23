@@ -8,7 +8,6 @@ public partial class SequenceExtensions
 	extension<T>(T[]? @this)
 	{
 		/// <inheritdoc cref="MemoryExtensions.AsSpan{T}(T[])"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<T> AsReadOnlySpan() => new(@this);
 	}
 
@@ -56,7 +55,6 @@ public partial class SequenceExtensions
 		/// <typeparam name="T">The type of each element inside array.</typeparam>
 		/// <param name="array">The array.</param>
 		/// <returns>The string representation.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static string ToArrayString<T>(T[] array) => Array.ToArrayString(array, null);
 
 		/// <summary>
@@ -67,7 +65,6 @@ public partial class SequenceExtensions
 		/// <param name="array">The array.</param>
 		/// <param name="valueConverter">The value converter method.</param>
 		/// <returns>The string representation.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static string ToArrayString<T>(T[] array, Func<T, string?>? valueConverter)
 		{
 			valueConverter ??= (static value => value?.ToString());
@@ -75,7 +72,6 @@ public partial class SequenceExtensions
 		}
 
 		/// <inheritdoc cref="ToArrayString{T}(T[])"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(1)]
 		public static string ToArrayString<T>(T[][] array) => Array.ToArrayString(array, null);
 
@@ -100,7 +96,6 @@ public partial class SequenceExtensions
 		}
 
 		/// <inheritdoc cref="ToArrayString{T}(T[])"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static string ToArrayString<T>(T[,] array) => Array.ToArrayString(array, null);
 
 		/// <inheritdoc cref="ToArrayString{T}(T[], Func{T, string?})"/>
@@ -139,7 +134,6 @@ public partial class SequenceExtensions
 		/// <typeparam name="T">The type of each element.</typeparam>
 		/// <param name="array">The array.</param>
 		/// <returns>The <see cref="Span{T}"/> casted.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static unsafe Span<T> AsSpanUnsafe<T>(T[,] array)
 		{
 			fixed (T* ptr = &array[0, 0])
@@ -154,7 +148,6 @@ public partial class SequenceExtensions
 		/// <typeparam name="T">The type of each element.</typeparam>
 		/// <param name="array">The array.</param>
 		/// <returns>The <see cref="Span{T}"/> casted.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static unsafe Span<T> AsSpanUnsafe<T>(T[,,] array)
 		{
 			fixed (T* ptr = &array[0, 0, 0])

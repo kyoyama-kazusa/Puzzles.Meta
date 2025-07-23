@@ -15,7 +15,6 @@ public sealed class PascalCaseJsonNamingPolicy : JsonNamingPolicy
 	/// <returns>The naming policy for pascal-casing.</returns>
 	public static JsonNamingPolicy PascalCase
 	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		get => new PascalCaseJsonNamingPolicy();
 	}
 

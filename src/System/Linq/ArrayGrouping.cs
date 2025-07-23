@@ -44,13 +44,11 @@ public sealed partial class ArrayGrouping<TSource, TKey>(TSource[] elements, TKe
 	/// <returns>The reference to the element at the specified index.</returns>
 	public ref readonly TSource this[int index]
 	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		get => ref _elements[index];
 	}
 
 
 	/// <inheritdoc/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public bool Equals([NotNullWhen(true)] ArrayGrouping<TSource, TKey>? other)
 		=> other is not null && ReferenceEquals(_elements, other._elements) && Key.Equals(other.Key);
 
@@ -89,18 +87,15 @@ public sealed partial class ArrayGrouping<TSource, TKey>(TSource[] elements, TKe
 	}
 
 	/// <inheritdoc cref="SequenceExtensions.AsReadOnlySpan{T}(T[])"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ReadOnlySpan<TSource> AsReadOnlySpan() => _elements;
 
 	/// <summary>
 	/// Creates an enumerator that can enumerate each element in the source collection.
 	/// </summary>
 	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public AnonymousSpanEnumerator<TSource> GetEnumerator() => new(_elements);
 
 	/// <inheritdoc cref="ReadOnlySpan{T}.GetPinnableReference"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public ref readonly TSource GetPinnableReference() => ref _elements[0];
 

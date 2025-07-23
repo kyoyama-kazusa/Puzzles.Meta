@@ -101,7 +101,6 @@ public sealed class ArrayOrderedEnumerable<T>(T[] values, params Func<T, T, int>
 	/// <typeparam name="TKey">The type of key.</typeparam>
 	/// <param name="selector">The selector.</param>
 	/// <returns>A <see cref="ArrayOrderedEnumerable{T}"/> instance, with a new selector added in the current instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ArrayOrderedEnumerable<T> OrderBy<TKey>(Func<T, TKey> selector) where TKey : notnull => ThenBy(selector);
 
 	/// <summary>
@@ -111,11 +110,9 @@ public sealed class ArrayOrderedEnumerable<T>(T[] values, params Func<T, T, int>
 	/// <typeparam name="TKey">The type of key.</typeparam>
 	/// <param name="selector">The selector.</param>
 	/// <returns>A <see cref="ArrayOrderedEnumerable{T}"/> instance, with a new selector added in the current instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ArrayOrderedEnumerable<T> OrderByDescending<TKey>(Func<T, TKey> selector) where TKey : notnull => ThenByDescending(selector);
 
 	/// <inheritdoc cref="Enumerable.ThenBy{TSource, TKey}(IOrderedEnumerable{TSource}, Func{TSource, TKey})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ArrayOrderedEnumerable<T> ThenBy<TKey>(Func<T, TKey> keySelector) where TKey : notnull
 		=> new(
 			_values,
@@ -130,7 +127,6 @@ public sealed class ArrayOrderedEnumerable<T>(T[] values, params Func<T, T, int>
 		);
 
 	/// <inheritdoc cref="Enumerable.ThenByDescending{TSource, TKey}(IOrderedEnumerable{TSource}, Func{TSource, TKey})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ArrayOrderedEnumerable<T> ThenByDescending<TKey>(Func<T, TKey> keySelector) where TKey : notnull
 		=> new(
 			_values,
@@ -191,11 +187,9 @@ public sealed class ArrayOrderedEnumerable<T>(T[] values, params Func<T, T, int>
 	}
 
 	/// <inheritdoc/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public T? Aggregate(Func<T?, T?, T> func) => Aggregate(default, func, Func<T?>.Self);
 
 	/// <inheritdoc/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public TAccumulate Aggregate<TAccumulate>(TAccumulate seed, Func<TAccumulate, T, TAccumulate> func)
 		where TAccumulate : allows ref struct
 		=> Aggregate(seed, func, Func<TAccumulate>.Self);
@@ -214,15 +208,12 @@ public sealed class ArrayOrderedEnumerable<T>(T[] values, params Func<T, T, int>
 	}
 
 	/// <inheritdoc cref="ISliceMethod{TSelf, TSource}.Slice(int, int)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public T[] Slice(int start, int length) => ArrayOrdered[start..(start + length)];
 
 	/// <inheritdoc/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public T[] ToArray() => ArrayOrdered;
 
 	/// <inheritdoc cref="ReadOnlySpan{T}.GetEnumerator"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public AnonymousSpanEnumerator<T> GetEnumerator() => new(ArrayOrdered);
 
 	/// <inheritdoc/>
@@ -272,7 +263,6 @@ public sealed class ArrayOrderedEnumerable<T>(T[] values, params Func<T, T, int>
 	/// </param>
 	/// <param name="descending">A <see cref="bool"/> value indicating whether the creation is for descending comparison rule.</param>
 	/// <returns>An <see cref="ArrayOrderedEnumerable{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ArrayOrderedEnumerable<T> Create<TKey>(T[] values, Func<T, TKey> keySelector, IComparer<TKey>? comparer, bool descending)
 	{
 		comparer ??= Comparer<TKey>.Default;

@@ -3,7 +3,6 @@ namespace System.Linq;
 public partial class SpanEnumerable
 {
 	/// <inheritdoc cref="ILeftJoinMethod{TSelf, TSource}.LeftJoin{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, TInner, TResult})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static ReadOnlySpan<TResult?> LeftJoin<TOuter, TInner, TKey, TResult>(
 		this ReadOnlySpan<TOuter> outer,
 		ReadOnlySpan<TInner> inner,

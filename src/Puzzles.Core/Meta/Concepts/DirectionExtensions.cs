@@ -34,7 +34,6 @@ public static class DirectionExtensions
 		/// </summary>
 		/// <returns>The character.</returns>
 		/// <exception cref="ArgumentOutOfRangeException">Throws when the argument is out of range.</exception>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public char GetArrow()
 			=> @this switch
 			{

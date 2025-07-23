@@ -153,7 +153,6 @@ public static class DictionaryEnumerable
 	}
 
 	/// <inheritdoc cref="Enumerable.ElementAt{TSource}(IEnumerable{TSource}, Index)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static KeyValuePair<TKey, TValue> ElementAt<TKey, TValue>(this Dictionary<TKey, TValue> @this, Index index)
 		where TKey : notnull
 		=> @this.ElementAt(index.GetOffset(@this.Count));

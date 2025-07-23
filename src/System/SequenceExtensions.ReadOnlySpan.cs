@@ -62,7 +62,6 @@ public partial class SequenceExtensions
 		/// Iterates on each element, in reverse order.
 		/// </summary>
 		/// <returns>An enumerator type that iterates on each element.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReverseEnumerator<T> EnumerateReversely() => new(@this);
 
 		/// <summary>
@@ -97,7 +96,6 @@ public partial class SequenceExtensions
 		/// Creates a <see cref="PairEnumerator{T}"/> instance that iterates on each element of pair elements.
 		/// </summary>
 		/// <returns>An enumerable collection.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public PairEnumerator<T> EnumeratePaired()
 			=> new(
 				(@this.Length & 1) == 0

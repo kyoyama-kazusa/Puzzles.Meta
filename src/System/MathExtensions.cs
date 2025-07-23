@@ -18,7 +18,6 @@ public static class MathExtensions
 		/// <param name="b">The second value.</param>
 		/// <param name="c">The third value.</param>
 		/// <returns>The minimal one.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Min(int a, int b, int c) => a < b ? a < c ? a : c : b < c ? b : c;
 
 		/// <summary>
@@ -28,7 +27,6 @@ public static class MathExtensions
 		/// <param name="b">The second value.</param>
 		/// <param name="c">The third value.</param>
 		/// <returns>The maximum one.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Max(int a, int b, int c) => a > b ? a > c ? a : c : b > c ? b : c;
 
 		/// <summary>
@@ -38,7 +36,6 @@ public static class MathExtensions
 		/// <param name="a">The first value.</param>
 		/// <param name="b">The second value.</param>
 		/// <returns>The minimal one.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Min<T>(T a, T b) where T : IComparisonOperators<T, T, bool> => a < b ? a : b;
 
 		/// <summary>
@@ -49,7 +46,6 @@ public static class MathExtensions
 		/// <param name="b">The second value.</param>
 		/// <param name="c">The third value.</param>
 		/// <returns>The minimal one.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Min<T>(T a, T b, T c) where T : IComparisonOperators<T, T, bool>
 			=> a < b ? a < c ? a : c : b < c ? b : c;
 
@@ -60,7 +56,6 @@ public static class MathExtensions
 		/// <param name="a">The first value.</param>
 		/// <param name="b">The second value.</param>
 		/// <returns>The maximal one.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Max<T>(T a, T b) where T : IComparisonOperators<T, T, bool> => a > b ? a : b;
 
 		/// <summary>
@@ -71,7 +66,6 @@ public static class MathExtensions
 		/// <param name="b">The second value.</param>
 		/// <param name="c">The third value.</param>
 		/// <returns>The maximal one.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Max<T>(T a, T b, T c) where T : IComparisonOperators<T, T, bool>
 			=> a > b ? a > c ? a : c : b > c ? b : c;
 	}

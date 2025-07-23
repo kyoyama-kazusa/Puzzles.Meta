@@ -18,7 +18,6 @@ public static class RandomExtensions
 		/// <param name="mu">Mu μ value.</param>
 		/// <param name="sigma">Sigma σ value.</param>
 		/// <returns>The result value.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public double NextGaussian(double mu, double sigma)
 		{
 			var u1 = 1D - @this.NextDouble();
@@ -34,7 +33,6 @@ public static class RandomExtensions
 		/// <param name="values">The values.</param>
 		/// <returns>The chosen element.</returns>
 		/// <exception cref="InvalidOperationException">Throws when the specified collection is empty.</exception>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T Choose<T>(ReadOnlySpan<T> values) => values[@this.Next(0, values.Length)];
 
 		/// <summary>

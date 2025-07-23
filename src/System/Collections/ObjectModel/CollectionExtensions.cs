@@ -12,7 +12,6 @@ public static class CollectionExtensions
 	extension<T>(Collection<T> @this)
 	{
 		/// <inheritdoc cref="Collection{T}.RemoveAt(int)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void RemoveAt(Index index) => @this.RemoveAt(index.GetOffset(@this.Count));
 	}
 }

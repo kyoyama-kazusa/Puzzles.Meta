@@ -3,7 +3,6 @@ namespace System.Linq;
 public partial class SpanEnumerable
 {
 	/// <inheritdoc cref="IOrderByMethod{TSelf, TSource}.OrderBy{TKey}(Func{TSource, TKey})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static SpanOrderedEnumerable<TSource> OrderBy<TSource, TKey>(this ReadOnlySpan<TSource> @this, Func<TSource, TKey> selector)
 		=> new(
 			@this,
@@ -17,7 +16,6 @@ public partial class SpanEnumerable
 		);
 
 	/// <inheritdoc cref="IOrderByMethod{TSelf, TSource}.OrderByDescending{TKey}(Func{TSource, TKey})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static SpanOrderedEnumerable<TSource> OrderByDescending<TSource, TKey>(this ReadOnlySpan<TSource> @this, Func<TSource, TKey> selector)
 		=> new(
 			@this,

@@ -24,7 +24,6 @@ public partial struct LinkedListReversed<T>
 
 
 		/// <inheritdoc cref="IEnumerator.MoveNext"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool MoveNext()
 		{
 			if (_node is null)

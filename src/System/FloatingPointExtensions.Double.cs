@@ -12,7 +12,6 @@ public partial class FloatingPointExtensions
 		/// </summary>
 		/// <param name="other">The other value.</param>
 		/// <returns>A <see cref="bool"/> result indicating that.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool NearlyEquals(double other) => @this.NearlyEquals(other, double.Epsilon);
 
 		/// <summary>
@@ -23,7 +22,6 @@ public partial class FloatingPointExtensions
 		/// <param name="other">The other value to compare.</param>
 		/// <param name="epsilon">The epsilon value (the minimal differ).</param>
 		/// <returns>A <see cref="bool"/> result indicating that.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool NearlyEquals(double other, double epsilon) => Math.Abs(@this - other) < epsilon;
 	}
 }

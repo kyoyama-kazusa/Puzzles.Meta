@@ -45,7 +45,6 @@ public static class LinkedListExtensions
 		/// Removes the first element and return that element.
 		/// </summary>
 		/// <returns>The first element to be removed.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T RemoveFirstNode()
 		{
 			var node = @this.First!.Value;
@@ -57,7 +56,6 @@ public static class LinkedListExtensions
 		/// Removes the last element and return that element.
 		/// </summary>
 		/// <returns>The last element to be removed.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T RemoveLastNode()
 		{
 			var node = @this.Last!.Value;

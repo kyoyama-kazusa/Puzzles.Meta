@@ -16,7 +16,6 @@ public static class ValueMatchExtensions
 		/// </summary>
 		/// <param name="originalString">The original string.</param>
 		/// <returns>The target string.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<char> MatchString(ReadOnlySpan<char> originalString)
 			=> originalString.Slice(@this.Index, @this.Length);
 	}

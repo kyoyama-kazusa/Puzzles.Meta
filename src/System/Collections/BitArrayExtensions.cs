@@ -19,7 +19,6 @@ public static class BitArrayExtensions
 
 
 		/// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool SequenceEqual([NotNullWhen(true)] BitArray? other)
 			=> other is not null && @this.Length == other.Length
 			&& Entry.GetArrayField(@this).SequenceEqual(Entry.GetArrayField(other));
@@ -28,7 +27,6 @@ public static class BitArrayExtensions
 		/// Try to get internal array field.
 		/// </summary>
 		/// <returns>The field.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public int[] GetInternalArrayField() => Entry.GetArrayField(@this);
 
 		/// <summary>
@@ -52,7 +50,6 @@ public static class BitArrayExtensions
 		/// </summary>
 		/// <param name="start">The start index.</param>
 		/// <returns>The result.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public BitArray Slice(int start) => @this.Slice(start, @this.Count - start);
 
 		/// <summary>

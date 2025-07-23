@@ -26,7 +26,6 @@ public static class KeyValuePairExtensions
 		/// Converts the current <see cref="KeyValuePair{TKey, TValue}"/> instance into a pair of values.
 		/// </summary>
 		/// <returns>The final pair of values converted.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public (TKey, TValue) ToTuple() => (@this.Key, @this.Value);
 	}
 
@@ -45,7 +44,6 @@ public static class KeyValuePairExtensions
 	/// <typeparam name="TValueResult">The type of result value.</typeparam>
 	/// <param name="this">The instance.</param>
 	/// <returns>The casted result.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static KeyValuePair<TKeyResult, TValueResult> Cast<TKey, TValue, TKeyResult, TValueResult>(this in KeyValuePair<TKey, TValue> @this)
 		where TKey : TKeyResult
 		where TValue : TValueResult

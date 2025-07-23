@@ -17,11 +17,9 @@ public static class DictionaryExtensions
 		/// </summary>
 		/// <param name="key">The key to be checked.</param>
 		/// <returns>The reference to the value; or a <see langword="null"/> reference if the key is not found.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ref TValue GetValueRef(in TKey key) => ref CollectionsMarshal.GetValueRefOrNullRef(@this, key);
 
 		/// <inheritdoc cref="ToDictionaryString{TKey, TValue}(Dictionary{TKey, TValue}, Func{TKey, string?}?, Func{TValue, string?}?)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public string ToDictionaryString() => @this.ToDictionaryString(null, null);
 
 		/// <summary>

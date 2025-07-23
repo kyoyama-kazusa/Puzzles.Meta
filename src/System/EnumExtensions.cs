@@ -18,7 +18,6 @@ public static class EnumExtensions
 		/// <returns>A <see cref="bool"/> result indicating that.</returns>
 		public bool IsFlag
 		{
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			get
 			{
 				var thisCopied = @this;
@@ -35,7 +34,6 @@ public static class EnumExtensions
 				}.TryGetValue(Enum.GetUnderlyingType(typeof(T)), out var func) && func();
 
 
-				[MethodImpl(MethodImplOptions.AggressiveInlining)]
 				bool f<TInteger>() where TInteger : IBinaryInteger<TInteger>
 					=> Unsafe.As<T, TInteger>(ref thisCopied) is var integer && (integer == TInteger.Zero || TInteger.IsPow2(integer));
 			}
@@ -76,42 +74,33 @@ public static class EnumExtensions
 		/// <exception cref="InvalidOperationException">
 		/// Throws when the type isn't applied the attribute <see cref="FlagsAttribute"/>.
 		/// </exception>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public EnumFlagsEnumerator<T> GetEnumerator() => new(@this);
 
 
 
 		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char})"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool TryParse(ReadOnlySpan<char> value, out T result) => Enum.TryParse(value, out result);
 
 		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char}, bool)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool TryParse(ReadOnlySpan<char> value, bool ignoreCase, out T result)
 			=> Enum.TryParse(value, ignoreCase, out result);
 
 		/// <inheritdoc cref="Enum.Parse{TEnum}(string)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool TryParse(string? value, out T result) => Enum.TryParse(value, out result);
 
 		/// <inheritdoc cref="Enum.Parse{TEnum}(string, bool)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool TryParse(string? value, bool ignoreCase, out T result) => Enum.TryParse(value, ignoreCase, out result);
 
 		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char})"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Parse(ReadOnlySpan<char> value) => Enum.Parse<T>(value);
 
 		/// <inheritdoc cref="Enum.Parse{TEnum}(ReadOnlySpan{char}, bool)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Parse(ReadOnlySpan<char> value, bool ignoreCase) => Enum.Parse<T>(value, ignoreCase);
 
 		/// <inheritdoc cref="Enum.Parse{TEnum}(string)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Parse(string value) => Enum.Parse<T>(value);
 
 		/// <inheritdoc cref="Enum.Parse{TEnum}(string, bool)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static T Parse(string value, bool ignoreCase) => Enum.Parse<T>(value, ignoreCase);
 
 		/// <summary>

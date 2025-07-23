@@ -7,7 +7,6 @@ public partial class SR
 	/// </summary>
 	/// <param name="culture">The culture.</param>
 	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool IsChinese(CultureInfo culture)
 		=> culture.Name.Span[..2].Equals(ChineseLanguage.Span[..2], StringComparison.OrdinalIgnoreCase);
 
@@ -16,7 +15,6 @@ public partial class SR
 	/// </summary>
 	/// <param name="culture">The culture.</param>
 	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool IsEnglish(CultureInfo culture)
 		=> culture.Name.Span[..2].Equals(EnglishLanguage.Span[..2], StringComparison.OrdinalIgnoreCase);
 }

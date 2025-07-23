@@ -16,7 +16,6 @@ public static class StringBuilderExtensions
 		/// </summary>
 		/// <param name="startIndex">The start index.</param>
 		/// <returns>The reference of the current instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public StringBuilder RemoveFrom(int startIndex) => @this.Remove(startIndex, @this.Length - startIndex);
 
 		/// <summary>
@@ -24,7 +23,6 @@ public static class StringBuilderExtensions
 		/// </summary>
 		/// <param name="startIndex">The start index.</param>
 		/// <returns>The reference of the current instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public StringBuilder RemoveFrom(Index startIndex)
 			=> @this.Remove(startIndex.GetOffset(@this.Length), startIndex.Value);
 

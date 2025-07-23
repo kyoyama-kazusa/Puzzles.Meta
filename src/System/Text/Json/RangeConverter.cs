@@ -23,7 +23,6 @@ public sealed class RangeConverter : JsonConverter<Range>
 		return new(getIndex(left), getIndex(right));
 
 
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		static Index getIndex(string s) => s.StartsWith('^') ? ^int.Parse(s[1..]) : int.Parse(s);
 	}
 

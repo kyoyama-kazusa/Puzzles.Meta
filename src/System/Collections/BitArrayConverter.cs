@@ -449,7 +449,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">A <see cref="bool"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromBooleanArray(bool[] array) => new(array);
 
 	/// <summary>
@@ -457,7 +456,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">A <see cref="byte"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromByteArray(byte[] array) => new(array);
 
 	/// <summary>
@@ -465,7 +463,6 @@ public static class BitArrayConverter
 	/// </summary>
 	/// <param name="array">An <see cref="sbyte"/>[] instance.</param>
 	/// <returns>A <see cref="BitArray"/> instance converted.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static BitArray FromSByteArray(sbyte[] array) => new(Unsafe.As<sbyte[], byte[]>(ref array));
 
 	/// <summary>

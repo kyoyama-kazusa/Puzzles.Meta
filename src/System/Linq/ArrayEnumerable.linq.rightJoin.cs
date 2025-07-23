@@ -3,7 +3,6 @@ namespace System.Linq;
 public partial class ArrayEnumerable
 {
 	/// <inheritdoc cref="IRightJoinMethod{TSelf, TSource}.RightJoin{TInner, TKey, TResult}(IEnumerable{TInner}, Func{TSource, TKey}, Func{TInner, TKey}, Func{TSource, TInner, TResult})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static TResult?[] RightJoin<TOuter, TInner, TKey, TResult>(
 		this TOuter[] outer,
 		TInner[] inner,

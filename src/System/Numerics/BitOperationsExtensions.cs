@@ -53,7 +53,6 @@ public static partial class BitOperationsExtensions
 		/// Returns an enumerator type that can iterate on each position (index) whose cooresponding bit is set 1.
 		/// </summary>
 		/// <returns>An enumerator object that can iterate on each position.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int32Enumerator GetEnumerator() => new((uint)@this);
 	}
@@ -155,7 +154,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int32Enumerator GetEnumerator() => new(@this);
 	}
@@ -169,7 +167,6 @@ public static partial class BitOperationsExtensions
 		/// <para>Reverse all bits in a specified value.</para>
 		/// <para>Note that the value is passed by <b>reference</b> though the method is an extension method, and returns nothing.</para>
 		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void ReverseBits()
 		{
 			@this = (byte)(@this >> 1 & 0x55 | (@this & 0x55) << 1);
@@ -251,7 +248,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int32Enumerator GetEnumerator() => new((uint)@this);
 	}
@@ -262,7 +258,6 @@ public static partial class BitOperationsExtensions
 	extension(ref short @this)
 	{
 		/// <inheritdoc cref="ReverseBits(ref byte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void ReverseBits()
 		{
 			@this = (short)(@this >> 1 & 0x5555 | (@this & 0x5555) << 1);
@@ -313,7 +308,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int32Enumerator GetEnumerator() => new(@this);
 	}
@@ -391,7 +385,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int32Enumerator GetEnumerator() => new((uint)@this);
 	}
@@ -402,7 +395,6 @@ public static partial class BitOperationsExtensions
 	extension(ref int @this)
 	{
 		/// <inheritdoc cref="ReverseBits(ref byte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void ReverseBits()
 		{
 			@this = @this >> 1 & 0x55555555 | (@this & 0x55555555) << 1;
@@ -454,7 +446,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int32Enumerator GetEnumerator() => new(@this);
 	}
@@ -517,12 +508,10 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public int SetAt(int order) => SetAt((ulong)@this, order);
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int64Enumerator GetEnumerator() => new((ulong)@this);
 	}
@@ -533,7 +522,6 @@ public static partial class BitOperationsExtensions
 	extension(ref long @this)
 	{
 		/// <inheritdoc cref="ReverseBits(ref byte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void ReverseBits()
 		{
 			@this = @this >> 1 & 0x55555555_55555555L | (@this & 0x55555555_55555555L) << 1;
@@ -599,7 +587,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int64Enumerator GetEnumerator() => new(@this);
 	}
@@ -645,7 +632,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int128Enumerator GetEnumerator() => new((UInt128)@this);
 	}
@@ -691,7 +677,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public Int128Enumerator GetEnumerator() => new(@this);
 	}
@@ -737,7 +722,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public NIntEnumerator GetEnumerator() => new((nuint)@this);
 	}
@@ -783,7 +767,6 @@ public static partial class BitOperationsExtensions
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(2)]
 		public NIntEnumerator GetEnumerator() => new(@this);
 	}
@@ -845,7 +828,6 @@ public static partial class BitOperationsExtensions
 		/// <param name="bitCount">Indicates how many bits should be enumerated.</param>
 		/// <param name="oneCount">Indicates how many bits set one contained in the value.</param>
 		/// <returns>A <see cref="BitCombinationGenerator{T}"/> instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static BitCombinationGenerator<TInteger> EnumerateOf(int bitCount, int oneCount)
 			=> new(bitCount, oneCount);
 	}
@@ -858,7 +840,6 @@ public static partial class BitOperationsExtensions
 		where TInteger : IBitwiseOperators<TInteger, TInteger, TInteger>, IBinaryInteger<TInteger>, IShiftOperators<TInteger, int, TInteger>
 	{
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(1)]
 		public unsafe GenericIntegerEnumerator<TInteger> GetEnumerator() => new(@this, sizeof(TInteger) << 3);
 	}
@@ -896,19 +877,15 @@ public static partial class BitOperationsExtensions
 		//
 
 		/// <inheritdoc cref="BitOperations.TrailingZeroCount(int)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int TrailingZeroCount(sbyte @this) => BitOperations.TrailingZeroCount(@this);
 
 		/// <inheritdoc cref="BitOperations.TrailingZeroCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int TrailingZeroCount(byte @this) => BitOperations.TrailingZeroCount((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.TrailingZeroCount(int)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int TrailingZeroCount(short @this) => BitOperations.TrailingZeroCount(@this);
 
 		/// <inheritdoc cref="BitOperations.TrailingZeroCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int TrailingZeroCount(ushort @this) => BitOperations.TrailingZeroCount((uint)@this);
 
 		//
@@ -916,27 +893,21 @@ public static partial class BitOperationsExtensions
 		//
 
 		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int LeadingZeroCount(sbyte @this) => BitOperations.LeadingZeroCount((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int LeadingZeroCount(byte @this) => BitOperations.LeadingZeroCount(@this);
 
 		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int LeadingZeroCount(short @this) => BitOperations.LeadingZeroCount((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int LeadingZeroCount(ushort @this) => BitOperations.LeadingZeroCount(@this);
 
 		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int LeadingZeroCount(int @this) => BitOperations.LeadingZeroCount((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.LeadingZeroCount(ulong)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int LeadingZeroCount(long @this) => BitOperations.LeadingZeroCount((ulong)@this);
 
 		//
@@ -944,27 +915,21 @@ public static partial class BitOperationsExtensions
 		//
 
 		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int PopCount(sbyte @this) => BitOperations.PopCount((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int PopCount(byte @this) => BitOperations.PopCount(@this);
 
 		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int PopCount(short @this) => BitOperations.PopCount((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int PopCount(ushort @this) => BitOperations.PopCount(@this);
 
 		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int PopCount(int @this) => BitOperations.PopCount((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.PopCount(ulong)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int PopCount(long @this) => BitOperations.PopCount((ulong)@this);
 
 		//
@@ -972,19 +937,15 @@ public static partial class BitOperationsExtensions
 		//
 
 		/// <inheritdoc cref="BitOperations.IsPow2(int)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool IsPow2(sbyte @this) => BitOperations.IsPow2(@this);
 
 		/// <inheritdoc cref="BitOperations.IsPow2(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool IsPow2(byte @this) => BitOperations.IsPow2((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.IsPow2(int)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool IsPow2(short @this) => BitOperations.IsPow2(@this);
 
 		/// <inheritdoc cref="BitOperations.IsPow2(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool IsPow2(ushort @this) => BitOperations.IsPow2((uint)@this);
 
 		//
@@ -992,31 +953,24 @@ public static partial class BitOperationsExtensions
 		//
 
 		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Log2(sbyte @this) => BitOperations.Log2((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Log2(byte @this) => BitOperations.Log2(@this);
 
 		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Log2(short @this) => BitOperations.Log2((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Log2(ushort @this) => BitOperations.Log2(@this);
 
 		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Log2(int @this) => BitOperations.Log2((uint)@this);
 
 		/// <inheritdoc cref="BitOperations.Log2(ulong)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Log2(long @this) => BitOperations.Log2((ulong)@this);
 
 		/// <inheritdoc cref="BitOperations.Log2(nuint)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static int Log2(nint @this) => BitOperations.Log2((nuint)@this);
 	}
 }

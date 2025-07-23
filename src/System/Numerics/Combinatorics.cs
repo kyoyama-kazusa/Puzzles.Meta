@@ -271,7 +271,6 @@ public static class Combinatorics
 	/// <param name="m">The number of values to get.</param>
 	/// <returns>An <see cref="int"/> of result.</returns>
 	/// <exception cref="OverflowException">Throws when the result value is too large.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int CombinationOf(int n, int m) => checked((int)(Factorial(n) / (Factorial(m) * Factorial(n - m))));
 
 	/// <summary>
@@ -281,7 +280,6 @@ public static class Combinatorics
 	/// <param name="m">The number of values to get.</param>
 	/// <returns>An <see cref="int"/> of result.</returns>
 	/// <exception cref="OverflowException">Throws when the result value is too large.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int PermutationOf(int n, int m) => checked((int)(Factorial(n) / Factorial(n - m)));
 
 	/// <summary>

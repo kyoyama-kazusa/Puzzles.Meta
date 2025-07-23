@@ -22,7 +22,6 @@ public static class FileExtensions
 		/// </summary>
 		/// <param name="path">The file path.</param>
 		/// <param name="line">The line.</param>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void AppendLine(string path, string line) => File.AppendAllText(path, $"{line}{Environment.NewLine}");
 
 		/// <summary>
@@ -30,7 +29,6 @@ public static class FileExtensions
 		/// </summary>
 		/// <param name="fileName">The file name to be checked.</param>
 		/// <returns>A <see cref="bool"/> result indicating that.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool IsValidFileName(string fileName) => !fileName.Span.ContainsAny(InvalidCharacters);
 
 		/// <summary>

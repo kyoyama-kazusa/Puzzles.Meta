@@ -17,7 +17,6 @@ public static class GenericExtensions
 		[SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
 		public static ref T nullref
 		{
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			get => ref Unsafe.NullRef<T>();
 		}
 	}

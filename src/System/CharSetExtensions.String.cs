@@ -28,7 +28,6 @@ public partial class CharSetExtensions
 		/// </summary>
 		/// <param name="character">The character to be removed from the base string.</param>
 		/// <returns>The result string value after removal.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public string RemoveAll(char character) => @this.Replace(character.ToString(), string.Empty);
 
 		/// <summary>
@@ -36,7 +35,6 @@ public partial class CharSetExtensions
 		/// from the specified <see cref="string"/>.
 		/// </summary>
 		/// <returns>An array of <see cref="string"/> elements.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<string> ExpandCharacters() => from c in @this.Span select c.ToString();
 
 		/// <summary>

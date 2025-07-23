@@ -43,6 +43,5 @@ public static class LinkedListEnumerable
 	/// <typeparam name="T">The type of each element.</typeparam>
 	/// <param name="this">A <see cref="LinkedList{T}"/> instance.</param>
 	/// <returns>The reversed enumerator-provider instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static LinkedListReversed<T> Reverse<T>(this LinkedList<T> @this) => new(@this);
 }

@@ -28,7 +28,6 @@ public static class ListExtensions
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="UnsafeAccessorAttribute"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void AddRef(in T item)
 		{
 			Entry<T>.GetVersion(@this)++;
@@ -75,7 +74,6 @@ public static class ListExtensions
 		}
 
 		/// <inheritdoc cref="List{T}.RemoveAt(int)"/>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void RemoveAt(Index index) => @this.RemoveAt(index.GetOffset(@this.Count));
 
 		/// <summary>
@@ -83,7 +81,6 @@ public static class ListExtensions
 		/// Items should not be added or removed from the <see cref="List{T}"/> while the <see cref="ReadOnlySpan{T}"/> is in use.
 		/// </summary>
 		/// <returns>A <see cref="ReadOnlySpan{T}"/> instance over the <see cref="List{T}"/>.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(1)]
 		public ReadOnlySpan<T> AsSpan() => CollectionsMarshal.AsSpan(@this);
 
@@ -92,7 +89,6 @@ public static class ListExtensions
 		/// without any copy operation.
 		/// </summary>
 		/// <returns>The created <see cref="ReadOnlyMemory{T}"/> instance.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[OverloadResolutionPriority(1)]
 		public ReadOnlyMemory<T> AsMemory() => new(Entry<T>.GetItems(@this), 0, @this.Count);
 
@@ -100,7 +96,6 @@ public static class ListExtensions
 		/// Returns the internal array of <see cref="List{T}"/>.
 		/// </summary>
 		/// <returns>The internal array.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T[] GetInternalArray() => Entry<T>.GetItems(@this);
 
 		/// <summary>
@@ -131,7 +126,6 @@ public static class ListExtensions
 		///     file="../../global-doc-comments.xml"
 		///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='others']"/>
 		/// </remarks>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private int GetNewCapacity(int capacity)
 		{
 			Debug.Assert(Entry<T>.GetItems(@this).Length < capacity);
@@ -154,7 +148,6 @@ public static class ListExtensions
 		/// <see langword="true"/> if the two source sequences are of equal length and their corresponding elements are equal according
 		/// to <see cref="IEquatable{T}.Equals(T)"/> for their type; otherwise, <see langword="false"/>.
 		/// </returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool SequenceEqual(List<T> other) => @this.AsSpan().SequenceEqual(other.AsSpan());
 	}
 

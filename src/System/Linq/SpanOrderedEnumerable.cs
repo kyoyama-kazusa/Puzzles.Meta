@@ -126,7 +126,6 @@ public readonly ref struct SpanOrderedEnumerable<T>(
 	/// <typeparam name="TKey">The type of key.</typeparam>
 	/// <param name="selector">The selector.</param>
 	/// <returns>A <see cref="SpanOrderedEnumerable{T}"/> instance, with a new selector added in the current instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public SpanOrderedEnumerable<T> OrderBy<TKey>(Func<T, TKey> selector) => ThenBy(selector);
 
 	/// <summary>
@@ -136,11 +135,9 @@ public readonly ref struct SpanOrderedEnumerable<T>(
 	/// <typeparam name="TKey">The type of key.</typeparam>
 	/// <param name="selector">The selector.</param>
 	/// <returns>A <see cref="SpanOrderedEnumerable{T}"/> instance, with a new selector added in the current instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public SpanOrderedEnumerable<T> OrderByDescending<TKey>(Func<T, TKey> selector) => ThenByDescending(selector);
 
 	/// <inheritdoc cref="Enumerable.ThenBy{TSource, TKey}(IOrderedEnumerable{TSource}, Func{TSource, TKey})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public SpanOrderedEnumerable<T> ThenBy<TKey>(Func<T, TKey> selector)
 		=> new(
 			_values,
@@ -155,7 +152,6 @@ public readonly ref struct SpanOrderedEnumerable<T>(
 		);
 
 	/// <inheritdoc cref="Enumerable.ThenByDescending{TSource, TKey}(IOrderedEnumerable{TSource}, Func{TSource, TKey})"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public SpanOrderedEnumerable<T> ThenByDescending<TKey>(Func<T, TKey> selector)
 		=> new(
 			_values,
@@ -216,11 +212,9 @@ public readonly ref struct SpanOrderedEnumerable<T>(
 	}
 
 	/// <inheritdoc cref="ISliceMethod{TSelf, TSource}.Slice(int, int)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ReadOnlySpan<T> Slice(int start, int length) => Span.Slice(start, length);
 
 	/// <inheritdoc cref="ReadOnlySpan{T}.GetEnumerator"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Span<T>.Enumerator GetEnumerator() => Span.GetEnumerator();
 
 	/// <summary>
@@ -228,11 +222,9 @@ public readonly ref struct SpanOrderedEnumerable<T>(
 	/// </summary>
 	/// <returns>An <see cref="ArrayOrderedEnumerable{T}"/> instance.</returns>
 	/// <seealso cref="ArrayOrderedEnumerable{T}"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ArrayOrderedEnumerable<T> AsArrayOrderedEnumerable() => new(_values.ToArray(), _selectors.ToArray());
 
 	/// <inheritdoc cref="IToArrayMethod{TSelf, TSource}.ToArray"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public T[] ToArray() => Span.ToArray();
 
 	/// <inheritdoc/>
@@ -354,7 +346,6 @@ public readonly ref struct SpanOrderedEnumerable<T>(
 	/// </param>
 	/// <param name="descending">A <see cref="bool"/> value indicating whether the creation is for descending comparison rule.</param>
 	/// <returns>An <see cref="SpanOrderedEnumerable{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static SpanOrderedEnumerable<T> Create<TKey>(ReadOnlySpan<T> values, Func<T, TKey> keySelector, IComparer<TKey>? comparer, bool descending)
 	{
 		comparer ??= Comparer<TKey>.Default;

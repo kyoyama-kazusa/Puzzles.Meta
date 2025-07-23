@@ -44,7 +44,6 @@ public readonly partial struct SpanGrouping<TSource, TKey>(TSource[] elements, T
 	/// <seealso cref="_elements"/>
 	private ReadOnlySpan<TSource> SourceSpan
 	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		get => new(_elements);
 	}
 
@@ -59,13 +58,11 @@ public readonly partial struct SpanGrouping<TSource, TKey>(TSource[] elements, T
 	/// <returns>The reference to the element at the specified index.</returns>
 	public ref readonly TSource this[int index]
 	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		get => ref _elements[index];
 	}
 
 
 	/// <inheritdoc/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public bool Equals(SpanGrouping<TSource, TKey> other)
 		=> ReferenceEquals(_elements, other._elements) && Key.Equals(other.Key);
 
@@ -107,18 +104,15 @@ public readonly partial struct SpanGrouping<TSource, TKey>(TSource[] elements, T
 	/// Casts the current object into a <see cref="ReadOnlySpan{T}"/>.
 	/// </summary>
 	/// <returns>A <see cref="ReadOnlySpan{T}"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public ReadOnlySpan<TSource> AsSpan() => _elements;
 
 	/// <summary>
 	/// Creates an enumerator that can enumerate each element in the source collection.
 	/// </summary>
 	/// <returns>An enumerator instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public AnonymousSpanEnumerator<TSource> GetEnumerator() => new(SourceSpan);
 
 	/// <inheritdoc cref="ReadOnlySpan{T}.GetPinnableReference"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public ref readonly TSource GetPinnableReference() => ref _elements[0];
 
