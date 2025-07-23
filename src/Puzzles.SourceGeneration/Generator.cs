@@ -191,7 +191,6 @@ file static class FileLocalHandler
 				_ => throw new InvalidOperationException("Invalid state.")
 			},
 			1 => EqualsBehavior.Throw,
-			2 => EqualsBehavior.MakeAbstract,
 			_ => throw new InvalidOperationException("Invalid state.")
 		};
 		var otherModifiers = attribute.GetNamedArgument<string>(OtherModifiersOnEqualsPropertyName) switch
@@ -211,65 +210,47 @@ file static class FileLocalHandler
 			_ => throw new InvalidOperationException("Invalid state.")
 		};
 		var otherModifiersString = otherModifiers.Length == 0 ? string.Empty : $"{string.Join(" ", otherModifiers)} ";
-		if (behavior == EqualsBehavior.MakeAbstract)
+		var inKeyword = isLargeStructure ? "in " : string.Empty;
+		var expressionString = behavior switch
 		{
-			return $$"""
-				namespace {{namespaceString}}
-				{
-				#line 1 "{{typeNameString}}_Equals.g.cs"
-					partial {{typeKindString}} {{typeNameString}}
-					{
-						/// <inheritdoc cref="object.Equals(object?)"/>
-						public {{otherModifiersString}}abstract override bool Equals([global::System.Diagnostics.CodeAnalysis.NotNullWhenAttribute(true)] object? obj);
-					}
-				#line default
-				}
-				""";
-		}
-		else
-		{
-			var inKeyword = isLargeStructure ? "in " : string.Empty;
-			var expressionString = behavior switch
-			{
-				EqualsBehavior.ReturnFalse => "false",
-				EqualsBehavior.IsCast => $"obj is {fullTypeNameString} comparer && Equals({inKeyword}comparer)",
-				EqualsBehavior.AsCast => $"Equals(obj as {fullTypeNameString})",
-				EqualsBehavior.Throw => """throw new global::System.NotSupportedException("This method is not supported or disallowed by author.")""",
-				_ => throw new InvalidOperationException("Invalid state.")
-			};
-			var attributesMarked = isRefStruct
-				? behavior == EqualsBehavior.ReturnFalse
-					? """
-					[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
-					"""
-					: """
-					[global::System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute]
-							[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
-					"""
+			EqualsBehavior.ReturnFalse => "false",
+			EqualsBehavior.IsCast => $"obj is {fullTypeNameString} comparer && Equals({inKeyword}comparer)",
+			EqualsBehavior.AsCast => $"Equals(obj as {fullTypeNameString})",
+			EqualsBehavior.Throw => """throw new global::System.NotSupportedException("This method is not supported or disallowed by author.")""",
+			_ => throw new InvalidOperationException("Invalid state.")
+		};
+		var attributesMarked = isRefStruct
+			? behavior == EqualsBehavior.ReturnFalse
+				? """
+				[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
+				"""
 				: """
-				[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
-				""";
-			var readOnlyModifier = kind == TypeKind.Struct && !isReadOnly ? "readonly " : string.Empty;
-			var isDeprecated = attributesMarked.Contains("ObsoleteAttribute");
-			var suppress0809 = isDeprecated ? "#pragma warning disable CS0809\r\n\t" : "\t";
-			var enable0809 = isDeprecated ? "#pragma warning restore CS0809\r\n\t" : string.Empty;
-			return $$"""
-				namespace {{namespaceString}}
+				[global::System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute]
+						[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
+				"""
+			: """
+			[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
+			""";
+		var readOnlyModifier = kind == TypeKind.Struct && !isReadOnly ? "readonly " : string.Empty;
+		var isDeprecated = attributesMarked.Contains("ObsoleteAttribute");
+		var suppress0809 = isDeprecated ? "#pragma warning disable CS0809\r\n\t" : "\t";
+		var enable0809 = isDeprecated ? "#pragma warning restore CS0809\r\n\t" : string.Empty;
+		return $$"""
+			namespace {{namespaceString}}
+			{
+			#line 1 "{{typeNameString}}_Equals.g.cs"
+			{{suppress0809}}partial {{typeKindString}} {{typeNameString}}
 				{
-				#line 1 "{{typeNameString}}_Equals.g.cs"
-				{{suppress0809}}partial {{typeKindString}} {{typeNameString}}
-					{
-						/// <inheritdoc cref="object.Equals(object?)"/>
-						{{attributesMarked}}
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
-						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						public {{otherModifiersString}}override {{readOnlyModifier}}bool Equals([global::System.Diagnostics.CodeAnalysis.NotNullWhenAttribute(true)] object? obj)
-							=> {{expressionString}};
-					}
-				#line default
-				{{enable0809}}}
-				""";
-		}
+					/// <inheritdoc cref="object.Equals(object?)"/>
+					{{attributesMarked}}
+					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
+					[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
+					public {{otherModifiersString}}override {{readOnlyModifier}}bool Equals([global::System.Diagnostics.CodeAnalysis.NotNullWhenAttribute(true)] object? obj)
+						=> {{expressionString}};
+				}
+			#line default
+			{{enable0809}}}
+			""";
 	}
 
 	private static string? ObjectGetHashCode(GeneratorAttributeSyntaxContext gasc, CancellationToken cancellationToken)
@@ -352,7 +333,6 @@ file static class FileLocalHandler
 					_ => GetHashCodeBehavior.Specified
 				},
 				1 => GetHashCodeBehavior.Throw,
-				2 => GetHashCodeBehavior.MakeAbstract,
 				_ => throw new InvalidOperationException("Invalid state.")
 			}
 		};
@@ -370,83 +350,65 @@ file static class FileLocalHandler
 			_ => []
 		};
 		var otherModifiersString = otherModifiers.Length == 0 ? string.Empty : $"{string.Join(" ", otherModifiers)} ";
-		if (behavior == GetHashCodeBehavior.MakeAbstract)
+		var codeBlock = behavior switch
 		{
-			return $$"""
-				namespace {{namespaceString}}
-				{
-				#line 1 "{{typeNameString}}_GetHashCode.g.cs"
-					partial {{kindString}} {{typeNameString}}
+			GetHashCodeBehavior.ReturnNegativeOne => @"	=> -1;",
+			GetHashCodeBehavior.Direct => $@"	=> {referencedMembers[0].Name};",
+			GetHashCodeBehavior.EnumExplicitCast => $@"	=> (int){referencedMembers[0].Name};",
+			GetHashCodeBehavior.Specified
+				=> $@"	=> global::System.HashCode.Combine({string.Join(", ", from pair in referencedMembers select pair.Name)});",
+			GetHashCodeBehavior.Throw
+				=> @"	=> throw new global::System.NotSupportedException(""This method is not supported or disallowed by author."");",
+			GetHashCodeBehavior.HashCodeAdd
+				=> $$"""
 					{
-						/// <inheritdoc cref="object.GetHashCode"/>
-						public {{otherModifiersString}}abstract override int GetHashCode();
+						var hashCode = new global::System.HashCode();
+						{{string.Join("\r\n\r\n", from member in referencedMembers select $"hashCode.Add({member.Name});")}}
+						return hashCode.ToHashCode();
 					}
-				#line default
-				}
-				""";
-		}
-		else
+				""",
+			_ => throw new InvalidOperationException("Invalid state.")
+		};
+		var attributesMarked = (isRefStruct, behavior) switch
 		{
-			var codeBlock = behavior switch
+			(true, not GetHashCodeBehavior.ReturnNegativeOne) or (_, GetHashCodeBehavior.Throw)
+				=> """
+				[global::System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute]
+						[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
+				""",
+			(true, _)
+				=> """
+				[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
+				""",
+			_
+				=> """
+				[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
+				"""
+		};
+		var readOnlyModifier = kind == TypeKind.Struct && !isReadOnly ? "readonly " : string.Empty;
+		var isDeprecated = attributesMarked.Contains("ObsoleteAttribute");
+		var suppress0809 = isDeprecated
+			? "#pragma warning disable CS0809\r\n\t"
+			: "\t";
+		var enable0809 = isDeprecated
+			? "#pragma warning restore CS0809\r\n\t"
+			: "\t";
+		return $$"""
+			namespace {{namespaceString}}
 			{
-				GetHashCodeBehavior.ReturnNegativeOne => @"	=> -1;",
-				GetHashCodeBehavior.Direct => $@"	=> {referencedMembers[0].Name};",
-				GetHashCodeBehavior.EnumExplicitCast => $@"	=> (int){referencedMembers[0].Name};",
-				GetHashCodeBehavior.Specified
-					=> $@"	=> global::System.HashCode.Combine({string.Join(", ", from pair in referencedMembers select pair.Name)});",
-				GetHashCodeBehavior.Throw
-					=> @"	=> throw new global::System.NotSupportedException(""This method is not supported or disallowed by author."");",
-				GetHashCodeBehavior.HashCodeAdd
-					=> $$"""
-						{
-							var hashCode = new global::System.HashCode();
-							{{string.Join("\r\n\r\n", from member in referencedMembers select $"hashCode.Add({member.Name});")}}
-							return hashCode.ToHashCode();
-						}
-					""",
-				_ => throw new InvalidOperationException("Invalid state.")
-			};
-			var attributesMarked = (isRefStruct, behavior) switch
-			{
-				(true, not GetHashCodeBehavior.ReturnNegativeOne) or (_, GetHashCodeBehavior.Throw)
-					=> """
-					[global::System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute]
-							[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
-					""",
-				(true, _)
-					=> """
-					[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
-					""",
-				_
-					=> """
-					[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
-					"""
-			};
-			var readOnlyModifier = kind == TypeKind.Struct && !isReadOnly ? "readonly " : string.Empty;
-			var isDeprecated = attributesMarked.Contains("ObsoleteAttribute");
-			var suppress0809 = isDeprecated
-				? "#pragma warning disable CS0809\r\n\t"
-				: "\t";
-			var enable0809 = isDeprecated
-				? "#pragma warning restore CS0809\r\n\t"
-				: "\t";
-			return $$"""
-				namespace {{namespaceString}}
+			#line 1 "{{typeNameString}}_GetHashCode.g.cs"
+			{{suppress0809}}partial {{kindString}} {{typeNameString}}
 				{
-				#line 1 "{{typeNameString}}_GetHashCode.g.cs"
-				{{suppress0809}}partial {{kindString}} {{typeNameString}}
-					{
-						/// <inheritdoc cref="object.GetHashCode"/>
-						{{attributesMarked}}
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
-						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						public {{otherModifiersString}}override {{readOnlyModifier}}int GetHashCode()
-						{{codeBlock}}
-				#line default
-				{{enable0809}}}
-				}
-				""";
-		}
+					/// <inheritdoc cref="object.GetHashCode"/>
+					{{attributesMarked}}
+					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
+					[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
+					public {{otherModifiersString}}override {{readOnlyModifier}}int GetHashCode()
+					{{codeBlock}}
+			#line default
+			{{enable0809}}}
+			}
+			""";
 	}
 
 	private static string? ObjectToString(GeneratorAttributeSyntaxContext gasc, CancellationToken cancellationToken)
@@ -532,7 +494,6 @@ file static class FileLocalHandler
 			2 when referencedMembers.Length == 1 => ToStringBehavior.Specified,
 			3 when referencedMembers.Length != 0 => ToStringBehavior.RecordLike,
 			4 => ToStringBehavior.Throw,
-			5 => ToStringBehavior.MakeAbstract,
 			_ => ToStringBehavior.ReturnTypeName
 		};
 		var kindString = (isRecord, kind) switch
@@ -549,93 +510,75 @@ file static class FileLocalHandler
 			_ => []
 		};
 		var otherModifiersString = otherModifiers.Length == 0 ? string.Empty : $"{string.Join(" ", otherModifiers)} ";
-		if (behavior == ToStringBehavior.MakeAbstract)
+		var typeMethods = type.GetMembers().OfType<IMethodSymbol>().ToArray();
+		var expression = behavior switch
 		{
-			return $$"""
-				namespace {{namespaceString}}
+			ToStringBehavior.CallOverload when typeMethods.Any(
+				static method => method is
 				{
-				#line 1 "{{typeNameString}}_ToString.g.cs"
-					partial {{kindString}} {{typeNameString}}
-					{
-						/// <inheritdoc cref="object.ToString"/>
-						public {{otherModifiersString}}abstract override string ToString();
-					}
-				#line default
+					Name: "ToString",
+					IsImplicitlyDeclared: false,
+					TypeParameters: [],
+					Parameters: [{ Type.SpecialType: System_String, NullableAnnotation: Annotated }],
+					ReturnType.SpecialType: System_String
 				}
-				""";
-		}
-		else
-		{
-			var typeMethods = type.GetMembers().OfType<IMethodSymbol>().ToArray();
-			var expression = behavior switch
+			) => "ToString(default(string))",
+			ToStringBehavior.CallOverload when typeMethods.Any(
+				method => method is
+				{
+					Name: "ToString",
+					IsImplicitlyDeclared: false,
+					TypeParameters: [],
+					Parameters: [{ Type: var t, NullableAnnotation: Annotated }],
+					ReturnType.SpecialType: System_String
+				} && SymbolEqualityComparer.Default.Equals(t, formatProviderSymbol)
+			) => "ToString(default(global::System.IFormatProvider))",
+			ToStringBehavior.CallOverload => needCastingToInterface switch
 			{
-				ToStringBehavior.CallOverload when typeMethods.Any(
-					static method => method is
-					{
-						Name: "ToString",
-						IsImplicitlyDeclared: false,
-						TypeParameters: [],
-						Parameters: [{ Type.SpecialType: System_String, NullableAnnotation: Annotated }],
-						ReturnType.SpecialType: System_String
-					}
-				) => "ToString(default(string))",
-				ToStringBehavior.CallOverload when typeMethods.Any(
-					method => method is
-					{
-						Name: "ToString",
-						IsImplicitlyDeclared: false,
-						TypeParameters: [],
-						Parameters: [{ Type: var t, NullableAnnotation: Annotated }],
-						ReturnType.SpecialType: System_String
-					} && SymbolEqualityComparer.Default.Equals(t, formatProviderSymbol)
-				) => "ToString(default(global::System.IFormatProvider))",
-				ToStringBehavior.CallOverload => needCastingToInterface switch
-				{
-					true => "((global::System.IFormattable)this).ToString(null, null)",
-					_ => "ToString(default(string), default(global::System.IFormatProvider))"
-				},
-				ToStringBehavior.ReturnTypeName => fullTypeNameString,
-				ToStringBehavior.Specified => referencedMembers[0].Name,
-				ToStringBehavior.Throw => """throw new global::System.NotSupportedException("This method is not supported or disallowed by author.")""",
-				ToStringBehavior.RecordLike
-					=> $$$"""
-						$"{{{typeName}}} {{ {{{string.Join(", ", f(referencedMembers))}}} }}"
-						""",
-				_ => throw new InvalidOperationException("Invalid state.")
-			};
-			var attributesMarked = isRefStruct && behavior is ToStringBehavior.Throw or ToStringBehavior.ReturnTypeName
-				? behavior == ToStringBehavior.ReturnTypeName
-					? """
-					[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
-					"""
-					: """
-					[global::System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute]
-							[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
-					"""
+				true => "((global::System.IFormattable)this).ToString(null, null)",
+				_ => "ToString(default(string), default(global::System.IFormatProvider))"
+			},
+			ToStringBehavior.ReturnTypeName => fullTypeNameString,
+			ToStringBehavior.Specified => referencedMembers[0].Name,
+			ToStringBehavior.Throw => """throw new global::System.NotSupportedException("This method is not supported or disallowed by author.")""",
+			ToStringBehavior.RecordLike
+				=> $$$"""
+				$"{{{typeName}}} {{ {{{string.Join(", ", f(referencedMembers))}}} }}"
+				""",
+			_ => throw new InvalidOperationException("Invalid state.")
+		};
+		var attributesMarked = isRefStruct && behavior is ToStringBehavior.Throw or ToStringBehavior.ReturnTypeName
+			? behavior == ToStringBehavior.ReturnTypeName
+				? """
+				[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
+				"""
 				: """
-				[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
-				""";
-			var readOnlyModifier = kind == TypeKind.Struct && !isReadOnly ? "readonly " : string.Empty;
-			var isDeprecated = attributesMarked.Contains("ObsoleteAttribute");
-			var suppress0809 = isDeprecated ? "#pragma warning disable CS0809\r\n\t" : "\t";
-			var enable0809 = isDeprecated ? "#pragma warning restore CS0809\r\n\t" : "\t";
-			return $$"""
-				namespace {{namespaceString}}
+				[global::System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute]
+						[global::System.ObsoleteAttribute("Calling this method is unexpected because author disallow you call this method on purpose.", true)]
+				"""
+			: """
+			[global::System.Runtime.CompilerServices.MethodImplAttribute(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
+			""";
+		var readOnlyModifier = kind == TypeKind.Struct && !isReadOnly ? "readonly " : string.Empty;
+		var isDeprecated = attributesMarked.Contains("ObsoleteAttribute");
+		var suppress0809 = isDeprecated ? "#pragma warning disable CS0809\r\n\t" : "\t";
+		var enable0809 = isDeprecated ? "#pragma warning restore CS0809\r\n\t" : "\t";
+		return $$"""
+			namespace {{namespaceString}}
+			{
+			#line 1 "{{typeNameString}}_ToString.g.cs"
+			{{suppress0809}}partial {{kindString}} {{typeNameString}}
 				{
-				#line 1 "{{typeNameString}}_ToString.g.cs"
-				{{suppress0809}}partial {{kindString}} {{typeNameString}}
-					{
-						/// <inheritdoc cref="object.ToString"/>
-						{{attributesMarked}}
-						[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
-						[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
-						public {{otherModifiersString}}override {{readOnlyModifier}}string ToString()
-							=> {{expression}};
-				#line default
-				{{enable0809}}}
-				}
-				""";
-		}
+					/// <inheritdoc cref="object.ToString"/>
+					{{attributesMarked}}
+					[global::System.CodeDom.Compiler.GeneratedCodeAttribute("{{typeof(FileLocalHandler).FullName}}", "{{Value}}")]
+					[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
+					public {{otherModifiersString}}override {{readOnlyModifier}}string ToString()
+						=> {{expression}};
+			#line default
+			{{enable0809}}}
+			}
+			""";
 
 
 		static IEnumerable<string> f((string Name, string ExtraData)[] referencedMembers)
@@ -1678,8 +1621,7 @@ file enum EqualsBehavior
 	ReturnFalse,
 	IsCast,
 	AsCast,
-	Throw,
-	MakeAbstract
+	Throw
 }
 
 /// <summary>
@@ -1693,8 +1635,7 @@ file enum GetHashCodeBehavior
 	EnumExplicitCast,
 	Specified,
 	Throw,
-	HashCodeAdd,
-	MakeAbstract
+	HashCodeAdd
 }
 
 /// <summary>
@@ -1707,8 +1648,7 @@ file enum ToStringBehavior
 	ReturnTypeName,
 	CallOverload,
 	Specified,
-	RecordLike,
-	MakeAbstract
+	RecordLike
 }
 
 /// <summary>

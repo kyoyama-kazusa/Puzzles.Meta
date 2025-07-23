@@ -19,10 +19,5 @@ public enum EqualsBehavior
 	/// <summary>
 	/// Indicates the method always throws <see cref="NotSupportedException"/>.
 	/// </summary>
-	ThrowNotSupportedException,
-
-	/// <summary>
-	/// Indicates the method will be made <see langword="abstract"/>.
-	/// </summary>
-	MakeAbstract
+	ThrowNotSupportedException
 }
