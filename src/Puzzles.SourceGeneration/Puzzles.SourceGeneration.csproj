@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Description>A project that generates the source code.</Description>
-		<DocumentationFile>..\docxml\Puzzles.SourceGeneration.xml</DocumentationFile>
+		<DocumentationFile>Puzzles.SourceGeneration.xml</DocumentationFile>
 		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 	</PropertyGroup>
 

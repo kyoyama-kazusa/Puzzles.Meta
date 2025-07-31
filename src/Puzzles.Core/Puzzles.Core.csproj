@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
 		<RootNamespace>Puzzles</RootNamespace>
-		<DocumentationFile>../docxml/Puzzles.Core.xml</DocumentationFile>
+		<DocumentationFile>Puzzles.Core.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -5,7 +5,7 @@
 		<AssemblyName>SystemExtensions</AssemblyName>
 		<Description>Provides the extension methods for the System library instances.</Description>
 		<RootNamespace>System</RootNamespace>
-		<DocumentationFile>..\docxml\SystemExtensions.xml</DocumentationFile>
+		<DocumentationFile>SystemExtensions.xml</DocumentationFile>
 		<DefineConstants>INCLUDES_LENGTH_PROPERTY</DefineConstants>
 	</PropertyGroup>
 
