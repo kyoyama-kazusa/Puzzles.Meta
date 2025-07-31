@@ -42,10 +42,7 @@ public sealed partial class ArrayGrouping<TSource, TKey>(TSource[] elements, TKe
 	/// </summary>
 	/// <param name="index">The desired index.</param>
 	/// <returns>The reference to the element at the specified index.</returns>
-	public ref readonly TSource this[int index]
-	{
-		get => ref _elements[index];
-	}
+	public ref readonly TSource this[int index] => ref _elements[index];
 
 
 	/// <inheritdoc/>

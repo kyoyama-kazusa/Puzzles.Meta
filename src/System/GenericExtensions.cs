@@ -15,9 +15,6 @@ public static class GenericExtensions
 		/// Represents null reference of the type <typeparamref name="T"/>.
 		/// </summary>
 		[SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
-		public static ref T nullref
-		{
-			get => ref Unsafe.NullRef<T>();
-		}
+		public static ref T nullref => ref Unsafe.NullRef<T>();
 	}
 }

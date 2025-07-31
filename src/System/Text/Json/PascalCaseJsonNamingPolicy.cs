@@ -13,10 +13,7 @@ public sealed class PascalCaseJsonNamingPolicy : JsonNamingPolicy
 	/// Gets the naming policy for pascal-casing.
 	/// </summary>
 	/// <returns>The naming policy for pascal-casing.</returns>
-	public static JsonNamingPolicy PascalCase
-	{
-		get => new PascalCaseJsonNamingPolicy();
-	}
+	public static JsonNamingPolicy PascalCase => new PascalCaseJsonNamingPolicy();
 
 
 	/// <inheritdoc/>

@@ -27,10 +27,7 @@ public static class TimeSpanAwaitable
 	public readonly struct Awaiter(TaskAwaiter _awaiter) : INotifyCompletion
 	{
 		/// <inheritdoc cref="TaskAwaiter.IsCompleted"/>
-		public bool IsCompleted
-		{
-			get => _awaiter.IsCompleted;
-		}
+		public bool IsCompleted => _awaiter.IsCompleted;
 
 
 		/// <inheritdoc cref="TaskAwaiter.GetResult"/>

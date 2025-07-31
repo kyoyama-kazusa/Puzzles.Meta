@@ -42,10 +42,7 @@ public readonly partial struct SpanGrouping<TSource, TKey>(TSource[] elements, T
 	/// Creates a <see cref="ReadOnlySpan{T}"/> instance that is aligned as <see cref="_elements"/>.
 	/// </summary>
 	/// <seealso cref="_elements"/>
-	private ReadOnlySpan<TSource> SourceSpan
-	{
-		get => new(_elements);
-	}
+	private ReadOnlySpan<TSource> SourceSpan => new(_elements);
 
 	/// <inheritdoc/>
 	ReadOnlySpan<TSource> IMyGrouping<SpanGrouping<TSource, TKey>, TKey, TSource>.Elements => SourceSpan;
@@ -56,10 +53,7 @@ public readonly partial struct SpanGrouping<TSource, TKey>(TSource[] elements, T
 	/// </summary>
 	/// <param name="index">The desired index.</param>
 	/// <returns>The reference to the element at the specified index.</returns>
-	public ref readonly TSource this[int index]
-	{
-		get => ref _elements[index];
-	}
+	public ref readonly TSource this[int index] => ref _elements[index];
 
 
 	/// <inheritdoc/>
