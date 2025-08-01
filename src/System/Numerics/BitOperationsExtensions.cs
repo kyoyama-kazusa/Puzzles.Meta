@@ -327,7 +327,7 @@ public static partial class BitOperationsExtensions
 					return [];
 				}
 
-				var (result, p) = (new int[BitOperations.PopCount(@this)], 0);
+				var (result, p) = (new int[BitOperations.PopCount((uint)@this)], 0);
 				while (@this != 0)
 				{
 					result[p++] = BitOperations.TrailingZeroCount(@this);
@@ -842,72 +842,5 @@ public static partial class BitOperationsExtensions
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
 		[OverloadResolutionPriority(1)]
 		public unsafe GenericIntegerEnumerator<TInteger> GetEnumerator() => new(@this, sizeof(TInteger) << 3);
-	}
-
-	/// <summary>
-	/// Provides extension members on <see cref="BitOperations"/>.
-	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// In hardware aspects, there's no concept for integer types narrowed than <see cref="int"/>,
-	/// so there's no such overloads for <see cref="byte"/>, <see cref="short"/> and so on.
-	/// Methods provided here will make the calling operation easier, without casting from <see cref="int"/> to <see cref="uint"/>,
-	/// or casting <see cref="long"/> to <see cref="ulong"/>, but it may effect performance when utilized:
-	/// <code><![CDATA[
-	/// short b = 42;
-	/// _ = BitOperations.TrailingZeroCount(b); // Calls overload 'TrailingZeroCount(short)' (not good)
-	/// _ = BitOperations.TrailingZeroCount((uint)b); // Calls 'TrailingZeroCount(uint)', which is built-in (good)
-	/// ]]></code>
-	/// Although I append [<see cref="MethodImplAttribute"/>(<see cref="MethodImplOptions.AggressiveInlining"/>)]
-	/// in order to annotate all methods here, there's no need to mark because JIT can determine whether the code can be inlined
-	/// in such cases.
-	/// </para>
-	/// <para>
-	/// Why I persist to create such overloads, even if I know the problem?
-	/// Well, I just want to make the overloading methods complete :)
-	/// </para>
-	/// </remarks>
-	/// <seealso cref="BitOperations"/>
-	/// <seealso cref="MethodImplAttribute"/>
-	/// <seealso cref="MethodImplOptions.AggressiveInlining"/>
-	extension(BitOperations)
-	{
-		//
-		// TrailingZeroCount
-		//
-
-		/// <inheritdoc cref="BitOperations.TrailingZeroCount(int)"/>
-		public static int TrailingZeroCount(sbyte @this) => BitOperations.TrailingZeroCount(@this);
-
-		/// <inheritdoc cref="BitOperations.TrailingZeroCount(uint)"/>
-		public static int TrailingZeroCount(byte @this) => BitOperations.TrailingZeroCount((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.TrailingZeroCount(int)"/>
-		public static int TrailingZeroCount(short @this) => BitOperations.TrailingZeroCount(@this);
-
-		/// <inheritdoc cref="BitOperations.TrailingZeroCount(uint)"/>
-		public static int TrailingZeroCount(ushort @this) => BitOperations.TrailingZeroCount((uint)@this);
-
-		//
-		// PopCount
-		//
-
-		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		public static int PopCount(sbyte @this) => BitOperations.PopCount((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		public static int PopCount(byte @this) => BitOperations.PopCount(@this);
-
-		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		public static int PopCount(short @this) => BitOperations.PopCount((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		public static int PopCount(ushort @this) => BitOperations.PopCount(@this);
-
-		/// <inheritdoc cref="BitOperations.PopCount(uint)"/>
-		public static int PopCount(int @this) => BitOperations.PopCount((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.PopCount(ulong)"/>
-		public static int PopCount(long @this) => BitOperations.PopCount((ulong)@this);
 	}
 }

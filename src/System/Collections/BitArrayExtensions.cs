@@ -15,7 +15,7 @@ public static class BitArrayExtensions
 		/// Get the cardinality of the specified <see cref="BitArray"/>,
 		/// indicating the total number of bits set <see langword="true"/>.
 		/// </summary>
-		public int Cardinality => Entry.GetArrayField(@this).Sum(BitOperations.PopCount);
+		public int Cardinality => Unsafe.As<int[], uint[]>(ref Entry.GetArrayField(@this)).Sum(BitOperations.PopCount);
 
 
 		/// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
