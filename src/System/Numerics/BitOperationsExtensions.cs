@@ -889,28 +889,6 @@ public static partial class BitOperationsExtensions
 		public static int TrailingZeroCount(ushort @this) => BitOperations.TrailingZeroCount((uint)@this);
 
 		//
-		// LeadingZeroCount
-		//
-
-		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		public static int LeadingZeroCount(sbyte @this) => BitOperations.LeadingZeroCount((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		public static int LeadingZeroCount(byte @this) => BitOperations.LeadingZeroCount(@this);
-
-		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		public static int LeadingZeroCount(short @this) => BitOperations.LeadingZeroCount((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		public static int LeadingZeroCount(ushort @this) => BitOperations.LeadingZeroCount(@this);
-
-		/// <inheritdoc cref="BitOperations.LeadingZeroCount(uint)"/>
-		public static int LeadingZeroCount(int @this) => BitOperations.LeadingZeroCount((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.LeadingZeroCount(ulong)"/>
-		public static int LeadingZeroCount(long @this) => BitOperations.LeadingZeroCount((ulong)@this);
-
-		//
 		// PopCount
 		//
 
@@ -931,46 +909,5 @@ public static partial class BitOperationsExtensions
 
 		/// <inheritdoc cref="BitOperations.PopCount(ulong)"/>
 		public static int PopCount(long @this) => BitOperations.PopCount((ulong)@this);
-
-		//
-		// IsPow2
-		//
-
-		/// <inheritdoc cref="BitOperations.IsPow2(int)"/>
-		public static bool IsPow2(sbyte @this) => BitOperations.IsPow2(@this);
-
-		/// <inheritdoc cref="BitOperations.IsPow2(uint)"/>
-		public static bool IsPow2(byte @this) => BitOperations.IsPow2((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.IsPow2(int)"/>
-		public static bool IsPow2(short @this) => BitOperations.IsPow2(@this);
-
-		/// <inheritdoc cref="BitOperations.IsPow2(uint)"/>
-		public static bool IsPow2(ushort @this) => BitOperations.IsPow2((uint)@this);
-
-		//
-		// Log2
-		//
-
-		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		public static int Log2(sbyte @this) => BitOperations.Log2((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		public static int Log2(byte @this) => BitOperations.Log2(@this);
-
-		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		public static int Log2(short @this) => BitOperations.Log2((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		public static int Log2(ushort @this) => BitOperations.Log2(@this);
-
-		/// <inheritdoc cref="BitOperations.Log2(uint)"/>
-		public static int Log2(int @this) => BitOperations.Log2((uint)@this);
-
-		/// <inheritdoc cref="BitOperations.Log2(ulong)"/>
-		public static int Log2(long @this) => BitOperations.Log2((ulong)@this);
-
-		/// <inheritdoc cref="BitOperations.Log2(nuint)"/>
-		public static int Log2(nint @this) => BitOperations.Log2((nuint)@this);
 	}
 }
